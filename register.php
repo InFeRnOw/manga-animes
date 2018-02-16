@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>No Sidebar - Arcana by HTML5 UP</title>
+		<title>Register</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -21,7 +21,7 @@
 				<div id="header">
 
 					<!-- Logo -->
-						<h1><a href="index.html" id="logo">Manga-Animes</a></h1>
+						<h1><a href="index.php" id="logo">Manga-Animes</a></h1>
 
 					<!-- Nav -->
 						<nav id="nav">
@@ -48,7 +48,7 @@
 								</li>
 								<li><a href="left-sidebar.html">News</a></li>
 								<li><a href="right-sidebar.html">Donate</a></li>
-								<li class="current"><a href="login.php">Account</a></li>
+								<li class="current"><a href="account.php">Account</a></li>
 							</ul>
 						</nav>
 

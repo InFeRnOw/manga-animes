@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    include_once 'INCLUDES/dbh-inc.php';
+    if (!isset($_SESSION['u_id'])) {
+    echo '<script>
+            window.location.href="login.php";
+        </script>';
+    }
+?>
 <!DOCTYPE HTML>
 <!--
 	Arcana by HTML5 UP
@@ -6,7 +15,7 @@
 -->
 <html>
 	<head>
-		<title>Login</title>
+		<title>No Sidebar - Arcana by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -24,33 +33,33 @@
 						<h1><a href="index.php" id="logo">Manga-Animes</a></h1>
 
 					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<li><a href="index.php">Home</a></li>
-								<li>
-									<a href="#">Correspondence</a>
-									<ul>
-										<li><a href="#">Lorem dolor</a></li>
-										<li><a href="#">Magna phasellus</a></li>
-										<li><a href="#">Etiam sed tempus</a></li>
-										<li>
-											<a href="#">Submenu</a>
-											<ul>
-												<li><a href="#">Lorem dolor</a></li>
-												<li><a href="#">Phasellus magna</a></li>
-												<li><a href="#">Magna phasellus</a></li>
-												<li><a href="#">Etiam nisl</a></li>
-												<li><a href="#">Veroeros feugiat</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Veroeros feugiat</a></li>
-									</ul>
-								</li>
-								<li><a href="left-sidebar.html">News</a></li>
-								<li><a href="right-sidebar.html">Donate</a></li>
-								<li class="current"><a href="account.php">Account</a></li>
-							</ul>
-						</nav>
+          <nav id="nav">
+            <ul>
+              <li><a href="index.php">Home</a></li>
+              <li>
+                <a href="#">Correspondence</a>
+                <ul>
+                  <li><a href="#">Lorem dolor</a></li>
+                  <li><a href="#">Magna phasellus</a></li>
+                  <li><a href="#">Etiam sed tempus</a></li>
+                  <li>
+                    <a href="#">Submenu</a>
+                    <ul>
+                      <li><a href="#">Lorem dolor</a></li>
+                      <li><a href="#">Phasellus magna</a></li>
+                      <li><a href="#">Magna phasellus</a></li>
+                      <li><a href="#">Etiam nisl</a></li>
+                      <li><a href="#">Veroeros feugiat</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Veroeros feugiat</a></li>
+                </ul>
+              </li>
+              <li><a href="left-sidebar.html">News</a></li>
+              <li><a href="right-sidebar.html">Donate</a></li>
+              <li class="current"><a href="account.php">Account</a></li>
+            </ul>
+          </nav>
 
 				</div>
 
@@ -61,15 +70,36 @@
 
 							<!-- Content -->
 
-				<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
+								<article>
+									<header>
+										<h2>Account</h2>
+										<p>Custom your profile</p>
+									</header>
 
-					<form action="INCLUDES/login-inc.php" method="POST">
-						<input class="username" type="text" name="uid" placeholder="Username">
-						<input class="password" type="password" name="pass"  placeholder="Password">
-							<button class="button" type="submit" name="submit">Login</button>
-								<a class="noAccount" href="register.php"><p>Don't have an account ?</p></a>
-								<a class="forget" href="forget.php"><p>Forgot your password or username ?</p></a>
-					</form>
+									<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
+
+									<p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus.
+									Praesent semper mod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat.
+									Aliquam luctus et mattis lectus sit amet pulvinar. Nam turpis nisi
+									consequat etiam lorem ipsum dolor sit amet nullam.</p>
+
+									<h3>And Yet Another Subheading</h3>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac quam risus, at tempus
+									justo. Sed dictum rutrum massa eu volutpat. Quisque vitae hendrerit sem. Pellentesque lorem felis,
+									ultricies a bibendum id, bibendum sit amet nisl. Mauris et lorem quam. Maecenas rutrum imperdiet
+									vulputate. Nulla quis nibh ipsum, sed egestas justo. Morbi ut ante mattis orci convallis tempor.
+									Etiam a lacus a lacus pharetra porttitor quis accumsan odio. Sed vel euismod nisi. Etiam convallis
+									rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien.
+									Donec sagittis massa et leo semper a scelerisque metus faucibus. Morbi congue mattis mi.
+									Phasellus sed nisl vitae risus tristique volutpat. Cras rutrum commodo luctus.</p>
+
+									<p>Phasellus odio risus, faucibus et viverra vitae, eleifend ac purus. Praesent mattis, enim
+									quis hendrerit porttitor, sapien tortor viverra magna, sit amet rhoncus nisl lacus nec arcu.
+									Suspendisse laoreet metus ut metus imperdiet interdum aliquam justo tincidunt. Mauris dolor urna,
+									fringilla vel malesuada ac, dignissim eu mi. Praesent mollis massa ac nulla pretium pretium.
+									Maecenas tortor mauris, consectetur pellentesque dapibus eget, tincidunt vitae arcu.
+									Vestibulum purus augue, tincidunt sit amet iaculis id, porta eu purus.</p>
+								</article>
 
 						</div>
 					</div>
@@ -104,7 +134,7 @@
 								</ul>
 							</section>
 							<section class="6u 12u(narrower)">
-								<h3>Contact us</h3>
+								<h3>Get In Touch</h3>
 								<form>
 									<div class="row 50%">
 										<div class="6u 12u(mobilep)">
@@ -143,7 +173,7 @@
 					<!-- Copyright -->
 						<div class="copyright">
 							<ul class="menu">
-								<li>&copy; Manga-Animes. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a> *modified*</li>
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 							</ul>
 						</div>
 

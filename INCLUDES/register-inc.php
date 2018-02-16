@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
                     //Email confirmation
                     $cle = md5(microtime(TRUE)*100000);
                     //Insert the user into the database
-                    $sql = "INSERT INTO users (user_uid, user_email, user_pass, user_key, user_balance) VALUES ('$uid', '$email', '$hashedPass', '$cle', '0');";
+                    $sql = "INSERT INTO users (user_uid, user_email, user_pass, user_key) VALUES ('$uid', '$email', '$hashedPass', '$cle');";
                     $result = mysqli_query($conn, $sql);
 
                     $sql = "SELECT * FROM users WHERE user_uid = '$uid'";

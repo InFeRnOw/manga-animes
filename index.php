@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    include_once 'INCLUDES/dbh-inc.php';
+?>
 <!DOCTYPE HTML>
 <!--
 	Arcana by HTML5 UP
@@ -21,7 +25,7 @@
 				<div id="header">
 
 					<!-- Logo -->
-						<h1><a href="index.html" id="logo">Manga-Animes</a></h1>
+						<h1><a href="index.php" id="logo">Manga-Animes</a></h1>
 
 					<!-- Nav -->
 						<nav id="nav">
@@ -48,7 +52,7 @@
 								</li>
 								<li><a href="left-sidebar.html">News</a></li>
 								<li><a href="right-sidebar.html">Donate</a></li>
-								<li><a href="login.php">Account</a></li>
+								<li><a href="account.php">Account</a></li>
 							</ul>
 						</nav>
 
