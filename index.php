@@ -34,7 +34,7 @@
 								<li>
 									<a href="#">Correspondence</a>
 									<ul>
-										<li><a href="#">Lol</a></li>
+										<li><a href="#">Lorem </a></li>
 										<li><a href="#">Magna phasellus</a></li>
 										<li><a href="#">Etiam sed tempus</a></li>
 										<li>
