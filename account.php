@@ -72,8 +72,8 @@
 
 								<article>
 									<header>
-										<h2>Account</h2>
-										<p>Custom your profile</p>
+										<?php echo '<h2>' .$_SESSION["u_uid"]. '</h2>';?>
+										<p>Customize your profile</p>
 									</header>
 
 									<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
