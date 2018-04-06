@@ -25,12 +25,12 @@
 				<div id="header">
 
 					<!-- Logo -->
-						<h1><a href="index.html" id="logo">Manga-Animes</a></h1>
+						<h1><a href="index.php" id="logo">Manga-Animes</a></h1>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="index.html">Home</a></li>
+								<li><a href="index.php">Home</a></li>
 								<li>
 									<a href="#">Correspondance</a>
 									<ul>
@@ -58,8 +58,8 @@
 
 										<article>
 											<header>
-												<h2>Right Sidebar</h2>
-												<p>Sidebar on the right, content on the left.</p>
+												<h2>Donate</h2>
+												<p>Help us to improve our website!</p>
 											</header>
 
 											<span class="image featured"><img src="images/banner.jpg" alt="" /></span>

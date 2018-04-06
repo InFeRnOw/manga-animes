@@ -25,18 +25,18 @@
 				<div id="header">
 
 					<!-- Logo -->
-						<h1><a href="index.html" id="logo">Manga-Animes</a></h1>
+						<h1><a href="index.php" id="logo">Manga-Animes</a></h1>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="index.html">Home</a></li>
+								<li><a href="index.php">Home</a></li>
 								<li>
 									<a href="#">Correspondence</a>
 									<ul>
 								        <li><a href="Top-Anime.php">Top Anime</a></li>
                                         <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
-										<li class="current"><a href="Alphabetic%20order.php">Alphabetical order</a></li>
+										<li class="current"><a href="Alphabetic-order.php">Alphabetical order</a></li>
 									</ul>
 								</li>
 								<li><a href="left-sidebar.php">News</a></li>
