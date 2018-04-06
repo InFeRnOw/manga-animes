@@ -15,7 +15,7 @@
 -->
 <html>
 	<head>
-		<title>No Sidebar - Arcana by HTML5 UP</title>
+		<title>Manga-Animes</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -36,27 +36,17 @@
           <nav id="nav">
             <ul>
               <li><a href="index.php">Home</a></li>
-              <li>
-                <a href="#">Correspondence</a>
-                <ul>
-                  <li><a href="#">Lorem dolor</a></li>
-                  <li><a href="#">Magna phasellus</a></li>
-                  <li><a href="#">Etiam sed tempus</a></li>
-                  <li>
-                    <a href="#">Submenu</a>
-                    <ul>
-                      <li><a href="#">Lorem dolor</a></li>
-                      <li><a href="#">Phasellus magna</a></li>
-                      <li><a href="#">Magna phasellus</a></li>
-                      <li><a href="#">Etiam nisl</a></li>
-                      <li><a href="#">Veroeros feugiat</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Veroeros feugiat</a></li>
-                </ul>
-              </li>
-              <li><a href="left-sidebar.html">News</a></li>
-              <li><a href="right-sidebar.html">Donate</a></li>
+                
+                    <li>
+                    <a href="#">Correspondence</a>
+                                    <ul>
+								        <li><a href="Top-Anime.php">Top Anime</a></li>
+                                        <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
+										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
+									</ul>
+                    </li>
+              <li><a href="left-sidebar.php">News</a></li>
+              <li><a href="right-sidebar.php">Donate</a></li>
               <li class="current"><a href="account.php">Account</a></li>
             </ul>
           </nav>
