@@ -10,7 +10,7 @@
 -->
 <html>
 	<head>
-		<title>No Sidebar - Arcana by HTML5 UP</title>
+		<title>Manga-Animes</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -34,7 +34,7 @@
 								<li>
 									<a href="#">Correspondence</a>
 									<ul>
-								        <li><a href="Top%20animes.php">Top Anime</a></li>
+								        <li><a href="Top-Anime.php">Top Anime</a></li>
                                         <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
 										<li class="current"><a href="Alphabetic%20order.php">Alphabetical order</a></li>
 									</ul>
@@ -55,7 +55,7 @@
 
 								<article>
 									<header>
-										<h2>No Sidebar</h2>
+										<h2>Alphabetic Order</h2>
 										<p>All content, all the time.</p>
 									</header>
 

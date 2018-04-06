@@ -10,7 +10,7 @@
 -->
 <html>
 	<head>
-		<title>No Sidebar - Arcana by HTML5 UP</title>
+		<title>Manga-Animes</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -55,8 +55,7 @@
 
 								<article>
 									<header>
-										<h2>No Sidebar</h2>
-										<p>All content, all the time.</p>
+s										<p>All content, all the time.</p>
 									</header>
 
 									<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
