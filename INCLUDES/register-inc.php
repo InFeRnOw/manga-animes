@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
                     //Email confirmation
                     $cle = md5(microtime(TRUE)*100000);
                     //Insert the user into the database
-                    $sql = "INSERT INTO users (user_uid, user_email, user_pass, user_key) VALUES ('$uid', '$email', '$hashedPass', '$cle');";
+                    $sql = "INSERT INTO users (user_uid, user_email, user_pass, user_key, rank) VALUES ('$uid', '$email', '$hashedPass', '$cle', 3);";
                     $result = mysqli_query($conn, $sql);
 
                     $sql = "SELECT * FROM users WHERE user_uid = '$uid'";
@@ -57,9 +57,9 @@ if (isset($_POST['submit'])) {
                     $entete = "manga-animes.com";
                     $message = 'Welcome on manga-animes,
 
-To activate your account, please copy your code.
+To activate your account, please go to this link.
 
-your confirmation code: ' .$cle.'
+your activation link: www.manga-animes.com/verify.php?cle='.$cle.'&uid='.$uid.'
 
 
 ---------------
