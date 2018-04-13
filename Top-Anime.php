@@ -25,12 +25,12 @@
 				<div id="header">
 
 					<!-- Logo -->
-						<h1><a href="index.html" id="logo">Manga-Animes</a></h1>
+						<h1><a href="index.php" id="logo">Manga-Animes</a></h1>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="index.html">Home</a></li>
+								<li><a href="index.php">Home</a></li>
 								<li>
 									<a href="#">Correspondence</a>
 									<ul>
@@ -39,8 +39,8 @@
 										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
 									</ul>
 								</li>
-								<li><a href="left-sidebar.php">News</a></li>
-								<li><a href="right-sidebar.php">Donate</a></li>
+								<li><a href="News.php">News</a></li>
+								<li><a href="Donate.php">Donate</a></li>
 								<li><a href="login.php">Account</a></li>
 							</ul>
 						</nav>

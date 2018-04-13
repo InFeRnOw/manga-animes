@@ -30,24 +30,13 @@
 								<li>
 									<a href="#">Correspondence</a>
 									<ul>
-										<li><a href="#">Lorem dolor</a></li>
-										<li><a href="#">Magna phasellus</a></li>
-										<li><a href="#">Etiam sed tempus</a></li>
-										<li>
-											<a href="#">Submenu</a>
-											<ul>
-												<li><a href="#">Lorem dolor</a></li>
-												<li><a href="#">Phasellus magna</a></li>
-												<li><a href="#">Magna phasellus</a></li>
-												<li><a href="#">Etiam nisl</a></li>
-												<li><a href="#">Veroeros feugiat</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Veroeros feugiat</a></li>
+								        <li><a href="Top-Anime.php">Top Anime</a></li>
+                                        <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
+										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
 									</ul>
 								</li>
-								<li><a href="left-sidebar.html">News</a></li>
-								<li><a href="right-sidebar.html">Donate</a></li>
+								<li><a href="News.php">News</a></li>
+								<li><a href="Donate.php">Donate</a></li>
 								<li class="current"><a href="account.php">Account</a></li>
 							</ul>
 						</nav>
