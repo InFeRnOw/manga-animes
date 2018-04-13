@@ -62,15 +62,17 @@
 							<section class="4u 12u(narrower)">
 								<div class="box highlight">
 									<i class="icon major fa-paper-plane"></i>
-									<h3>This Is Important</h3>
+									<h3>News</h3>
 									<p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.</p>
+                                       <a href="News.php" class="button">News</a>
 								</div>
 							</section>
 							<section class="4u 12u(narrower)">
 								<div class="box highlight">
 									<i class="icon major fa-pencil"></i>
-									<h3>Also Important</h3>
+									<h3>Help us!</h3>
 									<p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.</p>
+                                       <a href="Donate.php" class="button">Donate</a>
 								</div>
 							</section>
 							<section class="4u 12u(narrower)">
@@ -78,6 +80,7 @@
 									<i class="icon major fa-wrench"></i>
 									<h3>Join us!</h3>
 									<p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.</p>
+                                       <a href="register.php" class="button">Join us!</a>
 								</div>
 							</section>
 						</div>
