@@ -1,7 +1,3 @@
-<?php
-    session_start();
-    include_once 'INCLUDES/dbh-inc.php';
-?>
 <!DOCTYPE HTML>
 <!--
 	Arcana by HTML5 UP
@@ -10,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Manga-Animes</title>
+		<title>Register</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -25,27 +21,39 @@
 				<div id="header">
 
 					<!-- Logo -->
-						<h1><a href="index.html" id="logo">Manga-Animes</a></h1>
+						<h1><a href="index.php" id="logo">Manga-Animes</a></h1>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="index.html">Home</a></li>
+								<li><a href="index.php">Home</a></li>
 								<li>
 									<a href="#">Correspondence</a>
 									<ul>
-								        <li><a href="Top-Anime.php">Top Anime</a></li>
-                                        <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
-										<li class="current"><a href="Alphabetic%20order.php">Alphabetical order</a></li>
+										<li><a href="#">Lorem dolor</a></li>
+										<li><a href="#">Magna phasellus</a></li>
+										<li><a href="#">Etiam sed tempus</a></li>
+										<li>
+											<a href="#">Submenu</a>
+											<ul>
+												<li><a href="#">Lorem dolor</a></li>
+												<li><a href="#">Phasellus magna</a></li>
+												<li><a href="#">Magna phasellus</a></li>
+												<li><a href="#">Etiam nisl</a></li>
+												<li><a href="#">Veroeros feugiat</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Veroeros feugiat</a></li>
 									</ul>
 								</li>
-								<li><a href="News.php">News</a></li>
-								<li><a href="Donate.php">Donate</a></li>
-								<li><a href="login.php">Account</a></li>
+								<li><a href="left-sidebar.html">News</a></li>
+								<li><a href="right-sidebar.html">Donate</a></li>
+								<li class="current"><a href="account.php">Account</a></li>
 							</ul>
 						</nav>
 
 				</div>
+
 			<!-- Main -->
 				<section class="wrapper style1">
 					<div class="container">
@@ -53,28 +61,18 @@
 
 							<!-- Content -->
 
-								<article>
-									<header>
-										<h2>Alphabetic Order</h2>
-										<p>All content, all the time.</p>
-									</header>
+				<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
 
-    <script>
-        $(document).ready(function () {
-            $(".coinflipGames").load("INCLUDES/postInsert-inc.php");
-                setInterval(function(){
-                 $('.coinflipGames').load('INCLUDES/postInsert-inc.php');
-             }, 1000);
-        });
-    </script>
+        <form action="INCLUDES/postMaker-inc.php" method="POST">
+          <input type="text" name="title" placeholder="Title" style="border-color: black; width: 100%; margin-left: 0; height: auto;">
+          <input type="text" name="status" placeholder="Status" style="border-color: black; width: 100%; margin-left: 0; height: auto;">
+          <input type="text" name="type" placeholder="Type" style="border-color: black; width: 100%; margin-left: 0; height: auto;"></br>
+          <textarea type="text" name="content" placeholder="Your content" style="border-color: black; width: 100%; height: auto; resize: none;"></textarea>
+            <button class="button" type="submit" name="submit">Post</button>
+       </form>
 
-                    <a href="posting.php" class="button" style="background-color: rgba(59, 87, 135, 1) !important; color: white !important;">New post</a>
-
-                        <div class="post">
-                            <?php include 'INCLUDES/postInsert-inc.php' ?>
-                        </div>
-
-								</article>
+						</div>
+					</div>
 				</section>
 
 			<!-- Footer -->
@@ -106,7 +104,7 @@
 								</ul>
 							</section>
 							<section class="6u 12u(narrower)">
-								<h3>Get In Touch</h3>
+								<h3>Contact us</h3>
 								<form>
 									<div class="row 50%">
 										<div class="6u 12u(mobilep)">
@@ -145,7 +143,7 @@
 					<!-- Copyright -->
 						<div class="copyright">
 							<ul class="menu">
-								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+								<li>&copy; Manga-Animes. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a> *modified*</li>
 							</ul>
 						</div>
 
