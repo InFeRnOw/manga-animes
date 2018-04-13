@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    include_once 'INCLUDES/dbh-inc.php';
+?>
 <!DOCTYPE HTML>
 <!--
 	Arcana by HTML5 UP
@@ -21,22 +25,22 @@
 				<div id="header">
 
 					<!-- Logo -->
-						<h1><a href="(old)%20index.html" id="logo">Home</a></h1>
+						<h1><a href="index.php" id="logo">Manga-Animes</a></h1>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="(old)%20index.html">Home</a></li>
+								<li><a href="index.php">Home</a></li>
 								<li>
 									<a href="#">Correspondence</a>
 									<ul>
-								        <li class="current"><a href="(old)Top-Anime.html">Top Anime</a></li>
-                                        <li><a href="(old)%20Seasonal-Anime.html">Seasonal Anime</a></li>
-										<li><a href="(old)Alphabetic-order.html">Alphabetical order</a></li>
+								        <li><a href="Top-Anime.php">Top Anime</a></li>
+                                        <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
+										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
 									</ul>
 								</li>
-								<li><a href="(old)News.html">News</a></li>
-								<li><a href="(old)Donate.html">Donate</a></li>
+								<li><a href="News.php">News</a></li>
+								<li><a href="Donate.php">Donate</a></li>
 								<li><a href="login.php">Account</a></li>
 							</ul>
 						</nav>
@@ -51,7 +55,7 @@
 
 								<article>
 									<header>
-										<h2>Top Anime</h2>
+										<h2>Rules</h2>
 										<p>All content, all the time.</p>
 									</header>
 

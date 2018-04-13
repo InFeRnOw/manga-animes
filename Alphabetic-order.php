@@ -39,8 +39,8 @@
 										<li class="current"><a href="Alphabetic-order.php">Alphabetical order</a></li>
 									</ul>
 								</li>
-								<li><a href="left-sidebar.php">News</a></li>
-								<li><a href="right-sidebar.php">Donate</a></li>
+								<li><a href="News.php">News</a></li>
+								<li><a href="Donate.php">Donate</a></li>
 								<li><a href="login.php">Account</a></li>
 							</ul>
 						</nav>
