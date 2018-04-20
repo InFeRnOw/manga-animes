@@ -61,14 +61,16 @@
 
     <script>
         $(document).ready(function () {
-            $(".coinflipGames").load("INCLUDES/postInsert-inc.php");
+            $(".postBox").load("INCLUDES/postInsert-inc.php");
                 setInterval(function(){
-                 $('.coinflipGames').load('INCLUDES/postInsert-inc.php');
+                 $('.postBox').load('INCLUDES/postInsert-inc.php');
              }, 1000);
         });
     </script>
 
-                    <a href="posting.php" class="button" style="background-color: rgba(59, 87, 135, 1) !important; color: white !important;">New post</a>
+                    <?php if(isset($_SESSION['u_id'])) {
+                      echo '<a href="posting.php" class="button" style="background-color: rgba(59, 87, 135, 1) !important; color: white !important;">New post</a>';
+                    }?>
 
                         <div class="post">
                             <?php include 'INCLUDES/postInsert-inc.php' ?>
