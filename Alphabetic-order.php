@@ -10,7 +10,7 @@
 -->
 <html>
 	<head>
-		<title>Register</title>
+		<title>Manga-Animes</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -25,18 +25,18 @@
 				<div id="header">
 
 					<!-- Logo -->
-						<h1><a href="index.php" id="logo">Manga-Animes</a></h1>
+						<h1><a href="index.html" id="logo">Manga-Animes</a></h1>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="index.php">Home</a></li>
+								<li><a href="index.html">Home</a></li>
 								<li>
 									<a href="#">Correspondence</a>
 									<ul>
 								        <li><a href="Top-Anime.php">Top Anime</a></li>
                                         <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
-										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
+										<li class="current"><a href="Alphabetic%20order.php">Alphabetical order</a></li>
 									</ul>
 								</li>
 								<li><a href="News.php">News</a></li>
@@ -46,7 +46,6 @@
 						</nav>
 
 				</div>
-
 			<!-- Main -->
 				<section class="wrapper style1">
 					<div class="container">
@@ -54,18 +53,28 @@
 
 							<!-- Content -->
 
-				<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
+								<article>
+									<header>
+										<h2>Alphabetic Order</h2>
+										<p>All content, all the time.</p>
+									</header>
 
-        <form action="INCLUDES/postMaker-inc.php" method="POST">
-          <input type="text" name="title" placeholder="Title" style="border-color: black; width: 100%; margin-left: 0; height: auto;">
-          <input type="text" name="status" placeholder="Status" style="border-color: black; width: 100%; margin-left: 0; height: auto;">
-          <input type="text" name="type" placeholder="Type" style="border-color: black; width: 100%; margin-left: 0; height: auto;"></br>
-          <textarea type="text" name="content" placeholder="Your content" style="border-color: black; width: 100%; height: auto; resize: none;"></textarea>
-            <button class="button" type="submit" name="submit">Post</button>
-       </form>
+    <script>
+        $(document).ready(function () {
+            $(".coinflipGames").load("INCLUDES/postInsert-inc.php");
+                setInterval(function(){
+                 $('.coinflipGames').load('INCLUDES/postInsert-inc.php');
+             }, 1000);
+        });
+    </script>
 
-						</div>
-					</div>
+                    <a href="posting.php" class="button" style="background-color: rgba(59, 87, 135, 1) !important; color: white !important;">New post</a>
+
+                        <div class="post">
+                            <?php include 'INCLUDES/postInsert-inc.php' ?>
+                        </div>
+
+								</article>
 				</section>
 
 			<!-- Footer -->
@@ -97,7 +106,7 @@
 								</ul>
 							</section>
 							<section class="6u 12u(narrower)">
-								<h3>Contact us</h3>
+								<h3>Get In Touch</h3>
 								<form>
 									<div class="row 50%">
 										<div class="6u 12u(mobilep)">
@@ -136,7 +145,7 @@
 					<!-- Copyright -->
 						<div class="copyright">
 							<ul class="menu">
-								<li>&copy; Manga-Animes. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a> *modified*</li>
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 							</ul>
 						</div>
 
