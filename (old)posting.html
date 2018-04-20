@@ -1,7 +1,3 @@
-<?php
-    session_start();
-    include_once 'INCLUDES/dbh-inc.php';
-?>
 <!DOCTYPE HTML>
 <!--
 	Arcana by HTML5 UP
@@ -57,11 +53,24 @@
 				<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
 
         <form action="INCLUDES/postMaker-inc.php" method="POST">
-          <input type="text" name="title" placeholder="Title" style="border-color: black; width: 100%; margin-left: 0; height: auto;">
+    <!-- Table to align En tittle // Jap tittle -->
+          <input type="text" name="title1" placeholder="English Title" style="border-color: black; width: 100%; margin-left: 0; height: auto;">
+          <input type="text" name="title2" placeholder="Japanese Title" style="border-color: black; width: 100%; margin-left: 0; height: auto;"> <br/>
+          
+            <tr> 
+                    <td><input type="text" name="title1" placeholder="English Title" style="border-color: black; width: 45%; margin-left: 0; height: 10%;"> </td> 
+                    <td><input type="text" name="title2" placeholder="Japanese Title" style="border-color: black; width: 45%; margin-left: 50%; height: 10%;"></td> 
+                
+            </tr> <br/>
+
+
+<br/>
+
           <input type="text" name="status" placeholder="Status" style="border-color: black; width: 100%; margin-left: 0; height: auto;">
           <input type="text" name="type" placeholder="Type" style="border-color: black; width: 100%; margin-left: 0; height: auto;"></br>
           <textarea type="text" name="content" placeholder="Your content" style="border-color: black; width: 100%; height: auto; resize: none;"></textarea>
             <button class="button" type="submit" name="submit">Post</button>
+                            
        </form>
 
 						</div>
