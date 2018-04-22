@@ -55,7 +55,7 @@
 							<!-- Content -->
 
 				<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
-
+          <?php include 'INCLUDES/errors-inc.php';  ?>
         <form action="INCLUDES/postMaker-inc.php" method="POST">
           <input type="text" name="title" placeholder="Title" style="border-color: black; width: 100%; margin-left: 0; height: auto;">
           <input type="text" name="status" placeholder="Status" style="border-color: black; width: 100%; margin-left: 0; height: auto;">

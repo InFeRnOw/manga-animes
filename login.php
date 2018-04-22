@@ -51,7 +51,29 @@
 							<!-- Content -->
 
 				<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
+			<?php if(!isset($_GET['login'])) {
+			    echo "<form action='INCLUDES/login-inc.php' method='POST'>
+		        <input class='username' type='text' name='uid' placeholder='Username'>
+		        <input class='password' type='password' name='pass'  placeholder='Password'>
+		          <button class='button' type='submit' name='submit'>Login</button>
+		            <a class='noAccount' href='register.php'><p>Don't have an account ?</p></a>
+		            <a class='forget' href='forget.php'><p>Forgot your password or username ?</p></a>
+		      </form>";
+					exit();
+			}
+			else {
+			  $loginCheck = $_GET['login'];
 
+			    if($loginCheck == "empty") {
+			      echo "<p style='color: red;'>Some fields are empty !</p>";
+			    }
+			    elseif ($loginCheck == "notactivated") {
+			      echo "<p style='color: red;'>Your account must be activated first !</p>";
+			    }
+			    elseif ($loginCheck == "error") {
+			      echo "<p style='color: red;'>Password or username not valid !</p>";
+			    }
+			}  ?>
 					<form action="INCLUDES/login-inc.php" method="POST">
 						<input class="username" type="text" name="uid" placeholder="Username">
 						<input class="password" type="password" name="pass"  placeholder="Password">
