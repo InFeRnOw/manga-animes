@@ -65,36 +65,36 @@
                                       <div>
                                         
                                     <FORM>
-                                        <SELECT name="Alphabetic order" size="1" >
+                                        <SELECT name="AlphabeticOrder" size="1" >
                                         
-                                 <OPTION> <a href="#A">A</a>   
-                                 <OPTION> <a href="#B">B</a>          
-                                 <OPTION> <a href="#C">C</a>          
-                                 <OPTION> <a href="#D">D</a>   
-                                 <OPTION> <a href="#E">E</a>  
-                                 <OPTION> <a href="#F">F</a>  
-                                 <OPTION> <a href="#G">G</a>  
-                                 <OPTION> <a href="#H">H</a>  
-                                 <OPTION> <a href="#I">I</a>  
-                                 <OPTION> <a href="#J">J</a>   
-                                 <OPTION> <a href="#K">K</a>   
-                                 <OPTION> <a href="#L">L</a>  
-                                 <OPTION> <a href="#M">M</a>  
-                                 <OPTION> <a href="#N">N</a>   
-                                 <OPTION> <a href="#O">O</a> 
-                                 <OPTION> <a href="#P">P</a>   
-                                 <OPTION> <a href="#Q">Q</a>   
-                                 <OPTION> <a href="#R">R</a> 
-                                 <OPTION> <a href="#S">S</a>  
-                                 <OPTION> <a href="#T">T</a>  
-                                 <OPTION> <a href="#U">U</a>  
-                                 <OPTION> <a href="#V">V</a>  
-                                 <OPTION> <a href="#W">W</a>  
-                                 <OPTION> <a href="#X">X</a>  
-                                 <OPTION> <a href="#Y">Y</a>  
-                                 <OPTION> <a href="#Z">Z</a> 
-                                 <OPTION> <a href="#0-9">0->9</a>
-                                 <OPTION> <a href="Other">Other</a>
+                                 <OPTION value="A"><p>A</p>   
+                                 <OPTION value="B"><p>B</p>          
+                                 <OPTION value="C"><p>C</p>          
+                                 <OPTION value="D"><p>D</p>   
+                                 <OPTION value="E"><p>E</p>  
+                                 <OPTION value="F"><p>F</p>  
+                                 <OPTION value="G"><p>G</p>  
+                                 <OPTION value="H"><p>H</p>  
+                                 <OPTION value="I"><p>I</p>  
+                                 <OPTION value="J"><p>J</p>   
+                                 <OPTION value="K"><p>K</p>   
+                                 <OPTION value="L"><p>L</p>  
+                                 <OPTION value="M"><p>M</p>  
+                                 <OPTION value="N"><p>N</p>   
+                                 <OPTION value="O"><p>O</p> 
+                                 <OPTION value="P"><p>P</p>   
+                                 <OPTION value="Q"><p>Q</p>   
+                                 <OPTION value="R"><p>R</p> 
+                                 <OPTION value="S"><p>S</p>  
+                                 <OPTION value="T"><p>T</p>  
+                                 <OPTION value="U"><p>U</p>  
+                                 <OPTION value="V"><p>V</p>  
+                                 <OPTION value="W"><p>W</p>  
+                                 <OPTION value="X"><p>X</p>  
+                                 <OPTION value="Y"><p>Y</p>  
+                                 <OPTION value="Z"><p>Z</p> 
+                                 <OPTION value="n"><p>0->9</p>
+                                 <OPTION value="Other"><p>Other</p>
                                      
                                         </SELECT>
                                     </FORM>
