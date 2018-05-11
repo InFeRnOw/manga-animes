@@ -61,6 +61,46 @@
 										<h2>Alphabetic Order</h2>
 										<p>All content, all the time.</p>
 									</header>
+                                    
+                                      <div>
+                                        
+                                    <FORM>
+                                        <SELECT name="Alphabetic order" size="1" >
+                                        
+                                 <OPTION> <a href="#A">A</a>   
+                                 <OPTION> <a href="#B">B</a>          
+                                 <OPTION> <a href="#C">C</a>          
+                                 <OPTION> <a href="#D">D</a>   
+                                 <OPTION> <a href="#E">E</a>  
+                                 <OPTION> <a href="#F">F</a>  
+                                 <OPTION> <a href="#G">G</a>  
+                                 <OPTION> <a href="#H">H</a>  
+                                 <OPTION> <a href="#I">I</a>  
+                                 <OPTION> <a href="#J">J</a>   
+                                 <OPTION> <a href="#K">K</a>   
+                                 <OPTION> <a href="#L">L</a>  
+                                 <OPTION> <a href="#M">M</a>  
+                                 <OPTION> <a href="#N">N</a>   
+                                 <OPTION> <a href="#O">O</a> 
+                                 <OPTION> <a href="#P">P</a>   
+                                 <OPTION> <a href="#Q">Q</a>   
+                                 <OPTION> <a href="#R">R</a> 
+                                 <OPTION> <a href="#S">S</a>  
+                                 <OPTION> <a href="#T">T</a>  
+                                 <OPTION> <a href="#U">U</a>  
+                                 <OPTION> <a href="#V">V</a>  
+                                 <OPTION> <a href="#W">W</a>  
+                                 <OPTION> <a href="#X">X</a>  
+                                 <OPTION> <a href="#Y">Y</a>  
+                                 <OPTION> <a href="#Z">Z</a> 
+                                 <OPTION> <a href="#0-9">0->9</a>
+                                 <OPTION> <a href="Other">Other</a>
+                                     
+                                        </SELECT>
+                                    </FORM>
+                                           
+            </div>
+
 
     <script>
         $(document).ready(function () {

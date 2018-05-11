@@ -1,14 +1,16 @@
-<!DOCTYPE HTML>
 <!--
 	Arcana by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
+		<head>
 		<title>Manga-Animes</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
@@ -21,29 +23,29 @@
 				<div id="header">
 
 					<!-- Logo -->
-						<h1><a href="(old)%20index.html" id="logo">Manga-Animes</a></h1>
+						<h1><a href="index.html" id="logo">Manga-Animes</a></h1>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="(old)%20index.html">Home</a></li>
+								<li><a href="index.html">Home</a></li>
 								<li>
 									<a href="#">Correspondence</a>
 									<ul>
-								        <li><a href="(old)Top-Anime.html">Top Anime</a></li>
-                                        <li><a href="(old)%20Seasonal-Anime.html">Seasonal Anime</a></li>
-										<li class="current"><a href="(old)Alphabetic-order.html">Alphabetical order</a></li>
+								        <li><a href="Top-Anime.php">Top Anime</a></li>
+                                        <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
+										<li class="current"><a href="Alphabetic%20order.php">Alphabetical order</a></li>
 									</ul>
 								</li>
-								<li><a href="(old)News.html">News</a></li>
-								<li><a href="(old)Donate.html">Donate</a></li>
+								<li><a href="News.php">News</a></li>
+								<li><a href="Donate.php">Donate</a></li>
 								<li><a href="login.php">Account</a></li>
 							</ul>
 						</nav>
 
 				</div>
 			<!-- Main -->
-				<section class="wrapper style1">
+				<section class="orderback">
 					<div class="container">
 						<div id="content">
 
@@ -53,36 +55,67 @@
 									<header>
 										<h2>Alphabetic Order</h2>
 										<p>All content, all the time.</p>
+                                        
 									</header>
 
-									<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
+                                    <div>
+                                        
+                                    <FORM>
+                                        <SELECT name="nom" size="1" >
+                                        
+                                 <OPTION> <a href="#A">A</a>   
+                                 <OPTION> <a href="#B">B</a>          
+                                 <OPTION> <a href="#C">C</a>          
+                                 <OPTION> <a href="#D">D</a>   
+                                 <OPTION> <a href="#E">E</a>  
+                                 <OPTION> <a href="#F">F</a>  
+                                 <OPTION> <a href="#G">G</a>  
+                                 <OPTION> <a href="#H">H</a>  
+                                 <OPTION> <a href="#I">I</a>  
+                                 <OPTION> <a href="#J">J</a>   
+                                 <OPTION> <a href="#K">K</a>   
+                                 <OPTION> <a href="#L">L</a>  
+                                 <OPTION> <a href="#M">M</a>  
+                                 <OPTION> <a href="#N">N</a>   
+                                 <OPTION> <a href="#O">O</a> 
+                                 <OPTION> <a href="#P">P</a>   
+                                 <OPTION> <a href="#Q">Q</a>   
+                                 <OPTION> <a href="#R">R</a> 
+                                 <OPTION> <a href="#S">S</a>  
+                                 <OPTION> <a href="#T">T</a>  
+                                 <OPTION> <a href="#U">U</a>  
+                                 <OPTION> <a href="#V">V</a>  
+                                 <OPTION> <a href="#W">W</a>  
+                                 <OPTION> <a href="#X">X</a>  
+                                 <OPTION> <a href="#Y">Y</a>  
+                                 <OPTION> <a href="#Z">Z</a> 
+                                 <OPTION> <a href="#0-9">0->9</a>
+                                 <OPTION> <a href="Other">Other</a>
+                                     
+                                        </SELECT>
+                                    </FORM>
+                                           
+            </div>
 
-									<p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus.
-									Praesent semper mod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat.
-									Aliquam luctus et mattis lectus sit amet pulvinar. Nam turpis nisi
-									consequat etiam lorem ipsum dolor sit amet nullam.</p>
+    <script>
+        $(document).ready(function () {
+            $(".postBox").load("INCLUDES/postInsert-inc.php");
+                setInterval(function(){
+                 $('.postBox').load('INCLUDES/postInsert-inc.php');
+             }, 1000);
+        });
+    </script>
 
-									<h3>And Yet Another Subheading</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac quam risus, at tempus
-									justo. Sed dictum rutrum massa eu volutpat. Quisque vitae hendrerit sem. Pellentesque lorem felis,
-									ultricies a bibendum id, bibendum sit amet nisl. Mauris et lorem quam. Maecenas rutrum imperdiet
-									vulputate. Nulla quis nibh ipsum, sed egestas justo. Morbi ut ante mattis orci convallis tempor.
-									Etiam a lacus a lacus pharetra porttitor quis accumsan odio. Sed vel euismod nisi. Etiam convallis
-									rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien.
-									Donec sagittis massa et leo semper a scelerisque metus faucibus. Morbi congue mattis mi.
-									Phasellus sed nisl vitae risus tristique volutpat. Cras rutrum commodo luctus.</p>
+                    <?php if(isset($_SESSION['u_id'])) {
+                      echo '<a href="posting.php" class="button" style="background-color: rgba(59, 87, 135, 1) !important; color: white !important;">New post</a>';
+                    }?>
 
-									<p>Phasellus odio risus, faucibus et viverra vitae, eleifend ac purus. Praesent mattis, enim
-									quis hendrerit porttitor, sapien tortor viverra magna, sit amet rhoncus nisl lacus nec arcu.
-									Suspendisse laoreet metus ut metus imperdiet interdum aliquam justo tincidunt. Mauris dolor urna,
-									fringilla vel malesuada ac, dignissim eu mi. Praesent mollis massa ac nulla pretium pretium.
-									Maecenas tortor mauris, consectetur pellentesque dapibus eget, tincidunt vitae arcu.
-									Vestibulum purus augue, tincidunt sit amet iaculis id, porta eu purus.</p>
+                        <div class="post">
+                            <?php include 'INCLUDES/postInsert-inc.php' ?>
+                        </div>
+
 								</article>
-
-						</div>
-					</div>
-				</section>
+                                     </section>
 
 			<!-- Footer -->
 				<div id="footer">
