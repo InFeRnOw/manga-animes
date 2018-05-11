@@ -33,7 +33,7 @@
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="index.html">Home</a></li>
+								<li><a href="index.php">Home</a></li>
 								<li>
 									<a href="#">Correspondence</a>
 									<ul>

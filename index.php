@@ -221,7 +221,7 @@
 							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
 							<li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
 							<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+							<li><a href="#" class="icon fa-google-plus"><span class="label">Google+à</span></a></li>
 						</ul>
 
 					<!-- Copyright -->
