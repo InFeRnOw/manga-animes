@@ -41,6 +41,7 @@
 								</li>
 								<li><a href="News.php">News</a></li>
 								<li><a href="Donate.php">Donate</a></li>
+                                <li><a href="Bonus.php">Bonus ;)</a></li>
 								<li><?php if (isset($_SESSION['u_id'])) {
                 echo '<a href="account.php">Account</a>';
                 }
