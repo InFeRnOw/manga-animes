@@ -41,7 +41,6 @@
 								</li>
 								<li><a href="News.php">News</a></li>
 								<li><a href="Donate.php">Donate</a></li>
-                                <li><a href="Bonus.php">Bonus ;)</a></li>
 								<li><?php if (isset($_SESSION['u_id'])) {
                 echo '<a href="account.php">Account</a>';
                 }
@@ -221,7 +220,7 @@
 							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
 							<li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
 							<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="#" class="icon fa-google-plus"><span class="label">Google+à</span></a></li>
+							<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
 						</ul>
 
 					<!-- Copyright -->
