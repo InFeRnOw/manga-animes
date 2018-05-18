@@ -2562,6 +2562,13 @@
 				color: rgba(90, 102, 122, 1) !important;
 			}
 
+/* Error Messages */
+
+	.errorMessage {
+		color: red;
+		font-size: 2em;
+	}
+
 /* Wrapper */
 
 	.wrapper {

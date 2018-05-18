@@ -57,11 +57,15 @@
 				<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
           <?php include 'INCLUDES/errors-inc.php';  ?>
         <form action="INCLUDES/postMaker-inc.php" method="POST">
-          <input type="text" name="title" placeholder="Title" style="border-color: black; width: 100%; margin-left: 0; height: auto;">
-          <input type="text" name="status" placeholder="Status" style="border-color: black; width: 100%; margin-left: 0; height: auto;">
-          <input type="text" name="type" placeholder="Type" style="border-color: black; width: 100%; margin-left: 0; height: auto;"></br>
-          <textarea type="text" name="content" placeholder="Your content" style="border-color: black; width: 100%; height: auto; resize: none;"></textarea>
-            <button class="button" type="submit" name="submit">Post</button>
+          <div class="container-fluid" style="text-align: center;">
+            <div class="row">
+              <div class="col-md-4"><input type="text" name="title" placeholder="Title" style="border-color: black; margin-left: 0;"></div>
+              <div class="col-md-4"><input type="text" name="status" placeholder="Status" style="border-color: black; margin-left: 0;"></div>
+              <div class="col-md-4"><input type="text" name="type" placeholder="Type" style="border-color: black; margin-left: 0;"></div>
+              <div class="col-md-12"><textarea type="text" name="content" placeholder="Your content" style="border-color: black; height: auto; resize: none;"></textarea></div>
+                <button class="button" type="submit" name="submit">Post</button>
+              </div>
+          </div>
        </form>
 
 						</div>
