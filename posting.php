@@ -61,9 +61,19 @@
           <?php include 'INCLUDES/errors-inc.php';  ?>
         <form action="INCLUDES/postMaker-inc.php" method="POST">
           <div class="container-fluid" style="text-align: center;">
-            <div class="row">
+              <div class="row">
               <div class="col-lg-4"><input type="text" name="title" placeholder="Title" style="border-color: black; margin-left: 0; width: 100%"></div>
-              <div class="col-lg-4"><input type="text" name="status" placeholder="Status" style="border-color: black; margin-left: 0; width: 100%"></div>
+              <div class="col-lg-4">
+                    <FORM>
+                          <SELECT class="selectpicker" name="Status" size="1" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 30px">
+                                 <option value="" hidden disabled selected>Status</option> 
+                                 <OPTION value="In progress"><p>In progress</p>
+                                 <OPTION value="On breack"><p>On breack</p>
+                                 <OPTION value="Ended"><p>Ended</p> 
+                                     
+                         </SELECT>
+                    </FORM>
+                </div>
               <div class="col-lg-4"><input type="text" name="type" placeholder="Type" style="border-color: black; margin-left: 0; width: 100%"></div>
               <div class="col-lg-12"><textarea type="text" name="content" placeholder="Your content" style="border-color: black; height: auto; resize: none;"></textarea></div>
                 <div class="col-lg-12"><button class="button" type="submit" name="submit">Post</button></div>
