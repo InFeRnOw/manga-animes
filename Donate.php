@@ -95,12 +95,12 @@
 									<!-- Sidebar -->
 
 										<section>
-											<h3>Just a Subheading</h3>
+											<h3>Donate Subheading</h3>
 											<p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus.
 											Praesent semper mod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat.
 											Aliquam luctus et mattis lectus sit amet pulvinar. Nam turpis et nisi etiam.</p>
 											<footer>
-												<a href="#" class="button">Continue Reading</a>
+												<a href="#" class="button">Donate Here!</a>
 											</footer>
 										</section>
 
@@ -185,9 +185,8 @@
 						<ul class="icons">
 							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
-							<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+							<li><a href="https://github.com/InFeRnOw/manga-animes" class="icon fa-github"><span class="label">GitHub</span></a></li>
+							<!-- <li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li> -->
 						</ul>
 
 					<!-- Copyright -->
