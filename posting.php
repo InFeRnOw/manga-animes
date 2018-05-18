@@ -13,6 +13,9 @@
 		<title>Register</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
@@ -57,11 +60,15 @@
 				<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
           <?php include 'INCLUDES/errors-inc.php';  ?>
         <form action="INCLUDES/postMaker-inc.php" method="POST">
-          <input type="text" name="title" placeholder="Title" style="border-color: black; width: 100%; margin-left: 0; height: auto;">
-          <input type="text" name="status" placeholder="Status" style="border-color: black; width: 100%; margin-left: 0; height: auto;">
-          <input type="text" name="type" placeholder="Type" style="border-color: black; width: 100%; margin-left: 0; height: auto;"></br>
-          <textarea type="text" name="content" placeholder="Your content" style="border-color: black; width: 100%; height: auto; resize: none;"></textarea>
-            <button class="button" type="submit" name="submit">Post</button>
+          <div class="container-fluid" style="text-align: center;">
+            <div class="row">
+              <div class="col-lg-4"><input type="text" name="title" placeholder="Title" style="border-color: black; margin-left: 0; width: 100%"></div>
+              <div class="col-lg-4"><input type="text" name="status" placeholder="Status" style="border-color: black; margin-left: 0; width: 100%"></div>
+              <div class="col-lg-4"><input type="text" name="type" placeholder="Type" style="border-color: black; margin-left: 0; width: 100%"></div>
+              <div class="col-lg-12"><textarea type="text" name="content" placeholder="Your content" style="border-color: black; height: auto; resize: none;"></textarea></div>
+                <div class="col-lg-12"><button class="button" type="submit" name="submit">Post</button></div>
+              </div>
+          </div>
        </form>
 
 						</div>
