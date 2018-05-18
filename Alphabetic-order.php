@@ -61,44 +61,44 @@
 										<h2>Alphabetic Order</h2>
 										<p>All content, all the time.</p>
 									</header>
-                                    
+
                                       <div>
-                                        
+
                                     <FORM>
                                         <SELECT name="AlphabeticOrder" size="1" >
-                                        
-                                 <OPTION value="A"><p>A</p>   
-                                 <OPTION value="B"><p>B</p>          
-                                 <OPTION value="C"><p>C</p>          
-                                 <OPTION value="D"><p>D</p>   
-                                 <OPTION value="E"><p>E</p>  
-                                 <OPTION value="F"><p>F</p>  
-                                 <OPTION value="G"><p>G</p>  
-                                 <OPTION value="H"><p>H</p>  
-                                 <OPTION value="I"><p>I</p>  
-                                 <OPTION value="J"><p>J</p>   
-                                 <OPTION value="K"><p>K</p>   
-                                 <OPTION value="L"><p>L</p>  
-                                 <OPTION value="M"><p>M</p>  
-                                 <OPTION value="N"><p>N</p>   
-                                 <OPTION value="O"><p>O</p> 
-                                 <OPTION value="P"><p>P</p>   
-                                 <OPTION value="Q"><p>Q</p>   
-                                 <OPTION value="R"><p>R</p> 
-                                 <OPTION value="S"><p>S</p>  
-                                 <OPTION value="T"><p>T</p>  
-                                 <OPTION value="U"><p>U</p>  
-                                 <OPTION value="V"><p>V</p>  
-                                 <OPTION value="W"><p>W</p>  
-                                 <OPTION value="X"><p>X</p>  
-                                 <OPTION value="Y"><p>Y</p>  
-                                 <OPTION value="Z"><p>Z</p> 
+
+                                 <OPTION value="A"><p>A</p>
+                                 <OPTION value="B"><p>B</p>
+                                 <OPTION value="C"><p>C</p>
+                                 <OPTION value="D"><p>D</p>
+                                 <OPTION value="E"><p>E</p>
+                                 <OPTION value="F"><p>F</p>
+                                 <OPTION value="G"><p>G</p>
+                                 <OPTION value="H"><p>H</p>
+                                 <OPTION value="I"><p>I</p>
+                                 <OPTION value="J"><p>J</p>
+                                 <OPTION value="K"><p>K</p>
+                                 <OPTION value="L"><p>L</p>
+                                 <OPTION value="M"><p>M</p>
+                                 <OPTION value="N"><p>N</p>
+                                 <OPTION value="O"><p>O</p>
+                                 <OPTION value="P"><p>P</p>
+                                 <OPTION value="Q"><p>Q</p>
+                                 <OPTION value="R"><p>R</p>
+                                 <OPTION value="S"><p>S</p>
+                                 <OPTION value="T"><p>T</p>
+                                 <OPTION value="U"><p>U</p>
+                                 <OPTION value="V"><p>V</p>
+                                 <OPTION value="W"><p>W</p>
+                                 <OPTION value="X"><p>X</p>
+                                 <OPTION value="Y"><p>Y</p>
+                                 <OPTION value="Z"><p>Z</p>
                                  <OPTION value="n"><p>0->9</p>
                                  <OPTION value="Other"><p>Other</p>
-                                     
+
                                         </SELECT>
                                     </FORM>
-                                           
+
             </div>
 
 
@@ -112,7 +112,7 @@
     </script>
 
                     <?php if(isset($_SESSION['u_id'])) {
-                      echo '<a href="posting.php" class="button" style="background-color: rgba(59, 87, 135, 1) !important; color: white !important;">New post</a>';
+                      echo '</br><a href="posting.php" class="button" style="background-color: rgba(59, 87, 135, 1) !important; color: white !important;">New post</a>';
                     }?>
 
                         <div class="post">

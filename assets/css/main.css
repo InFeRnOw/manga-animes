@@ -3207,16 +3207,22 @@
 .orderback {
         background: #fff;
 }
-            
+
 .ordercell1 {
     text-align: left
-    
+
 }
 .ordercell2 {
     text-align: center
-    
+
 }
 .ordercell3 {
     text-align: right
-    
+
+}
+
+/* Posts */
+.linkPosts {
+	text-decoration: none !important;
+	color: white !important;
 }
