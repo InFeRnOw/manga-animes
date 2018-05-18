@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Login</title>
+		<title>Register</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -26,18 +26,18 @@
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="index.php">Home</a></li>
+								<li><a href="(old)%20index.html">Home</a></li>
 								<li>
 									<a href="#">Correspondence</a>
 									<ul>
-								        <li><a href="Top-Anime.php">Top Anime</a></li>
+								        <li><a href="(old)Top-Anime.html">Top Anime</a></li>
                                         <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
-										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
+										<li><a href="(old)Alphabetic-order.html">Alphabetical order</a></li>
 									</ul>
 								</li>
-								<li><a href="News.php">News</a></li>
-								<li><a href="Donate.php">Donate</a></li>
-								<li class="current"><a href="account.php">Account</a></li>
+								<li><a href="(old)News.html">News</a></li>
+								<li><a href="(old)Donate.html">Donate</a></li>
+								<li><a href="login.php">Account</a></li>
 							</ul>
 						</nav>
 
@@ -51,36 +51,15 @@
 							<!-- Content -->
 
 				<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
-			<?php if(!isset($_GET['login'])) {
-			    echo "<form action='INCLUDES/login-inc.php' method='POST'>
-		        <input class='username' type='text' name='uid' placeholder='Username'>
-		        <input class='password' type='password' name='pass'  placeholder='Password'>
-		          <button class='button' type='submit' name='submit'>Login</button>
-		            <a class='noAccount' href='register.php'><p>Don't have an account ?</p></a>
-		            <a class='forget' href='forget.php'><p>Forgot your password or username ?</p></a>
-		      </form>";
-					exit();
-			}
-			else {
-			  $loginCheck = $_GET['login'];
 
-			    if($loginCheck == "empty") {
-			      echo "<p style='color: red;'>Some fields are empty !</p>";
-			    }
-			    elseif ($loginCheck == "notactivated") {
-			      echo "<p style='color: red;'>Your account must be activated first !</p>";
-			    }
-			    elseif ($loginCheck == "error") {
-			      echo "<p style='color: red;'>Password or username not valid !</p>";
-			    }
-			}  ?>
-					<form action="INCLUDES/login-inc.php" method="POST">
-						<input class="username" type="text" name="uid" placeholder="Username">
-						<input class="password" type="password" name="pass"  placeholder="Password">
-							<button class="button" type="submit" name="submit">Login</button>
-								<a class="noAccount" href="register.php"><p>Don't have an account ?</p></a>
-								<a class="forget" href="forget.php"><p>Forgot your password or username ?</p></a>
-					</form>
+        <form action="INCLUDES/register-inc.php" method="POST">
+          <input class="username" type="text" name="uid" placeholder="Username">
+          <input type="password" name="pass1" placeholder="Password">
+          <input type="password" name="pass2" placeholder="Confirm password">
+          <input type="text" name="email" placeholder="Email">
+            <br/>
+            <button class="button" type="submit" name="submit">Register</button>
+       </form>
 
 						</div>
 					</div>

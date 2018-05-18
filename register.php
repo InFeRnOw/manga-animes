@@ -55,8 +55,19 @@
 							<!-- Content -->
 
 				<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
-
-        <?php $registerCheck = $_GET['register'];
+        <?php if(!isset($_GET['register'])) {
+          echo "<form action='INCLUDES/register-inc.php' method='POST'>
+            <input class='username' type='text' name='uid' placeholder='Username'>
+            <input type='password' name='pass1' placeholder='Password'>
+            <input type='password' name='pass2' placeholder='Confirm password'>
+            <input type='text' name='email' placeholder='Email'>
+                          <br/>
+              <button class='button' type='submit' name='submit'>Register</button>
+         </form>";
+            exit();
+        }
+        else {
+          $registerCheck = $_GET['register'];
 
             if($registerCheck == "empty") {
               echo "<p style='color: red;'>Some fields are empty !</p>";
@@ -72,8 +83,8 @@
             }
             elseif ($registerCheck == "passwordconfirm") {
               echo "<p style='color: red;'>Passwords do not match !</p>";
-            } ?>
-            
+            }
+        }  ?>
         <form action="INCLUDES/register-inc.php" method="POST">
           <input class="username" type="text" name="uid" placeholder="Username">
           <input type="password" name="pass1" placeholder="Password">

@@ -1,14 +1,16 @@
-<!DOCTYPE HTML>
 <!--
 	Arcana by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Login</title>
+		<head>
+		<title>Manga-Animes</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
@@ -21,70 +23,99 @@
 				<div id="header">
 
 					<!-- Logo -->
-						<h1><a href="index.php" id="logo">Manga-Animes</a></h1>
+						<h1><a href="index.html" id="logo">Manga-Animes</a></h1>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="index.php">Home</a></li>
+								<li><a href="index.html">Home</a></li>
 								<li>
 									<a href="#">Correspondence</a>
 									<ul>
 								        <li><a href="Top-Anime.php">Top Anime</a></li>
                                         <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
-										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
+										<li class="current"><a href="Alphabetic%20order.php">Alphabetical order</a></li>
 									</ul>
 								</li>
 								<li><a href="News.php">News</a></li>
 								<li><a href="Donate.php">Donate</a></li>
-								<li class="current"><a href="account.php">Account</a></li>
+								<li><a href="login.php">Account</a></li>
 							</ul>
 						</nav>
 
 				</div>
-
 			<!-- Main -->
-				<section class="wrapper style1">
+				<section class="orderback">
 					<div class="container">
 						<div id="content">
 
 							<!-- Content -->
 
-				<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
-			<?php if(!isset($_GET['login'])) {
-			    echo "<form action='INCLUDES/login-inc.php' method='POST'>
-		        <input class='username' type='text' name='uid' placeholder='Username'>
-		        <input class='password' type='password' name='pass'  placeholder='Password'>
-		          <button class='button' type='submit' name='submit'>Login</button>
-		            <a class='noAccount' href='register.php'><p>Don't have an account ?</p></a>
-		            <a class='forget' href='forget.php'><p>Forgot your password or username ?</p></a>
-		      </form>";
-					exit();
-			}
-			else {
-			  $loginCheck = $_GET['login'];
+								<article>
+									<header>
+										<h2>Alphabetic Order</h2>
+										<p>All content, all the time.</p>
+                                        
+									</header>
 
-			    if($loginCheck == "empty") {
-			      echo "<p style='color: red;'>Some fields are empty !</p>";
-			    }
-			    elseif ($loginCheck == "notactivated") {
-			      echo "<p style='color: red;'>Your account must be activated first !</p>";
-			    }
-			    elseif ($loginCheck == "error") {
-			      echo "<p style='color: red;'>Password or username not valid !</p>";
-			    }
-			}  ?>
-					<form action="INCLUDES/login-inc.php" method="POST">
-						<input class="username" type="text" name="uid" placeholder="Username">
-						<input class="password" type="password" name="pass"  placeholder="Password">
-							<button class="button" type="submit" name="submit">Login</button>
-								<a class="noAccount" href="register.php"><p>Don't have an account ?</p></a>
-								<a class="forget" href="forget.php"><p>Forgot your password or username ?</p></a>
-					</form>
+                                    <div>
+                                        
+                                    <FORM>
+                                        <SELECT name="nom" size="1" >
+                                        
+                                 <OPTION> <a href="#A">A</a>   
+                                 <OPTION> <a href="#B">B</a>          
+                                 <OPTION> <a href="#C">C</a>          
+                                 <OPTION> <a href="#D">D</a>   
+                                 <OPTION> <a href="#E">E</a>  
+                                 <OPTION> <a href="#F">F</a>  
+                                 <OPTION> <a href="#G">G</a>  
+                                 <OPTION> <a href="#H">H</a>  
+                                 <OPTION> <a href="#I">I</a>  
+                                 <OPTION> <a href="#J">J</a>   
+                                 <OPTION> <a href="#K">K</a>   
+                                 <OPTION> <a href="#L">L</a>  
+                                 <OPTION> <a href="#M">M</a>  
+                                 <OPTION> <a href="#N">N</a>   
+                                 <OPTION> <a href="#O">O</a> 
+                                 <OPTION> <a href="#P">P</a>   
+                                 <OPTION> <a href="#Q">Q</a>   
+                                 <OPTION> <a href="#R">R</a> 
+                                 <OPTION> <a href="#S">S</a>  
+                                 <OPTION> <a href="#T">T</a>  
+                                 <OPTION> <a href="#U">U</a>  
+                                 <OPTION> <a href="#V">V</a>  
+                                 <OPTION> <a href="#W">W</a>  
+                                 <OPTION> <a href="#X">X</a>  
+                                 <OPTION> <a href="#Y">Y</a>  
+                                 <OPTION> <a href="#Z">Z</a> 
+                                 <OPTION> <a href="#0-9">0->9</a>
+                                 <OPTION> <a href="Other">Other</a>
+                                     
+                                        </SELECT>
+                                    </FORM>
+                                           
+            </div>
 
-						</div>
-					</div>
-				</section>
+    <script>
+        $(document).ready(function () {
+            $(".postBox").load("INCLUDES/postInsert-inc.php");
+                setInterval(function(){
+                 $('.postBox').load('INCLUDES/postInsert-inc.php');
+             }, 1000);
+        });
+    </script>
+
+                    <?php if(isset($_SESSION['u_id'])) {
+                      echo '<a href="posting.php" class="button" style="background-color: rgba(59, 87, 135, 1) !important; color: white !important;">New post</a>';
+                    }?>
+
+                        <div class="post">
+                            <?php include 'INCLUDES/postInsert-inc.php' ?>
+                        </div>
+
+								</article>
+                                     </section>
 
 			<!-- Footer -->
 				<div id="footer">
@@ -115,7 +146,7 @@
 								</ul>
 							</section>
 							<section class="6u 12u(narrower)">
-								<h3>Contact us</h3>
+								<h3>Get In Touch</h3>
 								<form>
 									<div class="row 50%">
 										<div class="6u 12u(mobilep)">
@@ -154,7 +185,7 @@
 					<!-- Copyright -->
 						<div class="copyright">
 							<ul class="menu">
-								<li>&copy; Manga-Animes. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a> *modified*</li>
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 							</ul>
 						</div>
 
