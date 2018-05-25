@@ -1,6 +1,14 @@
 <?php
     session_start();
     include_once 'INCLUDES/dbh-inc.php';
+
+    $link = $_GET['link'];
+    $sql = "SELECT * FROM posts WHERE p_link = '$link'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+
+    $title = $row['p_title'];
+    $content = $row['p_content'];
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -10,7 +18,7 @@
 -->
 <html>
 	<head>
-		<title><?php include 'INCLUDES/postPage-inc.php'; echo $title;  ?></title>
+		<title><?php echo $title; ?></title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -55,12 +63,12 @@
 
 								<article>
 									<header>
-										<h2><?php include 'INCLUDES/postPage-inc.php'; echo $title;  ?></h2>
+										<h2><?php echo $title;  ?></h2>
 									</header>
 
 									<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
 
-									<p><?php include 'INCLUDES/postPage-inc.php'; echo $content;  ?></p>
+									<p><?php echo $content;  ?></p>
 								</article>
 
 						</div>
