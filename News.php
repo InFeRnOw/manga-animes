@@ -57,30 +57,16 @@
 									<!-- Sidebar -->
 
 										<section>
-											<h3>Just a Subheading</h3>
-											<p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus.
-											Praesent semper mod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat.
-											Aliquam luctus et mattis lectus sit amet pulvinar. Nam turpis et nisi etiam.</p>
-											<footer>
-												<a href="#" class="button">Continue Reading</a>
-											</footer>
+											<h3>About us</h3>
+											<p>We are two high school students, who wanted for a school project to do an Anime Website.</p>
 										</section>
-
-										<section>
-											<h3>Another Subheading</h3>
-											<ul class="links">
-												<li><a href="#">Amet turpis, feugiat et sit amet</a></li>
-												<li><a href="#">Ornare in hendrerit in lectus</a></li>
-												<li><a href="#">Semper mod quis eget mi dolore</a></li>
-												<li><a href="#">Consequat etiam lorem phasellus</a></li>
-												<li><a href="#">Amet turpis, feugiat et sit amet</a></li>
-												<li><a href="#">Semper mod quisturpis nisi</a></li>
-											</ul>
-											<footer>
-												<a href="#" class="button">More Random Links</a>
-											</footer>
+                                    
+                                    <section>
+											<h3>Some useful links</h3>
+												<a href="Rules.php" class="button">Rules</a>
+                                                <a href="#" class="button">Link 2</a>
 										</section>
-
+						
 								</div>
 							</div>
 							<div class="8u  12u(narrower) important(narrower)">
@@ -91,32 +77,33 @@
 										<article>
 											<header>
 												<h2>News</h2>
-												<p>Help us to improve our website!</p>
+												<p>Here the lastest news about our websites!</p>
 											</header>
 
 											<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
 
-											<p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus.
-											Praesent semper mod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat.
-											Aliquam luctus et mattis lectus sit amet pulvinar. Nam turpis nisi
-											consequat etiam lorem ipsum dolor sit amet nullam.</p>
+											<h3>Actual Version : Alpha 0.1</h3>
+											<p>
+                                                - Login / register working <br>
+                                                - Correspondence system working <br>
+                                                - Every "nav" are working <br>
+                                                - News/Home/Correspondence html pages : Done <br>
+                                                - Github redirect link working <br>
+                                            </p>
 
-											<h3>And Yet Another Subheading</h3>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac quam risus, at tempus
-											justo. Sed dictum rutrum massa eu volutpat. Quisque vitae hendrerit sem. Pellentesque lorem felis,
-											ultricies a bibendum id, bibendum sit amet nisl. Mauris et lorem quam. Maecenas rutrum imperdiet
-											vulputate. Nulla quis nibh ipsum, sed egestas justo. Morbi ut ante mattis orci convallis tempor.
-											Etiam a lacus a lacus pharetra porttitor quis accumsan odio. Sed vel euismod nisi. Etiam convallis
-											rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien.
-											Donec sagittis massa et leo semper a scelerisque metus faucibus. Morbi congue mattis mi.
-											Phasellus sed nisl vitae risus tristique volutpat. Cras rutrum commodo luctus.</p>
-
-											<p>Phasellus odio risus, faucibus et viverra vitae, eleifend ac purus. Praesent mattis, enim
-											quis hendrerit porttitor, sapien tortor viverra magna, sit amet rhoncus nisl lacus nec arcu.
-											Suspendisse laoreet metus ut metus imperdiet interdum aliquam justo tincidunt. Mauris dolor urna,
-											fringilla vel malesuada ac, dignissim eu mi. Praesent mollis massa ac nulla pretium pretium.
-											Maecenas tortor mauris, consectetur pellentesque dapibus eget, tincidunt vitae arcu.
-											Vestibulum purus augue, tincidunt sit amet iaculis id, porta eu purus.</p>
+								            <h3>Future features :</h3>
+											<p> - Ranks <br>
+                                                - Better css/html <br>
+                                                - Add "In vote" correspondence Anime <br>
+                                                - Donate page <br>
+                                                - Social medias <br>
+                                                - Verify <br>
+                                                - Bug report <br>
+                                                - Rules <br>
+                                                - Images <br>
+                        
+                                            </p>
+                                                
 										</article>
 
 								</div>
@@ -191,7 +178,7 @@
 					<!-- Copyright -->
 						<div class="copyright">
 							<ul class="menu">
-								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+								<li>&copy; Manga-Animes. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a> *modified*</li>
 							</ul>
 						</div>
 

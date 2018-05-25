@@ -62,9 +62,9 @@
         <form action="INCLUDES/postMaker-inc.php" method="POST">
           <div class="container-fluid" style="text-align: center;">
               <div class="row">
-              <div class="col-lg-4"><input type="text" name="title" placeholder="Title" style="border-color: black; margin-left: 0; width: 100%"></div>
+              <div class="col-lg-4"> <input type="text" name="title" placeholder="Title" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px;"></div>
               <div class="col-lg-4">
-                          <SELECT class="selectpicker" name="status" size="1" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 30px">
+                          <SELECT class="selectpicker" name="status" size="1" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px">
                                  <option value="" hidden disabled selected>Status</option>
                                  <OPTION value="In progress"><p>In progress</p>
                                  <OPTION value="On breack"><p>On breack</p>
@@ -75,7 +75,7 @@
 
 
                 <div class="col-lg-4">
-                            <SELECT class="selectpicker" name="type" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 30px">
+                            <SELECT class="selectpicker" name="type" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px">
                                  <option value="" hidden disabled selected>Type</option>
                                  <OPTION value="Shōnen"><p>Shōnen</p>
                                  <OPTION value="Shōjo"><p>Shōjo</p>

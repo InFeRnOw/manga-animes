@@ -59,7 +59,7 @@
 								<article>
 									<header>
 										<h2>Alphabetic Order</h2>
-										<p>All content, all the time.</p>
+										<p>Log in in order to do a new post!</p>
 									</header>
 
                                       <div>
@@ -189,7 +189,7 @@
 					<!-- Copyright -->
 						<div class="copyright">
 							<ul class="menu">
-								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+								<li>&copy; Manga-Animes. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a> *modified*</li>
 							</ul>
 						</div>
 
