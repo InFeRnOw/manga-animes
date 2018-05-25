@@ -101,6 +101,7 @@
                                                 - Bug report <br>
                                                 - Rules <br>
                                                 - Images <br>
+                                                - Personnal account stuff <br>
                         
                                             </p>
                                                 
