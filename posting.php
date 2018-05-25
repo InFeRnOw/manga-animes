@@ -64,31 +64,28 @@
               <div class="row">
               <div class="col-lg-4"><input type="text" name="title" placeholder="Title" style="border-color: black; margin-left: 0; width: 100%"></div>
               <div class="col-lg-4">
-                    <FORM>
-                          <SELECT class="selectpicker" name="Status" size="1" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 30px">
-                                 <option value="" hidden disabled selected>Status</option> 
+                          <SELECT class="selectpicker" name="status" size="1" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 30px">
+                                 <option value="" hidden disabled selected>Status</option>
                                  <OPTION value="In progress"><p>In progress</p>
                                  <OPTION value="On breack"><p>On breack</p>
-                                 <OPTION value="Ended"><p>Ended</p> 
-                                     
+                                 <OPTION value="Ended"><p>Ended</p>
+
                          </SELECT>
-                    </FORM>
              </div>
-                              
-                              
+
+
                 <div class="col-lg-4">
-                     <FORM>
-                            <SELECT class="selectpicker" name="Type" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 30px">
-                                 <option value="" hidden disabled selected>Type</option> 
+                            <SELECT class="selectpicker" name="type" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 30px">
+                                 <option value="" hidden disabled selected>Type</option>
                                  <OPTION value="Shōnen"><p>Shōnen</p>
-                                 <OPTION value="Shōjo"><p>Shōjo</p> 
-                                 <OPTION value="Seinen"><p>Seinen</p> 
+                                 <OPTION value="Shōjo"><p>Shōjo</p>
+                                 <OPTION value="Seinen"><p>Seinen</p>
                                  <OPTION value="Josei"><p>Josei</p>
                                  <OPTION value="Harem"><p>Harem</p>
-                                 <OPTION value="Reverse Harem"><p>Reverse Harem</p> 
+                                 <OPTION value="Reverse Harem"><p>Reverse Harem</p>
                                  <OPTION value="Romance"><p>Romance</p>
                                  <OPTION value="Comedy"><p>Comedy</p>
-                                 <OPTION value="Ecchi"><p>Ecchi</p> 
+                                 <OPTION value="Ecchi"><p>Ecchi</p>
                                  <OPTION value="Mecha"><p>Mecha</p>
                                  <OPTION value="Lolicon"><p>Lolicon</p>
                                  <OPTION value="Shotacon"><p>Shotacon</p>
@@ -96,16 +93,15 @@
                                  <OPTION value="Supernatural"><p>Supernatural</p>
                                  <OPTION value="Slice of Life"><p>Slice of Life</p>
                                  <OPTION value="Hentai"><p>Hentai</p>
-                                 <OPTION value="Yaoi"><p>Yaoi</p> 
+                                 <OPTION value="Yaoi"><p>Yaoi</p>
                                  <OPTION value="Yuri"><p>Yuri</p>
-                                     
+
                           </SELECT>
-                  </FORM>   
-             </div>                    
+             </div>
          <div class="col-lg-12"><textarea type="text" name="content" placeholder="Your content" style="border-color: black; height: auto; resize: none;"></textarea></div>
          <div class="col-lg-12"><button class="button" type="submit" name="submit">Post</button></div>
-                                     
-             
+
+
           </div>
        </form>
 
