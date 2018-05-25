@@ -9,6 +9,7 @@
 
     $title = $row['p_title'];
     $content = $row['p_content'];
+    $type = $row['p_type'];
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -64,6 +65,7 @@
 								<article>
 									<header>
 										<h2><?php echo $title;  ?></h2>
+                                        <p><?php echo $type;  ?></p>
 									</header>
 
 									<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
