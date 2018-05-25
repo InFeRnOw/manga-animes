@@ -10,12 +10,9 @@
 -->
 <html>
 	<head>
-		<title>Manga-Animes</title>
+		<title><?php include 'INCLUDES/postPage-inc.php'; echo $title;  ?></title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
@@ -28,23 +25,23 @@
 				<div id="header">
 
 					<!-- Logo -->
-						<h1><a href="index.html" id="logo">Manga-Animes</a></h1>
+						<h1><a href="index.php" id="logo">Manga-Animes</a></h1>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
 								<li><a href="index.php">Home</a></li>
 								<li>
-									<a href="#">Correspondence</a>
+									<a href="#">Correspondance</a>
 									<ul>
-								        <li><a href="Top-Anime.php">Top Anime</a></li>
+                                        <li><a href="Top-Anime.php">Top Anime</a></li>
                                         <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
-										<li class="current"><a href="Alphabetic%20order.php">Alphabetical order</a></li>
+										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
 									</ul>
 								</li>
 								<li><a href="News.php">News</a></li>
 								<li><a href="Donate.php">Donate</a></li>
-								<li><a href="login.php">Account</a></li>
+								<li><a href="account.php">Account</a></li>
 							</ul>
 						</nav>
 
@@ -58,68 +55,16 @@
 
 								<article>
 									<header>
-										<h2>Alphabetic Order</h2>
-										<p>All content, all the time.</p>
+										<h2><?php include 'INCLUDES/postPage-inc.php'; echo $title;  ?></h2>
 									</header>
 
-                                      <div>
+									<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
 
-                                    <FORM>
-                                        <SELECT name="AlphabeticOrder" size="1" >
-
-                                 <OPTION value="A"><p>A</p>
-                                 <OPTION value="B"><p>B</p>
-                                 <OPTION value="C"><p>C</p>
-                                 <OPTION value="D"><p>D</p>
-                                 <OPTION value="E"><p>E</p>
-                                 <OPTION value="F"><p>F</p>
-                                 <OPTION value="G"><p>G</p>
-                                 <OPTION value="H"><p>H</p>
-                                 <OPTION value="I"><p>I</p>
-                                 <OPTION value="J"><p>J</p>
-                                 <OPTION value="K"><p>K</p>
-                                 <OPTION value="L"><p>L</p>
-                                 <OPTION value="M"><p>M</p>
-                                 <OPTION value="N"><p>N</p>
-                                 <OPTION value="O"><p>O</p>
-                                 <OPTION value="P"><p>P</p>
-                                 <OPTION value="Q"><p>Q</p>
-                                 <OPTION value="R"><p>R</p>
-                                 <OPTION value="S"><p>S</p>
-                                 <OPTION value="T"><p>T</p>
-                                 <OPTION value="U"><p>U</p>
-                                 <OPTION value="V"><p>V</p>
-                                 <OPTION value="W"><p>W</p>
-                                 <OPTION value="X"><p>X</p>
-                                 <OPTION value="Y"><p>Y</p>
-                                 <OPTION value="Z"><p>Z</p>
-                                 <OPTION value="n"><p>0->9</p>
-                                 <OPTION value="Other"><p>Other</p>
-
-                                        </SELECT>
-                                    </FORM>
-
-            </div>
-
-
-    <script>
-        $(document).ready(function () {
-            $(".postBox").load("INCLUDES/postInsert-inc.php");
-                setInterval(function(){
-                 $('.postBox').load('INCLUDES/postInsert-inc.php');
-             }, 1000);
-        });
-    </script>
-
-                    <?php if(isset($_SESSION['u_id'])) {
-                      echo '</br><a href="posting.php" class="button" style="background-color: rgba(59, 87, 135, 1) !important; color: white !important;">New post</a>';
-                    }?>
-
-                        <div class="post">
-                            <?php include 'INCLUDES/postInsert-inc.php' ?>
-                        </div>
-
+									<p><?php include 'INCLUDES/postPage-inc.php'; echo $content;  ?></p>
 								</article>
+
+						</div>
+					</div>
 				</section>
 
 			<!-- Footer -->
