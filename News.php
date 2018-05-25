@@ -32,7 +32,7 @@
 							<ul>
 								<li><a href="index.php">Home</a></li>
 								<li>
-									<a href="#">Correspondance</a>
+									<a href="#">Correspondence</a>
 									<ul>
 								        <li><a href="Top-Anime.php">Top Anime</a></li>
                                         <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
