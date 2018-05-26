@@ -109,7 +109,7 @@
 									<a href="#" class="image left"><img src="images/pic01.jpg" alt="" /></a>
 									<div class="inner">
 										<h3>Admin</h3>
-										<p>The power of a dictator.</p>
+										<p>The power of a king.</p>
 									</div>
 								</div>
 							</section>
