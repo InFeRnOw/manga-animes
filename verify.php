@@ -24,33 +24,23 @@
 						<h1><a href="index.php" id="logo">Manga-Animes</a></h1>
 
 					<!-- Nav -->
-          <nav id="nav">
-            <ul>
-              <li><a href="index.php">Home</a></li>
-              <li>
-                <a href="#">Correspondence</a>
-                <ul>
-                  <li><a href="#">Lorem dolor</a></li>
-                  <li><a href="#">Magna phasellus</a></li>
-                  <li><a href="#">Etiam sed tempus</a></li>
-                  <li>
-                    <a href="#">Submenu</a>
-                    <ul>
-                      <li><a href="#">Lorem dolor</a></li>
-                      <li><a href="#">Phasellus magna</a></li>
-                      <li><a href="#">Magna phasellus</a></li>
-                      <li><a href="#">Etiam nisl</a></li>
-                      <li><a href="#">Veroeros feugiat</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Veroeros feugiat</a></li>
-                </ul>
-              </li>
-              <li><a href="left-sidebar.html">News</a></li>
-              <li><a href="right-sidebar.html">Donate</a></li>
-              <li class="current"><a href="account.php">Account</a></li>
-            </ul>
-          </nav>
+						<nav id="nav">
+							<ul>
+								<li><a href="index.php">Home</a></li>
+								<li>
+									<a href="#">Correspondence</a>
+									<ul>
+								        <li><a href="Top-Anime.php">Top Anime</a></li>
+                                        <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
+										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
+                                        <li><a href="In-vote.php">In vote</a></li>
+									</ul>
+								</li>
+								<li><a href="News.php">News</a></li>
+								<li><a href="Donate.php">Donate</a></li>
+								<li class="current"><a href="account.php">Account</a></li>
+							</ul>
+						</nav>
 
 				</div>
 

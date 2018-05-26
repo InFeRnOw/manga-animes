@@ -43,6 +43,7 @@
 								        <li><a href="Top-Anime.php">Top Anime</a></li>
                                         <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
 										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
+                                        <li><a href="In-vote.php">In vote</a></li>
 									</ul>
                     </li>
               <li><a href="News.php">News</a></li>
