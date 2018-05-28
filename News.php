@@ -37,12 +37,16 @@
 								        <li><a href="Top-Anime.php">Top Anime</a></li>
                                         <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
 										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
-                                        <li><a href="In-vote.php">In vote</a></li>
 									</ul>
 								</li>
 								<li class="current"><a href="News.php">News</a></li>
 								<li><a href="Donate.php">Donate</a></li>
-								<li><a href="account.php">Account</a></li>
+                <li><?php if (isset($_SESSION['u_id'])) {
+                echo '<a href="account.php">Account</a>';
+                }
+                else {
+                  echo '<a href="login.php">Login</a>';
+                } ?></li>
 							</ul>
 						</nav>
 
@@ -61,13 +65,13 @@
 											<h3>About us</h3>
 											<p>We are two high school students, who wanted for a school project to do an Anime Website.</p>
 										</section>
-                                    
+
                                     <section>
 											<h3>Some useful links</h3>
 												<a href="Rules.php" class="button">Rules</a>
                                                 <a href="#" class="button">Link 2</a>
 										</section>
-						
+
 								</div>
 							</div>
 							<div class="8u  12u(narrower) important(narrower)">
@@ -103,9 +107,9 @@
                                                 - Rules <br>
                                                 - Images <br>
                                                 - Personnal account stuff <br>
-                        
+
                                             </p>
-                                                
+
 										</article>
 
 								</div>

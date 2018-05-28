@@ -13,6 +13,9 @@
 		<title>Register</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
@@ -37,12 +40,16 @@
 								        <li><a href="Top-Anime.php">Top Anime</a></li>
                                         <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
 										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
-                                        <li><a href="In-vote.php">In vote</a></li>
 									</ul>
 								</li>
 								<li><a href="News.php">News</a></li>
 								<li><a href="Donate.php">Donate</a></li>
-								<li><a href="login.php">Account</a></li>
+                <li class="current"><?php if (isset($_SESSION['u_id'])) {
+                echo '<a href="account.php">Account</a>';
+                }
+                else {
+                  echo '<a href="register.php">Register</a>';
+                } ?></li>
 							</ul>
 						</nav>
 
@@ -57,15 +64,7 @@
 
 				<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
         <?php if(!isset($_GET['register'])) {
-          echo "<form action='INCLUDES/register-inc.php' method='POST'>
-            <input class='username' type='text' name='uid' placeholder='Username'>
-            <input type='password' name='pass1' placeholder='Password'>
-            <input type='password' name='pass2' placeholder='Confirm password'>
-            <input type='text' name='email' placeholder='Email'>
-                          <br/>
-              <button class='button' type='submit' name='submit'>Register</button>
-         </form>";
-            exit();
+          echo "<h1>Register</h1>";
         }
         else {
           $registerCheck = $_GET['register'];
@@ -86,13 +85,19 @@
               echo "<p style='color: red;'>Passwords do not match !</p>";
             }
         }  ?>
-        <form action="INCLUDES/register-inc.php" method="POST">
-          <input class="username" type="text" name="uid" placeholder="Username">
-          <input type="password" name="pass1" placeholder="Password">
-          <input type="password" name="pass2" placeholder="Confirm password">
-          <input type="text" name="email" placeholder="Email">
+        <form action='INCLUDES/register-inc.php' method='POST'>
+        <div id='loginForm' class='container-fluid'>
+        <div class='row'>
+          <div class='col-lg-6 col-xs-12'><input style='width: 100%; margin-left: 0;' class='username' type='text' name='uid' placeholder='Username'></div>
+          <div class='col-lg-6 col-xs-12'><input style='width: 100%; margin-left: 0;' type='password' name='pass1' placeholder='Password'></div>
+        </div>
+        <div class='row'>
+          <div class='col-lg-6 col-xs-12'><input style='width: 100%; margin-left: 0;' type='password' name='pass2' placeholder='Confirm password'></div>
+          <div class='col-lg-6 col-xs-12'><input style='width: 100%; margin-left: 0;' type='text' name='email' placeholder='Email'></div>
+        </div>
                         <br/>
-            <button class="button" type="submit" name="submit">Register</button>
+            <div class='col-lg-12 col-xs-12'><button class='button' type='submit' name='submit'>Register</button></div>
+          </div>
        </form>
 
 						</div>
