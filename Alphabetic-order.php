@@ -64,7 +64,9 @@
 								<article>
 									<header>
 										<h2>Alphabetic Order</h2>
-										<p>Log in in order to do a new post!</p>
+                    <?php if(!isset($_SESSION['u_id'])) {
+                      echo '<p style="color: red;">Log in in order to do a new post!</p>';
+                    }?>
 									</header>
 
                                       <div>
@@ -117,7 +119,7 @@
     </script>
 
                     <?php if(isset($_SESSION['u_id'])) {
-                      echo '</br><a href="posting.php" class="button" style="background-color: rgba(59, 87, 135, 1) !important; color: white !important;">New post</a>';
+                      echo '</br><a href="posting.php" class="button" style="background-color: rgba(59, 87, 135, 1) !important; color: white !important; margin-bottom: 10px;">New post</a>';
                     }?>
 
                         <div class="post">
