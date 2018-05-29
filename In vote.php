@@ -13,6 +13,9 @@
 		<title>Manga-Animes</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
@@ -25,7 +28,7 @@
 				<div id="header">
 
 					<!-- Logo -->
-						<h1><a href="index.php" id="logo">Manga-Animes</a></h1>
+						<h1><a href="index.html" id="logo">Manga-Animes</a></h1>
 
 					<!-- Nav -->
 						<nav id="nav">
@@ -35,9 +38,10 @@
 									<a href="#">Correspondence</a>
 									<ul>
 								        <li><a href="Top-Anime.php">Top Anime</a></li>
-                                        <li class="current"><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
-										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
-                                        <li><a href="In%20vote.php">In vote</a></li>
+                                        <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
+										<li><a href="Alphabetic%20order.php">Alphabetical order</a></li>
+                                        <li class="current"><a href="In%20vote.php">In vote</a></li>
+
 									</ul>
 								</li>
 								<li><a href="News.php">News</a></li>
@@ -61,37 +65,66 @@
 
 								<article>
 									<header>
-										<h2>Seasonal Anime</h2>
-										<p>All content, all the time.</p>
+										<h2>In vote</h2>
+                    <?php if(!isset($_SESSION['u_id'])) {
+                      echo '<p style="color: red;">Login, in order to vote!</p>';
+                    }?>
 									</header>
 
-									<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
+                  <?php if(isset($_SESSION['u_id'])) {
+                    echo '<a href="posting.php" class="button" style="background-color: rgba(59, 87, 135, 1) !important; color: white !important; margin-bottom: 10px;">New post</a>';
+                  }?>
+                                    <FORM>
+                                        <SELECT class="selectpicker" name="alphabeticOrder" style="border-radius: 5px; margin-top: 10px; margin-bottom: 10px; cursor: pointer;">
 
-									<p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus.
-									Praesent semper mod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat.
-									Aliquam luctus et mattis lectus sit amet pulvinar. Nam turpis nisi
-									consequat etiam lorem ipsum dolor sit amet nullam.</p>
+                                 <OPTION value="A"><p>A</p>
+                                 <OPTION value="B"><p>B</p>
+                                 <OPTION value="C"><p>C</p>
+                                 <OPTION value="D"><p>D</p>
+                                 <OPTION value="E"><p>E</p>
+                                 <OPTION value="F"><p>F</p>
+                                 <OPTION value="G"><p>G</p>
+                                 <OPTION value="H"><p>H</p>
+                                 <OPTION value="I"><p>I</p>
+                                 <OPTION value="J"><p>J</p>
+                                 <OPTION value="K"><p>K</p>
+                                 <OPTION value="L"><p>L</p>
+                                 <OPTION value="M"><p>M</p>
+                                 <OPTION value="N"><p>N</p>
+                                 <OPTION value="O"><p>O</p>
+                                 <OPTION value="P"><p>P</p>
+                                 <OPTION value="Q"><p>Q</p>
+                                 <OPTION value="R"><p>R</p>
+                                 <OPTION value="S"><p>S</p>
+                                 <OPTION value="T"><p>T</p>
+                                 <OPTION value="U"><p>U</p>
+                                 <OPTION value="V"><p>V</p>
+                                 <OPTION value="W"><p>W</p>
+                                 <OPTION value="X"><p>X</p>
+                                 <OPTION value="Y"><p>Y</p>
+                                 <OPTION value="Z"><p>Z</p>
+                                 <OPTION value="n"><p>0->9</p>
+                                 <OPTION value="Other"><p>Other</p>
 
-									<h3>And Yet Another Subheading</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac quam risus, at tempus
-									justo. Sed dictum rutrum massa eu volutpat. Quisque vitae hendrerit sem. Pellentesque lorem felis,
-									ultricies a bibendum id, bibendum sit amet nisl. Mauris et lorem quam. Maecenas rutrum imperdiet
-									vulputate. Nulla quis nibh ipsum, sed egestas justo. Morbi ut ante mattis orci convallis tempor.
-									Etiam a lacus a lacus pharetra porttitor quis accumsan odio. Sed vel euismod nisi. Etiam convallis
-									rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien.
-									Donec sagittis massa et leo semper a scelerisque metus faucibus. Morbi congue mattis mi.
-									Phasellus sed nisl vitae risus tristique volutpat. Cras rutrum commodo luctus.</p>
+                                        </SELECT>
+                                    </FORM>
 
-									<p>Phasellus odio risus, faucibus et viverra vitae, eleifend ac purus. Praesent mattis, enim
-									quis hendrerit porttitor, sapien tortor viverra magna, sit amet rhoncus nisl lacus nec arcu.
-									Suspendisse laoreet metus ut metus imperdiet interdum aliquam justo tincidunt. Mauris dolor urna,
-									fringilla vel malesuada ac, dignissim eu mi. Praesent mollis massa ac nulla pretium pretium.
-									Maecenas tortor mauris, consectetur pellentesque dapibus eget, tincidunt vitae arcu.
-									Vestibulum purus augue, tincidunt sit amet iaculis id, porta eu purus.</p>
+<div style="border: 2px solid rgba(0,0,0,0.5); margin-bottom: 40px; border-radius: 10px;"></div>
+
+    <script>
+        $(document).ready(function () {
+            $(".postBox").load("INCLUDES/postInsert-inc.php");
+                setInterval(function(){
+                 $('.postBox').load('INCLUDES/postInsert-inc.php');
+             }, 1000);
+        });
+    </script>
+
+                        <div class="post">
+                            <?php include 'INCLUDES/postInsert-inc.php' ?>
+                        </div>
+
 								</article>
-
-						</div>
-					</div>
 				</section>
 
 			<!-- Footer -->
@@ -157,6 +190,7 @@
 							<li><a href="https://github.com/InFeRnOw/manga-animes" class="icon fa-github"><span class="label">GitHub</span></a></li>
 							<!-- <li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li> -->
 						</ul>
+
 					<!-- Copyright -->
 						<div class="copyright">
 							<ul class="menu">
