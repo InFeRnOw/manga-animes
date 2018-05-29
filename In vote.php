@@ -71,9 +71,6 @@
                     }?>
 									</header>
 
-                  <?php if(isset($_SESSION['u_id'])) {
-                    echo '<a href="posting.php" class="button" style="background-color: rgba(59, 87, 135, 1) !important; color: white !important; margin-bottom: 10px;">New post</a>';
-                  }?>
                                     <FORM>
                                         <SELECT class="selectpicker" name="alphabeticOrder" style="border-radius: 5px; margin-top: 10px; margin-bottom: 10px; cursor: pointer;">
 
