@@ -65,7 +65,7 @@
 									<header>
 										<h2>Alphabetic Order</h2>
                     <?php if(!isset($_SESSION['u_id'])) {
-                      echo '<p style="color: red;">Log in in order to do a new post!</p>';
+                      echo '<p style="color: red;">Login, in order to do a new post !</p>';
                     }?>
 									</header>
 

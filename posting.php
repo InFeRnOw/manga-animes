@@ -10,7 +10,7 @@
 -->
 <html>
 	<head>
-		<title>Register</title>
+		<title>Post</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
               <div class="row">
               <div class="col-lg-4 col-md-4 col-xs-12"> <input type="text" name="title" placeholder="Title" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px;"></div>
               <div class="col-lg-4 col-md-4 col-xs-12">
-                          <SELECT class="selectpicker" name="status" size="1" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px; margin-top: 9.5px;">
+                          <SELECT class="selectpicker" name="status" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px; margin-top: 9.5px;">
                                  <option value="" hidden disabled selected>Status</option>
                                  <OPTION value="In progress"><p>In progress</p>
                                  <OPTION value="On breack"><p>On breack</p>
@@ -80,7 +80,7 @@
 
 
                 <div class="col-lg-4 col-md-4 col-xs-12">
-                            <SELECT class="selectpicker" name="type" size="1" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px; margin-top: 9.5px;">
+                            <SELECT class="selectpicker" name="type" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px; margin-top: 9.5px;">
                                  <option value="" hidden disabled selected>Type</option>
                                  <OPTION value="Shōnen"><p>Shōnen</p>
                                  <OPTION value="Shōjo"><p>Shōjo</p>
