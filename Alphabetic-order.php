@@ -69,10 +69,11 @@
                     }?>
 									</header>
 
-                                      <div>
-
+                  <?php if(isset($_SESSION['u_id'])) {
+                    echo '<a href="posting.php" class="button" style="background-color: rgba(59, 87, 135, 1) !important; color: white !important; margin-bottom: 10px;">New post</a>';
+                  }?>
                                     <FORM>
-                                        <SELECT name="AlphabeticOrder" size="1" >
+                                        <SELECT class="selectpicker" name="alphabeticOrder" style="border-radius: 5px; margin-top: 10px; margin-bottom: 10px; cursor: pointer;">
 
                                  <OPTION value="A"><p>A</p>
                                  <OPTION value="B"><p>B</p>
@@ -106,8 +107,7 @@
                                         </SELECT>
                                     </FORM>
 
-            </div>
-
+<div style="border: 2px solid rgba(0,0,0,0.5); margin-bottom: 40px; border-radius: 10px;"></div>
 
     <script>
         $(document).ready(function () {
@@ -117,10 +117,6 @@
              }, 1000);
         });
     </script>
-
-                    <?php if(isset($_SESSION['u_id'])) {
-                      echo '</br><a href="posting.php" class="button" style="background-color: rgba(59, 87, 135, 1) !important; color: white !important; margin-bottom: 10px;">New post</a>';
-                    }?>
 
                         <div class="post">
                             <?php include 'INCLUDES/postInsert-inc.php' ?>

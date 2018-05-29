@@ -6,6 +6,13 @@
             window.location.href="login.php";
         </script>';
     }
+    else if ($_GET['status'] == logout) {
+      session_start(); //Start the current session
+      session_unset();
+      session_destroy(); //Destroy it! So we are logged out now
+      header("Location: ../index.php?logout=succes");
+      exit();
+    }
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -36,7 +43,7 @@
           <nav id="nav">
             <ul>
               <li><a href="index.php">Home</a></li>
-                
+
                     <li>
                     <a href="#">Correspondence</a>
                                     <ul>
@@ -47,7 +54,12 @@
                     </li>
               <li><a href="News.php">News</a></li>
               <li><a href="Donate.php">Donate</a></li>
-              <li class="current"><a href="account.php">Account</a></li>
+              <li class="current"><?php if (isset($_SESSION['u_id'])) {
+              echo "<a href='account.php?status=logout'>Logout</a>";
+              }
+              else {
+                echo '<a href="login.php">Login</a>';
+              } ?></li>
             </ul>
           </nav>
 

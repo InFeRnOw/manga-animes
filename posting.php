@@ -80,7 +80,7 @@
 
 
                 <div class="col-lg-4 col-md-4 col-xs-12">
-                            <SELECT class="selectpicker" name="type" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px; margin-top: 9.5px;">
+                            <SELECT class="selectpicker" name="type" size="1" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px; margin-top: 9.5px;">
                                  <option value="" hidden disabled selected>Type</option>
                                  <OPTION value="Shōnen"><p>Shōnen</p>
                                  <OPTION value="Shōjo"><p>Shōjo</p>
