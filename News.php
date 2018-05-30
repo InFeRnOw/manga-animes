@@ -87,8 +87,21 @@
 											</header>
 
 											<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
+                                            
+                                            <h3>- Actual Version : Alpha 0.2</h3>
+											<p>
+                                                - Login / register working <br>
+                                                - Correspondence system working <br>
+                                                - Every "nav" are working <br>
+                                                - News/Home/Correspondence html pages : Done <br>
+                                                - Github redirect link working <br>
+                                                - Ranks <br>
+                                                - Add "In vote" correspondence Anime <br>
+                                                - Verify <br>
 
-											<h3>Actual Version : Alpha 0.1</h3>
+                                            </p>
+
+											<h3>- Alpha 0.1</h3>
 											<p>
                                                 - Login / register working <br>
                                                 - Correspondence system working <br>
@@ -98,12 +111,10 @@
                                             </p>
 
 								            <h3>Future features :</h3>
-											<p> - Ranks <br>
+											<p>
                                                 - Better css/html <br>
-                                                - Add "In vote" correspondence Anime <br>
                                                 - Donate page <br>
                                                 - Social medias <br>
-                                                - Verify <br>
                                                 - Bug report <br>
                                                 - Rules <br>
                                                 - Images <br>

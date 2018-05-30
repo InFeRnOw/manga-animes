@@ -69,7 +69,7 @@
 								<div class="box highlight">
 									<i class="icon major fa-paper-plane"></i>
 									<h3>News</h3>
-									<p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.</p>
+									<p>Latest news about our website and the upcoming features!</p>
                                        <a href="News.php" class="button">News</a>
 								</div>
 							</section>
@@ -77,7 +77,7 @@
 								<div class="box highlight">
 									<i class="icon major fa-pencil"></i>
 									<h3>Help us!</h3>
-									<p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.</p>
+                                    <p>As we don't put any ad on our website, we need your support to help us!</p>
                                        <a href="Donate.php" class="button">Donate</a>
 								</div>
 							</section>
@@ -85,7 +85,7 @@
 								<div class="box highlight">
 									<i class="icon major fa-wrench"></i>
 									<h3>Join us!</h3>
-									<p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.</p>
+									<p>If you want to be able to post a correspondence, be sure to join us!</p>
                                        <a href="register.php" class="button">Join us!</a>
 								</div>
 							</section>
