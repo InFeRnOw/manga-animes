@@ -1,19 +1,6 @@
 <?php
     session_start();
     include_once 'INCLUDES/dbh-inc.php';
-
-    $link = $_GET['link'];
-    $sql = "SELECT * FROM posts WHERE p_link = '$link'";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
-
-    $title = $row['p_title'];
-    $content = $row['p_content'];
-    $type = $row['p_type'];
-    $id = $_SESSION['u_id'];
-    $likes = $row['p_likes'];
-    $dislikes = $row['p_dislikes'];
-    $active = $row['p_active'];
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -23,7 +10,7 @@
 -->
 <html>
 	<head>
-		<title><?php echo $title; ?></title>
+		<title>Manga-Animes</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -41,7 +28,7 @@
 				<div id="header">
 
 					<!-- Logo -->
-						<h1><a href="index.php" id="logo">Manga-Animes</a></h1>
+						<h1><a href="index.html" id="logo">Manga-Animes</a></h1>
 
 					<!-- Nav -->
 						<nav id="nav">
@@ -50,10 +37,11 @@
 								<li>
 									<a href="#">Correspondence</a>
 									<ul>
-                                        <li><a href="Top-Anime.php">Top Anime</a></li>
+								        <li><a href="Top-Anime.php">Top Anime</a></li>
                                         <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
 										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
-                                        <li><a href="In%20vote.php">In vote</a></li>
+                                        <li class="current"><a href="In%20vote.php">In vote</a></li>
+
 									</ul>
 								</li>
 								<li><a href="News.php">News</a></li>
@@ -77,61 +65,63 @@
 
 								<article>
 									<header>
-										<h2><?php echo $title;  ?></h2>
-                                        <p><?php echo $type;  ?></p>
+										<h2>In vote</h2>
+                    <?php if(!isset($_SESSION['u_id'])) {
+                      echo '<p style="color: red;">Login, in order to vote!</p>';
+                    }?>
 									</header>
-                <?php if ($active == 0) {
-                  $sql = "SELECT * FROM users WHERE user_id='$id'";
-                  $result = mysqli_query($conn, $sql);
-                  $row = mysqli_fetch_assoc($result);
-                  if($row['rank'] <= 2 && isset($_SESSION['u_id'])) {
-                    $_SESSION['link'] = $link;
-                    echo "<form id=voteForm action='INCLUDES/vote-inc.php' method='POST'>
-                    <div class='container-fluid'>
-                      <div class='row'>
-                      <div class='col-lg-3 col-sm-6 col-xs-12'>
-                        <button style='color: rgba(0,102,0,1); margin-bottom: 5px;' class='button' type='submit' name='accept'>Accept</button>
-                      </div>
-                        <div class='col-lg-3 col-sm-6 col-xs-12'>
-                          <button style='color: rgba(0,255,0,1); margin-bottom: 5px;' class='button' type='submit' name='like'>Like ".$likes."</button>
-                        </div>
-                        <div class='col-lg-3 col-sm-6 col-xs-12'>
-                          <button style='color: red; margin-bottom: 5px;' class='button' type='submit' name='dislike'>Dislike ".$dislikes."</button>
-                        </div>
-                        <div class='col-lg-3 col-sm-6 col-xs-12'>
-                          <button style='color: rgba(102,0,51,1); margin-bottom: 5px;' class='button' type='submit' name='deny'>Deny</button>
-                        </div>
-                      </div>
-                    </div>
-                    </form>";
-                  }
-                  else if($row['rank'] == 3 && isset($_SESSION['u_id'])) {
-                    $_SESSION['link'] = $link;
-                    echo "<form id=voteForm action='INCLUDES/vote-inc.php' method='POST'>
-                    <div class='container-fluid'>
-                      <div class='row'>
-                        <div class='col-lg-6 col-sm-6 col-xs-12'>
-                          <button style='color: rgba(0,255,0,1); margin-bottom: 5px;' class='button' type='submit' name='like'>Like ".$likes."</button>
-                        </div>
-                        <div class='col-lg-6 col-sm-6 col-xs-12'>
-                          <button style='color: red; margin-bottom: 5px;' class='button' type='submit' name='dislike'>Dislike ".$dislikes."</button>
-                        </div>
-                      </div>
-                    </div>
-                    </form>";
-                  }
-                  else {
-                    echo "<p style='color: red;'>You need to login or register in order to vote on this post !</p>";
-                  }
-                }
-                ?>
-									<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
 
-									<p><?php echo $content;  ?></p>
+                                    <FORM>
+                                        <SELECT class="selectpicker" name="alphabeticOrder" style="border-radius: 5px; margin-top: 10px; margin-bottom: 10px; cursor: pointer;">
+
+                                 <OPTION value="A"><p>A</p>
+                                 <OPTION value="B"><p>B</p>
+                                 <OPTION value="C"><p>C</p>
+                                 <OPTION value="D"><p>D</p>
+                                 <OPTION value="E"><p>E</p>
+                                 <OPTION value="F"><p>F</p>
+                                 <OPTION value="G"><p>G</p>
+                                 <OPTION value="H"><p>H</p>
+                                 <OPTION value="I"><p>I</p>
+                                 <OPTION value="J"><p>J</p>
+                                 <OPTION value="K"><p>K</p>
+                                 <OPTION value="L"><p>L</p>
+                                 <OPTION value="M"><p>M</p>
+                                 <OPTION value="N"><p>N</p>
+                                 <OPTION value="O"><p>O</p>
+                                 <OPTION value="P"><p>P</p>
+                                 <OPTION value="Q"><p>Q</p>
+                                 <OPTION value="R"><p>R</p>
+                                 <OPTION value="S"><p>S</p>
+                                 <OPTION value="T"><p>T</p>
+                                 <OPTION value="U"><p>U</p>
+                                 <OPTION value="V"><p>V</p>
+                                 <OPTION value="W"><p>W</p>
+                                 <OPTION value="X"><p>X</p>
+                                 <OPTION value="Y"><p>Y</p>
+                                 <OPTION value="Z"><p>Z</p>
+                                 <OPTION value="n"><p>0->9</p>
+                                 <OPTION value="Other"><p>Other</p>
+
+                                        </SELECT>
+                                    </FORM>
+
+<div style="border: 2px solid rgba(0,0,0,0.5); margin-bottom: 40px; border-radius: 10px;"></div>
+
+    <script>
+        $(document).ready(function () {
+            $(".postBox").load("INCLUDES/postInsertInvalid-inc.php");
+                setInterval(function(){
+                 $('.postBox').load('INCLUDES/postInsertInvalid-inc.php');
+             }, 1000);
+        });
+    </script>
+
+                        <div class="post">
+                            <?php include 'INCLUDES/postInsertInvalid-inc.php' ?>
+                        </div>
+
 								</article>
-
-						</div>
-					</div>
 				</section>
 
 			<!-- Footer -->

@@ -38,6 +38,9 @@ if (isset($_POST['submit'])) {
                       exit();
                   }
                   elseif ($hashedPassCheck == true) {
+                    $sql = "SELECT * FROM users WHERE user_uid = '$uid'";
+                    $result = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_assoc($result);
                       //Login in the user here
                       $_SESSION['u_id'] = $row['user_id'];
                       $_SESSION['u_uid'] = $row['user_uid'];

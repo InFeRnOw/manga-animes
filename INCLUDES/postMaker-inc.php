@@ -14,6 +14,6 @@ if (isset($_POST['submit'])) {
     else {
         $sql = "INSERT INTO posts (p_user, p_title, p_status, p_type, p_content, p_link) VALUES ('$uid', '$title', '$status', '$type', '$content', '$pageLink');";
         $result = mysqli_query($conn, $sql);
-        header("Location: ../posting.php?post=success");
+        header("Location: ../post.php?post=success&link=$pageLink");
     }
 }

@@ -33,20 +33,20 @@
 							<li>
 								<a href="#">Correspondence</a>
 								<ul>
-											<li><a href="Top-Anime.php">Top Anime</a></li>
-																			<li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
+									<li><a href="Top-Anime.php">Top Anime</a></li>
+								    <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
 									<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
 								</ul>
 							</li>
-							<li><a href="News.php">News</a></li>
-							<li><a href="Donate.php">Donate</a></li>
-							<li class="current"><?php if (isset($_SESSION['u_id'])) {
-							echo '<a href="account.php">Account</a>';
-							}
-							else {
+							     <li><a href="News.php">News</a></li>
+							     <li><a href="Donate.php">Donate</a></li>
+							     <li class="current"><?php if (isset($_SESSION['u_id'])) {
+							 echo '<a href="account.php">Account</a>';
+							 }
+							 else {
 								echo '<a href="login.php">Login</a>';
-							} ?></li>
-						</ul>
+                                } ?></li>
+				        </ul>
 					</nav>
 
 				</div>
