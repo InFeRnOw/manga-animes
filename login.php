@@ -36,6 +36,8 @@
 									<li><a href="Top-Anime.php">Top Anime</a></li>
 								    <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
 									<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
+                                    <li><a href="In%20vote.php">In vote</a></li>
+
 								</ul>
 							</li>
 							     <li><a href="News.php">News</a></li>
@@ -148,13 +150,12 @@
 						</div>
 					</div>
 
-					<!-- Icons -->
+						<!-- Icons -->
 						<ul class="icons">
 							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
-							<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+							<li><a href="https://github.com/InFeRnOw/manga-animes" class="icon fa-github"><span class="label">GitHub</span></a></li>
+							<!-- <li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li> -->
 						</ul>
 
 					<!-- Copyright -->

@@ -62,7 +62,7 @@
 								<article>
 									<header>
 										<h2>Seasonal Anime</h2>
-										<p>All content, all the time.</p>
+                                        <p>Here all the seasonal animes!</p>
 									</header>
 
 									<span class="image featured"><img src="images/banner.jpg" alt="" /></span>

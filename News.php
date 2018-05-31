@@ -95,9 +95,9 @@
                                                 - Every "nav" are working <br>
                                                 - News/Home/Correspondence html pages : Done <br>
                                                 - Github redirect link working <br>
-                                                - Ranks <br>
-                                                - Add "In vote" correspondence Anime <br>
-                                                - Verify <br>
+                                                - Ranks working <br>
+                                                - Add "In vote" correspondence Anime Done<br>
+                                                - Verify working <br>
 
                                             </p>
 

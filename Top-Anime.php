@@ -58,10 +58,10 @@
 						<div id="content">
 
 							<!-- Content -->
-
-								<article>
+                                <article>
 									<header>
-s										<p>All content, all the time.</p>
+										<h2>Top Anime</h2>
+                                        <p>The most famous animes!</p>
 									</header>
 
 									<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
