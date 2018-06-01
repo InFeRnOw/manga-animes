@@ -15,6 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
+    <script src="js/secondairy.js"></script>
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	</head>
@@ -63,6 +64,17 @@
 									<!-- Sidebar -->
 
 										<section>
+                      <?php
+                       $id = $_SESSION['u_id'];
+                        $sql = "SELECT * FROM users WHERE user_id='$id'";
+                        $result = mysqli_query($conn, $sql);
+                        $row = mysqli_fetch_assoc($result);
+                        if($row['rank'] <= 2 && isset($_SESSION['u_id'])) {
+                          echo '<h3>Edit news</h3>
+                          <a href="NewsPost.php"><button class="button" type="button" style="background-color: grey;">Edit</button></a>
+                          </br>';
+                        }
+                      ?>
 											<h3>About us</h3>
 											<p>We are two high school students, who wanted for a school project to do an Anime Website.</p>
 										</section>
@@ -82,12 +94,16 @@
 
 										<article>
 											<header>
-												<h2>News</h2>
+                        <?php
+                        $sql = "SELECT * FROM news WHERE n_id = 1";
+                        $result = mysqli_query($conn, $sql);
+                        $row = mysqli_fetch_assoc($result);
+                        echo $row['n_content'];
+                        ?>
+												<!-- <h2>News</h2>
 												<p>Here the lastest news about our websites!</p>
 											</header>
 
-											<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
-                                            
                                             <h3>- Actual Version : Alpha 0.2</h3>
 											<p>
                                                 - Login / register working <br>
@@ -120,7 +136,7 @@
                                                 - Images <br>
                                                 - Personnal account stuff <br>
 
-                                            </p>
+                                            </p> -->
 
 										</article>
 
