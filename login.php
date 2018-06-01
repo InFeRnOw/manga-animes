@@ -36,8 +36,6 @@
 									<li><a href="Top-Anime.php">Top Anime</a></li>
 								    <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
 									<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
-                                    <li><a href="In%20vote.php">In vote</a></li>
-
 								</ul>
 							</li>
 							     <li><a href="News.php">News</a></li>
@@ -63,17 +61,28 @@
 				<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
 			<?php if(!isset($_GET['login'])) {
 				echo "<h1>Login</h1>";
+				if(isset($_GET['account']) && $_GET['account'] == "activated") {
+					$accountCheck = $_GET['account'];
+					echo "<p style='color: green;'>Account activatation success. Welcome on manga-animes !</p>";
+				}
+				else if (isset($_GET['register']) && $_GET['register'] == "success") {
+					echo "<p style='color: green;'>Registration success. Please check your emails !</p>";
+				}
 			}
 			else {
 			  $loginCheck = $_GET['login'];
+				$accountCheck = $_GET['account'];
 			    if($loginCheck == "empty") {
-			      echo "<p style='color: red;'>Some fields are empty !</p>";
+			      echo "<h1>Login</h1>
+						<p style='color: red;'>Some fields are empty !</p>";
 			    }
 			    elseif ($loginCheck == "notactivated") {
-			      echo "<p style='color: red;'>Your account must be activated first !</p>";
+			      echo "<h1>Login</h1>
+						<p style='color: red;'>Your account must be activated first !</p>";
 			    }
 			    elseif ($loginCheck == "error") {
-			      echo "<p style='color: red;'>Password or username not valid !</p>";
+			      echo "<h1>Login</h1>
+						<p style='color: red;'>Password or username not valid !</p>";
 			    }
 			}  ?>
 			<form action='INCLUDES/login-inc.php' method='POST'>
@@ -150,12 +159,13 @@
 						</div>
 					</div>
 
-						<!-- Icons -->
+					<!-- Icons -->
 						<ul class="icons">
 							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-							<li><a href="https://github.com/InFeRnOw/manga-animes" class="icon fa-github"><span class="label">GitHub</span></a></li>
-							<!-- <li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li> -->
+							<li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
 						</ul>
 
 					<!-- Copyright -->

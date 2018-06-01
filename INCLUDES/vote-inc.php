@@ -42,7 +42,7 @@ else if(isset($_POST['like'])) {
   $sql = "UPDATE posts SET p_likes=p_likes + 1 WHERE p_link='$post'";
   $result = mysqli_query($conn, $sql);
 
-  if($likes == 99) {
+  if($likes == 9) {
     $sql = "UPDATE posts SET p_active=1 WHERE p_link='$post'";
     $result = mysqli_query($conn, $sql);
     header("Location: ../Alphabetic-order.php?vote=success&link=$post");
@@ -64,7 +64,7 @@ else if(isset($_POST['dislike'])) {
 
   $sql = "UPDATE posts SET p_dislikes=p_dislikes + 1 WHERE p_link='$post'";
   $result = mysqli_query($conn, $sql);
-  if($dislikes == 99) {
+  if($dislikes == 9) {
     $sql = "DELETE FROM posts WHERE p_link='$post'";
     $result = mysqli_query($conn, $sql);
     header("Location: ../In%20vote.php?vote=success&link=$post");

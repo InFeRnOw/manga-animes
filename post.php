@@ -10,10 +10,15 @@
     $title = $row['p_title'];
     $content = $row['p_content'];
     $type = $row['p_type'];
+    $genre = $row['p_genre'];
     $id = $_SESSION['u_id'];
     $likes = $row['p_likes'];
     $dislikes = $row['p_dislikes'];
     $active = $row['p_active'];
+    $titleen = $row['p_titleen'];
+    $genre = $row['p_genre'];
+    $statusmanga = $row['p_statusmanga'];
+    $status = $row['p_status'];
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -77,8 +82,19 @@
 
 								<article>
 									<header>
-										<h2><?php echo $title;  ?></h2>
-                                        <p><?php echo $type;  ?></p>
+                    <h2><?php echo $title;  ?></h2>
+                    <h3><?php echo $titleen;  ?></h3>
+                  </br>
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><p><?php echo "Type: ".$type;  ?></p></div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><p><?php echo "Genre: ".$genre;  ?></p></div>
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><p><?php echo "Status Manga: ".$statusmanga;  ?></p></div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><p><?php echo "Status Anime: ".$status;  ?></p></div>
+                      </div>
+                    </div>
 									</header>
                 <?php if ($active == 0) {
                   $sql = "SELECT * FROM users WHERE user_id='$id'";

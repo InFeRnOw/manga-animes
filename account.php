@@ -6,7 +6,7 @@
             window.location.href="login.php";
         </script>';
     }
-    else if ($_GET['status'] == logout) {
+    else if ($_GET['status'] == "logout") {
       session_start(); //Start the current session
       session_unset();
       session_destroy(); //Destroy it! So we are logged out now
@@ -25,8 +25,12 @@
 		<title>Manga-Animes</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/secondairy.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	</head>
@@ -78,9 +82,73 @@
 									<header>
 										<?php echo '<h2>' .$_SESSION["u_uid"]. '</h2>';?>
 										<p>Customize your profile</p>
-									</header>
 
-									<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
+                              <?php $id = $_SESSION['u_id'];
+                                    $sql = "SELECT * FROM users";
+                                    $result = mysqli_query($conn, $sql);
+                                    if (mysqli_num_rows($result) > 0) {
+                                        if ($row = mysqli_fetch_assoc($result)) {
+                                            $id = $_SESSION['u_id'];
+                                            $sqlImg = "SELECT * FROM profileimg WHERE userid='$id'";
+                                            $resultImg = mysqli_query($conn, $sqlImg);
+                                            if ($rowImg = mysqli_fetch_assoc($resultImg)) {
+                                                    if ($rowImg['status'] == 0) {
+                                                      $filename = "uploads/profile".$id."*";
+                                                      $fileinfo = glob($filename);
+                                                      $fileext = explode(".", $fileinfo[0]);
+                                                      $fileActualExt = $fileext[1];
+                                                        echo '<div class="container-fluid">
+                                                          <div class="row">
+                                                            <div class="col-lg-12 col-xs-12">
+                                                              <img class="avatarOfUser" src="../uploads/profile'.$id.'.'.$fileActualExt.'?'.mt_rand().'">
+                                                              <p style="font-size:12px;">Only jpg, jpeg, png and ico is supported</p>
+                                                            </div>
+                                                          </div>
+                                                              <form action="INCLUDES/upload-inc.php" method="POST" enctype="multipart/form-data">
+                                                                <div class="row">
+                                                                <div class="col-lg-4 col-xs-1"></div>
+                                                                  <div class="col-lg-4 col-xs-10"><input class="fileSelector btn btn-basic" type="file" name="avatar" style="width: 100%; margin-left: 0;"></div>
+                                                                  <div class="col-lg-4 col-xs-1"></div>
+                                                                  </div>
+                                                                  <div class="row">
+                                                                  <div class="col-lg-12 col-xs-12"><button class="fileSubmit button" type="submit" name="submit" style="border: 2px solid green">Save</button></div>
+                                                                </div>
+                                                              </form>
+                                                            </div>
+                                                            </br>
+                                                          <div class="col-lg-12 col-xs-12">
+                                                            <form action="INCLUDES/delete-inc.php" method="POST">
+                                                                <button class="fileDelete button" type="submit" name="submit" style="border: 2px solid red">Delete</button>
+                                                            </form>
+                                                          </div>
+                                                          </br>
+                                                        </br>';
+                                                    }
+                                                    else {
+                                                        echo '<div class="container-fluid">
+                                                        <div class="row">
+                                                          <div class="col-lg-12 col-xs-12">
+                                                            <img class="avatarOfUser" src="images/symbol_questionmark.png">
+                                                            <p style="font-size:12px;">Only jpg is supported</p>
+                                                          </div>
+                                                        </div>
+                                                            <form action="INCLUDES/upload-inc.php" method="POST" enctype="multipart/form-data">
+                                                              <div class="row">
+                                                              <div class="col-lg-4 col-xs-1"></div>
+                                                                <div class="col-lg-4 col-xs-10"><input class="fileSelector btn btn-basic" type="file" name="avatar" style="width: 100%; margin-left: 0;"></div>
+                                                                <div class="col-lg-4 col-xs-1"></div>
+                                                                </div>
+                                                                <div class="row">
+                                                                <div class="col-lg-12 col-xs-12"><button class="fileSubmit button" type="submit" name="submit">Save</button></div>
+                                                              </div>
+                                                            </form>
+                                                          </div>
+                                                          </br>';
+                                                    }
+                                                  }
+                                                }
+                                        }?>
+									</header>
 
 									<p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus.
 									Praesent semper mod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat.

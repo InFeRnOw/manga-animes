@@ -69,6 +69,7 @@
         }
         else {
           $registerCheck = $_GET['register'];
+            echo "<h1>Register</h1>";
 
             if($registerCheck == "empty") {
               echo "<p style='color: red;'>Some fields are empty !</p>";
@@ -98,6 +99,7 @@
         </div>
                         <br/>
             <div class='col-lg-12 col-xs-12'><button class='button' type='submit' name='submit'>Register</button></div>
+            <a class='hasAccount' href='login.php'><p>Already have an account ?</p></a>
           </div>
        </form>
 

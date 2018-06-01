@@ -149,10 +149,10 @@ function transformDivData()// This runs the code once your browser has finished 
         <form name="compForm" action="INCLUDES/postMaker-inc.php" method="POST" onsubmit="if(validateMode()){this.myDoc.value=oDoc.innerHTML;return true;}return false;">
           <div class="container-fluid" style="text-align: center;">
               <div class="row">
-              <div class="col-lg-4 col-md-4 col-xs-12"> <input type="text" name="title" placeholder="Title" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px;"></div>
+              <div class="col-lg-4 col-md-4 col-xs-12"> <input type="text" name="title" placeholder="Japanese Title" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px;"></div>
               <div class="col-lg-4 col-md-4 col-xs-12">
                           <SELECT class="selectpicker" name="status" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px; margin-top: 9.5px;">
-                                 <option value="" hidden disabled selected>Status</option>
+                                 <option value="" hidden disabled selected>Anime Status</option>
                                  <OPTION value="In progress"><p>In progress</p>
                                  <OPTION value="On breack"><p>On breack</p>
                                  <OPTION value="Ended"><p>Ended</p>
@@ -164,28 +164,80 @@ function transformDivData()// This runs the code once your browser has finished 
                 <div class="col-lg-4 col-md-4 col-xs-12">
                             <SELECT class="selectpicker" name="type" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px; margin-top: 9.5px;">
                                  <option value="" hidden disabled selected>Type</option>
+
+                                 <OPTION value="Kodomo"><p>Kodomo</p>
                                  <OPTION value="Shōnen"><p>Shōnen</p>
                                  <OPTION value="Shōjo"><p>Shōjo</p>
                                  <OPTION value="Seinen"><p>Seinen</p>
                                  <OPTION value="Josei"><p>Josei</p>
-                                 <OPTION value="Harem"><p>Harem</p>
-                                 <OPTION value="Reverse Harem"><p>Reverse Harem</p>
-                                 <OPTION value="Romance"><p>Romance</p>
-                                 <OPTION value="Comedy"><p>Comedy</p>
-                                 <OPTION value="Ecchi"><p>Ecchi</p>
-                                 <OPTION value="Mecha"><p>Mecha</p>
-                                 <OPTION value="Lolicon"><p>Lolicon</p>
-                                 <OPTION value="Shotacon"><p>Shotacon</p>
-                                 <OPTION value="Drama"><p>Drama</p>
-                                 <OPTION value="Supernatural"><p>Supernatural</p>
-                                 <OPTION value="Slice of Life"><p>Slice of Life</p>
-                                 <OPTION value="Hentai"><p>Hentai</p>
-                                 <OPTION value="Yaoi"><p>Yaoi</p>
-                                 <OPTION value="Yuri"><p>Yuri</p>
+                                 <OPTION value="Seijin"><p>Seijin</p>
 
                           </SELECT>
              </div>
            </div>
+             <div class="row">
+              <div class="col-lg-4 col-md-4 col-xs-12"> <input type="text" name="titleEn" placeholder="English Title" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px;"></div>
+
+                  <div class="col-lg-4 col-md-4 col-xs-12">
+                          <SELECT class="selectpicker" name="statusManga" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px; margin-top: 9.5px;">
+                               <option value="" hidden disabled selected>Manga Status</option>
+                                 <OPTION value="In progress"><p>In progress</p>
+                                 <OPTION value="On breack"><p>On breack</p>
+                                 <OPTION value="Ended"><p>Ended</p>
+
+                         </SELECT>
+                                        </div>
+
+
+
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                            <SELECT class="selectpicker" name="genre" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px; margin-top: 9.5px;">
+                                 <option value="" hidden disabled selected>Genre</option>
+                                 <OPTION value="Action"><p>Action</p>
+                                 <OPTION value="Adventure"><p>Adventure</p>
+                                 <OPTION value="Comedy"><p>Comedy</p>
+                                 <OPTION value="Drama"><p>Drama</p>
+                                 <OPTION value="Slice of Life"><p>Slice of Life</p>
+                                 <OPTION value="Fantasy"><p>Fantasy</p>
+                                 <OPTION value="Magic"><p>Magic</p>
+                                 <OPTION value="Supernatural"><p>Supernatural</p>
+                                 <OPTION value="Horror"><p>Horror</p>
+                                 <OPTION value="Mystery"><p>Mystery</p>
+                                 <OPTION value="Psychological"><p>Psychological</p>
+                                 <OPTION value="Romance"><p>Sci-fi</p>
+                                 <OPTION value="Cyberpunk"><p>Cyberpunk</p>
+                                 <OPTION value="Game"><p>Game</p>
+                                 <OPTION value="Ecchi"><p>Ecchi</p>
+                                 <OPTION value="Demons"><p>Demons</p>
+                                 <OPTION value="Martial Arts"><p>Martial Arts</p>
+                                 <OPTION value="Historical"><p>Historical</p>
+                                 <OPTION value="Hentai"><p>Hentai</p>
+                                 <OPTION value="Isekai"><p>Isekai</p>
+                                 <OPTION value="Military"><p>Military</p>
+                                 <OPTION value="Mecha"><p>Mecha</p>
+                                 <OPTION value="Music"><p>Music</p>
+                                 <OPTION value="Parody"><p>Parody</p>
+                                 <OPTION value="Police"><p>Police</p>
+                                 <OPTION value="Post-Apocalyptic"><p>Post-Apocalyptic</p>
+                                 <OPTION value="Reverse Harem"><p>Reverse Harem</p>
+                                 <OPTION value="School"><p>School</p>
+                                 <OPTION value="Shōnen-ai"><p>Shōnen-ai</p>
+                                 <OPTION value="Shōjo-ai"><p>Shōjo-ai</p>
+                                 <OPTION value="Space"><p>Space</p>
+                                 <OPTION value="Sports"><p>Sports</p>
+                                 <OPTION value="Super Power"><p>Super Power</p>
+                                 <OPTION value="Tragedy"><p>Tragedy</p>
+                                 <OPTION value="Vampire"><p>Vampire</p>
+                                 <OPTION value="Yuri"><p>Yuri</p>
+                                 <OPTION value="Yaoi"><p>Yaoi</p>
+
+
+
+                          </SELECT>
+             </div>
+
+                                     </div>
+
              <div class="row">
                <input type="hidden" name="myDoc">
                <div id="toolBar1">
