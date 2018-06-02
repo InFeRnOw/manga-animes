@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 if (isset($_POST['submit'])) {
 
@@ -51,6 +51,8 @@ if (isset($_POST['submit'])) {
 
                     $sql = "SELECT * FROM users WHERE user_uid = '$uid'";
                     $result = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_assoc($result);
+                    $id = $row['user_id'];
 
                     $destinataire = $email;
                     $sujet = "Activate your account";
@@ -59,7 +61,7 @@ if (isset($_POST['submit'])) {
 
 To activate your account, please go to this link.
 
-your activation link: www.manga-animes.com/verify.php?cle='.$cle.'&uid='.$uid.'
+your activation link: https://www.manga-animes.com/verify.php?cle='.$cle.'&uid='.$uid.'&id='.$id.'
 
 
 ---------------
@@ -67,13 +69,6 @@ This is an automatic mail, please do not respond.';
 
 mail($destinataire, $sujet, $message, $entete);
 
-                    if (mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            $userid = $row['user_id'];
-                            $sql = "INSERT INTO profileimg (userid, status) VALUES ('$userid', 1)";
-                            mysqli_query($conn, $sql);
-                        }
-                    }
                     header("Location: ../login.php?register=success");
                     exit();
                 }

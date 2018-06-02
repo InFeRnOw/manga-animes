@@ -22,21 +22,21 @@ if (isset($_POST['submit'])) {
                 if (move_uploaded_file($fileTmpName, $fileDestination)) {
                     $sql ="INSERT INTO profileimg (userid, status) VALUES ('$id', 0);";
                     $result = mysqli_query($conn, $sql);
-                    header("Location: ../account.php?upload=success");
+                    header("Location: ../settings.php?upload=success");
                 }
                 else {
-                    header("Location: ../account.php?upload=failed");
+                    header("Location: ../settings.php?upload=failed");
                 }
             }
             else {
-                header("Location: ../account.php?upload=toobigfile");
+                header("Location: ../settings.php?upload=toobigfile");
             }
         }
         else {
-            header("Location: ../account.php?upload=error");
+            header("Location: ../settings.php?upload=error");
         }
     }
     else {
-        header("Location: ../account.php?upload=invalidtype");
+        header("Location: ../settings.php?upload=invalidtype");
     }
 }

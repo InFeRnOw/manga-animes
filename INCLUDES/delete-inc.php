@@ -11,13 +11,13 @@ $fileActualExt = $fileext[1];
 $file = "../uploads/profile".$id.".".$fileActualExt;
 
 if (!unlink($file)) {
-  header("Location: ../account.php?delete=failed");
+  header("Location: ../settings.php?delete=failed");
 }
 else {
-  header("Location: ../account.php?delete=success");
+  header("Location: ../setting.php?delete=success");
 }
 
 $sql = "UPDATE profileimg SET status=1 WHERE userid='$id';";
 mysqli_query($conn, $sql);
 
-header("Location: ../account.php?delete=success");
+header("Location: ../settings.php?delete=success");

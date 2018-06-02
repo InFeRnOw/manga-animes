@@ -65,12 +65,20 @@
 <?php include_once 'INCLUDES/dbh-inc.php';
 $uid = $_GET['uid'];
 $cle = $_GET['cle'];
+$id = $_GET['id'];
 $sql = "SELECT * FROM users WHERE user_key = '$cle'";
 $result = mysqli_query($conn, $sql);
     if ($row = mysqli_fetch_assoc($result)) {
         if ($row['user_key'] == $cle) {
             $sql = "UPDATE users SET user_active=1 WHERE user_uid='$uid'";
             $result = mysqli_query($conn, $sql);
+
+						$sql = "INSERT INTO profiles (pf_link, pf_user) VALUES ('$id', '$uid')";
+						$result = mysqli_query($conn, $sql);
+
+						$sql = "INSERT INTO profileimg (userid, status) VALUES ('$id', 1)";
+						$result = mysqli_query($conn, $sql);
+
             header("Location: ../login.php?account=activated");
             exit();
         }
