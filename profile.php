@@ -70,7 +70,12 @@
               <li><a href="News.php">News</a></li>
               <li><a href="Donate.php">Donate</a></li>
               <li class="current"><?php if (isset($_SESSION['u_id'])) {
-              echo "<a href='account.php?status=logout'>Logout</a>";
+                if ($_SESSION['u_id'] !== $id) {
+                  echo "<a href='account.php'>Account</a>";
+                }
+                else {
+                  echo "<a href='account.php?status=logout'>Logout</a>";
+                }
               }
               else {
                 echo '<a href="login.php">Login</a>';
@@ -83,8 +88,14 @@
 			<!-- Main -->
 				<section class="wrapper style1">
 					<div class="container">
-						<div class="row 200%">
-							<div class="8u 12u(narrower)">
+                <?php if ($_SESSION['u_id'] == $id) {
+                echo '<div class="row 200%">
+                <div class="8u 12u(narrower)">';
+                }
+                else {
+                  echo '<div>
+                  <div>';
+                }?>
 								<div id="content">
 
 									<!-- Content -->
@@ -141,41 +152,38 @@
 
 								</div>
 							</div>
-							<div class="4u 12u(narrower)">
-								<div id="sidebar">
-
-									<!-- Sidebar -->
-
-										<section>
-                      <?php ?>
-											<h3>Friends</h3>
-                      <?php include 'INCLUDES/errors-inc.php'; ?>
-                      <form action="INCLUDES/friendRequest-inc.php" method="POST">
-                        <div class="container-fluid">
-                          <h4>Add a friend</h4>
-                          <div class="row">
-                            <div class="col-lg-10 col-sm-10 col-xs-10"><input type=text name=userAdd placeholder="Add friend"></div>
-                            <div class="col-lg-2 col-sm-2 col-xs-2"><button type="submit" name="addSubmit" style="width: auto !important; height: 2.8em; margin-top: 0.05em; border-radius: 50%; background-color: #37c0fb; color: white;"><b>Add</b></button></div>
+                      <?php if ($_SESSION['u_id'] == $id) {
+                        include 'INCLUDES/errors-inc.php';
+                        echo '<div class="4u 12u(narrower)">
+          								<div id="sidebar">
+          										<section>
+                        <form action="INCLUDES/friendRequest-inc.php" method="POST">
+                          <div class="container-fluid">
+                            <h4>Add a friend</h4>
+                            <div class="row">
+                              <div class="col-lg-10 col-sm-10 col-xs-10"><input type=text name=userAdd placeholder="Add friend"></div>
+                              <div class="col-lg-2 col-sm-2 col-xs-2"><button type="submit" name="addSubmit" style="width: auto !important; height: 2.8em; margin-top: 0.05em; border-radius: 50%; background-color: #37c0fb; color: white;"><b>Add</b></button></div>
+                            </div>
                           </div>
-                        </div>
-                      </form>
-                    </br>
-                    <div class='container-fluid'>
-                     <h4>Friend Requests</h4>
-                   </div>
-                      <?php include 'INCLUDES/friendRequestInsert-inc.php'; ?>
-                    </br>
-                    <div class='container-fluid'>
-                     <h4>Friend list</h4>
-                   </div>
-                      <?php include 'INCLUDES/friendListInsert-inc.php'; ?>
-											<footer>
-					               <p>/* FOOTER */</p>
-											</footer>
-										</section>
-
-								</div>
-							</div>
+                        </form>
+                      </br>
+                      <div class="container-fluid">
+                       <h4>Friend Requests</h4>
+                     </div>';
+                       include "INCLUDES/friendRequestInsert-inc.php";
+                      echo '</br>
+                      <div class="container-fluid">
+                       <h4>Friend list</h4>
+                     </div>';
+                        include "INCLUDES/friendListInsert-inc.php";
+  											echo '<footer>
+  					               <p>/* FOOTER */</p>
+  											</footer>
+  										</section>
+                      </div>
+      							</div>';
+                      }
+                      ?>
 						</div>
 					</div>
 				</section>

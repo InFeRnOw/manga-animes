@@ -78,4 +78,7 @@ else if(isset($_GET['link']) && isset($_GET['add']) || isset($_GET['request'])) 
     elseif ($requestCheck == "refused") {
       echo "<p style='color: green;'>Friend request successfully refused !</p>";
     }
+    elseif ($requestCheck == "deleted") {
+      echo "<p style='color: green;'>Friend successfully deleted !</p>";
+    }
 }
