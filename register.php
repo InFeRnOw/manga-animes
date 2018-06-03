@@ -49,7 +49,7 @@
                 echo '<a href="account.php">Account</a>';
                 }
                 else {
-                  echo '<a href="register.php">Register</a>';
+                  echo '<a href="register.php?register">Register</a>';
                 } ?></li>
 							</ul>
 						</nav>
@@ -64,29 +64,7 @@
 							<!-- Content -->
 
 				<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
-        <?php if(!isset($_GET['register'])) {
-          echo "<h1>Register</h1>";
-        }
-        else {
-          $registerCheck = $_GET['register'];
-            echo "<h1>Register</h1>";
-
-            if($registerCheck == "empty") {
-              echo "<p style='color: red;'>Some fields are empty !</p>";
-            }
-            elseif ($registerCheck == "emailinvalid") {
-              echo "<p style='color: red;'>Invalid email !</p>";
-            }
-            elseif ($registerCheck == "emailtaken") {
-              echo "<p style='color: red;'>Email is already used !</p>";
-            }
-            elseif ($registerCheck == "usernametaken") {
-              echo "<p style='color: red;'>Username is already used !</p>";
-            }
-            elseif ($registerCheck == "passwordconfirm") {
-              echo "<p style='color: red;'>Passwords do not match !</p>";
-            }
-        }  ?>
+        <?php include 'INCLUDES/errors-inc.php'?>
         <form action='INCLUDES/register-inc.php' method='POST'>
         <div id='loginForm' class='container-fluid'>
         <div class='row'>

@@ -201,7 +201,7 @@ function transformDivData()// This runs the code once your browser has finished 
                                                         <div class="row">
                                                           <div class="col-lg-12 col-xs-12">
                                                             <img class="avatarOfUser" src="images/symbol_questionmark.png">
-                                                            <p style="font-size:12px;">Only jpg is supported</p>
+                                                            <p style="font-size:12px;">Only jpg, jpeg, png and ico is supported</p>
                                                           </div>
                                                         </div>
                                                             <form action="INCLUDES/upload-inc.php" method="POST" enctype="multipart/form-data">

@@ -61,32 +61,7 @@
 							<!-- Content -->
 
 				<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
-			<?php if(!isset($_GET['login'])) {
-				echo "<h1>Login</h1>";
-				if(isset($_GET['account']) && $_GET['account'] == "activated") {
-					$accountCheck = $_GET['account'];
-					echo "<p style='color: green;'>Account activatation success. Welcome on manga-animes !</p>";
-				}
-				else if (isset($_GET['register']) && $_GET['register'] == "success") {
-					echo "<p style='color: green;'>Registration success. Please check your emails !</p>";
-				}
-			}
-			else {
-			  $loginCheck = $_GET['login'];
-				$accountCheck = $_GET['account'];
-			    if($loginCheck == "empty") {
-			      echo "<h1>Login</h1>
-						<p style='color: red;'>Some fields are empty !</p>";
-			    }
-			    elseif ($loginCheck == "notactivated") {
-			      echo "<h1>Login</h1>
-						<p style='color: red;'>Your account must be activated first !</p>";
-			    }
-			    elseif ($loginCheck == "error") {
-			      echo "<h1>Login</h1>
-						<p style='color: red;'>Password or username not valid !</p>";
-			    }
-			}  ?>
+			<?php include 'INCLUDES/errors-inc.php'?>
 			<form action='INCLUDES/login-inc.php' method='POST'>
 				<div id='loginForm' class='container-fluid'>
 				<div class='row'>
@@ -94,7 +69,7 @@
 				<div class='col-lg-6 col-xs-12'><input style='width: 100%; margin-left: 0;' class='password' type='password' name='pass'  placeholder='Password'></div>
 					<div class='col-lg-12 col-xs-12'>
 					<button style='margin-left: 0px; margin-top:5px; margin-bottom: 5px;' class='button' type='submit' name='submit'>Login</button>
-						<a class='noAccount' href='register.php'><p>Don't have an account ?</p></a>
+						<a class='noAccount' href='register.php?register'><p>Don't have an account ?</p></a>
 						<a class='forget' href='forget.php'><p>Forgot your password or username ?</p></a>
 						</div>
 					</div>

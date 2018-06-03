@@ -13,11 +13,17 @@ if (isset($_POST['submit'])) {
     //Check for empty fields
     if (empty($uid) || empty($pass1) || empty($email) || empty($pass2)) {
         header("Location: ../register.php?register=empty");
+        exit();
     }
     else {
         //Check if email is valid
         if ($pass1 !== $pass2) {
             header("Location: ../register.php?register=passwordconfirm");
+            exit();
+        }
+        elseif (preg_match("/([%\$#\*']+)/", $uid) || preg_match("/([%\$#\*']+)/", $pass1) || preg_match('/([%\$#\*"]+)/', $uid) || preg_match('/([%\$#\*"]+)/', $pass1)) {
+          header("Location: ../register.php?register=specialchars");
+          exit();
         }
         elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             header("Location: ../register.php?register=emailinvalid");
@@ -67,10 +73,10 @@ your activation link: https://www.manga-animes.com/verify.php?cle='.$cle.'&uid='
 ---------------
 This is an automatic mail, please do not respond.';
 
-mail($destinataire, $sujet, $message, $entete);
-
-                    header("Location: ../login.php?register=success");
-                    exit();
+  if (mail($destinataire, $sujet, $message, $entete)) {
+    header("Location: ../login.php?register=success");
+    exit();
+  }
                 }
             }
         }

@@ -83,61 +83,99 @@
 			<!-- Main -->
 				<section class="wrapper style1">
 					<div class="container">
-						<div id="content">
+						<div class="row 200%">
+							<div class="8u 12u(narrower)">
+								<div id="content">
 
-							<!-- Content -->
+									<!-- Content -->
 
-								<article>
-									<header>
-										<?php if ($_SESSION['u_id'] == $id) {
-                      echo '<h2>' .$user. ' <a href="settings.php" style="text-decoration: none; color: white !important;"><button class="btn glyphicon glyphicon-cog"></button></a></h2>';
-                    }
-                    else {
-                      echo '<h2>'.$user.'</h2>';
-                    }
-                    ?>
+										<article>
+											<header>
+                        <?php if ($_SESSION['u_id'] == $id) {
+                          echo '<h2>' .$user. ' <a href="settings.php" style="text-decoration: none; color: white !important;"><button class="btn glyphicon glyphicon-cog"></button></a></h2>';
+                        }
+                        else {
+                          echo '<h2>'.$user.'</h2>';
+                        }
+                        ?>
 
-                              <?php $id = $_GET['link'];
-                                    $sql = "SELECT * FROM users";
-                                    $result = mysqli_query($conn, $sql);
-                                    if (mysqli_num_rows($result) > 0) {
-                                        if ($row = mysqli_fetch_assoc($result)) {
-                                            $id = $_GET['link'];
-                                            $sqlImg = "SELECT * FROM profileimg WHERE userid='$id'";
-                                            $resultImg = mysqli_query($conn, $sqlImg);
-                                            if ($rowImg = mysqli_fetch_assoc($resultImg)) {
-                                                    if ($rowImg['status'] == 0) {
-                                                      $filename = "uploads/profile".$id."*";
-                                                      $fileinfo = glob($filename);
-                                                      $fileext = explode(".", $fileinfo[0]);
-                                                      $fileActualExt = $fileext[1];
-                                                        echo '<div class="container-fluid">
-                                                          <div class="row">
-                                                            <div class="col-lg-12 col-xs-12">
-                                                              <img class="avatarOfUser" src="../uploads/profile'.$id.'.'.$fileActualExt.'?'.mt_rand().'">
+                                  <?php $id = $_GET['link'];
+                                        $sql = "SELECT * FROM users";
+                                        $result = mysqli_query($conn, $sql);
+                                        if (mysqli_num_rows($result) > 0) {
+                                            if ($row = mysqli_fetch_assoc($result)) {
+                                                $id = $_GET['link'];
+                                                $sqlImg = "SELECT * FROM profileimg WHERE userid='$id'";
+                                                $resultImg = mysqli_query($conn, $sqlImg);
+                                                if ($rowImg = mysqli_fetch_assoc($resultImg)) {
+                                                        if ($rowImg['status'] == 0) {
+                                                          $filename = "uploads/profile".$id."*";
+                                                          $fileinfo = glob($filename);
+                                                          $fileext = explode(".", $fileinfo[0]);
+                                                          $fileActualExt = $fileext[1];
+                                                            echo '<div class="container-fluid">
+                                                              <div class="row">
+                                                                <div class="col-lg-12 col-xs-12">
+                                                                  <img class="avatarOfUser" src="../uploads/profile'.$id.'.'.$fileActualExt.'?'.mt_rand().'">
+                                                                </div>
+                                                              </div>
+                                                            </br>
+                                                          </br>';
+                                                        }
+                                                        else {
+                                                            echo '<div class="container-fluid">
+                                                            <div class="row">
+                                                              <div class="col-lg-12 col-xs-12">
+                                                                <img class="avatarOfUser" src="images/symbol_questionmark.png">
+                                                              </div>
                                                             </div>
-                                                          </div>
-                                                        </br>
-                                                      </br>';
+                                                          </br>';
+                                                        }
+                                                      }
                                                     }
-                                                    else {
-                                                        echo '<div class="container-fluid">
-                                                        <div class="row">
-                                                          <div class="col-lg-12 col-xs-12">
-                                                            <img class="avatarOfUser" src="images/symbol_questionmark.png">
-                                                          </div>
-                                                        </div>
-                                                      </br>';
-                                                    }
-                                                  }
-                                                }
-                                        }?>
-									</header>
-                  <h3>Description</h3>
-                  <?php echo $description; ?>
+                                            }?>
+    									</header>
+                      <h3>Description</h3>
+                      <?php echo $description; ?>
+										</article>
 
-								</article>
+								</div>
+							</div>
+							<div class="4u 12u(narrower)">
+								<div id="sidebar">
 
+									<!-- Sidebar -->
+
+										<section>
+                      <?php ?>
+											<h3>Friends</h3>
+                      <?php include 'INCLUDES/errors-inc.php'; ?>
+                      <form action="INCLUDES/friendRequest-inc.php" method="POST">
+                        <div class="container-fluid">
+                          <h4>Add a friend</h4>
+                          <div class="row">
+                            <div class="col-lg-10 col-sm-10 col-xs-10"><input type=text name=userAdd placeholder="Add friend"></div>
+                            <div class="col-lg-2 col-sm-2 col-xs-2"><button type="submit" name="addSubmit" style="width: auto !important; height: 2.8em; margin-top: 0.05em; border-radius: 50%; background-color: #37c0fb; color: white;">Add</button></div>
+                          </div>
+                        </div>
+                      </form>
+                    </br>
+                    <div class='container-fluid'>
+                     <h4>Friend Requests</h4>
+                   </div>
+                      <?php include 'INCLUDES/friendRequestInsert-inc.php'; ?>
+                    </br>
+                    <div class='container-fluid'>
+                     <h4>Friend list</h4>
+                   </div>
+                      <?php include 'INCLUDES/friendListInsert-inc.php'; ?>
+											<footer>
+					               <p>/* FOOTER */</p>
+											</footer>
+										</section>
+
+								</div>
+							</div>
 						</div>
 					</div>
 				</section>
@@ -199,7 +237,7 @@
 					</div>
 
 					<!-- Icons -->
-						<ul class="icons">
+							<ul class="icons">
 							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
 							<li><a href="https://github.com/InFeRnOw/manga-animes" class="icon fa-github"><span class="label">GitHub</span></a></li>
