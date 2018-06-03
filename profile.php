@@ -155,7 +155,7 @@
                           <h4>Add a friend</h4>
                           <div class="row">
                             <div class="col-lg-10 col-sm-10 col-xs-10"><input type=text name=userAdd placeholder="Add friend"></div>
-                            <div class="col-lg-2 col-sm-2 col-xs-2"><button type="submit" name="addSubmit" style="width: auto !important; height: 2.8em; margin-top: 0.05em; border-radius: 50%; background-color: #37c0fb; color: white;">Add</button></div>
+                            <div class="col-lg-2 col-sm-2 col-xs-2"><button type="submit" name="addSubmit" style="width: auto !important; height: 2.8em; margin-top: 0.05em; border-radius: 50%; background-color: #37c0fb; color: white;"><b>Add</b></button></div>
                           </div>
                         </div>
                       </form>
