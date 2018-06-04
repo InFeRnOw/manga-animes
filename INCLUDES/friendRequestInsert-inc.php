@@ -10,8 +10,8 @@ session_start();
          <div class='container-fluid'>
           <div class='row'>
           <div class='col-lg-8 col-sm-8 col-xs-8' style='margin-top: 0.5em;'><p><input type=hidden name=sender value=".$row['f_sender']." />".$row['f_sender']."</p></div>
-          <div class='col-lg-2 col-sm-2 col-xs-2'><button class='glyphicon glyphicon-plus' type='submit' name='acceptRequest' style='width: auto !important; height: 2.8em; margin-top: 0.05em; border-radius: 50%; background-color: #37c0fb; color: white;'></></button></div>
-          <div class='col-lg-2 col-sm-2 col-xs-2'><button class='glyphicon glyphicon-minus' type='submit' name='refuseRequest' style='width: auto !important; height: 2.8em; margin-top: 0.05em; border-radius: 50%; background-color: #37c0fb; color: white;'></button></div>
+          <div class='col-lg-2 col-sm-2 col-xs-2'><button class='glyphicon glyphicon-ok' type='submit' name='acceptRequest' style='width: auto !important; height: 2.8em; margin-top: 0.05em; border-radius: 50%; background-color: #37c0fb; color: white;'></></button></div>
+          <div class='col-lg-2 col-sm-2 col-xs-2'><button class='glyphicon glyphicon-remove' type='submit' name='refuseRequest' style='width: auto !important; height: 2.8em; margin-top: 0.05em; border-radius: 50%; background-color: #37c0fb; color: white;'></button></div>
           </div>
         </div>
       </form>";

@@ -58,7 +58,7 @@ else if(isset($_GET['link']) && isset($_GET['add']) || isset($_GET['request'])) 
   $requestCheck = $_GET['request'];
 
     if($addCheck == "error") {
-      echo "<p style='color: red;'>Some fields are empty ! Or you putted your username !</p>";
+      echo "<p style='color: red;'>You can't add yourself or nothing !</p>";
     }
     elseif ($addCheck == "noexist") {
       echo "<p style='color: red;'>User doesn't exist !</p>";

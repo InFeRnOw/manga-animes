@@ -25,7 +25,7 @@ session_start();
          <div class='container-fluid'>
           <div class='row'>
           <div class='col-lg-10 col-sm-10 col-xs-10' style='margin-top: 0.5em;'><a href='profile.php?link=$friendLink'><p style='color: black;'><input type=hidden name=sender value=".$friend." />".$friend."</p></a></div>
-          <div class='col-lg-2 col-sm-2 col-xs-2'><button class='glyphicon glyphicon-minus' type='submit' name='delete' style='width: auto !important; height: 2.8em; margin-top: 0.05em; border-radius: 50%; background-color: #37c0fb; color: white;'></button></div>
+          <div class='col-lg-2 col-sm-2 col-xs-2'><button class='glyphicon glyphicon-remove' type='submit' name='delete' style='width: auto !important; height: 2.8em; margin-top: 0.05em; border-radius: 50%; background-color: #37c0fb; color: white;'></button></div>
           </div>
         </div>
       </form>";
