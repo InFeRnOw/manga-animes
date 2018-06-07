@@ -10,11 +10,12 @@
 -->
 <html>
 	<head>
-		<title>Manga-Animes</title>
+		<title>News - Manga-Animes</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
+    <script src="js/secondairy.js"></script>
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	</head>
@@ -34,14 +35,14 @@
 								<li>
 									<a href="#">Correspondence</a>
 									<ul>
-								        <li class="current"><a href="Top-Anime.php">Top Anime</a></li>
+								        <li><a href="Top-Anime.php">Top Anime</a></li>
                                         <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
                                         <li><a href="latestPost.php">latest posts</a></li>
 										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
                                         <li><a href="In%20vote.php">In vote</a></li>
 									</ul>
 								</li>
-								<li><a href="News.php">News</a></li>
+								<li class="current"><a href="News.php">News</a></li>
 								<li><a href="Donate.php">Donate</a></li>
                 <li><?php if (isset($_SESSION['u_id'])) {
                 echo '<a href="account.php">Account</a>';
@@ -53,43 +54,44 @@
 						</nav>
 
 				</div>
+
 			<!-- Main -->
 				<section class="wrapper style1">
 					<div class="container">
-						<div id="content">
+						<div class="row 200%">
+							<div class="4u 12u(narrower)">
+								<div id="sidebar">
 
-							<!-- Content -->
-                                <article>
-									<header>
-										<h2>Top Anime</h2>
-                                        <p>The most famous animes!</p>
-									</header>
+									<!-- Sidebar -->
 
-									<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
+										<section>
+											<h3>About us</h3>
+											<p>We are two high school students, who wanted for a school project to do an Anime Website.</p>
+										</section>
 
-									<p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus.
-									Praesent semper mod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat.
-									Aliquam luctus et mattis lectus sit amet pulvinar. Nam turpis nisi
-									consequat etiam lorem ipsum dolor sit amet nullam.</p>
+                                    <section>
+											<h3>Some useful links</h3>
+												<a href="Rules.php" class="button">Rules</a>
+                                                <a href="#" class="button">Link 2</a>
+										</section>
 
-									<h3>And Yet Another Subheading</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac quam risus, at tempus
-									justo. Sed dictum rutrum massa eu volutpat. Quisque vitae hendrerit sem. Pellentesque lorem felis,
-									ultricies a bibendum id, bibendum sit amet nisl. Mauris et lorem quam. Maecenas rutrum imperdiet
-									vulputate. Nulla quis nibh ipsum, sed egestas justo. Morbi ut ante mattis orci convallis tempor.
-									Etiam a lacus a lacus pharetra porttitor quis accumsan odio. Sed vel euismod nisi. Etiam convallis
-									rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien.
-									Donec sagittis massa et leo semper a scelerisque metus faucibus. Morbi congue mattis mi.
-									Phasellus sed nisl vitae risus tristique volutpat. Cras rutrum commodo luctus.</p>
+								</div>
+							</div>
+							<div class="8u  12u(narrower) important(narrower)">
+								<div id="content">
 
-									<p>Phasellus odio risus, faucibus et viverra vitae, eleifend ac purus. Praesent mattis, enim
-									quis hendrerit porttitor, sapien tortor viverra magna, sit amet rhoncus nisl lacus nec arcu.
-									Suspendisse laoreet metus ut metus imperdiet interdum aliquam justo tincidunt. Mauris dolor urna,
-									fringilla vel malesuada ac, dignissim eu mi. Praesent mollis massa ac nulla pretium pretium.
-									Maecenas tortor mauris, consectetur pellentesque dapibus eget, tincidunt vitae arcu.
-									Vestibulum purus augue, tincidunt sit amet iaculis id, porta eu purus.</p>
-								</article>
+									<!-- Content -->
 
+										<article>
+
+											<header>
+                        <?php include "INCLUDES/newsInsert-inc.php"?>
+											</header>
+
+										</article>
+
+								</div>
+							</div>
 						</div>
 					</div>
 				</section>

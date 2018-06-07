@@ -1,6 +1,8 @@
 <?php
+
 /* LOGIN */
-if(!isset($_GET['login']) && !isset($_GET['register']) && !isset($_GET['link']) || $_GET['register'] == "success") {
+
+if(!isset($_GET['login']) && !isset($_GET['register']) && !isset($_GET['link']) && !isset($_GET['posting']) || $_GET['register'] == "success") {
   echo "<h1>Login</h1>";
   if(isset($_GET['account']) && $_GET['account'] == "activated") {
     $accountCheck = $_GET['account'];
@@ -26,7 +28,9 @@ else if(isset($_GET['login'])){
       <p style='color: red;'>Password or username not valid !</p>";
     }
 }
+
 /* REGISTER */
+
 else if(isset($_GET['register']) && $_GET['register'] !== "success") {
   $registerCheck = $_GET['register'];
     echo "<h1>Register</h1>";
@@ -82,3 +86,25 @@ else if(isset($_GET['link']) && isset($_GET['add']) || isset($_GET['request'])) 
       echo "<p style='color: green;'>Friend successfully deleted !</p>";
     }
 }
+
+/* POSTING */
+
+else if(isset($_GET['posting'])) {
+  $postingCheck = $_GET['posting'];
+    echo "<h1>New post</h1>";
+
+    if($postingCheck == "blank") {
+      echo "<p style='color: red;'>Some fields are empty !</p>";
+    }
+}
+
+else if(isset($_GET['edit'])) {
+  $editCheck = $_GET['edit'];
+    echo "<h1>Edit post</h1>";
+
+  if($postingCheck == "blank") {
+    echo "<p style='color: red;'>Some fields are empty !</p>";
+  }
+}
+
+/* VOTE */

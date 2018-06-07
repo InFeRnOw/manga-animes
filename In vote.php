@@ -39,6 +39,7 @@
 									<ul>
 								        <li><a href="Top-Anime.php">Top Anime</a></li>
                                         <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
+                                        <li><a href="latestPost.php">latest posts</a></li>
 										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
                                         <li class="current"><a href="In%20vote.php">In vote</a></li>
 
@@ -67,44 +68,75 @@
 									<header>
 										<h2>In vote</h2>
                     <?php if(!isset($_SESSION['u_id'])) {
-                      echo '<p style="color: red;">Login, in order to vote!</p>';
+                      echo '<p style="color: red;">Login, in order to do a new post !</p>';
                     }?>
 									</header>
 
-                                    <FORM>
-                                        <SELECT class="selectpicker" name="alphabeticOrder" style="border-radius: 5px; margin-top: 10px; margin-bottom: 10px; cursor: pointer;">
+                  <?php if(isset($_SESSION['u_id'])) {
+                    echo '<a href="posting.php?posting=new" class="button" style="background-color: rgba(59, 87, 135, 1) !important; color: white !important; margin-bottom: 10px;">New post</a>';
+                  }?>
+                <div style="margin-top: 25px;">
+                  <form action="INCLUDES/postInvoteOrder-inc.php" method="POST">
+                    <div class="container-fluid">
+                      <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              <SELECT class="selectpicker" name="alphabeticOrder" style="border-radius: 5px; margin-top: 10px; margin-bottom: 10px; cursor: pointer;">
 
-                                 <OPTION value="A"><p>A</p>
-                                 <OPTION value="B"><p>B</p>
-                                 <OPTION value="C"><p>C</p>
-                                 <OPTION value="D"><p>D</p>
-                                 <OPTION value="E"><p>E</p>
-                                 <OPTION value="F"><p>F</p>
-                                 <OPTION value="G"><p>G</p>
-                                 <OPTION value="H"><p>H</p>
-                                 <OPTION value="I"><p>I</p>
-                                 <OPTION value="J"><p>J</p>
-                                 <OPTION value="K"><p>K</p>
-                                 <OPTION value="L"><p>L</p>
-                                 <OPTION value="M"><p>M</p>
-                                 <OPTION value="N"><p>N</p>
-                                 <OPTION value="O"><p>O</p>
-                                 <OPTION value="P"><p>P</p>
-                                 <OPTION value="Q"><p>Q</p>
-                                 <OPTION value="R"><p>R</p>
-                                 <OPTION value="S"><p>S</p>
-                                 <OPTION value="T"><p>T</p>
-                                 <OPTION value="U"><p>U</p>
-                                 <OPTION value="V"><p>V</p>
-                                 <OPTION value="W"><p>W</p>
-                                 <OPTION value="X"><p>X</p>
-                                 <OPTION value="Y"><p>Y</p>
-                                 <OPTION value="Z"><p>Z</p>
-                                 <OPTION value="n"><p>0->9</p>
-                                 <OPTION value="Other"><p>Other</p>
+                <option value="" hidden disabled selected>Letter</option>
+                 <OPTION value="A"><p>A</p>
+                 <OPTION value="B"><p>B</p>
+                 <OPTION value="C"><p>C</p>
+                 <OPTION value="D"><p>D</p>
+                 <OPTION value="E"><p>E</p>
+                 <OPTION value="F"><p>F</p>
+                 <OPTION value="G"><p>G</p>
+                 <OPTION value="H"><p>H</p>
+                 <OPTION value="I"><p>I</p>
+                 <OPTION value="J"><p>J</p>
+                 <OPTION value="K"><p>K</p>
+                 <OPTION value="L"><p>L</p>
+                 <OPTION value="M"><p>M</p>
+                 <OPTION value="N"><p>N</p>
+                 <OPTION value="O"><p>O</p>
+                 <OPTION value="P"><p>P</p>
+                 <OPTION value="Q"><p>Q</p>
+                 <OPTION value="R"><p>R</p>
+                 <OPTION value="S"><p>S</p>
+                 <OPTION value="T"><p>T</p>
+                 <OPTION value="U"><p>U</p>
+                 <OPTION value="V"><p>V</p>
+                 <OPTION value="W"><p>W</p>
+                 <OPTION value="X"><p>X</p>
+                 <OPTION value="Y"><p>Y</p>
+                 <OPTION value="Z"><p>Z</p>
+                 <OPTION value="0"><p>0</p>
+                 <OPTION value="1"><p>1</p>
+                 <OPTION value="2"><p>2</p>
+                 <OPTION value="3"><p>3</p>
+                 <OPTION value="4"><p>4</p>
+                 <OPTION value="5"><p>5</p>
+                 <OPTION value="6"><p>6</p>
+                 <OPTION value="7"><p>7</p>
+                 <OPTION value="8"><p>8</p>
+                 <OPTION value="9"><p>9</p>
 
-                                        </SELECT>
-                                    </FORM>
+
+              </SELECT>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              <SELECT class="selectpicker" name="lang" style="border-radius: 5px; margin-top: 10px; margin-bottom: 10px; cursor: pointer;">
+
+                <option value="" hidden disabled selected>langage</option>
+                 <OPTION value="jap"><p>Japanese Title</p>
+                 <OPTION value="en"><p>English Title</p>
+
+              </SELECT>
+              </div>
+                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><button class="glyphicon glyphicon-refresh" type="submit" name="submit" style="border: 1px solid rgba(0,0,0,0); border-radius: 50%; color: white; margin-top: 10px"></button></div>
+                     </div>
+                    </div>
+                  </form>
+                </div>
 
 <div style="border: 2px solid rgba(0,0,0,0.5); margin-bottom: 40px; border-radius: 10px;"></div>
 
@@ -118,7 +150,12 @@
     </script>
 
                         <div class="post">
-                            <?php include 'INCLUDES/postInsertInvalid-inc.php' ?>
+                          <?php if ($_GET['lang'] == 'en') {
+                            include 'INCLUDES/postInsertInvalidEn-inc.php';
+                          }
+                          else {
+                            include 'INCLUDES/postInsertInvalidJap-inc.php';
+                          } ?>
                         </div>
 
 								</article>

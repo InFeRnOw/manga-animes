@@ -1,6 +1,19 @@
 <?php
     session_start();
     include_once 'INCLUDES/dbh-inc.php';
+
+    $content = $_GET['content'];
+    $title = $_GET['title'];
+    $titleEn = $_GET['titleEn'];
+
+    if(!isset($_GET['edit'])) {
+      $action = "INCLUDES/postMaker-inc.php";
+      $name = "New post";
+    }
+    else {
+      $action = "INCLUDES/postEdit-inc.php";
+      $name = "Edit post";
+    }
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -10,7 +23,7 @@
 -->
 <html>
 	<head>
-		<title>Post</title>
+		<title><?php echo $name ?></title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -86,7 +99,7 @@ function transformDivData()// This runs the code once your browser has finished 
     #toolBar1 select { font-size:10px; }
     #textBox {
       width: 100%;
-      height: auto;
+      min-height: 200px;
       border: 1px #000000 solid;
       border-radius: 10px;
       padding: 12px;
@@ -119,6 +132,7 @@ function transformDivData()// This runs the code once your browser has finished 
 									<ul>
 								        <li><a href="Top-Anime.php">Top Anime</a></li>
                                         <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
+                                        <li><a href="latestPost.php">latest posts</a></li>
 										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
                                         <li><a href="In%20vote.php">In vote</a></li>
 									</ul>
@@ -146,10 +160,10 @@ function transformDivData()// This runs the code once your browser has finished 
 				<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
           <?php include 'INCLUDES/errors-inc.php';  ?>
 
-        <form name="compForm" action="INCLUDES/postMaker-inc.php" method="POST" onsubmit="if(validateMode()){this.myDoc.value=oDoc.innerHTML;return true;}return false;">
+        <form name="compForm" action="<?php echo $action ?>" method="POST" onsubmit="if(validateMode()){this.myDoc.value=oDoc.innerHTML;return true;}return false;">
           <div class="container-fluid" style="text-align: center;">
               <div class="row">
-              <div class="col-lg-4 col-md-4 col-xs-12"> <input type="text" name="title" placeholder="Japanese Title" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px;"></div>
+              <div class="col-lg-4 col-md-4 col-xs-12"> <input type="text" name="title" value="<?php echo $title ?>" placeholder="Japanese Title" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px;"></div>
               <div class="col-lg-4 col-md-4 col-xs-12">
                           <SELECT class="selectpicker" name="status" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px; margin-top: 9.5px;">
                                  <option value="" hidden disabled selected>Anime Status</option>
@@ -176,7 +190,7 @@ function transformDivData()// This runs the code once your browser has finished 
              </div>
            </div>
              <div class="row">
-              <div class="col-lg-4 col-md-4 col-xs-12"> <input type="text" name="titleEn" placeholder="English Title" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px;"></div>
+              <div class="col-lg-4 col-md-4 col-xs-12"> <input type="text" name="titleEn" value="<?php echo $titleEn ?>" placeholder="English Title" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px;"></div>
 
                   <div class="col-lg-4 col-md-4 col-xs-12">
                           <SELECT class="selectpicker" name="statusManga" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px; margin-top: 9.5px;">
@@ -306,7 +320,7 @@ function transformDivData()// This runs the code once your browser has finished 
                    <img class="intLink" title="Paste" onclick="formatDoc('paste');" src="data:image/gif;base64,R0lGODlhFgAWAIQUAD04KTRLY2tXQF9vj414WZWIbXmOrpqbmpGjudClFaezxsa0cb/I1+3YitHa7PrkIPHvbuPs+/fvrvv8/f///////////////////////////////////////////////yH5BAEAAB8ALAAAAAAWABYAAAWN4CeOZGmeaKqubGsusPvBSyFJjVDs6nJLB0khR4AkBCmfsCGBQAoCwjF5gwquVykSFbwZE+AwIBV0GhFog2EwIDchjwRiQo9E2Fx4XD5R+B0DDAEnBXBhBhN2DgwDAQFjJYVhCQYRfgoIDGiQJAWTCQMRiwwMfgicnVcAAAMOaK+bLAOrtLUyt7i5uiUhADs=" />
                </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                  <div id="textBox" contenteditable="true"></div>
+                  <div id="textBox" contenteditable="true"><?php echo $content; ?></div>
                   <input id=formContent type="hidden" name="content" />
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

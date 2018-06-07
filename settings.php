@@ -94,7 +94,7 @@ function transformDivData()// This runs the code once your browser has finished 
     #toolBar1 select { font-size:10px; }
     #textBox {
       width: 100%;
-      height: 200px;
+      min-height: 200px;
       border: 1px #000000 solid;
       border-radius: 10px;
       padding: 12px;
@@ -127,6 +127,7 @@ function transformDivData()// This runs the code once your browser has finished 
 									<ul>
 								        <li><a href="Top-Anime.php">Top Anime</a></li>
                                         <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
+                                        <li><a href="latestPost.php">latest posts</a></li>
 										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
                                         <li><a href="In%20vote.php">In vote</a></li>
 									</ul>

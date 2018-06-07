@@ -1,7 +1,7 @@
 <?php
 session_start();
     include 'dbh-inc.php';
-    $sql = "SELECT * FROM posts WHERE p_active = 1 ORDER BY p_id DESC";
+    $sql = "SELECT * FROM posts WHERE p_active = 1 ORDER BY p_id DESC LIMIT 10";
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_assoc($result)) {
          echo "<div id='postBox' style='border: 1px solid rgba(0,0,0,0.3); border-radius: 15px; box-shadow: 2px 2px 2px rgba(0,0,0,0.2); background: white; margin-top: 10px; padding-top: 20px;'>
@@ -18,4 +18,3 @@ session_start();
           </div>
         </div>";
     }
-// post.php?link=$row[p_link]

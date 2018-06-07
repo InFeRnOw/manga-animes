@@ -8,6 +8,7 @@
     $row = mysqli_fetch_assoc($result);
 
     $title = $row['p_title'];
+    $pUser = $row['p_user'];
     $content = $row['p_content'];
     $type = $row['p_type'];
     $genre = $row['p_genre'];
@@ -57,6 +58,7 @@
 									<ul>
                                         <li><a href="Top-Anime.php">Top Anime</a></li>
                                         <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
+                                        <li><a href="latestPost.php">latest posts</a></li>
 										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
                                         <li><a href="In%20vote.php">In vote</a></li>
 									</ul>
@@ -105,17 +107,22 @@
                     echo "<form id=voteForm action='INCLUDES/vote-inc.php' method='POST'>
                     <div class='container-fluid'>
                       <div class='row'>
-                      <div class='col-lg-3 col-sm-6 col-xs-12'>
-                        <button style='color: rgba(0,102,0,1); margin-bottom: 5px;' class='button' type='submit' name='accept'>Accept</button>
+                      <div class='col-lg-6 col-sm-6 col-xs-12'>
+                        <button style='color: rgba(0,255,0,1); margin-bottom: 5px;' class='button' type='submit' name='like'>Like ".$likes."</button>
                       </div>
-                        <div class='col-lg-3 col-sm-6 col-xs-12'>
-                          <button style='color: rgba(0,255,0,1); margin-bottom: 5px;' class='button' type='submit' name='like'>Like ".$likes."</button>
-                        </div>
-                        <div class='col-lg-3 col-sm-6 col-xs-12'>
-                          <button style='color: red; margin-bottom: 5px;' class='button' type='submit' name='dislike'>Dislike ".$dislikes."</button>
-                        </div>
-                        <div class='col-lg-3 col-sm-6 col-xs-12'>
-                          <button style='color: rgba(102,0,51,1); margin-bottom: 5px;' class='button' type='submit' name='deny'>Deny</button>
+                      <div class='col-lg-6 col-sm-6 col-xs-12'>
+                        <button style='color: red; margin-bottom: 5px;' class='button' type='submit' name='dislike'>Dislike ".$dislikes."</button>
+                      </div>
+                      </div>
+                      <div class='row'>
+                      <div class='col-lg-4 col-sm-4 col-xs-12'>
+                        <button style='background-color: green; color: white; margin-bottom: 5px;' class='button' type='submit' name='accept'>Accept</button>
+                      </div>
+                      <div class='col-lg-4 col-sm-4 col-xs-12'>
+                        <button style='background-color: grey; color: white; margin-bottom: 5px;' class='button' type='submit' name='edit'>Edit</button>
+                      </div>
+                        <div class='col-lg-4 col-sm-4 col-xs-12'>
+                          <button style='background-color: red; color: white; margin-bottom: 5px;' class='button' type='submit' name='deny'>Deny</button>
                         </div>
                       </div>
                     </div>
@@ -123,18 +130,40 @@
                   }
                   else if($row['rank'] == 3 && isset($_SESSION['u_id'])) {
                     $_SESSION['link'] = $link;
-                    echo "<form id=voteForm action='INCLUDES/vote-inc.php' method='POST'>
-                    <div class='container-fluid'>
-                      <div class='row'>
-                        <div class='col-lg-6 col-sm-6 col-xs-12'>
-                          <button style='color: rgba(0,255,0,1); margin-bottom: 5px;' class='button' type='submit' name='like'>Like ".$likes."</button>
+                    if($_SESSION['u_uid'] == $pUser) {
+                      echo "<form id=voteForm action='INCLUDES/vote-inc.php' method='POST'>
+                      <div class='container-fluid'>
+                        <div class='row'>
+                        <div class='col-lg-3 col-sm-6 col-xs-12'>
+                          <button style='background-color: grey; color: white; margin-bottom: 5px;' class='button' type='submit' name='edit'>Edit</button>
                         </div>
-                        <div class='col-lg-6 col-sm-6 col-xs-12'>
-                          <button style='color: red; margin-bottom: 5px;' class='button' type='submit' name='dislike'>Dislike ".$dislikes."</button>
+                          <div class='col-lg-3 col-sm-6 col-xs-12'>
+                            <button style='color: rgba(0,255,0,1); margin-bottom: 5px;' class='button' type='submit' name='like'>Like ".$likes."</button>
+                          </div>
+                          <div class='col-lg-3 col-sm-6 col-xs-12'>
+                            <button style='color: red; margin-bottom: 5px;' class='button' type='submit' name='dislike'>Dislike ".$dislikes."</button>
+                          </div>
+                          <div class='col-lg-3 col-sm-6 col-xs-12'>
+                            <button style='background-color: red; color: white; margin-bottom: 5px;' class='button' type='submit' name='deny'>Delete</button>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    </form>";
+                      </form>";
+                    }
+                    else {
+                      echo "<form id=voteForm action='INCLUDES/vote-inc.php' method='POST'>
+                      <div class='container-fluid'>
+                        <div class='row'>
+                          <div class='col-lg-6 col-sm-6 col-xs-12'>
+                            <button style='color: rgba(0,255,0,1); margin-bottom: 5px;' class='button' type='submit' name='like'>Like ".$likes."</button>
+                          </div>
+                          <div class='col-lg-6 col-sm-6 col-xs-12'>
+                            <button style='color: red; margin-bottom: 5px;' class='button' type='submit' name='dislike'>Dislike ".$dislikes."</button>
+                          </div>
+                        </div>
+                      </div>
+                      </form>";
+                    }
                   }
                   else {
                     echo "<p style='color: red;'>You need to login or register in order to vote on this post !</p>";

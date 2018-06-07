@@ -32,6 +32,7 @@
 									<ul>
 								        <li><a href="Top-Anime.php">Top Anime</a></li>
                                         <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
+																				<li><a href="latestPost.php">latest posts</a></li>
 										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
                                         <li><a href="In%20vote.php">In vote</a></li>
 									</ul>
@@ -79,7 +80,7 @@ $result = mysqli_query($conn, $sql);
 						$sql = "INSERT INTO profileimg (userid, status) VALUES ('$id', 1)";
 						$result = mysqli_query($conn, $sql);
 
-            header("Location: ../login.php?account=activated");
+            header("Location: ../login.php?account=activated&uid=$uid");
             exit();
         }
         else {

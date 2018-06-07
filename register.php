@@ -39,6 +39,7 @@
 									<ul>
 								        <li><a href="Top-Anime.php">Top Anime</a></li>
                                         <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
+                                        <li><a href="latestPost.php">latest posts</a></li>
 										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
                                         <li><a href="In%20vote.php">In vote</a></li>
 									</ul>
@@ -65,15 +66,19 @@
 
 				<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
         <?php include 'INCLUDES/errors-inc.php'?>
+        <?php if ($_GET['uid'] && $_GET['email']) {
+          $username = $_GET['uid'];
+          $userEmail = $_GET['email'];
+        } ?>
         <form action='INCLUDES/register-inc.php' method='POST'>
         <div id='loginForm' class='container-fluid'>
         <div class='row'>
-          <div class='col-lg-6 col-xs-12'><input style='width: 100%; margin-left: 0;' class='username' type='text' name='uid' placeholder='Username'></div>
+          <div class='col-lg-6 col-xs-12'><input style='width: 100%; margin-left: 0;' class='username' type='text' value="<?php echo $username ?>" name='uid' placeholder='Username' maxlength="20"></div>
           <div class='col-lg-6 col-xs-12'><input style='width: 100%; margin-left: 0;' type='password' name='pass1' placeholder='Password'></div>
         </div>
         <div class='row'>
           <div class='col-lg-6 col-xs-12'><input style='width: 100%; margin-left: 0;' type='password' name='pass2' placeholder='Confirm password'></div>
-          <div class='col-lg-6 col-xs-12'><input style='width: 100%; margin-left: 0;' type='text' name='email' placeholder='Email'></div>
+          <div class='col-lg-6 col-xs-12'><input style='width: 100%; margin-left: 0;' type='text' value="<?php echo $userEmail ?>" name='email' placeholder='Email'></div>
         </div>
                         <br/>
             <div class='col-lg-12 col-xs-12'><button class='button' type='submit' name='submit'>Register</button></div>

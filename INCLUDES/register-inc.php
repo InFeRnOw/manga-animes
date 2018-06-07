@@ -12,13 +12,13 @@ if (isset($_POST['submit'])) {
     //Error handlers
     //Check for empty fields
     if (empty($uid) || empty($pass1) || empty($email) || empty($pass2)) {
-        header("Location: ../register.php?register=empty");
+        header("Location: ../register.php?register=empty&uid=$uid&email=$email");
         exit();
     }
     else {
         //Check if email is valid
         if ($pass1 !== $pass2) {
-            header("Location: ../register.php?register=passwordconfirm");
+            header("Location: ../register.php?register=passwordconfirm&uid=$uid&email=$email");
             exit();
         }
         elseif (preg_match("/([%\$#\*']+)/", $uid) || preg_match("/([%\$#\*']+)/", $pass1) || preg_match('/([%\$#\*"]+)/', $uid) || preg_match('/([%\$#\*"]+)/', $pass1)) {
@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
           exit();
         }
         elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            header("Location: ../register.php?register=emailinvalid");
+            header("Location: ../register.php?register=emailinvalid&uid=$uid&email=$email");
             exit();
         }
         else {
@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
             $resultCheck = mysqli_num_rows($result);
 
             if ($resultCheck > 0) {
-                header("Location: ../register.php?register=usernametaken");
+                header("Location: ../register.php?register=usernametaken&uid=$uid&email=$email");
                 exit();
             }
             elseif ($resultCheck == 0) {
@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
                 $resultCheck = mysqli_num_rows($result);
 
                 if ($resultCheck > 0) {
-                    header("Location: ../register.php?register=emailtaken");
+                    header("Location: ../register.php?register=emailtaken&uid=$uid&email=$email");
                     exit();
                 }
                 else {
@@ -74,7 +74,7 @@ your activation link: https://www.manga-animes.com/verify.php?cle='.$cle.'&uid='
 This is an automatic mail, please do not respond.';
 
   if (mail($destinataire, $sujet, $message, $entete)) {
-    header("Location: ../login.php?register=success");
+    header("Location: ../login.php?register=success&uid=$uid");
     exit();
   }
                 }
