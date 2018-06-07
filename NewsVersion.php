@@ -10,11 +10,12 @@
 -->
 <html>
 	<head>
-		<title>Manga-Animes</title>
+		<title>News - Manga-Animes</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
+    <script src="js/secondairy.js"></script>
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	</head>
@@ -30,7 +31,7 @@
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li class="current"><a href="index.php">Home</a></li>
+								<li><a href="index.php">Home</a></li>
 								<li>
 									<a href="#">Correspondence</a>
 									<ul>
@@ -54,107 +55,58 @@
 
 				</div>
 
-			<!-- Banner -->
-				<section id="banner">
-					<header>
-						<h2>Manga-Animes: <em>A site for referencing your favorite mangas and animes</em></h2>
-						<a href="Rules.php" class="button">Our rules</a>
-					</header>
-				</section>
-
-			<!-- Highlights -->
+			<!-- Main -->
 				<section class="wrapper style1">
 					<div class="container">
 						<div class="row 200%">
-							<section class="4u 12u(narrower)">
-								<div class="box highlight">
-									<i class="icon major fa-paper-plane"></i>
-									<h3>News</h3>
-									<p>Latest news about our website and the upcoming features!</p>
-                                       <a href="News.php" class="button">News</a>
-								</div>
-							</section>
-							<section class="4u 12u(narrower)">
-								<div class="box highlight">
-									<i class="icon major fa-pencil"></i>
-									<h3>Help us!</h3>
-                                    <p>As we don't put any ad on our website, we need your support to help us!</p>
-                                       <a href="Donate.php" class="button">Donate</a>
-								</div>
-							</section>
-							<section class="4u 12u(narrower)">
-								<div class="box highlight">
-									<i class="icon major fa-wrench"></i>
-									<h3>Join us!</h3>
-									<p>If you want to be able to post a correspondence, be sure to join us!</p>
-                                       <a href="register.php" class="button">Join us!</a>
-								</div>
-							</section>
-						</div>
-					</div>
-				</section>
+							<div class="4u 12u(narrower)">
+								<div id="sidebar">
 
-			<!-- Gigantic Heading -->
-				<section class="wrapper style2">
-					<div class="container">
-						<header class="major">
-						</header>
-					</div>
-				</section>
+									<!-- Sidebar -->
 
-			<!-- Posts -->
-				<section class="wrapper style1">
-					<div class="container">
-						<div class="row">
-							<section class="6u 12u(narrower)">
-								<div class="box post">
-									<a href="#" class="image left"><img src="images/pic01.jpg" alt="" /></a>
-									<div class="inner">
-										<h3>Admin</h3>
-										<p>The power of a king.</p>
-									</div>
-								</div>
-							</section>
-							<section class="6u 12u(narrower)">
-								<div class="box post">
-									<a href="#" class="image left"><img src="images/pic02.jpg" alt="" /></a>
-									<div class="inner">
-										<h3>Moderator</h3>
-                                        <p>Can post whatever he wants and helps us manage the commuity.</p>
-									</div>
-								</div>
-							</section>
-						</div>
-						<div class="row">
-							<section class="6u 12u(narrower)">
-								<div class="box post">
-									<a href="#" class="image left"><img src="images/pic03.jpg" alt="" /></a>
-									<div class="inner">
-										<h3>Member</h3>
-										<p>Can suggest a correspondence.</p>
-									</div>
-								</div>
-							</section>
-							<section class="6u 12u(narrower)">
-								<div class="box post">
-									<a href="#" class="image left"><img src="images/pic04.jpg" alt="" /></a>
-									<div class="inner">
-										<h3>No rank</h3>
-										<p>Can see all correspondence.</p>
-									</div>
-								</div>
-							</section>
-						</div>
-					</div>
-				</section>
+										<section>
+                      <?php
+                       $id = $_SESSION['u_id'];
+                        $sql = "SELECT * FROM users WHERE user_id='$id'";
+                        $result = mysqli_query($conn, $sql);
+                        $row = mysqli_fetch_assoc($result);
+                        if($row['rank'] <= 2 && isset($_SESSION['u_id'])) {
+                          echo '<h3>Edit news</h3>
+                          <a href="NewsPost.php"><button class="button" type="button" style="background-color: grey;">Edit</button></a>
+                          </br>';
+                        }
+                      ?>
+											<h3>About us</h3>
+											<p>We are two high school students, who wanted for a school project to do an Anime Website.</p>
+										</section>
 
-			<!-- CTA -->
-				<section id="cta" class="wrapper style3">
-					<div class="container">
-						<header>
-							<h2>Join our community and help us grow !</h2>
-							<a href="register.php" class="button">Register now</a>
-						</header>
+                                    <section>
+											<h3>Some useful links</h3>
+												<a href="Rules.php" class="button">Rules</a>
+                                                <a href="#" class="button">Link 2</a>
+										</section>
+
+								</div>
+							</div>
+							<div class="8u  12u(narrower) important(narrower)">
+								<div id="content">
+
+									<!-- Content -->
+
+										<article>
+											<header>
+                        <?php
+                        $sql = "SELECT * FROM news WHERE n_id = 1";
+                        $result = mysqli_query($conn, $sql);
+                        $row = mysqli_fetch_assoc($result);
+                        echo $row['n_content'];
+                        ?>
+								
+										</article>
+
+								</div>
+							</div>
+						</div>
 					</div>
 				</section>
 
@@ -165,7 +117,7 @@
 							<section class="3u 6u(narrower) 12u$(mobilep)">
 								<h3>Links to Stuff</h3>
 								<ul class="links">
-									<li><a href="Bonus.php">Mattis et quis rutrum</a></li>
+									<li><a href="#">Mattis et quis rutrum</a></li>
 									<li><a href="#">Suspendisse amet varius</a></li>
 									<li><a href="#">Sed et dapibus quis</a></li>
 									<li><a href="#">Rutrum accumsan dolor</a></li>
@@ -187,7 +139,7 @@
 								</ul>
 							</section>
 							<section class="6u 12u(narrower)">
-								<h3>Contact us</h3>
+								<h3>Get In Touch</h3>
 								<form>
 									<div class="row 50%">
 										<div class="6u 12u(mobilep)">
@@ -215,13 +167,12 @@
 					</div>
 
 					<!-- Icons -->
-						<ul class="icons">
+							<ul class="icons">
 							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
 							<li><a href="https://github.com/InFeRnOw/manga-animes" class="icon fa-github"><span class="label">GitHub</span></a></li>
 							<!-- <li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li> -->
 						</ul>
-
 					<!-- Copyright -->
 						<div class="copyright">
 							<ul class="menu">
