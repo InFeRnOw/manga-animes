@@ -132,7 +132,7 @@ function transformDivData()// This runs the code once your browser has finished 
 									<ul>
 								        <li><a href="Top-Anime.php">Top Anime</a></li>
                                         <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
-                                        <li><a href="latestPost.php">latest posts</a></li>
+                                        <li><a href="latestPost.php">Latest posts</a></li>
 										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
                                         <li><a href="In%20vote.php">In vote</a></li>
 									</ul>
@@ -168,7 +168,7 @@ function transformDivData()// This runs the code once your browser has finished 
                           <SELECT class="selectpicker" name="status" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px; margin-top: 9.5px;">
                                  <option value="" hidden disabled selected>Anime Status</option>
                                  <OPTION value="In progress"><p>In progress</p>
-                                 <OPTION value="On breack"><p>On breack</p>
+                                 <OPTION value="On break"><p>On break</p>
                                  <OPTION value="Ended"><p>Ended</p>
 
                          </SELECT>
@@ -196,7 +196,7 @@ function transformDivData()// This runs the code once your browser has finished 
                           <SELECT class="selectpicker" name="statusManga" style="border-color: black; margin-left: 0; width: 100%; border-radius:5px; height: 50px; margin-top: 9.5px;">
                                <option value="" hidden disabled selected>Manga Status</option>
                                  <OPTION value="In progress"><p>In progress</p>
-                                 <OPTION value="On breack"><p>On breack</p>
+                                 <OPTION value="On break"><p>On break</p>
                                  <OPTION value="Ended"><p>Ended</p>
 
                          </SELECT>
