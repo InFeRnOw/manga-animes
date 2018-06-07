@@ -14,13 +14,31 @@
       exit();
     }
     else {
-      $id = $_GET['link'];
+      $to = $_GET["to"];
+      $from = $_GET["from"];
+        $sql = "SELECT * FROM chatrooms WHERE chat_to='$to' AND chat_from='$from' OR chat_to='$from' AND chat_from='$to'";
+        $result = mysqli_query($conn, $sql);
+        $resultCheck = mysqli_num_rows($result);
 
-      $sql = "SELECT * FROM profiles WHERE pf_link='$id'";
-      $result = mysqli_query($conn, $sql);
-      $row = mysqli_fetch_assoc($result);
-      $user = $row['pf_user'];
-      $description = $row['pf_description'];
+        if ($resultCheck < 1) {
+          $sql = "INSERT INTO chatrooms (chat_to, chat_from) VALUES ('$to', '$from')";
+          $result = mysqli_query($conn, $sql);
+        }
+        else {
+          $sql = "SELECT * FROM chatroom WHERE chat_to='$to' AND chat_from='$from' OR chat_to='$from' AND chat_from='$to'";
+          $result = mysqli_query($conn, $sql);
+          $row = mysqli_fetch_assoc($result);
+          $roomId = $row['chat_id'];
+
+          $sql = "SELECT * FROM chat WHERE chat_room_id='$roomId'";
+          $result = mysqli_query($conn, $sql);
+          $resultCheck = mysqli_num_rows($result);
+
+          if($resultCheck < 1) {
+            $sql = "INSERT INTO chat (chat_room_id, chat_room_text) VALUES ('$roomId', '')";
+            $result = mysqli_query($conn, $sql);
+          }
+        }
     }
 ?>
 <!DOCTYPE HTML>
@@ -89,106 +107,44 @@
 			<!-- Main -->
 				<section class="wrapper style1">
 					<div class="container">
-                <?php if ($_SESSION['u_id'] == $id) {
-                echo '<div class="row 200%">
-                <div class="8u 12u(narrower)">';
-                }
-                else {
-                  echo '<div>
-                  <div>';
-                }?>
 								<div id="content">
 
 									<!-- Content -->
 
 										<article>
 											<header>
-                        <?php if ($_SESSION['u_id'] == $id) {
-                          echo '<h2>' .$user. ' <a href="settings.php" style="text-decoration: none; color: white !important;"><button class="btn glyphicon glyphicon-cog"></button></a></h2>';
-                        }
-                        else {
-                          $to = $_GET['link'];
-                          $from = $_SESSION['u_id'];
-                          echo '<h2>'.$user.' <a href="chat.php?to='.$to.'&from='.$from.'" style="text-decoration: none; color: white !important;"><button class="btn glyphicon glyphicon-envelope"></button></a></h2>';
-                        }
-                        ?>
-
-                                  <?php $id = $_GET['link'];
-                                        $sql = "SELECT * FROM users";
-                                        $result = mysqli_query($conn, $sql);
-                                        if (mysqli_num_rows($result) > 0) {
-                                            if ($row = mysqli_fetch_assoc($result)) {
-                                                $id = $_GET['link'];
-                                                $sqlImg = "SELECT * FROM profileimg WHERE userid='$id'";
-                                                $resultImg = mysqli_query($conn, $sqlImg);
-                                                if ($rowImg = mysqli_fetch_assoc($resultImg)) {
-                                                        if ($rowImg['status'] == 0) {
-                                                          $filename = "uploads/profile".$id."*";
-                                                          $fileinfo = glob($filename);
-                                                          $fileext = explode(".", $fileinfo[0]);
-                                                          $fileActualExt = $fileext[1];
-                                                            echo '<div class="container-fluid">
-                                                              <div class="row">
-                                                                <div class="col-lg-12 col-xs-12">
-                                                                  <img class="avatarOfUser" src="../uploads/profile'.$id.'.'.$fileActualExt.'?'.mt_rand().'">
-                                                                </div>
-                                                              </div>
-                                                            </br>
-                                                          </br>';
-                                                        }
-                                                        else {
-                                                            echo '<div class="container-fluid">
-                                                            <div class="row">
-                                                              <div class="col-lg-12 col-xs-12">
-                                                                <img class="avatarOfUser" src="images/symbol_questionmark.png">
-                                                              </div>
-                                                            </div>
-                                                          </br>';
-                                                        }
-                                                      }
-                                                    }
-                                            }?>
+                        <?php ?>
     									</header>
-                      <h3>Description</h3>
-                      <?php echo $description; ?>
+
+                      <script>
+                          $(document).ready(function () {
+                              $(".postBox").load("INCLUDES/chatTextInsert-inc.php");
+                                  setInterval(function(){
+                                   $('.postBox').load('INCLUDES/chatTextInsert-inc.php');
+                               }, 1000);
+                          });
+                      </script>
+                                          <div class="chatRooms">
+                                              <?php include 'INCLUDES/chatTextInsert-inc.php'?>
+                                          </div>
 										</article>
 
-								</div>
-							</div>
-                      <?php if ($_SESSION['u_id'] == $id) {
-                        include 'INCLUDES/errors-inc.php';
-                        echo '<div class="4u 12u(narrower)">
-          								<div id="sidebar">
-          										<section>
-                        <form action="INCLUDES/friendRequest-inc.php" method="POST">
-                          <div class="container-fluid">
-                            <h4>Add a friend</h4>
-                            <div class="row">
-                              <div class="col-lg-10 col-sm-10 col-xs-10"><input type=text name=userAdd placeholder="Add friend"></div>
-                              <div class="col-lg-2 col-sm-2 col-xs-2"><button type="submit" name="addSubmit" style="width: auto !important; height: 2.8em; margin-top: 0.05em; border-radius: 50%; background-color: #37c0fb; color: white;"><b>Add</b></button></div>
-                            </div>
-                          </div>
-                        </form>
-                      </br>
-                      <div class="container-fluid">
-                       <h4>Friend Requests</h4>
-                     </div>';
-                       include "INCLUDES/friendRequestInsert-inc.php";
-                      echo '</br>
-                      <div class="container-fluid">
-                       <h4>Friend list</h4>
-                     </div>';
-                        include "INCLUDES/friendListInsert-inc.php";
-  											echo '<footer>
-  					               <p>/* FOOTER */</p>
-  											</footer>
-  										</section>
-                      </div>
-      							</div>';
-                      }
-                      ?>
 						</div>
 					</div>
+          <form>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <input type="text" name="chatInput" maxlength="20" placeholder="Message..."/>
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                <button class="button" type="submit" name="chatInput" style="width: 100%;">Send</button>
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+            </div>
+          </div>
+        </form>
 				</section>
 
 			<!-- Footer -->
