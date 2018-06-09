@@ -37,7 +37,7 @@
 									<ul>
 								        <li><a href="Top-Anime.php">Top Anime</a></li>
                                         <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
-                                        <li><a href="latestPost.php">Latest posts</a></li>
+                                        <li><a href="latestPost.php">latest posts</a></li>
 										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
                                         <li><a href="In%20vote.php">In vote</a></li>
 									</ul>
@@ -83,7 +83,7 @@
                                     <section>
 											<h3>Some useful links</h3>
 												<a href="Rules.php" class="button">Rules</a>
-                                                <a href="NewsVersion.php" class="button">Updates</a>
+                                                <a href="#" class="button">Link 2</a>
 										</section>
 
 								</div>
@@ -101,7 +101,44 @@
                         $row = mysqli_fetch_assoc($result);
                         echo $row['n_content'];
                         ?>
-								
+												<!-- <h2>News</h2>
+												<p>Here the lastest news about our websites!</p>
+											</header>
+
+                                            <h3>- Actual Version : Alpha 0.2</h3>
+											<p>
+                                                - Login / register working <br>
+                                                - Correspondence system working <br>
+                                                - Every "nav" are working <br>
+                                                - News/Home/Correspondence html pages : Done <br>
+                                                - Github redirect link working <br>
+                                                - Ranks working <br>
+                                                - Add "In vote" correspondence Anime Done<br>
+                                                - Verify working <br>
+
+                                            </p>
+
+											<h3>- Alpha 0.1</h3>
+											<p>
+                                                - Login / register working <br>
+                                                - Correspondence system working <br>
+                                                - Every "nav" are working <br>
+                                                - News/Home/Correspondence html pages : Done <br>
+                                                - Github redirect link working <br>
+                                            </p>
+
+								            <h3>Future features :</h3>
+											<p>
+                                                - Better css/html <br>
+                                                - Donate page <br>
+                                                - Social medias <br>
+                                                - Bug report <br>
+                                                - Rules <br>
+                                                - Images <br>
+                                                - Personnal account stuff <br>
+
+                                            </p> -->
+
 										</article>
 
 								</div>

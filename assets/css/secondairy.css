@@ -4,7 +4,7 @@
   width: 128px;
   border-radius: 10px;
 }
-
+/*
 .chatpost {
     display: none;
     position: absolute;
@@ -20,8 +20,8 @@
     color: $color;
     list-style-type: none;
     font-size: 12px;
-  }
-    
+}
+
 .span {
         background: white;
         color: black;
@@ -29,5 +29,4 @@
         padding: 10px 20px;
         border-radius: 100px;
         float: left;
-    }
-
+} */
