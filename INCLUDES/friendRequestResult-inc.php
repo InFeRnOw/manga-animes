@@ -8,6 +8,8 @@ session_start();
       $sender = mysqli_real_escape_string($conn, $_POST['sender']);
       $sql = "UPDATE friends SET f_status=1 WHERE f_receiver='$receiver' AND f_sender='$sender';";
       $result = mysqli_query($conn, $sql);
+      $sql = "INSERT INTO chatrooms (chat_to, chat_from) VALUES ('$receiver', '$sender')";
+      $result = mysqli_query($conn, $sql);
       header("Location: ../profile.php?request=accepted&link=$link&sender=$sender&receiver=$receiver");
       exit;
     }

@@ -21,6 +21,14 @@
       $row = mysqli_fetch_assoc($result);
       $user = $row['pf_user'];
       $description = $row['pf_description'];
+
+      $currentUser = $_SESSION['u_uid'];
+
+      $sql = "SELECT * FROM chatrooms WHERE chat_to='$user' AND chat_from='$currentUser' OR chat_to='$currentUser' AND chat_from='$user'";
+      $result = mysqli_query($conn, $sql);
+      $row = mysqli_fetch_assoc($result);
+      $chatRoomId = $row['chat_id'];
+
     }
 ?>
 <!DOCTYPE HTML>
@@ -107,9 +115,7 @@
                           echo '<h2>' .$user. ' <a href="settings.php" style="text-decoration: none; color: white !important;"><button class="btn glyphicon glyphicon-cog"></button></a></h2>';
                         }
                         else {
-                          $to = $_GET['link'];
-                          $from = $_SESSION['u_id'];
-                          echo '<h2>'.$user.' <a href="chat.php?to='.$to.'&from='.$from.'" style="text-decoration: none; color: white !important;"><button class="btn glyphicon glyphicon-envelope"></button></a></h2>';
+                          echo '<h2>'.$user.' <a href="chat.php?friend='.$user.'&chatroom='.$chatRoomId.'" style="text-decoration: none; color: white !important;"><button class="btn glyphicon glyphicon-envelope"></button></a></h2>';
                         }
                         ?>
 

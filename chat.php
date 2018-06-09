@@ -14,31 +14,9 @@
       exit();
     }
     else {
-      $to = $_GET["to"];
-      $from = $_GET["from"];
-        $sql = "SELECT * FROM chatrooms WHERE chat_to='$to' AND chat_from='$from' OR chat_to='$from' AND chat_from='$to'";
-        $result = mysqli_query($conn, $sql);
-        $resultCheck = mysqli_num_rows($result);
-
-        if ($resultCheck < 1) {
-          $sql = "INSERT INTO chatrooms (chat_to, chat_from) VALUES ('$to', '$from')";
-          $result = mysqli_query($conn, $sql);
-        }
-        else {
-          $sql = "SELECT * FROM chatroom WHERE chat_to='$to' AND chat_from='$from' OR chat_to='$from' AND chat_from='$to'";
-          $result = mysqli_query($conn, $sql);
-          $row = mysqli_fetch_assoc($result);
-          $roomId = $row['chat_id'];
-
-          $sql = "SELECT * FROM chat WHERE chat_room_id='$roomId'";
-          $result = mysqli_query($conn, $sql);
-          $resultCheck = mysqli_num_rows($result);
-
-          if($resultCheck < 1) {
-            $sql = "INSERT INTO chat (chat_room_id, chat_room_text) VALUES ('$roomId', '')";
-            $result = mysqli_query($conn, $sql);
-          }
-        }
+      $friend = $_GET['friend'];
+      $chatRoomId = $_GET['chatroom'];
+      $_SESSION['roomid'] = $_GET['chatroom'];
     }
 ?>
 <!DOCTYPE HTML>
@@ -124,22 +102,25 @@
                                }, 1000);
                           });
                       </script>
-                                          <div class="chatRooms">
+                                          <div class="postBox" style='border: 1px solid rgba(0,0,0,0.3); border-radius: 15px; box-shadow: 2px 2px 2px rgba(0,0,0,0.2); background: white; margin-top: 10px; padding-top: 20px; height: 500px; overflow: auto;'>
                                               <?php include 'INCLUDES/chatTextInsert-inc.php'?>
                                           </div>
+                                        </br>
 										</article>
 
 						</div>
 					</div>
-          <form>
+          <form action="INCLUDES/chatSend-inc.php" method="POST">
+            <input type="hidden" name="friend" value="<?php echo $friend ?>">
+            <input type="hidden" name="chatroom" value="<?php echo $chatRoomId ?>">
           <div class="container-fluid">
             <div class="row">
               <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <input type="text" name="chatInput" maxlength="20" placeholder="Message..."/>
+                <input type="text" name="chatText" maxlength="250" placeholder="Message..."/>
               </div>
               <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                <button class="button" type="submit" name="chatInput" style="width: 100%;">Send</button>
+                <button class="button" type="submit" name="submit" style="width: 100%;">Send</button>
               </div>
               <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
             </div>
