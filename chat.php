@@ -102,7 +102,7 @@
                                }, 1000);
                           });
                       </script>
-                                          <div class="postBox" style='border: 1px solid rgba(0,0,0,0.3); border-radius: 15px; box-shadow: 2px 2px 2px rgba(0,0,0,0.2); background: white; margin-top: 10px; padding-top: 20px; height: 500px; overflow: auto;'>
+                                           <div class="postBox" style='border: 1px solid rgba(0,0,0,0.3); border-radius: 15px; box-shadow: 2px 2px 2px rgba(0,0,0,0.2); background: black; margin-top: 10px; padding-top: 20px; height: 500px; overflow: auto; width 300px; right: 200px;'>
                                               <?php include 'INCLUDES/chatTextInsert-inc.php'?>
                                           </div>
                                         </br>
