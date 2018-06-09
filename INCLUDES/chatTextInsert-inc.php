@@ -13,8 +13,7 @@ session_start();
           if ($user == $sender) {
             /* Style pour le vrai utilisateur */
             $float = "right";
-            $color = "white";
-            
+            $color = "white";   
           }
           else {
             /* Style pour l'ami */
@@ -22,8 +21,8 @@ session_start();
             $color = "hsl(204, 100%, 65%)";
           }
           /* N'hésite modifier cette section pour rendre le css pour beau */
-             echo "<div id='postBox' style='text-align: ".$side.";'>
-                   <div style='background-color: ".$color."; display: none; padding: 0px 10px 0px 10px; border-radius: 2px; font-size: 12px; ".$float."; '>
+             echo "<div id='postBox' style='text-align: ".$float.";'>
+                   <div style='background-color: ".$color."; display: none; padding: 0px 10px 0px 10px; border-radius: 2px; font-size: 12px; '>
                     <p>" .$row['chat_room_text']. "</p>
                   </div>
             </div>";
