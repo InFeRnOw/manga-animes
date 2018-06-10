@@ -71,7 +71,7 @@
 					<div class='col-lg-12 col-xs-12'>
 					<button style='margin-left: 0px; margin-top:5px; margin-bottom: 5px;' class='button' type='submit' name='submit'>Login</button>
 						<a class='noAccount' href='register.php?register'><p>Don't have an account ?</p></a>
-						<a class='forget' href='forget.php'><p>Forgot your password or username ?</p></a>
+						<a class='forget' href='forget.php?forget'><p>Forgot your password or username ?</p></a>
 						</div>
 					</div>
 				</div>

@@ -2,7 +2,7 @@
 
 /* LOGIN */
 
-if(!isset($_GET['login']) && !isset($_GET['register']) && !isset($_GET['link']) && !isset($_GET['posting']) || $_GET['register'] == "success") {
+if(!isset($_GET['login']) && !isset($_GET['register']) && !isset($_GET['link']) && !isset($_GET['posting']) && !isset($_GET['forget']) && !isset($_GET['recover']) || $_GET['register'] == "success" || $_GET['forget'] == "success" || $_GET['recover'] == "success") {
   echo "<h1>Login</h1>";
   if(isset($_GET['account']) && $_GET['account'] == "activated") {
     $accountCheck = $_GET['account'];
@@ -10,6 +10,12 @@ if(!isset($_GET['login']) && !isset($_GET['register']) && !isset($_GET['link']) 
   }
   else if (isset($_GET['register']) && $_GET['register'] == "success") {
     echo "<p style='color: green;'>Registration success. Please check your emails !</p>";
+  }
+  else if (isset($_GET['forget']) && $_GET['forget'] == "success") {
+    echo "<p style='color: green;'>An email has been sent to your inbox !</p>";
+  }
+  else if (isset($_GET['recover']) && $_GET['recover'] == "success") {
+    echo "<p style='color: green;'>Password successfully changed !</p>";
   }
 }
 else if(isset($_GET['login'])){
@@ -26,6 +32,10 @@ else if(isset($_GET['login'])){
     elseif ($loginCheck == "error") {
       echo "<h1>Login</h1>
       <p style='color: red;'>Password or username not valid !</p>";
+    }
+    elseif ($loginCheck == "same") {
+      echo "<h1>Login</h1>
+      <p style='color: red;'>New password is the same as the current !</p>";
     }
 }
 
@@ -52,6 +62,40 @@ else if(isset($_GET['register']) && $_GET['register'] !== "success") {
     }
     elseif ($registerCheck == "specialchars") {
       echo "<p style='color: red;'>Special characters are not allowed !</p>";
+    }
+}
+
+/* FORGET */
+
+else if(isset($_GET['forget']) && $_GET['forget'] !== "success") {
+  $forgetCheck = $_GET['forget'];
+    echo "<h1>Forgot password or username</h1>";
+
+    if($forgetCheck == "empty") {
+      echo "<p style='color: red;'>Some fields are empty !</p>";
+    }
+    elseif ($forgetCheck == "emailinvalid") {
+      echo "<p style='color: red;'>Invalid email !</p>";
+    }
+    elseif ($forgetCheck == "false") {
+      echo "<p style='color: red;'>Invalid link or expired !</p>";
+    }
+}
+
+/* RECOVER */
+
+else if(isset($_GET['recover']) && $_GET['recover'] !== "success") {
+  $recoverCheck = $_GET['forget'];
+    echo "<h1>Change password</h1>";
+
+    if($recoverCheck == "empty") {
+      echo "<p style='color: red;'>Some fields are empty !</p>";
+    }
+    elseif ($recoverCheck == "emailinvalid") {
+      echo "<p style='color: red;'>Invalid email !</p>";
+    }
+    elseif ($recoverCheck == "passnotsame") {
+      echo "<p style='color: red;'>Passwords do not match !</p>";
     }
 }
 

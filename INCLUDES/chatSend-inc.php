@@ -10,8 +10,12 @@
       $insert = $text;
       $timeH = date("G:i:s");
       $timeD = date("Y-m-d");
-
+      if (empty($text)) {
+        header("Location: ../chat.php?send=empty&friend=$friend&chatroom=$chatRoomId");
+      }
+      else {
         $sql = "INSERT INTO chat (chat_room_id, chat_room_text, chat_room_sender, chat_room_sender_id, chat_room_timeh, chat_room_timed) VALUES ('$chatRoomId', '$insert', '$user', '$userid', '$timeH', '$timeD')";
         $result = mysqli_query($conn, $sql);
         header("Location: ../chat.php?send=success&friend=$friend&chatroom=$chatRoomId");
+      }
     }
