@@ -12,15 +12,16 @@ if (isset($_POST['submit'])) {
     $fileType = $_FILES['avatar']['type'];
     $fileExt = explode('.', $fileName);
     $fileActualExt = strtolower(end($fileExt));
-    $allowed = array('jpg', 'jpeg', 'png', 'ico');
+    $allowed = array('jpg');
 
     if (in_array($fileActualExt, $allowed)) {
         if ($fileError === 0) {
             if ($fileSize < 500000) {
                 $fileNameNew = "profile".$id.".".$fileActualExt;
+                $fileNameOld = "profile".$id.".".$allowed;
                 $fileDestination = '../uploads/'.$fileNameNew;
                 if (move_uploaded_file($fileTmpName, $fileDestination)) {
-                    $sql ="INSERT INTO profileimg (userid, status) VALUES ('$id', 0);";
+                    $sql = "UPDATE profileimg SET userid='$id', status=0 WHERE id='$id';";
                     $result = mysqli_query($conn, $sql);
                     header("Location: ../settings.php?upload=success");
                 }

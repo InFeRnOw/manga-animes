@@ -17,6 +17,7 @@ else {
   header("Location: ../setting.php?delete=success");
 }
 
+// $sql = "UPDATE profileimg SET userid='none',status=1 WHERE id='$id';";
 $sql = "UPDATE profileimg SET status=1 WHERE userid='$id';";
 mysqli_query($conn, $sql);
 

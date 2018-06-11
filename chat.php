@@ -38,6 +38,43 @@
     <link rel="stylesheet" href="assets/css/secondairy.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+
+    <script>
+
+    $('html, body').bind('scroll mousedown wheel DOMMouseScroll mousewheel keyup', function(e){
+      if ( e.which > 0 || e.type == "mousedown" || e.type == "mousewheel"){
+      $("#postBox").stop();
+      }
+      });
+
+      $(function () {
+
+        $('#chatForm').on('submit', function (e) {
+
+          e.preventDefault();
+
+              var friend = $("#chat-friend").val();
+              var chatRoom = $("#chat-room").val();
+              var chatText = $("#chat-text").val();
+              var submit = $(".chat-submit").val();
+              var dataString = friend + chatRoom + chatText;
+
+          $.ajax({
+            type: 'POST',
+            url: 'INCLUDES/chatSend-inc.php',
+            data: {friend: friend, chatroom: chatRoom, chatText: chatText, submit: submit},
+            success: function () {
+              $("#postBox").stop().animate({ scrollTop: $("#postBox")[0].scrollHeight}, 1000);
+              $("#chat-text").val("");
+              $('#postBox').load('INCLUDES/chatTextInsert-inc.php');
+            }
+          });
+
+        });
+
+      });
+    </script>
+
 	</head>
 	<body>
 		<div id="page-wrapper">
@@ -96,13 +133,24 @@
 
                       <script>
                           $(document).ready(function () {
-                              $(".postBox").load("INCLUDES/chatTextInsert-inc.php");
-                                  setInterval(function(){
-                                   $('.postBox').load('INCLUDES/chatTextInsert-inc.php');
-                               }, 1000);
+                            $("#postBox").stop().animate({ scrollTop: $("#postBox")[0].scrollHeight}, 1000);
+                              var timeout, clicker = $('#postBox');
+
+                              clicker.mouseup(function(){
+                                  timeout = setInterval(function(){
+                                    $('#postBox').load('INCLUDES/chatTextInsert-inc.php');
+                                    $("#postBox").stop().animate({ scrollTop: $("#postBox")[0].scrollHeight}, 1000);
+                                  }, 1000);
+                              });
+
+                              clicker.mousedown(function(){
+                                  clearInterval(timeout);
+                              });
+
                           });
+
                       </script>
-                                           <div class="postBox" style='border: 1px solid rgba(0,0,0,0.3); border-radius: 15px; box-shadow: 2px 2px 2px rgba(0,0,0,0.2); background: black; margin-top: 10px; padding-top: 20px; height: 500px; overflow-y: auto; overflow-x: none;'>
+                                           <div id="postBox" style='border: 1px solid rgba(0,0,0,0.3); border-radius: 15px; box-shadow: 2px 2px 2px rgba(0,0,0,0.2); background: black; margin-top: 10px; padding-top: 20px; height: 500px; overflow-y: auto; overflow-x: none;'>
                                               <?php include 'INCLUDES/chatTextInsert-inc.php'?>
                                           </div>
                                         </br>
@@ -110,17 +158,17 @@
 
 						</div>
 					</div>
-          <form action="INCLUDES/chatSend-inc.php" method="POST">
-            <input type="hidden" name="friend" value="<?php echo $friend ?>">
-            <input type="hidden" name="chatroom" value="<?php echo $chatRoomId ?>">
+          <form id="chatForm" action="INCLUDES/chatSend-inc.php" method="POST">
+            <input id="chat-friend" type="hidden" name="friend" value="<?php echo $friend ?>">
+            <input id="chat-room" type="hidden" name="chatroom" value="<?php echo $chatRoomId ?>">
           <div class="container-fluid">
             <div class="row">
               <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <input type="text" name="chatText" maxlength="250" placeholder="Message..."/>
+                <input id="chat-text" type="text" name="chatText" maxlength="250" placeholder="Message..."/>
               </div>
               <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                <button class="button" type="submit" name="submit" style="width: 100%;">Send</button>
+                <button class="button chat-submit" type="submit" name="submit" style="width: 100%;">Send</button>
               </div>
               <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
             </div>

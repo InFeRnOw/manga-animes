@@ -26,6 +26,7 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/secondairy.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
     <script type="text/javascript">
@@ -170,11 +171,37 @@ function transformDivData()// This runs the code once your browser has finished 
                                                       $fileinfo = glob($filename);
                                                       $fileext = explode(".", $fileinfo[0]);
                                                       $fileActualExt = $fileext[1];
+                                                        // echo '<div class="container-fluid">
+                                                        //   <div class="row">
+                                                        //     <div class="col-lg-12 col-xs-12">
+                                                        //       <img class="avatarOfUser" src="../uploads/profile'.$id.'.'.$fileActualExt.'?'.mt_rand().'">
+                                                        //       <p style="font-size:12px;">Only jpg, jpeg, png and ico is supported</p>
+                                                        //     </div>
+                                                        //   </div>
+                                                        //       <form action="INCLUDES/upload-inc.php" method="POST" enctype="multipart/form-data">
+                                                        //         <div class="row">
+                                                        //         <div class="col-lg-4 col-xs-1"></div>
+                                                        //           <div class="col-lg-4 col-xs-10"><input class="fileSelector btn btn-basic" type="file" name="avatar" style="width: 100%; margin-left: 0;"></div>
+                                                        //           <div class="col-lg-4 col-xs-1"></div>
+                                                        //           </div>
+                                                        //           <div class="row">
+                                                        //           <div class="col-lg-12 col-xs-12"><button class="fileSubmit button" type="submit" name="submit" style="border: 2px solid green">Save image</button></div>
+                                                        //         </div>
+                                                        //       </form>
+                                                        //     </div>
+                                                        //     </br>
+                                                        //   <div class="col-lg-12 col-xs-12">
+                                                        //     <form action="INCLUDES/delete-inc.php" method="POST">
+                                                        //         <button class="fileDelete button" type="submit" name="submit" style="border: 2px solid red">Delete image</button>
+                                                        //     </form>
+                                                        //   </div>
+                                                        //   </br>
+                                                        // </br>';
                                                         echo '<div class="container-fluid">
                                                           <div class="row">
                                                             <div class="col-lg-12 col-xs-12">
-                                                              <img class="avatarOfUser" src="../uploads/profile'.$id.'.'.$fileActualExt.'?'.mt_rand().'">
-                                                              <p style="font-size:12px;">Only jpg, jpeg, png and ico is supported</p>
+                                                              <img class="avatarOfUser" src="../uploads/profile'.$id.'.jpg">
+                                                              <p style="font-size:12px;">Only jpg is supported</p>
                                                             </div>
                                                           </div>
                                                               <form action="INCLUDES/upload-inc.php" method="POST" enctype="multipart/form-data">

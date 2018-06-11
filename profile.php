@@ -133,14 +133,22 @@
                                                           $fileinfo = glob($filename);
                                                           $fileext = explode(".", $fileinfo[0]);
                                                           $fileActualExt = $fileext[1];
-                                                            echo '<div class="container-fluid">
-                                                              <div class="row">
-                                                                <div class="col-lg-12 col-xs-12">
-                                                                  <img class="avatarOfUser" src="../uploads/profile'.$id.'.'.$fileActualExt.'?'.mt_rand().'">
-                                                                </div>
+                                                          //   echo '<div class="container-fluid">
+                                                          //     <div class="row">
+                                                          //       <div class="col-lg-12 col-xs-12">
+                                                          //         <img class="avatarOfUser" src="../uploads/profile'.$id.'.'.$fileActualExt.'?'.mt_rand().'">
+                                                          //       </div>
+                                                          //     </div>
+                                                          //   </br>
+                                                          // </br>';
+                                                          echo '<div class="container-fluid">
+                                                            <div class="row">
+                                                              <div class="col-lg-12 col-xs-12">
+                                                                <img class="avatarOfUser" src="../uploads/profile'.$id.'.jpg">
                                                               </div>
-                                                            </br>
-                                                          </br>';
+                                                            </div>
+                                                          </br>
+                                                        </br>';
                                                         }
                                                         else {
                                                             echo '<div class="container-fluid">
