@@ -40,7 +40,7 @@ session_start();
                       $fileinfo = glob($filename);
                       $fileext = explode(".", $fileinfo[0]);
                       $fileActualExt = $fileext[1];
-                        $img =  '<img class="avatarOfUser" src="../uploads/profile'.$id.'.'.$fileActualExt.'?'.mt_rand().'">';
+                        $img =  '<img class="avatarOfUser '.$float.'" src="../uploads/profile'.$id.'.jpg">';
                     }
                     else {
                         $img = '<img class="avatarOfUser '.$float.'" src="images/symbol_questionmark.png">';

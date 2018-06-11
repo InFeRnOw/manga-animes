@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
                 $fileNameOld = "profile".$id.".".$allowed;
                 $fileDestination = '../uploads/'.$fileNameNew;
                 if (move_uploaded_file($fileTmpName, $fileDestination)) {
-                    $sql = "UPDATE profileimg SET userid='$id', status=0 WHERE id='$id';";
+                    $sql = "UPDATE profileimg SET status=0 WHERE userid='$id';";
                     $result = mysqli_query($conn, $sql);
                     header("Location: ../settings.php?upload=success");
                 }

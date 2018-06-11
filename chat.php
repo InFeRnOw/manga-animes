@@ -43,7 +43,8 @@
 
     $('html, body').bind('scroll mousedown wheel DOMMouseScroll mousewheel keyup', function(e){
       if ( e.which > 0 || e.type == "mousedown" || e.type == "mousewheel"){
-      $("#postBox").stop();
+        $("#postBox").stop();
+        clearInterval(timeout);
       }
       });
 
@@ -95,7 +96,7 @@
                                     <ul>
 								        <li><a href="Top-Anime.php">Top Anime</a></li>
                                         <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
-                                        <li><a href="latestPost.php">Latest posts</a></li>
+                                        <li><a href="LatestPost.php">Latest posts</a></li>
 										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
                                         <li><a href="In%20vote.php">In vote</a></li>
 
@@ -134,11 +135,13 @@
                       <script>
                           $(document).ready(function () {
                             $("#postBox").stop().animate({ scrollTop: $("#postBox")[0].scrollHeight}, 1000);
-                              var timeout, clicker = $('#postBox');
+                            setInterval(function(){
+                              $('#postBox').load('INCLUDES/chatTextInsert-inc.php');
+                            }, 1000);
+                              var timeout, clicker = $(document);
 
                               clicker.mouseup(function(){
                                   timeout = setInterval(function(){
-                                    $('#postBox').load('INCLUDES/chatTextInsert-inc.php');
                                     $("#postBox").stop().animate({ scrollTop: $("#postBox")[0].scrollHeight}, 1000);
                                   }, 1000);
                               });
@@ -147,10 +150,22 @@
                                   clearInterval(timeout);
                               });
 
+                              // $('#postBox').bind('scroll',chk_scroll);
+                              //
+                              // function chk_scroll(e)
+                              // {
+                              //     var elem = $(e.currentTarget);
+                              //     if (elem[0].scrollHeight - elem.scrollTop() == elem.outerHeight())
+                              //     {
+                              //         alert("bottom");
+                              //     }
+                              //
+                              // }
+
                           });
 
                       </script>
-                                           <div id="postBox" style='border: 1px solid rgba(0,0,0,0.3); border-radius: 15px; box-shadow: 2px 2px 2px rgba(0,0,0,0.2); background: black; margin-top: 10px; padding-top: 20px; height: 500px; overflow-y: auto; overflow-x: none;'>
+                                           <div id="postBox" style='border: 1px solid rgba(0,0,0,0.3); border-radius: 15px; box-shadow: 2px 2px 2px rgba(0,0,0,0.2); background: black; margin-top: 10px; padding-top: 20px; height: 520px; overflow-y: auto; overflow-x: none;'>
                                               <?php include 'INCLUDES/chatTextInsert-inc.php'?>
                                           </div>
                                         </br>

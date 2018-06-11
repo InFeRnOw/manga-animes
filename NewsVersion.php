@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    include_once 'INCLUDES/dbh-inc.php';
+?>
 <!DOCTYPE HTML>
 <!--
 	Arcana by HTML5 UP
@@ -6,14 +10,12 @@
 -->
 <html>
 	<head>
-		<title>Login</title>
+		<title>Version - Manga-Animes</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
+    <script src="js/secondairy.js"></script>
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	</head>
@@ -27,56 +29,84 @@
 						<h1><a href="index.php" id="logo">Manga-Animes</a></h1>
 
 					<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li><a href="index.php">Home</a></li>
-							<li>
-								<a href="#">Correspondence</a>
-								<ul>
-									<li><a href="Top-Anime.php">Top Anime</a></li>
-								    <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
-                                    <li><a href="LatestPost.php">Latest posts</a></li>
-									<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
-                                    <li><a href="In%20vote.php">In vote</a></li>
-
-								</ul>
-							</li>
-							     <li><a href="News.php">News</a></li>
-							     <li><a href="Donate.php">Donate</a></li>
-							     <li class="current"><?php if (isset($_SESSION['u_id'])) {
-							 echo '<a href="account.php">Account</a>';
-							 }
-							 else {
-								echo '<a href="login.php">Login</a>';
-                                } ?></li>
-				        </ul>
-					</nav>
+						<nav id="nav">
+							<ul>
+								<li><a href="index.php">Home</a></li>
+								<li>
+									<a href="#">Correspondence</a>
+									<ul>
+								        <li><a href="Top-Anime.php">Top Anime</a></li>
+                                        <li><a href="Seasonal-Anime.php">Seasonal Anime</a></li>
+                                        <li><a href="LatestPost.php">Latest posts</a></li>
+										<li><a href="Alphabetic-order.php">Alphabetical order</a></li>
+                                        <li><a href="In%20vote.php">In vote</a></li>
+									</ul>
+								</li>
+								<li><a href="News.php">News</a></li>
+								<li><a href="Donate.php">Donate</a></li>
+                <li><?php if (isset($_SESSION['u_id'])) {
+                echo '<a href="account.php">Account</a>';
+                }
+                else {
+                  echo '<a href="login.php">Login</a>';
+                } ?></li>
+							</ul>
+						</nav>
 
 				</div>
 
 			<!-- Main -->
 				<section class="wrapper style1">
 					<div class="container">
-						<div id="content">
+						<div class="row 200%">
+							<div class="4u 12u(narrower)">
+								<div id="sidebar">
 
-							<!-- Content -->
+									<!-- Sidebar -->
 
-				<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
-			<?php include 'INCLUDES/errors-inc.php'?>
-			<form action='INCLUDES/login-inc.php' method='POST'>
-				<div id='loginForm' class='container-fluid'>
-				<div class='row'>
-				<div class='col-lg-6 col-xs-12'><input style='width: 100%; margin-left: 0;' class='username' type='text' name='uid' placeholder='Username'></div>
-				<div class='col-lg-6 col-xs-12'><input style='width: 100%; margin-left: 0;' class='password' type='password' name='pass'  placeholder='Password'></div>
-					<div class='col-lg-12 col-xs-12'>
-					<button style='margin-left: 0px; margin-top:5px; margin-bottom: 5px;' class='button' type='submit' name='submit'>Login</button>
-						<a class='noAccount' href='register.php?register'><p>Don't have an account ?</p></a>
-						<a class='forget' href='forget.php?forget'><p>Forgot your password or username ?</p></a>
-						</div>
-					</div>
-				</div>
-			</form>
+										<section>
+                      <?php
+                       $id = $_SESSION['u_id'];
+                        $sql = "SELECT * FROM users WHERE user_id='$id'";
+                        $result = mysqli_query($conn, $sql);
+                        $row = mysqli_fetch_assoc($result);
+                        if($row['rank'] <= 2 && isset($_SESSION['u_id'])) {
+                          echo '<h3>Edit news</h3>
+                          <a href="NewsPost.php"><button class="button" type="button" style="background-color: grey;">Edit</button></a>
+                          </br>';
+                        }
+                      ?>
+											<h3>About us</h3>
+											<p>We are two high school students, who wanted for a school project to do an Anime Website.</p>
+										</section>
 
+                                    <section>
+											<h3>Some useful links</h3>
+												<a href="Rules.php" class="button">Rules</a>
+                                                <a href="News.php" class="button">News</a>
+										</section>
+
+								</div>
+							</div>
+							<div class="8u  12u(narrower) important(narrower)">
+								<div id="content">
+
+									<!-- Content -->
+
+										<article>
+											<header>
+                        <?php
+                        $sql = "SELECT * FROM news WHERE n_id = 1";
+                        $result = mysqli_query($conn, $sql);
+                        $row = mysqli_fetch_assoc($result);
+                        echo $row['n_content'];
+                        ?>
+				
+
+										</article>
+
+								</div>
+							</div>
 						</div>
 					</div>
 				</section>
@@ -110,7 +140,7 @@
 								</ul>
 							</section>
 							<section class="6u 12u(narrower)">
-								<h3>Contact us</h3>
+								<h3>Get In Touch</h3>
 								<form>
 									<div class="row 50%">
 										<div class="6u 12u(mobilep)">
@@ -138,14 +168,12 @@
 					</div>
 
 					<!-- Icons -->
-						<ul class="icons">
+							<ul class="icons">
 							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
-							<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+							<li><a href="https://github.com/InFeRnOw/manga-animes" class="icon fa-github"><span class="label">GitHub</span></a></li>
+							<!-- <li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li> -->
 						</ul>
-
 					<!-- Copyright -->
 						<div class="copyright">
 							<ul class="menu">
