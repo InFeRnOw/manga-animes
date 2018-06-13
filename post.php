@@ -20,6 +20,9 @@
     $genre = $row['p_genre'];
     $statusmanga = $row['p_statusmanga'];
     $status = $row['p_status'];
+    $adaptation = $row['p_adaptation'];
+    $season = $row['p_season'];
+    $episodes = $row['p_episodes'];
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -95,6 +98,11 @@
                       <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><p><?php echo "Status Manga: ".$statusmanga;  ?></p></div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><p><?php echo "Status Anime: ".$status;  ?></p></div>
+                      </div>
+                         <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><p><?php echo "Adaptation: ".$adaptation;  ?></p></div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><p><?php echo "Season: ".$season;  ?></p></div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><p><?php echo "Episodes: ".$episodes;  ?></p></div>
                       </div>
                     </div>
 									</header>
