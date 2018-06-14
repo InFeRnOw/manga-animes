@@ -1,0 +1,191 @@
+<?php
+    session_start();
+    include_once 'INCLUDES/dbh-inc.php';
+
+    $link = $_GET['link'];
+    $sql = "SELECT * FROM posts WHERE p_link = '$link'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+
+    $title = $_GET['title'];
+    $titleEn = $_GET['titleEn'];
+    $season = $_GET['season'];
+    $episodes = $_GET['episodes'];
+
+    if (!isset($_SESSION['u_id'])) {
+      header("Location: ../login.php");
+    }
+    else if(!isset($_GET['edit'])) {
+      $action = "INCLUDES/postMaker-inc.php";
+      $name = "New post";
+      $content = $_SESSION['contentTemp'];
+    }
+    else {
+      $action = "INCLUDES/postEdit-inc.php";
+      $name = "Edit post";
+      $content = $row['p_content'];
+    }
+?>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Manga-Animes</title>
+  		<meta charset="utf-8" />
+  		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+		<link rel="stylesheet" href="CSS/main.css">
+    <script>
+    $(document).ready(function() {
+     $('.selectpicker').selectpicker();
+     $('#summernote').summernote();
+    });
+    </script>
+	</head>
+	<body>
+    <div class="container-fluid">
+			<!-- Header -->
+				<div id="header">
+
+					<?php include 'INCLUDES/html-inc/htmlHeaderMain-inc.php' ?>
+
+          <div class="divider-nav"></div>
+
+				</div>
+
+        <div id="page">
+          <section id="header">
+            <h2><?php echo $name ?></h2>
+          </section>
+
+          <?php include 'INCLUDES/errors-inc.php'?>
+
+					<section id="post">
+						<div class="container-fluid">
+              <form action="<?php echo $action ?>" method="POST" enctype="multipart/form-data">
+                <div class="row">
+                  <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
+                    <input type="text" name="title" value="<?php echo $title ?>" placeholder="Japanese Title">
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
+                    <select class="selectpicker" title="Anime status" name="status">
+                      <option value="In progress">In progress</option>
+                      <option value="On breack">On break</option>
+                      <option value="Ended">Ended</option>
+                    </select>
+                 </div>
+                 <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
+                  <select class="selectpicker" title="Type" name="type">
+                    <option value="Kodomo">Kodomo</option>
+                    <option value="Shōnen">Shōnen</option>
+                    <option value="Shōjo">Shōjo</option>
+                    <option value="Seinen">Seinen</option>
+                    <option value="Josei">Josei</option>
+                    <option value="Seijin">Seijin</option>
+                  </select>
+                 </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
+                    <input type="text" name="titleEn" value="<?php echo $titleEn ?>" placeholder="English Title">
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
+                    <select class="selectpicker" title="Manga status" name="statusManga">
+                       <option value="In progress">In progress</option>
+                       <option value="On breack">On break</option>
+                       <option value="Ended">Ended</option>
+                    </select>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
+                    <select class="selectpicker" multiple="multiple" title="Genre" name="genre[]">
+                       <option value="Action">Action</option>
+                       <option value="Adventure">Adventure</option>
+                       <option value="Comedy">Comedy</option>
+                       <option value="Drama">Drama</option>
+                       <option value="Slice of Life">Slice of Life</option>
+                       <option value="Fantasy">Fantasy</option>
+                       <option value="Magic">Magic</option>
+                       <option value="Supernatural">Supernatural</option>
+                       <option value="Horror">Horror</option>
+                       <option value="Mystery">Mystery</option>
+                       <option value="Psychological">Psychological</option>
+                       <option value="Romance">Sci-fi</option>
+                       <option value="Cyberpunk">Cyberpunk</option>
+                       <option value="Game">Game</option>
+                       <option value="Ecchi">Ecchi</option>
+                       <option value="Demons">Demons</option>
+                       <option value="Martial Arts">Martial Arts</option>
+                       <option value="Historical">Historical</option>
+                       <option value="Hentai">Hentai</option>
+                       <option value="Isekai">Isekai</option>
+                       <option value="Military">Military</option>
+                       <option value="Mecha">Mecha</option>
+                       <option value="Music">Music</option>
+                       <option value="Parody">Parody</option>
+                       <option value="Police">Police</option>
+                       <option value="Post-Apocalyptic">Post-Apocalyptic</option>
+                       <option value="Reverse Harem">Reverse Harem</option>
+                       <option value="School">School</option>
+                       <option value="Shōnen-ai">Shōnen-ai</option>
+                       <option value="Shōjo-ai">Shōjo-ai</option>
+                       <option value="Space">Space</option>
+                       <option value="Sports">Sports</option>
+                       <option value="Super Power">Super Power</option>
+                       <option value="Tragedy">Tragedy</option>
+                       <option value="Vampire">Vampire</option>
+                       <option value="Yuri">Yuri</option>
+                       <option value="Yaoi">Yaoi</option>
+                     </select>
+                   </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 col-xs-12 marginForm">
+                      <select class="selectpicker" title="Adaptation" name="adaptation">
+                         <option value="Full adaptation">Full adaptation from manga</option>
+                         <option value="Half adaptation">Half manga adaptation/Half changed scenario</option>
+                         <option value="Not adapted">Not adapted</option>
+                      </select>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
+                       <input type="text" name="season" value="<?php echo $season ?>" placeholder="Anime season">
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
+                      <input type="text" name="episodes" value="<?php echo $episodes ?>" placeholder="Number of episodes">
+                    </div>
+
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <h4><u>Banner</u></h4>
+                        <input class="btn btn-basic center-block" type="file" name="banner"/>
+                      </br>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <h4><u>Description</u></h4>
+                      <textarea id="summernote" name="content"><?php echo $content ?></textarea>
+                    </div>
+                  </div>
+                    <button class="btn button-gray" type="submit" name="submit"><?php echo $name ?></button>
+                  </form>
+  						</div>
+					</section>
+				</div>
+
+			<!-- Footer -->
+				<div id="footer">
+
+          <?php include 'INCLUDES/html-inc/htmlFooterMain-inc.php' ?>
+
+				</div>
+      </div>
+	</body>
+</html>
