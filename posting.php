@@ -164,7 +164,8 @@
                   <div class="row">
                     <div class="col-xs-12">
                       <h4><u>Banner</u></h4>
-                        <input class="btn btn-basic center-block" type="file" name="banner"/>
+                      <input class="btn btn-basic center-block" type="file" name="banner"/>
+                      <p style="font-size:12px;">Only jpg is supported and max 10MB</p>
                       </br>
                     </div>
                   </div>

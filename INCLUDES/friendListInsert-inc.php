@@ -19,16 +19,18 @@ session_start();
         $friendLink = $rows['pf_link'];
 
          echo "<form id='formFriend' action='INCLUDES/friendFonctions-inc.php' method='POST'>
+                <div class='container-fluid'>
                   <div class='row'>
                     <div class='col-xs-3'><img id='friendImg' src='uploads/profile".$friendLink.".jpg' alt='friend img'/></div>
-                    <div class='col-xs-4'><a class='link' href='profile.php?link=$friendLink'><p><input type='hidden' name='friend' value=".$friend." />".$friend."</p></a></div>
-                    <div class='col-xs-5'>
+                    <div class='col-xs-5'><a class='link' href='profile.php?link=$friendLink'><p><input type='hidden' name='friend' value=".$friend." />".$friend."</p></a></div>
+                    <div class='col-xs-4'>
                       <div class='btn-group'>
                         <button class='btn btn-primary glyphicon glyphicon-envelope' type='submit' name='chatCreate'></button>
                         <button class='btn btn-danger glyphicon glyphicon-remove' type='submit' name='delete'></button>
                       </div>
                     </div>
                   </div>
+                </div>
               </form>
             </br>";
     }

@@ -58,7 +58,7 @@
 						</div>
           </section>
 
-					<section id="content">
+					<section id="profile">
 						<div class="container-fluid">
 							<div class="divider-with-content"><h1>Description</h1></div>
               <?php echo $description ?>

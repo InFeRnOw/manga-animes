@@ -27,6 +27,7 @@ session_start();
 
 
          echo "<form id='formFriend' action='INCLUDES/friendFonctions-inc.php' method='POST'>
+                <div class='container-fluid'>
                   <div class='row'>
                     <div class='col-xs-3'><img id='friendImg' src='uploads/profile".$friendLink.".jpg' alt='friend img'/></div>
                     <div class='col-xs-6'><a class='link' href='profile.php?link=$friendLink'><p><input type='hidden' name='friend' value='".$friend."' />".$friend."</p></a></div>
@@ -35,6 +36,7 @@ session_start();
                         <button class='btn btn-primary glyphicon glyphicon-resize-full' type='submit' name='chatOpen'></button>
                     </div>
                   </div>
+                </div>
               </form>
             </br>";
     }

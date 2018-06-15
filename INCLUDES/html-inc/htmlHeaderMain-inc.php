@@ -58,8 +58,14 @@ echo '<!-- Logo -->
                         <ul class="dropdown-menu">
                           <li><a href="profile.php?link='.$id.'">Profile</a></li>
                           <li><a href="friend.php?link='.$id.'">Friends</a></li>
-                          <li><a href="settings.php?link='.$id.'">Settings</a></li>
-                          <li><a href="login.php?logout=success">Logout</a></li>
+                          <li><a href="settings.php?link='.$id.'">Settings</a></li>';
+                          $sql = "SELECT * FROM users WHERE user_id='$id'";
+                          $result = mysqli_query($conn, $sql);
+                          $row = mysqli_fetch_assoc($result);
+                          if ($row['rank'] <= 2) {
+                          echo '<li><a href="staff-panel.php?link='.$id.'">Staff panel</a></li>';
+                          }
+                    echo '<li><a href="login.php?logout=success">Logout</a></li>
                         </ul>
                       </li>
                     </ul>

@@ -65,7 +65,7 @@
               <div class="row">
                 <div class="col-md-4 col-xs-12">
                   <div class="row">
-                    <form action="INCLUDES/friendRequest-inc.php">
+                    <form action="INCLUDES/friendMain-inc.php" method="post">
                       <div class="col-xs-9">
                         <input type="text" name="friend" placeholder="Search chat room"/>
                       </div>
@@ -78,12 +78,14 @@
                   <h1>Friends chat</h1>
                   <div class="divider"></div>
 
-                  <?php include 'INCLUDES/chatRoomInsert-inc.php'; ?>
+									<div class="friend-container">
+                  	<?php include 'INCLUDES/chatRoomInsert-inc.php'; ?>
+									</div>
 
                 </div>
                 <div class="col-md-4 col-xs-12">
                   <div class="row">
-                    <form action="INCLUDES/friendRequest-inc.php">
+                    <form action="INCLUDES/friendMain-inc.php" method="post">
                       <div class="col-xs-9">
                         <input type="text" name="friend" placeholder="Search a friend"/>
                       </div>
@@ -96,12 +98,14 @@
                   <h1>Friends</h1>
                   <div class="divider"></div>
 
-                  <?php include 'INCLUDES/friendListInsert-inc.php'; ?>
+									<div class="friend-container">
+                  	<?php include 'INCLUDES/friendListInsert-inc.php'; ?>
+									</div>
 
                 </div>
                 <div class="col-md-4 col-xs-12">
                   <div class="row">
-                    <form action="INCLUDES/friendRequest-inc.php" method="post">
+                    <form action="INCLUDES/friendMain-inc.php" method="post"> 
                       <div class="col-xs-9">
                         <input type="text" name="friend" placeholder="Add a friend"/>
                       </div>
@@ -114,7 +118,9 @@
                   <h1>Friend requests</h1>
                   <div class="divider"></div>
 
-                  <?php include 'INCLUDES/friendRequestInsert-inc.php'; ?>
+									<div class="friend-container">
+                  	<?php include 'INCLUDES/friendRequestInsert-inc.php'; ?>
+									</div>
 
                 </div>
               </div>

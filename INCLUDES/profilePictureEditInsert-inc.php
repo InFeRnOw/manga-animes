@@ -50,7 +50,7 @@
                         echo '<div class="row">
                                 <div class="col-lg-12 col-xs-12">
                                   <img class="profile-avatar" src="../uploads/profile'.$id.'.jpg">
-                                  <p style="font-size:12px;">Only jpg is supported</p>
+                                  <p style="font-size:12px;">Only jpg is supported and max 10MB</p>
                                 </div>
                               </div>
                               <div class="row">
@@ -73,7 +73,7 @@
                         echo '<div class="row">
                                 <div class="col-lg-12 col-xs-12">
                                   <img class="profile-avatar" src="CSS/images/symbol_questionmark.png">
-                                  <p style="font-size:12px;">Only jpg is supported</p>
+                                  <p style="font-size:12px;">Only jpg is supported and max 10MB</p>
                                 </div>
                               </div>
                             <form action="INCLUDES/upload-inc.php" method="POST" enctype="multipart/form-data">

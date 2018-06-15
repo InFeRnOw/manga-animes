@@ -1,6 +1,12 @@
 <?php
 		session_start();
-		include 'INCLUDES/dbh-inc.php'
+		include 'INCLUDES/dbh-inc.php';
+
+		$sql = "SELECT * FROM news WHERE n_id = 1";
+		$result = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_assoc($result);
+
+		$content = $row['n_content'];
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -33,37 +39,26 @@
             <!-- Pour plus tard -->
           </section>
 
-					<section id="content">
+					<section id="news">
 
             <div class="divider-with-content"><h1>Most viewed post this week</h1></div>
 
-            <div id="news-carousel" class="carousel slide" data-ride="carousel">
-              <!-- Indicators -->
+						<h3>Coming soon...</h3>
+
+            <!-- <div id="news-carousel" class="carousel slide" data-ride="carousel">
+
               <ol class="carousel-indicators">
                 <li data-target="#news-carousel" data-slide-to="0" class="active"></li>
                 <li data-target="#news-carousel" data-slide-to="1"></li>
                 <li data-target="#news-carousel" data-slide-to="2"></li>
               </ol>
 
-              <!-- Wrapper for slides -->
               <div class="carousel-inner">
 
-								<?php include 'newsInsertSlider-inc.php' ?>
+								<?php //include 'INCLUDES/newsInsertSlider-inc.php' ?>
 
-                <div class="item active">
-                  <img class="img-responsive center-block" src="CSS/images/kirito.jpg" alt="Rien pic">
-                </div>
-
-                <div class="item">
-                  <img class="img-responsive center-block" src="CSS/images/rien.jpg" alt="Kirito pic">
-                </div>
-
-                <div class="item">
-                  <img class="img-responsive center-block" src="CSS/images/fullmetal-alchemy.jpg" alt="Random Anime Pic">
-                </div>
               </div>
 
-              <!-- Left and right controls -->
               <a class="left carousel-control" href="#news-carousel" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left"></span>
                 <span class="sr-only">Previous</span>
@@ -72,15 +67,23 @@
                 <span class="glyphicon glyphicon-chevron-right"></span>
                 <span class="sr-only">Next</span>
               </a>
-            </div>
+            </div> -->
 
-              <div class="divider-with-content"><h1>News from admins</h1></div>
+						<?php if (isset($_SESSION['u_id'])) {
+										$id = $_SESSION['u_id'];
+                    $sql = "SELECT * FROM users WHERE user_id='$id'";
+                    $result = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_assoc($result);
+                    if($row['rank'] <= 2 && isset($_SESSION['u_id'])) {
+                      $_SESSION['link'] = $link;
+                      echo "<div class='divider-with-content'>
+                              <h1>News from admins</h1>
+															<button class='btn btn-basic' type='button'><a class='link' href='NewsPost.php'>Edit</a></button>
+                            </div>";
+                    }
+									}?>
 
-              <p>Ibi victu recreati et quiete, postquam abierat timor, vicos opulentos adorti equestrium adventu cohortium, quae casu propinquabant, nec resistere planitie porrecta conati digressi sunt retroque concedentes omne iuventutis robur relictum in sedibus acciverunt.</p>
-              <p>Ibi victu recreati et quiete, postquam abierat timor, vicos opulentos adorti equestrium adventu cohortium, quae casu propinquabant, nec resistere planitie porrecta conati digressi sunt retroque concedentes omne iuventutis robur relictum in sedibus acciverunt.</p>
-              <p>Ibi victu recreati et quiete, postquam abierat timor, vicos opulentos adorti equestrium adventu cohortium, quae casu propinquabant, nec resistere planitie porrecta conati digressi sunt retroque concedentes omne iuventutis robur relictum in sedibus acciverunt.</p>
-              <p>Ibi victu recreati et quiete, postquam abierat timor, vicos opulentos adorti equestrium adventu cohortium, quae casu propinquabant, nec resistere planitie porrecta conati digressi sunt retroque concedentes omne iuventutis robur relictum in sedibus acciverunt.</p>
-              <p>Ibi victu recreati et quiete, postquam abierat timor, vicos opulentos adorti equestrium adventu cohortium, quae casu propinquabant, nec resistere planitie porrecta conati digressi sunt retroque concedentes omne iuventutis robur relictum in sedibus acciverunt.</p>
+              <?php echo $content ?>
 
 					</section>
         </div>
