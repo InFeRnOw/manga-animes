@@ -69,6 +69,7 @@ if (!isset($_SESSION['CREATED'])) {
           <section id="header">
 						<div class="container-fluid">
 	            <h2><?php echo $user ?></h2>
+              <?php include 'INCLUDES/errors-inc.php' ?>
               <?php include 'INCLUDES/profilePictureEditInsert-inc.php' ?>
 						</div>
           </section>

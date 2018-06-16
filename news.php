@@ -82,18 +82,25 @@ if (!isset($_SESSION['CREATED'])) {
             </div> -->
 
 						<?php if (isset($_SESSION['u_id'])) {
-										$id = $_SESSION['u_id'];
-                    $sql = "SELECT * FROM users WHERE user_id='$id'";
-                    $result = mysqli_query($conn, $sql);
-                    $row = mysqli_fetch_assoc($result);
-                    if($row['rank'] <= 2 && isset($_SESSION['u_id'])) {
-                      $_SESSION['link'] = $link;
-                      echo "<div class='divider-with-content'>
-                              <h1>News from admins</h1>
-															<button class='btn btn-basic' type='button'><a class='link' href='NewsPost.php'>Edit</a></button>
-                            </div>";
-                    }
-									}?>
+								  $id = $_SESSION['u_id'];
+			                      $sql = "SELECT * FROM users WHERE user_id='$id'";
+			                      $result = mysqli_query($conn, $sql);
+			                      $row = mysqli_fetch_assoc($result);
+			                      if($row['rank'] <= 2 && isset($_SESSION['u_id'])) {
+				                      $_SESSION['link'] = $link;
+				                      echo "<div class='divider-with-content'>
+				                              <h1>News from admins</h1>
+											  <button class='btn btn-basic' type='button'><a class='link' href='NewsPost.php'>Edit</a></button>
+				                            </div>";
+			                      }
+								  else {
+									  echo "<div class='divider-with-content'><h1>News from admins</h1></div>";
+								  }
+
+							  }
+							  else {
+								  echo "<div class='divider-with-content'><h1>News from admins</h1></div>";
+							  }?>
 
               <?php echo $content ?>
 

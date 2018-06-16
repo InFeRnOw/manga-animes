@@ -96,7 +96,7 @@ if (!isset($_SESSION['CREATED'])) {
               <div class="row">
                 <div class="col-md-4 col-xs-12">
                   <div class="divider"></div>
-                  <h1>Friends chat</h1>
+                  <h1>Chat rooms</h1>
                   <div class="divider"></div>
 
 									<div class="friend-container">

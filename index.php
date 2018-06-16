@@ -66,17 +66,28 @@ if (!isset($_SESSION['CREATED'])) {
 	                <span class="glyphicon glyphicon-euro"></span>
 									<h2>Help us</h2>
 									<p>Ibi victu recreati et quiete, postquam abierat timor, vicos opulentos adorti equestrium adventu cohortium, quae casu propinquabant, nec resistere planitie porrecta conati digressi sunt retroque concedentes omne iuventutis robur relictum in sedibus acciverunt.</p>
-									<a class="btn" href="">See more</a>
+									<a class="btn" href="donate.php">See more</a>
 									<div class="divider"></div>
 								</div>
 	              <div class="col-md-4 col-xs-12">
-									<div class="divider hidden-xs"></div>
-	                <span class="glyphicon glyphicon-sunglasses"></span>
-									<h2>Join us</h2>
-									<p>Ibi victu recreati et quiete, postquam abierat timor, vicos opulentos adorti equestrium adventu cohortium, quae casu propinquabant, nec resistere planitie porrecta conati digressi sunt retroque concedentes omne iuventutis robur relictum in sedibus acciverunt.</p>
-									<a class="btn" href="">See more</a>
-									<div class="divider"></div>
-								</div>
+					  <?php if (isset($_SESSION['u_id'])) {
+						  echo '<div class="divider hidden-xs"></div>
+					  				  <span class="glyphicon glyphicon-envelope"></span>
+									  <h2>News</h2>
+									  <p>Ibi victu recreati et quiete, postquam abierat timor, vicos opulentos adorti equestrium adventu cohortium, quae casu propinquabant, nec resistere planitie porrecta conati digressi sunt retroque concedentes omne iuventutis robur relictum in sedibus acciverunt.</p>
+									  <a class="btn" href="news.php">See more</a>
+									  <div class="divider"></div>
+								  </div>';
+					  		}
+							else {
+								echo '<div class="divider hidden-xs"></div>
+										<span class="glyphicon glyphicon-sunglasses"></span>
+										<h2>Join us</h2>
+										<p>Ibi victu recreati et quiete, postquam abierat timor, vicos opulentos adorti equestrium adventu cohortium, quae casu propinquabant, nec resistere planitie porrecta conati digressi sunt retroque concedentes omne iuventutis robur relictum in sedibus acciverunt.</p>
+										<a class="btn" href="register.php">See more</a>
+										<div class="divider"></div>
+									</div>';
+							}	 ?>
 	            </div>
 						</div>
           </section>
@@ -89,22 +100,22 @@ if (!isset($_SESSION['CREATED'])) {
 								<div id="rank" class="col-md-6 col-xs-12">
 									<div class="row">
 										<div class="col-xs-4">
-											<img src="CSS/images/kirito.jpg" alt="image 1"/>
+											<img src="CSS/images/king-image.jpg" alt="image 1"/>
 										</div>
 										<div class="col-xs-8">
 											<h2>Admin</h2>
-											<p>The power of king</p>
+											<p>Has the power of a king.</p>
 										</div>
 									</div>
 								</div>
 								<div id="rank" class="col-md-6 col-xs-12">
 									<div class="row">
 										<div class="col-xs-4">
-											<img src="CSS/images/kirito.jpg" alt="image 2"/>
+											<img src="CSS/images/modo-image.jpg" alt="image 2"/>
 										</div>
 										<div class="col-xs-8">
-											<h2>Admin</h2>
-											<p>The power of king</p>
+											<h2>Moderator</h2>
+											<p>Helps and manages the community.</p>
 										</div>
 									</div>
 								</div>
@@ -113,22 +124,22 @@ if (!isset($_SESSION['CREATED'])) {
 								<div id="rank" class="col-md-6 col-xs-12">
 									<div class="row">
 										<div class="col-xs-4">
-											<img src="CSS/images/kirito.jpg" alt="image 3"/>
+											<img src="CSS/images/symbol_questionmark.png" alt="image 3"/>
 										</div>
 										<div class="col-xs-8">
-											<h2>Admin</h2>
-											<p>The power of king</p>
+											<h2>Member</h2>
+											<p>Can do anything that concerns a user</p>
 										</div>
 									</div>
 								</div>
 								<div id="rank" class="col-md-6 col-xs-12">
 									<div class="row">
 										<div class="col-xs-4">
-											<img src="CSS/images/kirito.jpg" alt="image 4"/>
+											<img src="CSS/images/symbol_questionmark.png" alt="image 4"/>
 										</div>
 										<div class="col-xs-8">
-											<h2>Admin</h2>
-											<p>The power of king</p>
+											<h2>Visitor</h2>
+											<p>Can visit anything but can't interact like users</p>
 										</div>
 									</div>
 								</div>

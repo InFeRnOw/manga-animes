@@ -95,6 +95,6 @@ for ($i = 1; $i <= $resultCheck; $i++) {
                   <div class="' . $class . '" style="text-align:' . $floatInv . '; word-wrap: break-word; position: relative;">
                     ' . $img . '
                       <p>' . $text . '</p>
-                    <span class="time-' . $floatInv . '">' . $timeH . '</span>
+                    <span class="time-' . $floatInv . '">' . $timeH . ' (' . $timeD . ')</span>
                 </div>';
 } //$i = 1; $i <= $resultCheck; $i++

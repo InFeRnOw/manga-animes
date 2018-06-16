@@ -56,6 +56,15 @@ if (!isset($_SESSION['CREATED'])) {
   <script>
   $(document).ready(function() {
    $('.selectpicker').selectpicker();
+   $('#show-panel').hide();
+   $('#hide-panel').click(function(){
+	  $('.divider-with-content').hide();
+	  $('#show-panel').show();
+   });
+   $('#show-panel').click(function(){
+	  $('.divider-with-content').show();
+	  $('#show-panel').hide();
+   });
   });
   </script>
 	<body>
@@ -100,13 +109,14 @@ if (!isset($_SESSION['CREATED'])) {
 
             <?php include 'INCLUDES/errors-inc.php' ?>
 
+			<button id="show-panel" class="btn">Show panel</button>
             <?php include 'INCLUDES/panelFonctions-inc.php' ?>
 
           </section>
 
 					<section id="post">
 						<div class="container-fluid">
-              <?php echo $content  ?>
+              				<?php echo $content  ?>
 						</div>
 					</section>
 				</div>

@@ -121,7 +121,7 @@ else if (isset($_GET['link']) && isset($_GET['add']) || isset($_GET['request']) 
     } //$chatroomCheck == "success"
 } //isset($_GET['link']) && isset($_GET['add']) || isset($_GET['request']) || isset($_GET['chatroom'])
 /* VOTE */
-elseif (isset($_GET['vote'])) {
+else if (isset($_GET['vote'])) {
     $voteCheck = $_GET['vote'];
     if ($voteCheck == "success") {
         echo "<p style='color: green;'>Successfully voted !</p>";
@@ -137,10 +137,32 @@ else if (isset($_GET['posting'])) {
         echo "<p style='color: red;'>Some fields are empty !</p>";
     } //$postingCheck == "blank"
 } //isset($_GET['posting'])
-else if (isset($_GET['edit'])) {
+else if (isset($_GET['edit']) && !isset($_GET['upload']) && !isset($_GET['delete'])) {
     $editCheck = $_GET['edit'];
     if ($editCheck == "blank") {
         echo "<p style='color: red;'>Some fields are empty !</p>";
     } //$editCheck == "blank"
 } //isset($_GET['edit'])
-/* VOTE */
+/* IMAGE UPLOADER */
+else if (isset($_GET['upload']) || isset($_GET['delete'])) {
+    $uploadCheck = $_GET['upload'];
+    $deleteCheck = $_GET['delete'];
+    if ($uploadCheck == "success") {
+        echo "<p style='color: green;'>Image uploaded !</p>";
+    } //$uploadCheck == "success"
+    elseif ($uploadCheck == "invalidtype") {
+        echo "<p style='color: red;'>Image format invalid !</p>";
+    } //$uploadCheck == "typeinvalid"
+    elseif ($uploadCheck == "toobigfile") {
+        echo "<p style='color: red;'>Image too big (max 10MB) !</p>";
+    } //$uploadCheck == "typeinvalid"
+    elseif ($uploadCheck == "error") {
+        echo "<p style='color: red;'>An error occured please try again, if it persists please contact admins or support !</p>";
+    } //$uploadCheck == "error"
+    elseif ($uploadCheck == "failed") {
+        echo "<p style='color: red;'>An error occured please try again, if it persists please contact admins or support !</p>";
+    } //$uploadCheck == "failed"
+    elseif ($deleteCheck == "success") {
+        echo "<p style='color: red;'>Image deleted !</p>";
+    } //$deleteCheck == "success"
+}

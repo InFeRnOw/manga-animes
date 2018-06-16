@@ -2,6 +2,7 @@
 
 function adminPanelVote(){
   echo "<div class='divider-with-content'>
+          <button id='hide-panel' class='btn'>Hide panel</button>
           <h2>Staff panel</h2>
           <form id=voteForm action='INCLUDES/vote-inc.php' method='POST'>
           <div class='container-fluid'>
@@ -32,6 +33,7 @@ function adminPanelVote(){
 
 function authorPanelVote(){
     echo "<div class='divider-with-content'>
+            <button id='hide-panel' class='btn'>Hide panel</button>
     		<h2>Author panel</h2>
     		<form id=voteForm action='INCLUDES/vote-inc.php' method='POST'>
     		<div class='container-fluid'>
@@ -56,6 +58,7 @@ function authorPanelVote(){
 
 function votePanel() {
     echo "<div class='divider-with-content'>
+            <button id='hide-panel' class='btn'>Hide panel</button>
             <h2>Vote panel</h2>
             <form id=voteForm action='INCLUDES/vote-inc.php' method='POST'>
             <div class='container-fluid'>
@@ -74,6 +77,7 @@ function votePanel() {
 
 function adminPanel(){
   echo "<div class='divider-with-content'>
+          <button id='hide-panel' class='btn'>Hide panel</button>
           <h2>Staff panel</h2>
           <form id=voteForm action='INCLUDES/vote-inc.php' method='POST'>
           <div class='container-fluid'>
@@ -93,6 +97,7 @@ function adminPanel(){
 
 function authorPanel(){
     echo "<div class='divider-with-content'>
+            <button id='hide-panel' class='btn'>Hide panel</button>
             <h2>Author panel</h2>
             <form id=voteForm action='INCLUDES/vote-inc.php' method='POST'>
             <div class='container-fluid'>

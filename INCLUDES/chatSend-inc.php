@@ -8,8 +8,8 @@ if (isset($_POST['submit'])) {
     $userid = $_SESSION['u_id'];
     $text = mysqli_real_escape_string($conn, $_POST['chatText']);
     $insert = $text;
-    $timeH = date("G:i:s");
-    $timeD = date("Y-m-d");
+    $timeH = date("G:i");
+    $timeD = date("d-m-Y");
     if (empty($text)) {
         header("Location: ../chat.php?send=empty&friend=$friend&chatroom=$chatRoomId");
     } //empty($text)
