@@ -29,7 +29,7 @@
           <section id="header">
             <h1>Sign up</h1>
             <div class="divider"></div>
-            <img src="CSS/images/fullmetal-alchemy.jpg" alt="Fullmetal Alchemy"/>
+            <img src="CSS/images/cropped-720-250-505441.jpg" alt="Swort Art Online"/>
           </section>
 
 					<section id="content">

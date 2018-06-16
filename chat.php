@@ -1,16 +1,31 @@
 <?php
-    session_start();
-    include_once 'INCLUDES/dbh-inc.php';
-    if (!isset($_SESSION['u_id'])) {
+session_start();
+include_once 'INCLUDES/dbh-inc.php';
+if (!isset($_SESSION['u_id'])) {
     echo '<script>
             window.location.href="login.php";
         </script>';
-    }
-    else {
-      $friend = $_GET['friend'];
-      $chatRoomId = $_GET['chatroom'];
-      $_SESSION['roomid'] = $_GET['chatroom'];
-    }
+}
+else {
+  $user = $_GET['user'];
+  $chatRoomId = $_GET['chatroom'];
+  $_SESSION['roomid'] = $_GET['chatroom'];
+}
+
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+	// last request was more than 30 minutes ago
+	session_unset();     // unset $_SESSION variable for the run-time
+	session_destroy();   // destroy session data in storage
+}
+$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+
+if (!isset($_SESSION['CREATED'])) {
+    $_SESSION['CREATED'] = time();
+} else if (time() - $_SESSION['CREATED'] > 1800) {
+    // session started more than 30 minutes ago
+    session_regenerate_id(true);    // change session ID for the current session and invalidate old session ID
+    $_SESSION['CREATED'] = time();  // update creation time
+}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -42,7 +57,7 @@
         <div id="page">
           <section id="header">
 						<div class="container-fluid">
-              <h1>Chatting with <?php echo $friend ?></h1>
+              <h1>Chatting with <?php echo $user ?></h1>
 
               <div class="divider"></div>
 

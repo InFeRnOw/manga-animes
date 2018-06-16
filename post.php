@@ -1,26 +1,40 @@
 <?php
-    session_start();
-    include_once 'INCLUDES/dbh-inc.php';
+session_start();
+include_once 'INCLUDES/dbh-inc.php';
 
-    $link = $_GET['link'];
-    $sql = "SELECT * FROM posts WHERE p_link = '$link'";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
+$link = $_GET['link'];
+$sqlVarPosts = "SELECT * FROM posts WHERE p_link = '$link'";
+$resultVarPosts = mysqli_query($conn, $sqlVarPosts);
+$rowVarPosts = mysqli_fetch_assoc($resultVarPosts);
 
-    $title = $row['p_title'];
-    $pUser = $row['p_user'];
-    $content = $row['p_content'];
-    $type = $row['p_type'];
-    $genre = $row['p_genre'];
-    $id = $_SESSION['u_id'];
-    $active = $row['p_active'];
-    $titleen = $row['p_titleen'];
-    $genre = $row['p_genre'];
-    $statusmanga = $row['p_statusmanga'];
-    $status = $row['p_status'];
-    $adaptation = $row['p_adaptation'];
-    $season = $row['p_season'];
-    $episodes = $row['p_episodes'];
+$title = $rowVarPosts['p_title'];
+$pUser = $rowVarPosts['p_user'];
+$content = $rowVarPosts['p_content'];
+$type = $rowVarPosts['p_type'];
+$genre = $rowVarPosts['p_genre'];
+$id = $_SESSION['u_id'];
+$active = $rowVarPosts['p_active'];
+$titleen = $rowVarPosts['p_titleen'];
+$genre = $rowVarPosts['p_genre'];
+$statusmanga = $rowVarPosts['p_statusmanga'];
+$status = $rowVarPosts['p_status'];
+$adaptation = $rowVarPosts['p_adaptation'];
+$season = $rowVarPosts['p_season'];
+$episodes = $rowVarPosts['p_episodes'];
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+	// last request was more than 30 minutes ago
+	session_unset();     // unset $_SESSION variable for the run-time
+	session_destroy();   // destroy session data in storage
+}
+$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+
+if (!isset($_SESSION['CREATED'])) {
+    $_SESSION['CREATED'] = time();
+} else if (time() - $_SESSION['CREATED'] > 1800) {
+    // session started more than 30 minutes ago
+    session_regenerate_id(true);    // change session ID for the current session and invalidate old session ID
+    $_SESSION['CREATED'] = time();  // update creation time
+}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -86,90 +100,7 @@
 
             <?php include 'INCLUDES/errors-inc.php' ?>
 
-            <?php if ($active == 0) {
-                    $sql = "SELECT * FROM users WHERE user_id='$id'";
-                    $result = mysqli_query($conn, $sql);
-                    $row = mysqli_fetch_assoc($result);
-                    if($row['rank'] <= 2 && isset($_SESSION['u_id'])) {
-                      $_SESSION['link'] = $link;
-                      echo "<div class='divider-with-content'>
-                              <h2>Staff panel</h2>
-                              <form id=voteForm action='INCLUDES/vote-inc.php' method='POST'>
-                              <div class='container-fluid'>
-                                <div class='row'>
-                                  <div class='col-xs-4'>
-                                    <button class='btn btn-success' type='submit' name='accept'>Accept</button>
-                                  </div>
-                                  <div class='col-xs-4'>
-                                    <button class='btn btn-secondairy' type='submit' name='edit'>Edit</button>
-                                  </div>
-                                  <div class='col-xs-4'>
-                                    <button class='btn btn-danger' type='submit' name='deny'>Deny</button>
-                                  </div>
-                                </div>
-                                </br>
-                                <div class='row'>
-                                  <div class='col-xs-6'>
-                                    <button class='btn btn-primary' type='submit' name='like'><i class='glyphicon glyphicon-thumbs-up'></i></button>
-                                  </div>
-                                  <div class='col-xs-6'>
-                                    <button class='btn btn-danger' type='submit' name='dislike'><i class='glyphicon glyphicon-thumbs-down'></i></button>
-                                  </div>
-                                </div>
-                              </div>
-                              </form>
-                            </div>";
-                    }
-                    else if($row['rank'] == 3 && isset($_SESSION['u_id'])) {
-                      $_SESSION['link'] = $link;
-                      if($_SESSION['u_uid'] == $pUser) {
-                        echo "<div class='divider-with-content'>
-                                <h2>Author panel</h2>
-                                <form id=voteForm action='INCLUDES/vote-inc.php' method='POST'>
-                                <div class='container-fluid'>
-                                  <div class='row'>
-                                    <div class='col-lg-3 col-xs-6'>
-                                      <button class='btn btn-secondairy' type='submit' name='edit'>Edit</button>
-                                    </div>
-                                    <div class='col-lg-3 col-xs-6'>
-                                      <button class='btn btn-danger' type='submit' name='deny'>Delete</button>
-                                    </div>
-                                    </br>
-                                    <div class='col-lg-3 col-xs-6'>
-                                      <button class='btn btn-primary' type='submit' name='like'><i class='glyphicon glyphicon-thumbs-up'></i></button>
-                                    </div>
-                                    <div class='col-lg-3 col-xs-6'>
-                                      <button class='btn btn-danger' type='submit' name='dislike'><i class='glyphicon glyphicon-thumbs-down'></i></button>
-                                    </div>
-                                  </div>
-                                </div>
-                                </form>
-                              </div>";
-                      }
-                      else {
-                        echo "<div class='divider-with-content'>
-                                <h2>Vote panel</h2>
-                                <form id=voteForm action='INCLUDES/vote-inc.php' method='POST'>
-                                <div class='container-fluid'>
-                                  <div class='row'>
-                                    <div class='col-xs-6'>
-                                      <button class='btn btn-primary' type='submit' name='like'><i class='glyphicon glyphicon-thumbs-up'></i></button>
-                                    </div>
-                                    <div class='col-xs-6'>
-                                      <button class='btn btn-danger' type='submit' name='dislike'><i class='glyphicon glyphicon-thumbs-down'></i></button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </form>
-                            </div>";
-                      }
-                    }
-                    else {
-                      echo "<div class='divider-with-content'>
-                              <p style='color: red;'>You need to login or register in order to vote on this post !</p>
-                            </div>";
-                    }
-                  }?>
+            <?php include 'INCLUDES/panelFonctions-inc.php' ?>
 
           </section>
 

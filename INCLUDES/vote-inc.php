@@ -1,133 +1,129 @@
 <?php
 session_start();
 include_once 'dbh-inc.php';
-
 if (isset($_POST['accept'])) {
-  $post = $_SESSION['link'];
-  $sql = "SELECT * FROM posts WHERE p_link = '$post'";
-  $result = mysqli_query($conn, $sql);
-  $row = mysqli_fetch_assoc($result);
-
-  $likes = $row['p_likes'];
-  $dislikes = $row['p_dislikes'];
-
-  $sql = "UPDATE posts SET p_active=1 WHERE p_link='$post'";
-  $result = mysqli_query($conn, $sql);
-  header("Location: ../post.php?accept=success&link=$post");
-  exit();
-}
-else if(isset($_POST['deny'])) {
-  $post = $_SESSION['link'];
-  $sql = "SELECT * FROM posts WHERE p_link = '$post'";
-  $result = mysqli_query($conn, $sql);
-  $row = mysqli_fetch_assoc($result);
-
-  $file = "uploads/postsimages/postimg".$post.".jpg";
-  unlink($file);
-
-  $likes = $row['p_likes'];
-  $dislikes = $row['p_dislikes'];
-
-  $sql = "DELETE FROM posts WHERE p_link='$post'";
-  $result = mysqli_query($conn, $sql);
-  header("Location: ../In%20vote.php?deny=success&link=$post");
-  exit();
-}
-else if(isset($_POST['like'])) {
-  $post = $_SESSION['link'];
-  $user = $_SESSION['u_uid'];
-
-  $sql = "SELECT * FROM votes WHERE v_link='$post'";
-  $result = mysqli_query($conn, $sql);
-  $row = mysqli_fetch_assoc($result);
-
-  if($row['v_user'] !== $user) {
+    $post = $_SESSION['link'];
     $sql = "SELECT * FROM posts WHERE p_link = '$post'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
-
     $likes = $row['p_likes'];
     $dislikes = $row['p_dislikes'];
-
-    $sql = "UPDATE posts SET p_likes=p_likes + 1 WHERE p_link='$post'";
+    $sql = "UPDATE posts SET p_active=1 WHERE p_link='$post'";
     $result = mysqli_query($conn, $sql);
-
-    $sql = "INSERT INTO votes (v_user, v_link) VALUES ('$user', '$post')";
-    $result = mysqli_query($conn, $sql);
-
-    if($likes == 9) {
-      $sql = "UPDATE posts SET p_active=1 WHERE p_link='$post'";
-      $result = mysqli_query($conn, $sql);
-
-      $sql = "DELETE FROM votes WHERE v_link='$post'";
-      $result = mysqli_query($conn, $sql);
-      header("Location: ../Alphabetic-order.php?vote=success&link=$post");
-      exit();
-    }
-    else {
-      header("Location: ../post.php?vote=success&link=$post");
-      exit();
-    }
-  }
-  else {
-    header("Location: ../post.php?vote=already&link=$post");
-  }
-}
-else if(isset($_POST['dislike'])) {
-  $post = $_SESSION['link'];
-  $user = $_SESSION['u_uid'];
-
-  $sql = "SELECT * FROM votes WHERE v_link='$post'";
-  $result = mysqli_query($conn, $sql);
-  $row = mysqli_fetch_assoc($result);
-
-  if($row['v_user'] !== $user) {
+    header("Location: ../post.php?accept=success&link=$post");
+    exit();
+} //isset($_POST['accept'])
+else if (isset($_POST['deny'])) {
+    $post = $_SESSION['link'];
     $sql = "SELECT * FROM posts WHERE p_link = '$post'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
-
+    $file = "uploads/postsimages/postimg" . $post . ".jpg";
+    unlink($file);
     $likes = $row['p_likes'];
     $dislikes = $row['p_dislikes'];
-
-    $sql = "UPDATE posts SET p_dislikes=p_dislikes + 1 WHERE p_link='$post'";
+    $sql = "DELETE FROM posts WHERE p_link='$post'";
     $result = mysqli_query($conn, $sql);
-
-    $sql = "INSERT INTO votes (v_user, v_link) VALUES ('$user', '$post')";
+    header("Location: ../in-vote.php?deny=success&link=$post");
+    exit();
+} //isset($_POST['deny'])
+else if (isset($_POST['delete'])) {
+    $post = $_SESSION['link'];
+    $sql = "SELECT * FROM posts WHERE p_link = '$post'";
     $result = mysqli_query($conn, $sql);
-
-    if($dislikes == 9) {
-      $sql = "DELETE FROM posts WHERE p_link='$post'";
-      $result = mysqli_query($conn, $sql);
-
-      $sql = "DELETE FROM votes WHERE v_link='$post'";
-      $result = mysqli_query($conn, $sql);
-      header("Location: ../In%20vote.php?vote=success&link=$post");
-      exit();
-    }
+    $row = mysqli_fetch_assoc($result);
+    $file = "uploads/postsimages/postimg" . $post . ".jpg";
+    unlink($file);
+    $likes = $row['p_likes'];
+    $dislikes = $row['p_dislikes'];
+    $sql = "DELETE FROM posts WHERE p_link='$post'";
+    $result = mysqli_query($conn, $sql);
+    header("Location: ../alphabetic-order.php?delete=success&link=$post");
+    exit();
+} //isset($_POST['delete'])
+else if (isset($_POST['like'])) {
+    $post = $_SESSION['link'];
+    $user = $_SESSION['u_uid'];
+    $sql = "SELECT * FROM votes WHERE v_link='$post'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    if ($row['v_user'] !== $user) {
+        $sql = "SELECT * FROM posts WHERE p_link = '$post'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        $likes = $row['p_likes'];
+        $dislikes = $row['p_dislikes'];
+        $sql = "UPDATE posts SET p_likes=p_likes + 1 WHERE p_link='$post'";
+        $result = mysqli_query($conn, $sql);
+        $sql = "INSERT INTO votes (v_user, v_link) VALUES ('$user', '$post')";
+        $result = mysqli_query($conn, $sql);
+        if ($likes == 49) {
+            $sql = "UPDATE posts SET p_active=1 WHERE p_link='$post'";
+            $result = mysqli_query($conn, $sql);
+            $sql = "DELETE FROM votes WHERE v_link='$post'";
+            $result = mysqli_query($conn, $sql);
+            header("Location: ../alphabetic-order.php?vote=success&link=$post");
+            exit();
+        } //$likes == 49
+        else {
+            header("Location: ../post.php?vote=success&link=$post");
+            exit();
+        }
+    } //$row['v_user'] !== $user
     else {
-      header("Location: ../post.php?vote=success&link=$post");
-      exit();
+        header("Location: ../post.php?vote=already&link=$post");
     }
-  }
-  else {
-    header("Location: ../post.php?vote=already&link=$post");
-  }
-}
-else if(isset($_POST['edit'])) {
-  $post = $_SESSION['link'];
-  $sql = "SELECT * FROM posts WHERE p_link='$post'";
-  $result = mysqli_query($conn, $sql);
-  $row = mysqli_fetch_assoc($result);
-
-  $title = $row['p_title'];
-  $titleEn = $row['p_titleen'];
-  $content = $row['p_content'];
-  $season = $row['p_season'];
-  $episodes = $row['p_episodes'];
-
-  header("Location: ../posting.php?edit&link=$post&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes");
-}
+} //isset($_POST['like'])
+else if (isset($_POST['dislike'])) {
+    $post = $_SESSION['link'];
+    $user = $_SESSION['u_uid'];
+    $sql = "SELECT * FROM votes WHERE v_link='$post'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    if ($row['v_user'] !== $user) {
+        $sql = "SELECT * FROM posts WHERE p_link = '$post'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        $likes = $row['p_likes'];
+        $dislikes = $row['p_dislikes'];
+        $sql = "UPDATE posts SET p_dislikes=p_dislikes + 1 WHERE p_link='$post'";
+        $result = mysqli_query($conn, $sql);
+        $sql = "INSERT INTO votes (v_user, v_link) VALUES ('$user', '$post')";
+        $result = mysqli_query($conn, $sql);
+        if ($dislikes == 49) {
+            $sql = "DELETE FROM posts WHERE p_link='$post'";
+            $result = mysqli_query($conn, $sql);
+            $sql = "DELETE FROM votes WHERE v_link='$post'";
+            $result = mysqli_query($conn, $sql);
+            header("Location: ../in-vote.php?vote=success&link=$post");
+            exit();
+        } //$dislikes == 49
+        else {
+            header("Location: ../post.php?vote=success&link=$post");
+            exit();
+        }
+    } //$row['v_user'] !== $user
+    else {
+        header("Location: ../post.php?vote=already&link=$post");
+    }
+} //isset($_POST['dislike'])
+else if (isset($_POST['edit'])) {
+    $post = $_SESSION['link'];
+    $sql = "SELECT * FROM posts WHERE p_link='$post'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $title = $row['p_title'];
+    $titleEn = $row['p_titleen'];
+    $content = $row['p_content'];
+    $season = $row['p_season'];
+    $episodes = $row['p_episodes'];
+    $status = $row['p_status'];
+    $statusManga = $row['p_statusmanga'];
+    $adaptation = $row['p_adaptation'];
+    $type = $row['p_type'];
+    header("Location: ../posting.php?edit&link=$post&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type");
+} //isset($_POST['edit'])
 else {
-  header("Location: ../In%20vote.php?vote=error");
-  exit();
+    header("Location: ../in-vote.php?vote=error");
+    exit();
 }

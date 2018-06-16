@@ -1,11 +1,12 @@
 <?php
-  if (isset($_GET['recover'])) {
+if (isset($_GET['recover'])) {
     $key = $_GET['key'];
     $username = $_GET['username'];
-  }
-  else {
+}
+else {
     header("Location: ../login.php");
-  }?>
+}
+?>
   <!DOCTYPE HTML>
   <!--
   	Arcana by HTML5 UP

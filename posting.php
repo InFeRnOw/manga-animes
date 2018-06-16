@@ -1,30 +1,123 @@
 <?php
-    session_start();
-    include_once 'INCLUDES/dbh-inc.php';
+session_start();
+include_once 'INCLUDES/dbh-inc.php';
 
-    $link = $_GET['link'];
-    $sql = "SELECT * FROM posts WHERE p_link = '$link'";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
+$link = $_GET['link'];
+$sql = "SELECT * FROM posts WHERE p_link = '$link'";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
 
-    $title = $_GET['title'];
-    $titleEn = $_GET['titleEn'];
-    $season = $_GET['season'];
-    $episodes = $_GET['episodes'];
+$title = $_GET['title'];
+$titleEn = $_GET['titleEn'];
+$season = $_GET['season'];
+$episodes = $_GET['episodes'];
+$status = $_GET['status'];
+$statusManga = $_GET['statusm'];
+$adaptation = $_GET['adaptation'];
+$type = $_GET['type'];
 
-    if (!isset($_SESSION['u_id'])) {
-      header("Location: ../login.php");
-    }
-    else if(!isset($_GET['edit'])) {
-      $action = "INCLUDES/postMaker-inc.php";
-      $name = "New post";
-      $content = $_SESSION['contentTemp'];
-    }
-    else {
-      $action = "INCLUDES/postEdit-inc.php";
-      $name = "Edit post";
-      $content = $row['p_content'];
-    }
+switch ($status) {
+    case 'In progress':
+        $one = 'selected';
+        break;
+
+    case 'On break':
+        $two = 'selected';
+        break;
+
+    case 'Ended':
+        $three = 'selected';
+        break;
+}
+
+switch ($statusManga) {
+    case 'In progress':
+        $four = 'selected';
+        break;
+
+    case 'On break':
+        $five = 'selected';
+        break;
+
+    case 'Ended':
+        $six = 'selected';
+        break;
+}
+
+switch ($adaptation) {
+    case 'Full adaptation':
+        $seven = 'selected';
+        break;
+
+    case 'Half adaptation':
+        $eight = 'selected';
+        break;
+
+    case 'Not adapted':
+        $nine = 'selected';
+        break;
+}
+switch ($type) {
+    case 'Kodomo':
+        $ten = 'selected';
+        break;
+
+    case 'Shōnen':
+        $eleven = 'selected';
+        break;
+
+    case 'Shōjo':
+        $twelve = 'selected';
+        break;
+
+    case 'Seinen':
+        $thirteen = 'selected';
+        break;
+
+    case 'Josei':
+        $fourteen = 'selected';
+        break;
+
+    case 'Seijin':
+        $fifteen = 'selected';
+        break;
+}
+
+if (!isset($_SESSION['u_id'])) {
+    header("Location: ../login.php");
+}
+else if(!isset($_GET['edit'])) {
+    $action = "INCLUDES/postMaker-inc.php";
+    $name = "New post";
+    $content = $_SESSION['contentTemp'];
+}
+else if($_GET['edit'] == 'blank') {
+    $content = $_SESSION['contentTemp'];
+    $action = "INCLUDES/postEdit-inc.php";
+    $name = "Edit post";
+    $_SESSION['linkTemp'] = $link;
+}
+else {
+    $action = "INCLUDES/postEdit-inc.php";
+    $name = "Edit post";
+    $content = $row['p_content'];
+    $_SESSION['linkTemp'] = $link;
+}
+
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+	// last request was more than 30 minutes ago
+	session_unset();     // unset $_SESSION variable for the run-time
+	session_destroy();   // destroy session data in storage
+}
+$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+
+if (!isset($_SESSION['CREATED'])) {
+    $_SESSION['CREATED'] = time();
+} else if (time() - $_SESSION['CREATED'] > 1800) {
+    // session started more than 30 minutes ago
+    session_regenerate_id(true);    // change session ID for the current session and invalidate old session ID
+    $_SESSION['CREATED'] = time();  // update creation time
+}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -76,19 +169,19 @@
                   </div>
                   <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
                     <select class="selectpicker" title="Anime status" name="status">
-                      <option value="In progress">In progress</option>
-                      <option value="On breack">On break</option>
-                      <option value="Ended">Ended</option>
+                      <option <?php echo $one ?> value="In progress">In progress</option>
+                      <option <?php echo $two ?> value="On break">On break</option>
+                      <option <?php echo $three ?> value="Ended">Ended</option>
                     </select>
                  </div>
                  <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
                   <select class="selectpicker" title="Type" name="type">
-                    <option value="Kodomo">Kodomo</option>
-                    <option value="Shōnen">Shōnen</option>
-                    <option value="Shōjo">Shōjo</option>
-                    <option value="Seinen">Seinen</option>
-                    <option value="Josei">Josei</option>
-                    <option value="Seijin">Seijin</option>
+                    <option <?php echo $ten ?> value="Kodomo">Kodomo</option>
+                    <option <?php echo $eleven ?> value="Shōnen">Shōnen</option>
+                    <option <?php echo $twelve ?> value="Shōjo">Shōjo</option>
+                    <option <?php echo $thirteen ?> value="Seinen">Seinen</option>
+                    <option <?php echo $fourteen ?> value="Josei">Josei</option>
+                    <option <?php echo $fifteen ?> value="Seijin">Seijin</option>
                   </select>
                  </div>
                 </div>
@@ -98,9 +191,9 @@
                   </div>
                   <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
                     <select class="selectpicker" title="Manga status" name="statusManga">
-                       <option value="In progress">In progress</option>
-                       <option value="On breack">On break</option>
-                       <option value="Ended">Ended</option>
+                       <option <?php echo $four ?> value="In progress">In progress</option>
+                       <option <?php echo $five ?> value="On break">On break</option>
+                       <option <?php echo $six ?> value="Ended">Ended</option>
                     </select>
                   </div>
                   <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
@@ -148,9 +241,9 @@
                   <div class="row">
                     <div class="col-md-4 col-xs-12 marginForm">
                       <select class="selectpicker" title="Adaptation" name="adaptation">
-                         <option value="Full adaptation">Full adaptation from manga</option>
-                         <option value="Half adaptation">Half manga adaptation/Half changed scenario</option>
-                         <option value="Not adapted">Not adapted</option>
+                         <option <?php echo $seven ?> value="Full adaptation">Full adaptation from manga</option>
+                         <option <?php echo $eight ?> value="Half adaptation">Half manga adaptation/Half changed scenario</option>
+                         <option <?php echo $nine ?> value="Not adapted">Not adapted</option>
                       </select>
                     </div>
                     <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
@@ -165,6 +258,7 @@
                     <div class="col-xs-12">
                       <h4><u>Banner</u></h4>
                       <input class="btn btn-basic center-block" type="file" name="banner"/>
+                      <p style="font-size:12px;">Optimal Résolution: 720x250</p>
                       <p style="font-size:12px;">Only jpg is supported and max 10MB</p>
                       </br>
                     </div>

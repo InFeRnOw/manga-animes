@@ -11,63 +11,44 @@ if (isset($_POST['friendAdd'])) {
     if (empty($sender) || empty($receiver) || $receiver == $sender) {
         header("Location: ../friend.php?add=error&link=$link");
         exit();
-    }
+    } //empty($sender) || empty($receiver) || $receiver == $sender
     else {
-      $sql = "SELECT * FROM users WHERE user_uid = '$receiver'";
-      $result = mysqli_query($conn, $sql);
-      $resultCheck = mysqli_num_rows($result);
-      if ($resultCheck < 1) {
-        header("Location: ../friend.php?add=noexist&link=$link");
-          exit();
-      }
-      else {
         $sql = "SELECT * FROM users WHERE user_uid = '$receiver'";
         $result = mysqli_query($conn, $sql);
-        if ($row = mysqli_fetch_assoc($result)) {
-            $status = $row['user_active'];
-            if ($status == 0) {
-                header("Location: ../friend.php?add=userNotActive&link=$link");
-                exit();
-            }
-            else {
-              $sql = "SELECT * FROM friends WHERE f_receiver = '$actualUser' OR f_sender= '$actualUser' ORDER BY f_id DESC";
-              $result = mysqli_query($conn, $sql);
-              $row = mysqli_fetch_assoc($result);
-
-              if ($row['f_sender'] == $actualUser) {
-                $sql = "SELECT * FROM friends WHERE f_receiver='$receiver' AND f_sender='$actualUser'";
-                $result = mysqli_query($conn, $sql);
-                $resultCheck = mysqli_num_rows($result);
+        $resultCheck = mysqli_num_rows($result);
+        if ($resultCheck < 1) {
+            header("Location: ../friend.php?add=noexist&link=$link");
+            exit();
+        } //$resultCheck < 1
+        else {
+            $sql = "SELECT * FROM users WHERE user_uid = '$receiver'";
+            $result = mysqli_query($conn, $sql);
+            if ($row = mysqli_fetch_assoc($result)) {
+                $status = $row['user_active'];
+                if ($status == 0) {
+                    header("Location: ../friend.php?add=userNotActive&link=$link");
+                    exit();
+                } //$status == 0
+                else {
+                    $sql = "SELECT * FROM friends WHERE f_receiver = '$actualUser' AND f_sender = '$receiver' OR f_sender= '$actualUser' AND f_receiver = '$receiver'";
+                    $result = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_assoc($result);
+                    $resultCheck = mysqli_num_rows($result);
                     if ($resultCheck > 0) {
-                      header("Location: ../friend.php?add=alreadyAdded&link=$link");
-                    }
+                        header("Location: ../friend.php?add=alreadyAdded&link=$link");
+                    } //$resultCheck > 0
                     else {
-                      $sql = "INSERT INTO friends (f_sender, f_receiver, f_status) VALUES ('$sender', '$receiver', 0)";
-                      $result = mysqli_query($conn, $sql);
-                      header("Location: ../friend.php?add=success&link=$link");
-                      exit();
+                        $sql = "INSERT INTO friends (f_sender, f_receiver, f_status) VALUES ('$sender', '$receiver', 0)";
+                        $result = mysqli_query($conn, $sql);
+                        header("Location: ../friend.php?add=success&link=$link");
+                        exit();
                     }
-              }
-              else {
-                $sql = "SELECT * FROM friends WHERE f_sender='$receiver' AND f_receiver='$actualUser'";
-                $result = mysqli_query($conn, $sql);
-                $resultCheck = mysqli_num_rows($result);
-                    if ($resultCheck > 0) {
-                      header("Location: ../friend.php?add=alreadyAdded&link=$link");
-                    }
-                    else {
-                      $sql = "INSERT INTO friends (f_sender, f_receiver, f_status) VALUES ('$sender', '$receiver', 0)";
-                      $result = mysqli_query($conn, $sql);
-                      header("Location: ../friend.php?add=success&link=$link");
-                      exit();
-                    }
-              }
-            }
-          }
+                }
+            } //$row = mysqli_fetch_assoc($result)
         }
-      }
-   }
-   else {
-     header("Location: ../index.php?add=errorUnknown");
-     exit();
-   }
+    } //$row = mysqli_fetch_assoc($result)
+} //isset($_POST['friendAdd'])
+else {
+    header("Location: ../index.php?add=errorUnknown");
+    exit();
+}

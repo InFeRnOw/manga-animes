@@ -1,14 +1,14 @@
 <?php
-		session_start();
-		include 'INCLUDES/dbh-inc.php';
+session_start();
+include 'INCLUDES/dbh-inc.php';
 
-		if ($_GET['logout']) {
-      session_start(); //Start the current session
-      session_unset();
-      session_destroy(); //Destroy it! So we are logged out now
-      header("Location: ../index.php?logout=success");
-      exit();
-    }
+if ($_GET['logout']) {
+	session_start(); //Start the current session
+	session_unset();
+	session_destroy(); //Destroy it! So we are logged out now
+	header("Location: ../index.php?logout=success");
+	exit();
+}
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -46,7 +46,7 @@
           <section id="header">
             <h1>Login</h1>
             <div class="divider"></div>
-            <img src="CSS/images/fullmetal-alchemy.jpg" alt="Fullmetal Alchemy"/>
+            <img src="CSS/images/cropped-720-250-567633.jpg" alt="No game no life"/>
           </section>
 
 					<section id="content">

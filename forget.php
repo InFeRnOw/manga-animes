@@ -1,6 +1,6 @@
 <?php
-		session_start();
-		include 'INCLUDES/dbh-inc.php';
+session_start();
+include 'INCLUDES/dbh-inc.php';
 ?>
 <!DOCTYPE HTML>
 <!--

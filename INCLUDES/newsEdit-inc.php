@@ -2,20 +2,20 @@
 include_once 'dbh-inc.php';
 if (isset($_POST['submit'])) {
     $content = mysqli_real_escape_string($conn, $_POST['content']);
-    if(empty($content)) {
-      header("Location: ../NewsPost.php?news=empty");
-    }
+    if (empty($content)) {
+        header("Location: ../NewsPost.php?news=empty");
+    } //empty($content)
     else {
-      $sql = "SELECT * FROM news WHERE n_id = 1";
-      $result = mysqli_query($conn, $sql);
-          if ($row = mysqli_fetch_assoc($result)) {
-                  $sql = "UPDATE news SET n_content='$content' WHERE n_id=1;";
-                  $result = mysqli_query($conn, $sql);
-                  header("Location: ../News.php?news=edited");
-                  exit();
-        }
+        $sql = "SELECT * FROM news WHERE n_id = 1";
+        $result = mysqli_query($conn, $sql);
+        if ($row = mysqli_fetch_assoc($result)) {
+            $sql = "UPDATE news SET n_content='$content' WHERE n_id=1;";
+            $result = mysqli_query($conn, $sql);
+            header("Location: ../News.php?news=edited");
+            exit();
+        } //$row = mysqli_fetch_assoc($result)
     }
-}
+} //isset($_POST['submit'])
 else {
-  header("Location: ../NewsPost.php?news=error");
+    header("Location: ../NewsPost.php?news=error");
 }
