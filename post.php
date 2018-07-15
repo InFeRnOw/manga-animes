@@ -21,6 +21,8 @@ $status = $rowVarPosts['p_status'];
 $adaptation = $rowVarPosts['p_adaptation'];
 $season = $rowVarPosts['p_season'];
 $episodes = $rowVarPosts['p_episodes'];
+$linkMyAnime = $rowVarPosts['p_linkmyanime'];
+
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
 	// last request was more than 30 minutes ago
 	session_unset();     // unset $_SESSION variable for the run-time
@@ -104,6 +106,10 @@ if (!isset($_SESSION['CREATED'])) {
             </div>
 
             <?php echo '<img class="img-responsive center-block" src="uploads/postsimages/postimg'.$link.'.jpg?'.filemtime('uploads/postsimages/postimg'.$link.'.jpg').'">' ?>
+            <div class="row">
+                <div class="col-md-4 col-xs-12"><p><?php echo "<em><u>MyAnimeList Link</u></em></br> ".$linkMyAnime;  ?></p></div>
+            
+            </div>
 
           </br>
 

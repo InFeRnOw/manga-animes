@@ -48,6 +48,8 @@ if (!isset($_SESSION['CREATED'])) {
 	            </div>
 
 				</div>
+            
+					<!-- Page -->
 
         <div id="page">
           <section id="header">

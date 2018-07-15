@@ -15,6 +15,8 @@ $status = $_GET['status'];
 $statusManga = $_GET['statusm'];
 $adaptation = $_GET['adaptation'];
 $type = $_GET['type'];
+$linkMyAnime = $_GET['linkMyAnime'];
+
 
 switch ($status) {
     case 'In progress':
@@ -260,7 +262,11 @@ if (!isset($_SESSION['CREATED'])) {
                       <input class="btn btn-basic center-block" type="file" name="banner"/>
                       <p style="font-size:12px;">Optimal Résolution: 720x250</p>
                       <p style="font-size:12px;">Only jpg is supported and max 10MB</p>
+                
                       </br>
+                    </div>
+                   <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
+                       <input type="text" name="linkMyAnime" value="<?php echo $season ?>" placeholder="MyAnimeList Link">
                     </div>
                   </div>
                   <div class="row">

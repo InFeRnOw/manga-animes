@@ -20,6 +20,8 @@ $status = $rowVarPosts['p_status'];
 $adaptation = $rowVarPosts['p_adaptation'];
 $season = $rowVarPosts['p_season'];
 $episodes = $rowVarPosts['p_episodes'];
+$linkMyAnime = $rowVarPosts['p_linkmyanime'];
+
 if ($active == 0) {
     $sql = "SELECT * FROM users WHERE user_id='$id'";
     $result = mysqli_query($conn, $sql);
