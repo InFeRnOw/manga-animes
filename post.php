@@ -20,10 +20,7 @@ $adaptation = $rowVarPosts['p_adaptation'];
 $season = $rowVarPosts['p_season'];
 $episodes = $rowVarPosts['p_episodes'];
 $linkMyAnime = $rowVarPosts['p_linkmyanime'];
-<<<<<<< HEAD
-=======
 
->>>>>>> 0372e11d224fb7aa6a30f7e0f9b1f6879f6a1448
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
 	// last request was more than 30 minutes ago
 	session_unset();     // unset $_SESSION variable for the run-time
