@@ -22,9 +22,17 @@ if (!isset($_SESSION['CREATED'])) {
 		<title>Manga-Animes</title>
   		<meta charset="utf-8" />
   		<meta name="viewport" content="width=device-width, initial-scale=1" />
-			<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<META NAME="TITLE" CONTENT="Manga Animes: A site for referencing your favorite mangas and animes">
+		<META NAME="AUTHOR" CONTENT="Erwan FRANCO--TETU, Corentin COUVREUX">
+		<META NAME="DESCRIPTION" CONTENT="Join our community to reference your favorite mangas and animes">
+		<META NAME="KEYWORDS" CONTENT="manga, anime, mangas, animes, referencing, community">
+		<META NAME="OWNER" CONTENT="Corentin COUVREUX">
+		<META NAME="ROBOTS" CONTENT="index">
+		<META NAME="Reply-to" CONTENT="couvreux_corentin@yahoo.fr">
+		<META NAME="REVISIT-AFTER" CONTENT="15">
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
@@ -48,8 +56,6 @@ if (!isset($_SESSION['CREATED'])) {
 	            </div>
 
 				</div>
-            
-					<!-- Page -->
 
         <div id="page">
           <section id="header">
@@ -59,7 +65,8 @@ if (!isset($_SESSION['CREATED'])) {
 									<div class="divider"></div>
 	                <span class="glyphicon glyphicon-pencil"></span>
 									<h2>Rules</h2>
-									<p>Ibi victu recreati et quiete, postquam abierat timor, vicos opulentos adorti equestrium adventu cohortium, quae casu propinquabant, nec resistere planitie porrecta conati digressi sunt retroque concedentes omne iuventutis robur relictum in sedibus acciverunt.</p>
+                                    <p>Be sure to read our rules to fit with our community!</p>
+                                    <br/>
 									<a class="btn" href="rules.php">See more</a>
 									<div class="divider"></div>
 								</div>
@@ -67,7 +74,7 @@ if (!isset($_SESSION['CREATED'])) {
 									<div class="divider hidden-xs"></div>
 	                <span class="glyphicon glyphicon-euro"></span>
 									<h2>Help us</h2>
-									<p>Ibi victu recreati et quiete, postquam abierat timor, vicos opulentos adorti equestrium adventu cohortium, quae casu propinquabant, nec resistere planitie porrecta conati digressi sunt retroque concedentes omne iuventutis robur relictum in sedibus acciverunt.</p>
+                                    <p>As we don't put any ad on our website, we need your support to help us!</p>
 									<a class="btn" href="donate.php">See more</a>
 									<div class="divider"></div>
 								</div>
@@ -76,7 +83,8 @@ if (!isset($_SESSION['CREATED'])) {
 						  echo '<div class="divider hidden-xs"></div>
 					  				  <span class="glyphicon glyphicon-envelope"></span>
 									  <h2>News</h2>
-									  <p>Ibi victu recreati et quiete, postquam abierat timor, vicos opulentos adorti equestrium adventu cohortium, quae casu propinquabant, nec resistere planitie porrecta conati digressi sunt retroque concedentes omne iuventutis robur relictum in sedibus acciverunt.</p>
+                                      <p>Latest news about our website and the upcoming features!</p>
+                                      <br/>
 									  <a class="btn" href="news.php">See more</a>
 									  <div class="divider"></div>
 								  </div>';
@@ -85,7 +93,8 @@ if (!isset($_SESSION['CREATED'])) {
 								echo '<div class="divider hidden-xs"></div>
 										<span class="glyphicon glyphicon-sunglasses"></span>
 										<h2>Join us</h2>
-										<p>Ibi victu recreati et quiete, postquam abierat timor, vicos opulentos adorti equestrium adventu cohortium, quae casu propinquabant, nec resistere planitie porrecta conati digressi sunt retroque concedentes omne iuventutis robur relictum in sedibus acciverunt.</p>
+										<p>If you want to try more features, be sure to join us!</p>
+                                        <br/>
 										<a class="btn" href="register.php">See more</a>
 										<div class="divider"></div>
 									</div>';
@@ -126,7 +135,7 @@ if (!isset($_SESSION['CREATED'])) {
 								<div id="rank" class="col-md-6 col-xs-12">
 									<div class="row">
 										<div class="col-xs-4">
-											<img src="CSS/images/symbol_questionmark.png" alt="image 3"/>
+											<img src="CSS/images/Mikasa.jpg" alt="image 3"/>
 										</div>
 										<div class="col-xs-8">
 											<h2>Member</h2>
@@ -137,7 +146,7 @@ if (!isset($_SESSION['CREATED'])) {
 								<div id="rank" class="col-md-6 col-xs-12">
 									<div class="row">
 										<div class="col-xs-4">
-											<img src="CSS/images/symbol_questionmark.png" alt="image 4"/>
+											<img src="CSS/images/Chiyuki.jpg" alt="image 4"/>
 										</div>
 										<div class="col-xs-8">
 											<h2>Visitor</h2>
