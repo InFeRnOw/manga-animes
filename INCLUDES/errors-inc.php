@@ -99,7 +99,7 @@ else if (isset($_GET['link']) && isset($_GET['add']) || isset($_GET['request']) 
         echo "<p style='color: red;'>User didn't activate his account !</p>";
     } //$addCheck == "userNotActive"
         elseif ($addCheck == "alreadyAdded") {
-        echo "<p style='color: red;'>User is your already your friend !</p>";
+        echo "<p style='color: red;'>User is your already your friend or requested !</p>";
     } //$addCheck == "alreadyAdded"
         elseif ($addCheck == "success") {
         echo "<p style='color: green;'>User successfully added !</p>";

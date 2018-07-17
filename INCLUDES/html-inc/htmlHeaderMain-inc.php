@@ -62,8 +62,12 @@ echo '<!-- Logo -->
                           $sql = "SELECT * FROM users WHERE user_id='$id'";
                           $result = mysqli_query($conn, $sql);
                           $row = mysqli_fetch_assoc($result);
-                          if ($row['rank'] <= 2) {
-                          echo '<li><a href="staff-panel.php?link='.$id.'">Staff panel</a></li>';
+                          if ($row['rank'] == 0) {
+                              echo '<li><a href="staff-panel.php?link='.$id.'">Staff panel</a></li>';
+                              echo '<li><a href="garage.php?link='.$id.'">Garage</a></li>';
+                          }
+                          elseif ($row['rank'] <= 2) {
+                              echo '<li><a href="staff-panel.php?link='.$id.'">Staff panel</a></li>';
                           }
                     echo '<li><a href="login.php?logout=success">Logout</a></li>
                         </ul>

@@ -1,10 +1,12 @@
 <?php
 session_start();
 include_once 'INCLUDES/dbh-inc.php';
+
 $link = $_GET['link'];
 $sql = "SELECT * FROM posts WHERE p_link = '$link'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
+
 $title = $_GET['title'];
 $titleEn = $_GET['titleEn'];
 $season = $_GET['season'];
@@ -13,40 +15,44 @@ $status = $_GET['status'];
 $statusManga = $_GET['statusm'];
 $adaptation = $_GET['adaptation'];
 $type = $_GET['type'];
-$linkMyAnime = $_GET['linkMyAnime'];
-<<<<<<< HEAD
-=======
 
->>>>>>> 6a49343496a920c8ac284406de432f3ba5864df3
 switch ($status) {
     case 'In progress':
         $one = 'selected';
         break;
+
     case 'On break':
         $two = 'selected';
         break;
+
     case 'Ended':
         $three = 'selected';
         break;
 }
+
 switch ($statusManga) {
     case 'In progress':
         $four = 'selected';
         break;
+
     case 'On break':
         $five = 'selected';
         break;
+
     case 'Ended':
         $six = 'selected';
         break;
 }
+
 switch ($adaptation) {
     case 'Full adaptation':
         $seven = 'selected';
         break;
+
     case 'Half adaptation':
         $eight = 'selected';
         break;
+
     case 'Not adapted':
         $nine = 'selected';
         break;
@@ -55,22 +61,28 @@ switch ($type) {
     case 'Kodomo':
         $ten = 'selected';
         break;
+
     case 'Shōnen':
         $eleven = 'selected';
         break;
+
     case 'Shōjo':
         $twelve = 'selected';
         break;
+
     case 'Seinen':
         $thirteen = 'selected';
         break;
+
     case 'Josei':
         $fourteen = 'selected';
         break;
+
     case 'Seijin':
         $fifteen = 'selected';
         break;
 }
+
 if (!isset($_SESSION['u_id'])) {
     header("Location: ../login.php");
 }
@@ -91,12 +103,14 @@ else {
     $content = $row['p_content'];
     $_SESSION['linkTemp'] = $link;
 }
+
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
 	// last request was more than 30 minutes ago
 	session_unset();     // unset $_SESSION variable for the run-time
 	session_destroy();   // destroy session data in storage
 }
 $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+
 if (!isset($_SESSION['CREATED'])) {
     $_SESSION['CREATED'] = time();
 } else if (time() - $_SESSION['CREATED'] > 1800) {
@@ -145,6 +159,7 @@ if (!isset($_SESSION['CREATED'])) {
           </section>
 
           <?php include 'INCLUDES/errors-inc.php'?>
+
 					<section id="post">
 						<div class="container-fluid">
               <form action="<?php echo $action ?>" method="POST" enctype="multipart/form-data">
@@ -245,11 +260,7 @@ if (!isset($_SESSION['CREATED'])) {
                       <input class="btn btn-basic center-block" type="file" name="banner"/>
                       <p style="font-size:12px;">Optimal Résolution: 720x250</p>
                       <p style="font-size:12px;">Only jpg is supported and max 10MB</p>
-
                       </br>
-                    </div>
-                   <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
-                       <input type="text" name="linkMyAnime" value="<?php echo $linkMyAnime ?>" placeholder="MyAnimeList Link">
                     </div>
                   </div>
                   <div class="row">
@@ -259,10 +270,10 @@ if (!isset($_SESSION['CREATED'])) {
                         <?php if (isset($_GET['edit'])) {
                       					echo $content;
                       				}
-                                else {
-        								echo '<table class="table table-bordered"><tbody><tr><td><h3><b style="background-color: rgb(255, 255, 255);">Anime Episodes</b></h3></td><td><h3><b style="background-color: rgb(255, 255, 255);">Manga chapters</b></h3></td></tr><tr><td><p style="text-align: center;">Episode 1...</p></td><td>Chapter 1...</td></tr><tr><td><p>Episode 2...</p></td><td>Chapter 2...</td></tr><tr><td>Etc...</td><td>Etc...</td></tr></tbody></table>';
-        							}
-  							?>
+        											else {
+        												echo '<table class="table table-bordered"><tbody><tr><td><h3><b style="background-color: rgb(255, 255, 255);">Anime Episodes</b></h3></td><td><h3><b style="background-color: rgb(255, 255, 255);">Manga chapters</b></h3></td></tr><tr><td><p style="text-align: center;">Episode 1...</p></td><td>Chapter 1...</td></tr><tr><td><p>Episode 2...</p></td><td>Chapter 2...</td></tr><tr><td>Etc...</td><td>Etc...</td></tr></tbody></table>';
+        											}
+  											?>
                       </textarea>
                     </div>
                   </div>

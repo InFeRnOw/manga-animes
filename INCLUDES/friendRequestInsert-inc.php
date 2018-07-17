@@ -2,27 +2,24 @@
 session_start();
 include 'dbh-inc.php';
 $receiver = $_SESSION['u_uid'];
-$sqlSecondairy = "SELECT * FROM friends WHERE f_receiver = '$receiver' AND f_status = 0 ORDER BY f_id DESC";
-$resultSecondairy = mysqli_query($conn, $sqlSecondairy);
-$rowSecondairy = mysqli_fetch_assoc($resultSecondairy);
-$friend = $rowSecondairy['f_sender'];
-$sql2 = "SELECT * FROM profiles WHERE pf_user = '$friend'";
-$results = mysqli_query($conn, $sql2);
-$rows = mysqli_fetch_assoc($results);
-$friendLink = $rows['pf_link'];
 $sql = "SELECT * FROM friends WHERE f_receiver = '$receiver' AND f_status = 0 ORDER BY f_id DESC";
 $result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
+    $friend = $row['f_sender'];
+    $sql2 = "SELECT * FROM profiles WHERE pf_user = '$friend'";
+    $results = mysqli_query($conn, $sql2);
+    $rows = mysqli_fetch_assoc($results);
+    $friendLink = $rows['pf_link'];
+
     $sqlImg = "SELECT * FROM profileimg WHERE userid='$friendLink'";
     $resultImg = mysqli_query($conn, $sqlImg);
-    if ($rowImg = mysqli_fetch_assoc($resultImg)) {
+    $rowImg = mysqli_fetch_assoc($resultImg);
         if ($rowImg['status'] == 0) {
             $src = "uploads/profile".$friendLink.".jpg";
         }
         else {
             $src = "CSS/images/symbol_questionmark.png";
         }
-    }
     echo "<form id='formFriend' action='INCLUDES/friendRequestResult-inc.php' method='POST'>
                  <div class='container-fluid'>
                   <div class='row'>
@@ -36,5 +33,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                     </div>
                   </div>
                 </div>
-              </form>";
+              </form>
+            </br>";
+
 } //$row = mysqli_fetch_assoc($result)

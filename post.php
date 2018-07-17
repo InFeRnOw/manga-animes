@@ -1,12 +1,10 @@
 <?php
 session_start();
 include_once 'INCLUDES/dbh-inc.php';
-
 $link = $_GET['link'];
 $sqlVarPosts = "SELECT * FROM posts WHERE p_link = '$link'";
 $resultVarPosts = mysqli_query($conn, $sqlVarPosts);
 $rowVarPosts = mysqli_fetch_assoc($resultVarPosts);
-
 $title = $rowVarPosts['p_title'];
 $pUser = $rowVarPosts['p_user'];
 $content = $rowVarPosts['p_content'];
@@ -29,7 +27,6 @@ if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 
 	session_destroy();   // destroy session data in storage
 }
 $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
-
 if (!isset($_SESSION['CREATED'])) {
     $_SESSION['CREATED'] = time();
 } else if (time() - $_SESSION['CREATED'] > 1800) {
@@ -108,7 +105,7 @@ if (!isset($_SESSION['CREATED'])) {
             <?php echo '<img class="img-responsive center-block" src="uploads/postsimages/postimg'.$link.'.jpg?'.filemtime('uploads/postsimages/postimg'.$link.'.jpg').'">' ?>
             <div class="row">
                 <div class="col-md-4 col-xs-12"><p><?php echo "<em><u>MyAnimeList Link</u></em></br> ".$linkMyAnime;  ?></p></div>
-            
+
             </div>
 
           </br>
