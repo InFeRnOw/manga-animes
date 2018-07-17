@@ -23,6 +23,8 @@ if (isset($_POST['submit'])) {
     $adaptation = mysqli_real_escape_string($conn, $_POST['adaptation']);
     $titleEn = mysqli_real_escape_string($conn, $_POST['titleEn']);
     $statusManga = mysqli_real_escape_string($conn, $_POST['statusManga']);
+    $linkMyAnime = mysqli_real_escape_string($conn, $_POST['linkMyAnime']);
+
     $genre = $_POST['genre'];
     $newGenre = implode(", ", $genre);
     $pageLinkFirstPart = uniqid('post', TRUE);
@@ -46,7 +48,7 @@ if (isset($_POST['submit'])) {
                     $fileNameOld = "postimg" . $pageLink . "." . $allowed;
                     $fileDestination = '../uploads/postsimages/' . $fileNameNew;
                     if (move_uploaded_file($fileTmpName, $fileDestination)) {
-                        $sql = "INSERT INTO posts (p_user, p_title, p_status, p_type, p_content, p_link, p_titleen, p_genre, p_statusmanga, p_season, p_episodes, p_adaptation, p_img_src, p_img_status) VALUES ('$uid', '$title', '$status', '$type', '$content', '$pageLink', '$titleEn', '$newGenre', '$statusManga', '$season', '$episodes', '$adaptation', '$pageLink', 'true');";
+                        $sql = "INSERT INTO posts (p_user, p_title, p_status, p_type, p_content, p_link, p_titleen, p_genre, p_statusmanga, p_season, p_episodes, p_adaptation, p_img_src, p_img_status, p_linkmyanime) VALUES ('$uid', '$title', '$status', '$type', '$content', '$pageLink', '$titleEn', '$newGenre', '$statusManga', '$season', '$episodes', '$adaptation', '$pageLink', 'true', '$linkMyAnime');";
                         $result = mysqli_query($conn, $sql);
                         $_SESSION['contentTemp'] = "";
                         header("Location: ../post.php?posting=success&link=$pageLink");

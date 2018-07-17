@@ -96,7 +96,7 @@ body {
 }
 /* Title */
 .navbar-default .navbar-brand {
-    color: #F5F5F5;
+    color: #F7F9FB;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
@@ -104,7 +104,7 @@ body {
 }
 /* Link */
 .navbar-default .navbar-nav > li > a {
-    color: #F5F5F5;
+    color: #F7F9FB;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {

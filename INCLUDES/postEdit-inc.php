@@ -24,6 +24,8 @@ if (isset($_POST['submit'])) {
     $adaptation = mysqli_real_escape_string($conn, $_POST['adaptation']);
     $titleEn = mysqli_real_escape_string($conn, $_POST['titleEn']);
     $statusManga = mysqli_real_escape_string($conn, $_POST['statusManga']);
+    $linkMyAnime = mysqli_real_escape_string($conn, $_POST['linkMyAnime']);
+
     $genre = $_POST['genre'];
     $newGenre = implode(", ", $genre);
     if (empty($title) || empty($status) || empty($type) || empty($titleEn) || empty($newGenre) || empty($statusManga) || empty($content) || empty($season) || empty($episodes) || empty($adaptation)) {
@@ -42,7 +44,7 @@ if (isset($_POST['submit'])) {
                     $fileNameOld = "postimg" . $pageLink . "." . $allowed;
                     $fileDestination = '../uploads/postsimages/' . $fileNameNew;
                     if (move_uploaded_file($fileTmpName, $fileDestination)) {
-                        $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_statusmanga='$statusManga', p_season='$season', p_episodes='$episodes', p_adaptation='$adaptation', p_img_src='$pageLink' WHERE p_link='$pageLink'";
+                        $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_statusmanga='$statusManga', p_season='$season', p_episodes='$episodes', p_adaptation='$adaptation', p_img_src='$pageLink' WHERE p_link='$pageLink', p_linkmyanime='$linkMyAnime'";
                         $result = mysqli_query($conn, $sql);
                         header("Location: ../post.php?posting=success&link=$pageLink");
                     } //move_uploaded_file($fileTmpName, $fileDestination)
