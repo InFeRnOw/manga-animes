@@ -39,7 +39,7 @@ for ($i = 1; $i <= $resultCheck; $i++) {
             $img = '<img class="avatarOfUser ' . $float . '" src="../uploads/profile' . $id . '.jpg">';
         } //$rowImg['status'] == 0
         else {
-            $img = '<img class="avatarOfUser ' . $float . '" src="images/symbol_questionmark.png">';
+            $img = '<img class="avatarOfUser ' . $float . '" src="CSS/images/symbol_questionmark.png">';
         }
     } //$rowImg = mysqli_fetch_assoc($resultImg)
     echo '<style>

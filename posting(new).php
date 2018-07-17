@@ -1,10 +1,12 @@
 <?php
 session_start();
 include_once 'INCLUDES/dbh-inc.php';
+
 $link = $_GET['link'];
 $sql = "SELECT * FROM posts WHERE p_link = '$link'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
+
 $title = $_GET['title'];
 $titleEn = $_GET['titleEn'];
 $season = $_GET['season'];
@@ -13,36 +15,44 @@ $status = $_GET['status'];
 $statusManga = $_GET['statusm'];
 $adaptation = $_GET['adaptation'];
 $type = $_GET['type'];
-$linkMyAnime = $_GET['linkMyAnime'];
+
 switch ($status) {
     case 'In progress':
         $one = 'selected';
         break;
+
     case 'On break':
         $two = 'selected';
         break;
+
     case 'Ended':
         $three = 'selected';
         break;
 }
+
 switch ($statusManga) {
     case 'In progress':
         $four = 'selected';
         break;
+
     case 'On break':
         $five = 'selected';
         break;
+
     case 'Ended':
         $six = 'selected';
         break;
 }
+
 switch ($adaptation) {
     case 'Full adaptation':
         $seven = 'selected';
         break;
+
     case 'Half adaptation':
         $eight = 'selected';
         break;
+
     case 'Not adapted':
         $nine = 'selected';
         break;
@@ -51,22 +61,28 @@ switch ($type) {
     case 'Kodomo':
         $ten = 'selected';
         break;
+
     case 'Shōnen':
         $eleven = 'selected';
         break;
+
     case 'Shōjo':
         $twelve = 'selected';
         break;
+
     case 'Seinen':
         $thirteen = 'selected';
         break;
+
     case 'Josei':
         $fourteen = 'selected';
         break;
+
     case 'Seijin':
         $fifteen = 'selected';
         break;
 }
+
 if (!isset($_SESSION['u_id'])) {
     header("Location: ../login.php");
 }
@@ -87,12 +103,14 @@ else {
     $content = $row['p_content'];
     $_SESSION['linkTemp'] = $link;
 }
+
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
 	// last request was more than 30 minutes ago
 	session_unset();     // unset $_SESSION variable for the run-time
 	session_destroy();   // destroy session data in storage
 }
 $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+
 if (!isset($_SESSION['CREATED'])) {
     $_SESSION['CREATED'] = time();
 } else if (time() - $_SESSION['CREATED'] > 1800) {
@@ -141,6 +159,7 @@ if (!isset($_SESSION['CREATED'])) {
           </section>
 
           <?php include 'INCLUDES/errors-inc.php'?>
+
 					<section id="post">
 						<div class="container-fluid">
               <form action="<?php echo $action ?>" method="POST" enctype="multipart/form-data">
@@ -241,11 +260,7 @@ if (!isset($_SESSION['CREATED'])) {
                       <input class="btn btn-basic center-block" type="file" name="banner"/>
                       <p style="font-size:12px;">Optimal Résolution: 720x250</p>
                       <p style="font-size:12px;">Only jpg is supported and max 10MB</p>
-
                       </br>
-                    </div>
-                   <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
-                       <input type="text" name="linkMyAnime" value="<?php echo $season ?>" placeholder="MyAnimeList Link">
                     </div>
                   </div>
                   <div class="row">

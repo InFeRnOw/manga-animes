@@ -5,6 +5,7 @@ body {
   text-align: center;
   color: black;
   max-width: 100%;
+  background-color: rgb(242, 242, 242, 0.9);
 }
 
 .link:hover {
@@ -14,7 +15,7 @@ body {
 
 .link {
   text-decoration: none;
-  color: white;
+  color: black;
 }
 
 .button-link {
@@ -51,7 +52,7 @@ body {
 }
 
 .divider-nav {
-  background-color: #3B945E;
+  background-color: #808080;
   height: 10px;
 }
 
@@ -59,11 +60,9 @@ body {
   height: auto;
   margin-top: 20px;
   margin-bottom: 20px;
-  border: 1px solid rgba(112, 112, 112, 0.1);
-  background-color: rgba(112, 112, 112, 0.1);
+  background-color: rgba(112, 112, 112, 0.3);
   padding: 10px 20px 20px 20px;
-  box-shadow: 1px 1px 6px #555;
-  border-radius: 5px;
+  box-shadow: 1px 1px 1px #888888;
 }
 
 /* HEADER */
@@ -72,10 +71,10 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  background-image: url("images/cropped-kirito-back.png");
+  background-image: url("images/cropped-kirito-ice.png");
   height: 300px;
   position: relative;
-  box-shadow: 0 5px 10px -5px #333;
+  box-shadow: 1px 1px 12px #555;
   border-radius: 0 0 5px 5px;
 }
 
@@ -91,8 +90,8 @@ body {
 
 /* navbar */
 .navbar-default {
-    background-color: #182628;
-    border-color: #182628;
+    background-color: rgb(77, 77, 77, 0.9);
+    border-color: rgb(77, 77, 77, 0.9);
 }
 /* Title */
 .navbar-default .navbar-brand {
@@ -114,14 +113,14 @@ body {
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
     color: lightgrey;
-    background-color: #3B945E;
+    background-color: #808080;
     border-radius: 5px;
 }
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
     color: whitesmoke;
-    background-color: #3B945E;
+    background-color: #808080;
     border-radius: 5px;
 }
 /* Caret */
@@ -163,7 +162,7 @@ body {
 
 #header nav {
   font-size: 30px;
-  box-shadow: 0 -5px 10px -5px #333;
+  box-shadow: 1px 1px 12px #555;
   padding: 20px 0 10px 0;
   border-radius: 5px 5px 0 0;
 }
@@ -210,13 +209,13 @@ body {
 
 #page #header span {
   color: white;
-  background-color: #182628;
-  border: 6px solid #3B945E;
+  background-color: #404040;
+  border: 6px solid #808080;
   border-radius: 50%;
   padding: 15px 15px 15px 15px;
   font-size: 40px;
   margin-top: 20px;
-  box-shadow: 1px 1px 6px black;
+  box-shadow: 1px 1px 12px #555;
 }
 
 #page #header a {
@@ -224,7 +223,7 @@ body {
   height: auto;
   font-size: 20px;
   box-shadow: 1px 1px 12px #555;
-  background-color: #182628;
+  background-color: grey;
   color: white;
 }
 
@@ -328,7 +327,7 @@ body {
 }
 
 #page #content form button {
-  background-color: #182628;
+  background-color: #404040;
   padding: 5px 0px 5px 0px;
   width: 12.5em;
   box-shadow: 1px 1px 12px #555;
@@ -397,7 +396,6 @@ body {
 
 #page #friend p {
   font-size: 130%;
-  color: black;
 }
 
 #page #friend #formFriend {
@@ -443,7 +441,6 @@ body {
 
 #page #userManagement p {
   font-size: 130%;
-  color: black;
 }
 
 #page #userManagement #formUser {
@@ -471,7 +468,7 @@ body {
 }
 
 #page #chat form button {
-  background-color: #182628;
+  background-color: #404040;
   width: 100%;
   height: 45px;
   box-shadow: 1px 1px 3px #555;

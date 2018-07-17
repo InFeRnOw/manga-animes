@@ -1,12 +1,10 @@
 <?php
 session_start();
 include_once 'INCLUDES/dbh-inc.php';
-
 $link = $_GET['link'];
 $sqlVarPosts = "SELECT * FROM posts WHERE p_link = '$link'";
 $resultVarPosts = mysqli_query($conn, $sqlVarPosts);
 $rowVarPosts = mysqli_fetch_assoc($resultVarPosts);
-
 $title = $rowVarPosts['p_title'];
 $pUser = $rowVarPosts['p_user'];
 $content = $rowVarPosts['p_content'];
@@ -21,13 +19,13 @@ $status = $rowVarPosts['p_status'];
 $adaptation = $rowVarPosts['p_adaptation'];
 $season = $rowVarPosts['p_season'];
 $episodes = $rowVarPosts['p_episodes'];
+$linkMyAnime = $rowVarPosts['p_linkmyanime'];
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
 	// last request was more than 30 minutes ago
 	session_unset();     // unset $_SESSION variable for the run-time
 	session_destroy();   // destroy session data in storage
 }
 $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
-
 if (!isset($_SESSION['CREATED'])) {
     $_SESSION['CREATED'] = time();
 } else if (time() - $_SESSION['CREATED'] > 1800) {
@@ -104,6 +102,10 @@ if (!isset($_SESSION['CREATED'])) {
             </div>
 
             <?php echo '<img class="img-responsive center-block" src="uploads/postsimages/postimg'.$link.'.jpg?'.filemtime('uploads/postsimages/postimg'.$link.'.jpg').'">' ?>
+            <div class="row">
+                <div class="col-md-4 col-xs-12"><p><?php echo "<em><u>MyAnimeList Link</u></em></br> ".$linkMyAnime;  ?></p></div>
+
+            </div>
 
           </br>
 

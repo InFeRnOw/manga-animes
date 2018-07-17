@@ -59,7 +59,7 @@ if (isset($_POST['submit'])) {
 
 To activate your account, please go to this link.
 
-your activation link: https://www.manga-animes.com/verify.php?cle=' . $cle . '&uid=' . $uid . '&id=' . $id . '
+your activation link: https://www.manga-animes.com/verify.php?cle=' . $cle . '&id=' . $id . '&uid=' . $uid . '
 
 
 ---------------
