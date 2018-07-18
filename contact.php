@@ -43,7 +43,18 @@ if (!isset($_SESSION['CREATED'])) {
             </div>
                     
     	<!-- Page -->
-                    <p>Comming soon</p>
+                 
+                     <div class="row"> 
+                         <div class="col-md-4 col-xs-12">
+					   <?php if(!isset($_SESSION['u_id'])) {
+                    echo '<p style="color: red;">Login, in order to contact!</p>';
+                  }?>
+            <?php if(isset($_SESSION['u_id'])) {
+                    echo '<p style="color: red;">Coming soon!</p>';
+                  }?>
+                     </div>
+                     </div>
+                
         	<!-- Footer -->
                     
 				<div id="footer">
