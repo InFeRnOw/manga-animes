@@ -49,6 +49,8 @@ if (!isset($_SESSION['CREATED'])) {
 				<section id="post">
 					<div class="divider-with-content"><h1>Donate</h1></div>
 					<p>Help us by donating to us, with your donation we will be able to maintain our site online easier and it will encourage us to improve the site.</p>
+					<p>We ask for donations to avoid using ads. Because it would make the site less enjoyable.</p>
+					<p>And because we aren't really looking to make profit, our top priority is to upgrade and maintain the site with the donations we receive.</p>
 					<div class="donate"></div>
 					  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 					      <input type="hidden" name="cmd" value="_donations">

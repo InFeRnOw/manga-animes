@@ -26,7 +26,7 @@ for ($i = 1; $i <= $resultCheck; $i++) {
         $floatInv = "right";
         $class = "msg darker";
     }
-    /* N'hésite modifier cette section pour rendre le css pour beau */
+    /* N'hésite modifier cette section pour rendre le css plus beau */
     $id = $senderId;
     $sqlImg = "SELECT * FROM profileimg WHERE userid='$id'";
     $resultImg = mysqli_query($conn, $sqlImg);
@@ -97,4 +97,8 @@ for ($i = 1; $i <= $resultCheck; $i++) {
                       <p>' . $text . '</p>
                     <span class="time-' . $floatInv . '">' . $timeH . ' (' . $timeD . ')</span>
                 </div>';
+
+                $sqlNotif = "UPDATE chat SET chat_room_read = 1 WHERE chat_room_id = '$chatRoomId' AND chat_room_sender <> '$user'";
+                $result3 = mysqli_query($conn, $sqlNotif);
+                $_SESSION['notifications_counter'] = '';
 } //$i = 1; $i <= $resultCheck; $i++

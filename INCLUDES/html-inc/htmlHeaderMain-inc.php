@@ -30,7 +30,15 @@ echo '<!-- Logo -->
               <li><a href="donate.php">Donate</a></li>
               <li><a href="contact.php">Contact</a></li>
               </ul>
-              <ul class="nav navbar-nav navbar-right">';
+              <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-pill label-danger count" style="border-radius:10px;">'.$_SESSION['notifications_counter'].'</span> <span class="glyphicon glyphicon-bell" style="font-size:18px;"></span></a>
+                  <ul class="dropdown-menu">';
+
+                  include 'INCLUDES/chatRoomNotification-inc.php';
+
+                echo '</ul>
+                </li>';
 
               if (!isset($_SESSION['u_id'])) {
                   echo '<li><a href="register.php">Signup</a></li>
