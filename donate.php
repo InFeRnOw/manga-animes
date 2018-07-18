@@ -29,6 +29,7 @@ if (!isset($_SESSION['CREATED'])) {
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
 			<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+			<script src="/JS/donate.js"></script>
 		<link rel="stylesheet" href="CSS/main.css">
 	</head>
 	<body>
@@ -39,21 +40,45 @@ if (!isset($_SESSION['CREATED'])) {
 					<?php include 'INCLUDES/html-inc/htmlHeaderMain-inc.php' ?>
 
 					<div class="divider-nav"></div>
-                             
+
             </div>
-                    
+
     	<!-- Page -->
-                    <p>Comming soon</p>
-        	<!-- Footer -->
-                    
+
+			<div id="page">
+				<section id="post">
+					<div class="divider-with-content"><h1>Donate</h1></div>
+					<p>Help us by donating to us, with your donation we will be able to maintain our site online easier and it will encourage us to improve the site.</p>
+					<div class="donate"></div>
+					  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+					      <input type="hidden" name="cmd" value="_donations">
+					      <input type="hidden" name="business" value="couvreux_corentin@yahoo.fr">
+					      <input type="hidden" name="lc" value="US">
+								<h3><u>Amount</u></h3>
+					      <input type="text" name="amount" placeholder="EUR">
+								<p style="font-size:12px; color: grey;">For decimals numbers please use a dot (".")</p>
+					      <input type="hidden" name="no_note" value="0">
+					      <input type="hidden" name="cn" value="Add special instructions to the seller:">
+					      <input type="hidden" name="no_shipping" value="2">
+					      <input type="hidden" name="currency_code" value="EUR">
+					      <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHosted">
+					      <center>
+										</br>
+					          <input type="image" height="47" name="I1" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" width="160" />
+					      </center>
+					  </form>
+					</section>
+				</div>
+
+      <!-- Footer -->
+
 				<div id="footer">
 
           <?php include 'INCLUDES/html-inc/htmlFooterMain-inc.php' ?>
 
 				</div>
 
-                    
+
         </div>
     </body>
 </html>
-
