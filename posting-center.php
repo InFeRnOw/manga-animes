@@ -72,7 +72,7 @@ if (!isset($_SESSION['u_id'])) {
     header("Location: ../login.php");
 }
 else if(!isset($_GET['edit'])) {
-    $action = "INCLUDES/postMaker-inc.php";
+    $action = "INCLUDES/postMakerAnime-center-inc.php";
     $name = "New post";
     $content = $_SESSION['contentTemp'];
 }

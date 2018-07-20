@@ -52,10 +52,7 @@ if (!isset($_SESSION['CREATED'])) {
         <div id="page">
           <section id="header">
             <h2>Animes Center</h2>
-            <?php if(!isset($_SESSION['u_id'])) {
-                    echo '<p style="color: red;">Login, in order to do a new post !</p>';
-                  }?>
-            <?php if(isset($_SESSION['u_id'])) {
+            <?php if($_SESSION['u_rank'] <= 2) {
                     echo '<a href="posting-center.php?posting=new" class="btn button-link">New post</a>';
                   }?>
           </section>
@@ -110,14 +107,14 @@ if (!isset($_SESSION['CREATED'])) {
 
 					<section id="content">
 						<div class="container-fluid">
-                            
+
                         <!-- To modify -->
-                            
+
               <?php if ($_GET['lang'] == 'en') {
-                      include 'INCLUDES/postInsertValidEn-inc.php';
+                      include 'INCLUDES/postInsertAnime-centerEn-inc.php';
                     }
                     else {
-                      include 'INCLUDES/postInsertValidJap-inc.php';
+                      include 'INCLUDES/postInsertAnime-centerJap-inc.php';
                     }?>
 						</div>
 					</section>
