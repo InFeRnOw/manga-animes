@@ -208,6 +208,7 @@ body {
 }
 /* PAGE */
 
+    /* PAGE HEADER */
 #page #header span {
   color: white;
   background-color: #182628;
@@ -281,6 +282,8 @@ body {
   box-shadow: 1px 1px 12px #555;
 }
 
+    /* PAGE CONTENT */
+
 #page #content {
   margin-top: 20px;
 }
@@ -352,6 +355,8 @@ body {
 #page #content #postBox h4 {
   font-size: 30px;
 }
+    
+    /* PAGE POST*/
 
 #page #post input {
   width: 220px;
@@ -367,6 +372,7 @@ body {
   margin-bottom: 5px;
 }
 
+    /* PAGE FRIEND */
 #page #friend form input {
   border: 1px solid lightgrey;
   border-radius: 5px;
@@ -413,6 +419,8 @@ body {
   overflow-y: auto;
   overflow-x: none;
 }
+    
+    /* PAGE USER*/
 
 #page #userManagement form input {
   border: 1px solid lightgrey;
@@ -459,6 +467,8 @@ body {
   overflow-y: auto;
   overflow-x: none;
 }
+    
+    /* PAGE CHAT*/
 
 #page #chat form input {
   border: 1px solid lightgrey;
@@ -489,6 +499,8 @@ body {
   width: 100%;
   overflow: auto;
 }
+
+    /* PAGE NEWS */
 
 #page #news img {
   width: 100%;
@@ -595,3 +607,4 @@ button.btn.bg-orange { padding: 20px 160px; }
   border-radius: 5px;
   margin-bottom: 10px;
 }
+
