@@ -70,8 +70,8 @@ if ($_GET['logout']) {
                     <button class="btn" type="submit" name="submit">Login</button>
 									</br>
 									</br>
-										<p><a class="link" href="forget.php">Forgot password ?</a></p>
-										<p><a class="link" href="register.php">Don't have an account ?</a></p>
+										<p><a class="link" href="forget.php" style="color: grey">Forgot password ?</a></p>
+										<p><a class="link" href="register.php" style="color: grey">Don't have an account ?</a></p>
                   </div>
                 </div>
   						</div>

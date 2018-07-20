@@ -104,7 +104,10 @@ if (!isset($_SESSION['CREATED'])) {
 
             <?php echo '<img class="img-responsive center-block" src="uploads/postsimages/postimg'.$link.'.jpg?'.filemtime('uploads/postsimages/postimg'.$link.'.jpg').'">' ?>
             <div class="row">
-                <div class="col-md-4 col-xs-12"><p><?php echo "<em><u>MyAnimeList Link</u></em></br> ".$linkMyAnime;  ?></p></div>
+							</br>
+								<div class="col-md-1"></div>
+                <div class="col-md-10 col-xs-12"><p><?php echo "<em><u>MyAnimeList Link</u></em></br> ".$linkMyAnime;  ?></p></div>
+								<div class="col-md-1"></div>
 
             </div>
 

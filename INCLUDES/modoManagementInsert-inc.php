@@ -2,7 +2,7 @@
 session_start();
 include 'dbh-inc.php';
 $actualUser = $_SESSION['u_uid'];
-$sql = "SELECT * FROM users WHERE rank = 2 ORDER BY user_uid DESC";
+$sql = "SELECT * FROM users WHERE rank = 2 AND user_active = 1 ORDER BY user_uid DESC";
 $result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
     $modo = $row['user_uid'];

@@ -245,9 +245,11 @@ if (!isset($_SESSION['CREATED'])) {
 
                       </br>
                     </div>
-                   <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
+                    <div class="col-md-4"></div>
+                    <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
                        <input type="text" name="linkMyAnime" value="<?php echo $linkMyAnime ?>" placeholder="MyAnimeList Link">
                     </div>
+                    <div class="col-md-4"></div>
                   </div>
                   <div class="row">
                     <div class="col-xs-12">
@@ -257,7 +259,7 @@ if (!isset($_SESSION['CREATED'])) {
                       					echo $content;
                       				}
                                 else {
-        								echo '<table class="table table-bordered"><tbody><tr><td><h3><b style="background-color: rgb(255, 255, 255);">Anime Episodes</b></h3></td><td><h3><b style="background-color: rgb(255, 255, 255);">Manga chapters</b></h3></td></tr><tr><td><p style="text-align: center;">Episode 1...</p></td><td>Chapter 1...</td></tr><tr><td><p>Episode 2...</p></td><td>Chapter 2...</td></tr><tr><td>Etc...</td><td>Etc...</td></tr></tbody></table>';
+        								echo '<p>Description of anime</p><table class="table table-bordered"><tbody><tr><td><h3><b style="background-color: rgb(255, 255, 255);">Anime Episodes</b></h3></td><td><h3><b style="background-color: rgb(255, 255, 255);">Manga chapters</b></h3></td></tr><tr><td><p style="text-align: center;">Episode 1...</p></td><td>Chapter 1...</td></tr><tr><td><p>Episode 2...</p></td><td>Chapter 2...</td></tr><tr><td>Etc...</td><td>Etc...</td></tr></tbody></table>';
         							}
   							?>
                       </textarea>

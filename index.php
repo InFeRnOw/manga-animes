@@ -83,8 +83,8 @@ if (!isset($_SESSION['CREATED'])) {
 						  echo '<div class="divider hidden-xs"></div>
 					  				  <span class="glyphicon glyphicon-envelope"></span>
 									  <h2>News</h2>
-                                      <p>Latest news about our website and the upcoming features!</p>
-                                      <br/>
+                    <p>Latest news about our website and the upcoming features!</p>
+                    <br/>
 									  <a class="btn" href="news.php">See more</a>
 									  <div class="divider"></div>
 								  </div>';
@@ -94,7 +94,7 @@ if (!isset($_SESSION['CREATED'])) {
 										<span class="glyphicon glyphicon-sunglasses"></span>
 										<h2>Join us</h2>
 										<p>If you want to try more features, be sure to join us!</p>
-                                        <br/>
+                    <br/>
 										<a class="btn" href="register.php">See more</a>
 										<div class="divider"></div>
 									</div>';

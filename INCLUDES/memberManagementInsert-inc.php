@@ -2,7 +2,7 @@
 session_start();
 include 'dbh-inc.php';
 $actualUser = $_SESSION['u_uid'];
-$sql = "SELECT * FROM users WHERE rank = 3 ORDER BY user_uid DESC";
+$sql = "SELECT * FROM users WHERE rank = 3 AND user_active = 1 ORDER BY user_uid DESC";
 $result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
     $user = $row['user_uid'];

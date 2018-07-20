@@ -21,7 +21,7 @@ echo '<!-- Logo -->
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Correspondence<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="top-animes.php">Top animes</a></li>
+                  <li><a href="animes-center.php">Animes Center</a></li>
                   <li><a href="alphabetic-order.php">Alphabetic Order</a></li>
                   <li><a href="in-vote.php">In vote</a></li>
                 </ul>
