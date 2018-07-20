@@ -20,8 +20,8 @@ function display($result) {
            <div class='col-xs-12'>
         <div class='row'>
                <div class='col-md-4 col-xs-12'><a class='link' href='post.php?link=" . $row['p_link'] . "'><h3>" . $row['p_titleen'] . "</h3></a></div>
-               <div class='col-md-4 col-xs-12'><h4>Status: " . $row['p_status'] . "</h4></div>
-               <div class='col-md-4 col-xs-12'><h4>Type: " . $row['p_type'] . "</h4></div>
+               <div class='col-md-4 col-xs-12'><h4>Season: " . $row['p_status'] . "</h4></div>
+               <div class='col-md-4 col-xs-12'><h4>Episodes: " . $row['p_type'] . "</h4></div>
                </div>
              </div>
            </div>
