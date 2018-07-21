@@ -1,8 +1,8 @@
 <?php
 session_start();
 include_once 'dbh-inc.php';
+$post = $_SESSION['link'];
 if (isset($_POST['accept'])) {
-    $post = $_SESSION['link'];
     $sql = "SELECT * FROM posts WHERE p_link = '$post'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
@@ -14,7 +14,6 @@ if (isset($_POST['accept'])) {
     exit();
 } //isset($_POST['accept'])
 else if (isset($_POST['deny'])) {
-    $post = $_SESSION['link'];
     $sql = "SELECT * FROM posts WHERE p_link = '$post'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
@@ -28,7 +27,6 @@ else if (isset($_POST['deny'])) {
     exit();
 } //isset($_POST['deny'])
 else if (isset($_POST['delete'])) {
-    $post = $_SESSION['link'];
     $sql = "SELECT * FROM posts WHERE p_link = '$post'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
@@ -42,7 +40,6 @@ else if (isset($_POST['delete'])) {
     exit();
 } //isset($_POST['delete'])
 else if (isset($_POST['like'])) {
-    $post = $_SESSION['link'];
     $user = $_SESSION['u_uid'];
     $sql = "SELECT * FROM votes WHERE v_link='$post'";
     $result = mysqli_query($conn, $sql);
@@ -75,7 +72,6 @@ else if (isset($_POST['like'])) {
     }
 } //isset($_POST['like'])
 else if (isset($_POST['dislike'])) {
-    $post = $_SESSION['link'];
     $user = $_SESSION['u_uid'];
     $sql = "SELECT * FROM votes WHERE v_link='$post'";
     $result = mysqli_query($conn, $sql);
@@ -108,20 +104,41 @@ else if (isset($_POST['dislike'])) {
     }
 } //isset($_POST['dislike'])
 else if (isset($_POST['edit'])) {
-    $post = $_SESSION['link'];
-    $sql = "SELECT * FROM posts WHERE p_link='$post'";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
-    $title = $row['p_title'];
-    $titleEn = $row['p_titleen'];
-    $content = $row['p_content'];
-    $season = $row['p_season'];
-    $episodes = $row['p_episodes'];
-    $status = $row['p_status'];
-    $statusManga = $row['p_statusmanga'];
-    $adaptation = $row['p_adaptation'];
-    $type = $row['p_type'];
-    header("Location: ../posting.php?edit&link=$post&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type");
+    $sqlCheck = "SELECT * FROM posts WHERE p_link='$post'";
+    $resultCheck = mysqli_query($conn, $sqlCheck);
+    $rowCheck = mysqli_fetch_assoc($resultCheck);
+    if ($rowCheck['p_seasoncenter'] > 0 && $rowCheck['p_episodescenter'] > 0) {
+        $sql = "SELECT * FROM posts WHERE p_link='$post'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        $title = $row['p_title'];
+        $titleEn = $row['p_titleen'];
+        $content = $row['p_content'];
+        $status = $row['p_status'];
+        $statusManga = $row['p_statusmanga'];
+        $adaptation = $row['p_adaptation'];
+        $type = $row['p_type'];
+        $seasonc = $row['p_seasoncenter'];
+        $episodesc = $row['p_episodescenter'];
+        header("Location: ../posting-center.php?edit&link=$post&title=$title&titleEn=$titleEn&seasonc=$seasonc&episodesc=$episodesc&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type");
+    }
+    else {
+        $sql = "SELECT * FROM posts WHERE p_link='$post'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        $title = $row['p_title'];
+        $titleEn = $row['p_titleen'];
+        $content = $row['p_content'];
+        $season = $row['p_season'];
+        $episodes = $row['p_episodes'];
+        $status = $row['p_status'];
+        $statusManga = $row['p_statusmanga'];
+        $adaptation = $row['p_adaptation'];
+        $type = $row['p_type'];
+        $seasonc = $row['p_seasoncenter'];
+        $episodesc = $row['p_episodescenter'];
+        header("Location: ../posting.php?edit&link=$post&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type");
+    }
 } //isset($_POST['edit'])
 else {
     header("Location: ../in-vote.php?vote=error");

@@ -2,24 +2,49 @@
 session_start();
 include_once 'INCLUDES/dbh-inc.php';
 $link = $_GET['link'];
-$sqlVarPosts = "SELECT * FROM posts WHERE p_link = '$link'";
-$resultVarPosts = mysqli_query($conn, $sqlVarPosts);
-$rowVarPosts = mysqli_fetch_assoc($resultVarPosts);
-$title = $rowVarPosts['p_title'];
-$pUser = $rowVarPosts['p_user'];
-$content = $rowVarPosts['p_content'];
-$type = $rowVarPosts['p_type'];
-$genre = $rowVarPosts['p_genre'];
-$id = $_SESSION['u_id'];
-$active = $rowVarPosts['p_active'];
-$titleen = $rowVarPosts['p_titleen'];
-$genre = $rowVarPosts['p_genre'];
-$statusmanga = $rowVarPosts['p_statusmanga'];
-$status = $rowVarPosts['p_status'];
-$adaptation = $rowVarPosts['p_adaptation'];
-$season = $rowVarPosts['p_season'];
-$episodes = $rowVarPosts['p_episodes'];
-$linkMyAnime = $rowVarPosts['p_linkmyanime'];
+$sqlCheck = "SELECT * FROM posts WHERE p_link='$link'";
+$resultCheck = mysqli_query($conn, $sqlCheck);
+$rowCheck = mysqli_fetch_assoc($resultCheck);
+if ($rowCheck['p_seasoncenter'] > 0 && $rowCheck['p_episodescenter'] > 0) {
+	$sqlVarPosts = "SELECT * FROM posts WHERE p_link = '$link'";
+	$resultVarPosts = mysqli_query($conn, $sqlVarPosts);
+	$rowVarPosts = mysqli_fetch_assoc($resultVarPosts);
+	$title = $rowVarPosts['p_title'];
+	$pUser = $rowVarPosts['p_user'];
+	$content = $rowVarPosts['p_content'];
+	$type = $rowVarPosts['p_type'];
+	$genre = $rowVarPosts['p_genre'];
+	$id = $_SESSION['u_id'];
+	$active = $rowVarPosts['p_active'];
+	$titleen = $rowVarPosts['p_titleen'];
+	$genre = $rowVarPosts['p_genre'];
+	$statusmanga = $rowVarPosts['p_statusmanga'];
+	$status = $rowVarPosts['p_status'];
+	$adaptation = $rowVarPosts['p_adaptation'];
+	$season = $rowVarPosts['p_seasoncenter'];
+	$episodes = $rowVarPosts['p_episodescenter'];
+	$linkMyAnime = $rowVarPosts['p_linkmyanime'];
+}
+else {
+	$sqlVarPosts = "SELECT * FROM posts WHERE p_link = '$link'";
+	$resultVarPosts = mysqli_query($conn, $sqlVarPosts);
+	$rowVarPosts = mysqli_fetch_assoc($resultVarPosts);
+	$title = $rowVarPosts['p_title'];
+	$pUser = $rowVarPosts['p_user'];
+	$content = $rowVarPosts['p_content'];
+	$type = $rowVarPosts['p_type'];
+	$genre = $rowVarPosts['p_genre'];
+	$id = $_SESSION['u_id'];
+	$active = $rowVarPosts['p_active'];
+	$titleen = $rowVarPosts['p_titleen'];
+	$genre = $rowVarPosts['p_genre'];
+	$statusmanga = $rowVarPosts['p_statusmanga'];
+	$status = $rowVarPosts['p_status'];
+	$adaptation = $rowVarPosts['p_adaptation'];
+	$season = $rowVarPosts['p_season'];
+	$episodes = $rowVarPosts['p_episodes'];
+	$linkMyAnime = $rowVarPosts['p_linkmyanime'];
+}
 
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
 	// last request was more than 30 minutes ago

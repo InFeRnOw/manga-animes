@@ -72,18 +72,18 @@ if (!isset($_SESSION['u_id'])) {
     header("Location: ../login.php");
 }
 else if(!isset($_GET['edit'])) {
-    $action = "INCLUDES/postMaker-inc.php";
+    $action = "INCLUDES/postMakerAnime-center-inc.php";
     $name = "New post";
     $content = $_SESSION['contentTemp'];
 }
 else if($_GET['edit'] == 'blank') {
     $content = $_SESSION['contentTemp'];
-    $action = "INCLUDES/postEdit-inc.php";
+    $action = "INCLUDES/postEditAnimeCenter-inc.php";
     $name = "Edit post";
     $_SESSION['linkTemp'] = $link;
 }
 else {
-    $action = "INCLUDES/postEdit-inc.php";
+    $action = "INCLUDES/postEditAnimeCenter-inc.php";
     $name = "Edit post";
     $content = $row['p_content'];
     $_SESSION['linkTemp'] = $link;
