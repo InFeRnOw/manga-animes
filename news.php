@@ -53,21 +53,21 @@ if (!isset($_SESSION['CREATED'])) {
 
 					<section id="news">
 
-            <div class="divider-with-content"><h1>Most viewed post this week</h1></div>
+            <div class="divider-with-content"><h1>Most recent posts</h1></div>
 
-						<h3>Coming soon...</h3>
-
-            <!-- <div id="news-carousel" class="carousel slide" data-ride="carousel">
+            <div id="news-carousel" class="carousel slide" data-ride="carousel">
 
               <ol class="carousel-indicators">
                 <li data-target="#news-carousel" data-slide-to="0" class="active"></li>
                 <li data-target="#news-carousel" data-slide-to="1"></li>
                 <li data-target="#news-carousel" data-slide-to="2"></li>
+								<li data-target="#news-carousel" data-slide-to="3"></li>
+								<li data-target="#news-carousel" data-slide-to="4"></li>
               </ol>
 
               <div class="carousel-inner">
 
-								<?php //include 'INCLUDES/newsInsertSlider-inc.php' ?>
+								<?php include 'INCLUDES/newsInsertSlider-inc.php' ?>
 
               </div>
 
@@ -79,7 +79,7 @@ if (!isset($_SESSION['CREATED'])) {
                 <span class="glyphicon glyphicon-chevron-right"></span>
                 <span class="sr-only">Next</span>
               </a>
-            </div> -->
+            </div>
 
 						<?php if (isset($_SESSION['u_id'])) {
 								  $id = $_SESSION['u_id'];

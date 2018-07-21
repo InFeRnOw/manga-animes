@@ -135,8 +135,6 @@ else if (isset($_POST['edit'])) {
         $statusManga = $row['p_statusmanga'];
         $adaptation = $row['p_adaptation'];
         $type = $row['p_type'];
-        $seasonc = $row['p_seasoncenter'];
-        $episodesc = $row['p_episodescenter'];
         header("Location: ../posting.php?edit&link=$post&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type");
     }
 } //isset($_POST['edit'])

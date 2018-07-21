@@ -355,7 +355,7 @@ body {
 #page #content #postBox h4 {
   font-size: 30px;
 }
-    
+
     /* PAGE POST*/
 
 #page #post input {
@@ -419,7 +419,7 @@ body {
   overflow-y: auto;
   overflow-x: none;
 }
-    
+
     /* PAGE USER*/
 
 #page #userManagement form input {
@@ -467,7 +467,7 @@ body {
   overflow-y: auto;
   overflow-x: none;
 }
-    
+
     /* PAGE CHAT*/
 
 #page #chat form input {
@@ -503,31 +503,39 @@ body {
     /* PAGE NEWS */
 
 #page #news img {
-  width: 100%;
-  height: 100%;
-  max-width: 720px;
-  max-height: 250px;
-  border-radius: 10px;
+  width: 720px;
+  height: 250px;
   position: absolute;
 }
 
-@media(max-width:767px){
+/* @media(max-width:767px){
   #page #news img {
     max-width: 360px;
     max-height: 125px;
   }
   #page #content #news-carousel {
-    height: 150px !important;
+    height: 125px !important;
     margin-top: 10px;
     box-shadow: 1px 1px 12px #555;
   }
+} */
+
+#news-carousel {
+  width: 720px;
+  background-color: white;
+  margin: 0 auto;
 }
 
-#page #news #container-slider {
-  width: 720px;
-  height: 250px;
-  margin-top: 10px;
-  position: relative;
+.carousel {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.carousel-inner {
+  width:720px;
+  height: 250px !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* DONATE */
@@ -607,4 +615,3 @@ button.btn.bg-orange { padding: 20px 160px; }
   border-radius: 5px;
   margin-bottom: 10px;
 }
-
