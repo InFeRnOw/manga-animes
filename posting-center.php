@@ -78,7 +78,7 @@ else if(!isset($_GET['edit'])) {
 }
 else if($_GET['edit'] == 'blank') {
     $content = $_SESSION['contentTemp'];
-    $action = "INCLUDES/postEdit-inc.php";
+    $action = "INCLUDES/postEditAnimeCenter-inc.php";
     $name = "Edit post";
     $_SESSION['linkTemp'] = $link;
 }

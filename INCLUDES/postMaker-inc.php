@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
     $genre = $_POST['genre'];
     $newGenre = implode(", ", $genre);
     $pageLinkFirstPart = uniqid('post', TRUE);
-    $pageLinkSecondPart = uniqid('end', TRUE);
+    $pageLinkSecondPart = uniqid('alpha', TRUE);
     $pageLink = $pageLinkFirstPart . $pageLinkSecondPart;
     if (empty($title) || empty($status) || empty($type) || empty($titleEn) || empty($newGenre) || empty($statusManga) || empty($content) || empty($season) || empty($episodes) || empty($adaptation) || empty($linkMyAnime)) {
         $_SESSION['contentTemp'] = $content;

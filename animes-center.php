@@ -15,6 +15,94 @@ if (!isset($_SESSION['CREATED'])) {
     session_regenerate_id(true);    // change session ID for the current session and invalidate old session ID
     $_SESSION['CREATED'] = time();  // update creation time
 }
+switch ($_GET['lang']) {
+    case 'jap':
+        $one = 'selected';
+        break;
+    case 'en':
+        $two = 'selected';
+        break;
+}
+switch ($_GET['letter']) {
+    case 'A':
+        $A = 'selected';
+        break;
+    case 'B':
+        $B = 'selected';
+        break;
+		case 'C':
+				$C = 'selected';
+				break;
+		case 'D':
+				$D = 'selected';
+				break;
+		case 'E':
+        $E = 'selected';
+        break;
+    case 'F':
+        $F = 'selected';
+        break;
+		case 'G':
+				$G = 'selected';
+				break;
+		case 'H':
+				$H = 'selected';
+				break;
+		case 'I':
+        $I = 'selected';
+        break;
+    case 'J':
+        $J = 'selected';
+        break;
+		case 'K':
+				$K = 'selected';
+				break;
+		case 'L':
+				$L = 'selected';
+				break;
+		case 'M':
+        $M = 'selected';
+        break;
+    case 'N':
+        $N = 'selected';
+        break;
+		case 'O':
+				$O = 'selected';
+				break;
+		case 'P':
+				$P = 'selected';
+				break;
+		case 'Q':
+        $Q = 'selected';
+        break;
+    case 'R':
+        $R = 'selected';
+        break;
+		case 'S':
+				$S = 'selected';
+				break;
+		case 'T':
+				$T = 'selected';
+				break;
+		case 'U':
+        $U = 'selected';
+        break;
+    case 'V':
+        $V = 'selected';
+        break;
+		case 'W':
+				$W = 'selected';
+				break;
+		case 'X':
+				$X = 'selected';
+				break;
+		case 'Y':
+        $Y = 'selected';
+        break;
+    case 'Z':
+        $Z = 'selected';
+        break;
+}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -62,38 +150,38 @@ if (!isset($_SESSION['CREATED'])) {
                     <div class="row">
                       <div class="col-md-4 col-xs-12">
                         <select class="selectpicker" title="Letter" name="animesCenter">
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="D">D</option>
-                            <option value="E">E</option>
-                            <option value="F">F</option>
-                            <option value="G">G</option>
-                            <option value="H">H</option>
-                            <option value="I">I</option>
-                            <option value="J">J</option>
-                            <option value="K">K</option>
-                            <option value="L">L</option>
-                            <option value="M">M</option>
-                            <option value="N">N</option>
-                            <option value="O">O</option>
-                            <option value="P">P</option>
-                            <option value="Q">Q</option>
-                            <option value="R">R</option>
-                            <option value="S">S</option>
-                            <option value="T">T</option>
-                            <option value="U">U</option>
-                            <option value="V">V</option>
-                            <option value="W">W</option>
-                            <option value="X">X</option>
-                            <option value="Y">Y</option>
-                            <option value="Z">Z</option>
+                            <option <?php echo $A ?> value="A">A</option>
+                            <option <?php echo $B ?> value="B">B</option>
+                            <option <?php echo $C ?> value="C">C</option>
+                            <option <?php echo $D ?> value="D">D</option>
+                            <option <?php echo $E ?> value="E">E</option>
+                            <option <?php echo $F ?> value="F">F</option>
+                            <option <?php echo $G ?> value="G">G</option>
+                            <option <?php echo $H ?> value="H">H</option>
+                            <option <?php echo $I ?> value="I">I</option>
+                            <option <?php echo $J ?> value="J">J</option>
+                            <option <?php echo $K ?> value="K">K</option>
+                            <option <?php echo $L ?> value="L">L</option>
+                            <option <?php echo $M ?> value="M">M</option>
+                            <option <?php echo $N ?> value="N">N</option>
+                            <option <?php echo $O ?> value="O">O</option>
+                            <option <?php echo $P ?> value="P">P</option>
+                            <option <?php echo $Q ?> value="Q">Q</option>
+                            <option <?php echo $R ?> value="R">R</option>
+                            <option <?php echo $S ?> value="S">S</option>
+                            <option <?php echo $T ?> value="T">T</option>
+                            <option <?php echo $U ?> value="U">U</option>
+                            <option <?php echo $V ?> value="V">V</option>
+                            <option <?php echo $W ?> value="W">W</option>
+                            <option <?php echo $W ?> value="X">X</option>
+                            <option <?php echo $Y ?> value="Y">Y</option>
+                            <option <?php echo $Z ?> value="Z">Z</option>
                           </select>
                         </div>
                         <div class="col-md-4 col-xs-12">
                           <select class="selectpicker" title="Langage" name="lang">
-                            <option value="jap">Japanese Title</option>
-                            <option value="en">English Title</option>
+                            <option <?php echo $one ?> value="jap">Japanese Title</option>
+                            <option <?php echo $two ?> value="en">English Title</option>
                           </select>
                        </div>
                        <div class="col-md-4 col-xs-12">
