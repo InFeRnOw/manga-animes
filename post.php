@@ -106,6 +106,8 @@ if (!isset($_SESSION['CREATED'])) {
             <div class="row">
 							</br>
 								<div class="col-md-1"></div>
+                            <div class="col-md-10 col-xs-12"><p><?php echo "<em><u>MyAnimeList Link</u></em></br> ".$linkMyAnime;  ?></p></div>
+            </br>
 
             </div>
 

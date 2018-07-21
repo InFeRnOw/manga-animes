@@ -236,19 +236,19 @@ if (!isset($_SESSION['CREATED'])) {
                     </div>
 
                   </div>
-                  <div class="row">
+                    <div class="row">
                     <div class="col-xs-12">
                       <h4><u>Banner</u></h4>
                       <input class="btn btn-basic center-block" type="file" name="banner"/>
                       <p style="font-size:12px;">Optimal Résolution: 720x250</p>
                       <p style="font-size:12px;">Only jpg is supported and max 10MB</p>
-
-                      </br>
+                    </div>
+                    <div class="col-md-4"></div>
+                    <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
+                       <input type="text" name="linkMyAnime" value="<?php echo $linkMyAnime ?>" placeholder="MyAnimeList Link">
                     </div>
                     <div class="col-md-4"></div>
                   </div>
-                  <div class="row">
-                    <div class="col-xs-12">
                       <h4><u>Description</u></h4>
                       <textarea id="summernote" name="content">
                         <?php if (isset($_GET['edit'])) {
