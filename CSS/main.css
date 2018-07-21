@@ -508,18 +508,6 @@ body {
   position: absolute;
 }
 
-/* @media(max-width:767px){
-  #page #news img {
-    max-width: 360px;
-    max-height: 125px;
-  }
-  #page #content #news-carousel {
-    height: 125px !important;
-    margin-top: 10px;
-    box-shadow: 1px 1px 12px #555;
-  }
-} */
-
 #news-carousel {
   width: 720px;
   background-color: white;
@@ -532,10 +520,36 @@ body {
 }
 
 .carousel-inner {
-  width:720px;
+  width: 720px;
   height: 250px !important;
   margin: 0 !important;
   padding: 0 !important;
+}
+
+@media(max-width:767px) {
+  #page #news img {
+    width: 300px;
+    height: 125px;
+    position: absolute;
+  }
+
+  #news-carousel {
+    width: 300px;
+    background-color: white;
+    margin: 0 auto;
+  }
+
+  .carousel {
+      border-radius: 15px;
+      overflow: hidden;
+  }
+
+  .carousel-inner {
+    width: 300px;
+    height: 125px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 }
 
 /* DONATE */
