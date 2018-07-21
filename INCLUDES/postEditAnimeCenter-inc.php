@@ -24,12 +24,11 @@ if (isset($_POST['submit'])) {
     $adaptation = mysqli_real_escape_string($conn, $_POST['adaptation']);
     $titleEn = mysqli_real_escape_string($conn, $_POST['titleEn']);
     $statusManga = mysqli_real_escape_string($conn, $_POST['statusManga']);
-    $linkMyAnime = mysqli_real_escape_string($conn, $_POST['linkMyAnime']);
 
     $genre = $_POST['genre'];
     $newGenre = implode(", ", $genre);
-    if (empty($title) || empty($status) || empty($type) || empty($titleEn) || empty($newGenre) || empty($statusManga) || empty($content) || empty($season) || empty($episodes) || empty($adaptation) || empty($linkMyAnime)) {
-        header("Location: ../posting-center.php?edit=blank&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type&linkMyAnime=$linkMyAnime");
+    if (empty($title) || empty($status) || empty($type) || empty($titleEn) || empty($newGenre) || empty($statusManga) || empty($content) || empty($season) || empty($episodes) || empty($adaptation)) {
+        header("Location: ../posting-center.php?edit=blank&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type");
         $_SESSION['contentTemp'] = $content;
     } //empty($title) || empty($status) || empty($type) || empty($titleEn) || empty($newGenre) || empty($statusManga) || empty($content) || empty($season) || empty($episodes) || empty($adaptation)
     else {
@@ -44,24 +43,24 @@ if (isset($_POST['submit'])) {
                     $fileNameOld = "postimg" . $pageLink . "." . $allowed;
                     $fileDestination = '../uploads/postsimages/' . $fileNameNew;
                     if (move_uploaded_file($fileTmpName, $fileDestination)) {
-                        $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_statusmanga='$statusManga', p_seasoncenter='$season', p_episodescenter='$episodes', p_adaptation='$adaptation', p_img_src='$pageLink', p_linkmyanime='$linkMyAnime' WHERE p_link='$pageLink'";
+                        $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_statusmanga='$statusManga', p_seasoncenter='$season', p_episodescenter='$episodes', p_adaptation='$adaptation', p_img_src='$pageLink' WHERE p_link='$pageLink'";
                         $result = mysqli_query($conn, $sql);
                         header("Location: ../post.php?posting=success&link=$pageLink");
                     } //move_uploaded_file($fileTmpName, $fileDestination)
                     else {
-                        header("Location: ../posting-center.php?edit&upload=failed&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type&linkMyAnime=$linkMyAnime");
+                        header("Location: ../posting-center.php?edit&upload=failed&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type");
                     }
                 } //$fileSize < 1250000
                 else {
-                    header("Location: ../posting-center.php?edit&upload=toobigfile&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type&linkMyAnime=$linkMyAnime");
+                    header("Location: ../posting-center.php?edit&upload=toobigfile&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type");
                 }
             } //$fileError === 0
             else {
-                header("Location: ../posting-center.php?edit&upload=error&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type&linkMyAnime=$linkMyAnime");
+                header("Location: ../posting-center.php?edit&upload=error&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type");
             }
         } //in_array($fileActualExt, $allowed)
         else {
-            header("Location: ../posting-center.php?edit&upload=invalidtype&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type&linkMyAnime=$linkMyAnime");
+            header("Location: ../posting-center.php?edit&upload=invalidtype&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type");
         }
     }
 } //isset($_POST['submit'])

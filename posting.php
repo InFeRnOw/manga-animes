@@ -255,7 +255,7 @@ if (!isset($_SESSION['CREATED'])) {
                       					echo $content;
                       				}
                                 else {
-        								echo '<p>Description of anime</p><table class="table table-bordered"><tbody><tr><td><h3><b style="background-color: rgb(255, 255, 255);">Anime Episodes</b></h3></td><td><h3><b style="background-color: rgb(255, 255, 255);">Manga chapters</b></h3></td></tr><tr><td><p style="text-align: center;">Episode 1...</p></td><td>Chapter 1...</td></tr><tr><td><p>Episode 2...</p></td><td>Chapter 2...</td></tr><tr><td>Etc...</td><td>Etc...</td></tr></tbody></table>';
+        								echo '<table class="table table-bordered"><tbody><tr><td><h3><b style="background-color: rgb(255, 255, 255);">Anime Episodes</b></h3></td><td><h3><b style="background-color: rgb(255, 255, 255);">Manga chapters</b></h3></td></tr><tr><td><p style="text-align: center;">Episode 1...</p></td><td>Chapter 1...</td></tr><tr><td><p>Episode 2...</p></td><td>Chapter 2...</td></tr><tr><td>Etc...</td><td>Etc...</td></tr></tbody></table>';
         							}
   							?>
                       </textarea>

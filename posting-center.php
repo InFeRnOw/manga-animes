@@ -245,11 +245,6 @@ if (!isset($_SESSION['CREATED'])) {
 
                       </br>
                     </div>
-                    <div class="col-md-4"></div>
-                    <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
-                       <input type="text" name="linkMyAnime" value="<?php echo $linkMyAnime ?>" placeholder="MyAnimeList Link">
-                    </div>
-                    <div class="col-md-4"></div>
                   </div>
                             <!-- Change to a list with seasons -->
                   <div class="row">
