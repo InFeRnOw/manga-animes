@@ -7,14 +7,14 @@ $result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
     if ($row['chat_from'] == $actualUser) {
         $friend = $row['chat_to'];
-        $sql3 = "SELECT * FROM chatrooms WHERE chat_to = '$friend' OR chat_from = '$actualUser' ORDER BY chat_id DESC";
+        $sql3 = "SELECT * FROM chatrooms WHERE chat_to = '$friend' AND chat_from = '$actualUser' ORDER BY chat_id DESC";
         $result3 = mysqli_query($conn, $sql3);
         $row3 = mysqli_fetch_assoc($result3);
         $chatRoomId = $row3['chat_id'];
     } //$row['chat_from'] == $actualUser
     else {
         $friend = $row['chat_from'];
-        $sql3 = "SELECT * FROM chatrooms WHERE chat_to = '$actualUser' OR chat_from = '$friend' ORDER BY chat_id DESC";
+        $sql3 = "SELECT * FROM chatrooms WHERE chat_to = '$actualUser' AND chat_from = '$friend' ORDER BY chat_id DESC";
         $result3 = mysqli_query($conn, $sql3);
         $row3 = mysqli_fetch_assoc($result3);
         $chatRoomId = $row3['chat_id'];

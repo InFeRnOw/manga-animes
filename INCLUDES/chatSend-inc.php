@@ -1,7 +1,7 @@
 <?php
-if (isset($_POST['submit'])) {
-    session_start();
-    include 'dbh-inc.php';
+session_start();
+include 'dbh-inc.php';
+if (isset($_POST['submit']) && isset($_SESSION['u_id'])) {
     $friend = mysqli_real_escape_string($conn, $_POST['friend']);
     $chatRoomId = mysqli_real_escape_string($conn, $_POST['chatroom']);
     $user = $_SESSION['u_uid'];
