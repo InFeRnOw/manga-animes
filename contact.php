@@ -45,7 +45,8 @@ if (!isset($_SESSION['CREATED'])) {
     	<!-- Page -->
                  
                      <div class="row"> 
-                         <div class="col-md-4 col-xs-12">
+                         <div class="row" align="center">
+                             <section>
 					   <?php if(!isset($_SESSION['u_id'])) {
                     echo '<p style="color: red;">Login, in order to contact!</p>';
                   }?>
@@ -53,8 +54,30 @@ if (!isset($_SESSION['CREATED'])) {
                     echo '<p style="color: red;">Coming soon!</p>';
                   }?>
                      </div>
+                             </section>
                      </div>
+            <div class="row">
                 
+                <a class="btn" href="bug-report.php">Bug Report</a>
+                <a class="btn">Suggestions</a>
+            
+        
+            
+            </div>
+            
+          <!--   <h1>Contact us</h1>
+        
+            
+            <form method="post" action="<?php echo strip_tags($_SERVER['REQUEST_URI']); ?>">
+                    <p>Name <span style="color:#ff0000;">*</span>: <input type="text" name="nom" size="30" value="<?php echo $_SESSION['u_uid']?>"/> </p>
+                    <p>Email <span style="color:#ff0000;">*</span>: <input type="text" name="email" size="30" value="<?php echo $_SESSION['u_email']?>"/></p>
+                    <p>Message: <span style="color:#ff0000;">*</span>:</p>
+                    <textarea name="message" cols="60" rows="10"></textarea>
+                <!-- Ici pourra être ajouté un captcha anti-spam (plus tard) -->
+               <!--     <p><input type="submit" name="submit" value="Send" /></p>
+            </form> -->
+                         
+         
         	<!-- Footer -->
                     
 				<div id="footer">
