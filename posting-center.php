@@ -180,43 +180,43 @@ if (!isset($_SESSION['CREATED'])) {
                   </div>
                   <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
                     <select class="selectpicker" multiple="multiple" title="Genre" name="genre[]">
-                       <option value="Action">Action</option>
-                       <option value="Adventure">Adventure</option>
-                       <option value="Comedy">Comedy</option>
-                       <option value="Drama">Drama</option>
-                       <option value="Slice of Life">Slice of Life</option>
-                       <option value="Fantasy">Fantasy</option>
-                       <option value="Magic">Magic</option>
-                       <option value="Supernatural">Supernatural</option>
-                       <option value="Horror">Horror</option>
-                       <option value="Mystery">Mystery</option>
-                       <option value="Psychological">Psychological</option>
-                       <option value="Romance">Sci-fi</option>
-                       <option value="Cyberpunk">Cyberpunk</option>
-                       <option value="Game">Game</option>
-                       <option value="Ecchi">Ecchi</option>
-                       <option value="Demons">Demons</option>
-                       <option value="Martial Arts">Martial Arts</option>
-                       <option value="Historical">Historical</option>
-                       <option value="Hentai">Hentai</option>
-                       <option value="Isekai">Isekai</option>
-                       <option value="Military">Military</option>
-                       <option value="Mecha">Mecha</option>
-                       <option value="Music">Music</option>
-                       <option value="Parody">Parody</option>
-                       <option value="Police">Police</option>
-                       <option value="Post-Apocalyptic">Post-Apocalyptic</option>
-                       <option value="Reverse Harem">Reverse Harem</option>
-                       <option value="School">School</option>
-                       <option value="Shōnen-ai">Shōnen-ai</option>
-                       <option value="Shōjo-ai">Shōjo-ai</option>
-                       <option value="Space">Space</option>
-                       <option value="Sports">Sports</option>
-                       <option value="Super Power">Super Power</option>
-                       <option value="Tragedy">Tragedy</option>
-                       <option value="Vampire">Vampire</option>
-                       <option value="Yuri">Yuri</option>
-                       <option value="Yaoi">Yaoi</option>
+                      <option <?php if (strpos($genre, "Action") !== false) { echo "selected"; } ?> value="Action">Action</option>
+                      <option <?php if (strpos($genre, "Adventure") !== false) { echo "selected"; } ?> value="Adventure">Adventure</option>
+                      <option <?php if (strpos($genre, "Comedy") !== false) { echo "selected"; } ?> value="Comedy">Comedy</option>
+                      <option <?php if (strpos($genre, "Drama") !== false) { echo "selected"; } ?> value="Drama">Drama</option>
+                      <option <?php if (strpos($genre, "Slice of Life") !== false) { echo "selected"; } ?> value="Slice of Life">Slice of Life</option>
+                      <option <?php if (strpos($genre, "Fantasy") !== false) { echo "selected"; } ?> value="Fantasy">Fantasy</option>
+                      <option <?php if (strpos($genre, "Magic") !== false) { echo "selected"; } ?> value="Magic">Magic</option>
+                      <option <?php if (strpos($genre, "Supernatural") !== false) { echo "selected"; } ?> value="Supernatural">Supernatural</option>
+                      <option <?php if (strpos($genre, "Horror") !== false) { echo "selected"; } ?> value="Horror">Horror</option>
+                      <option <?php if (strpos($genre, "Mystery") !== false) { echo "selected"; } ?> value="Mystery">Mystery</option>
+                      <option <?php if (strpos($genre, "Psychological") !== false) { echo "selected"; } ?> value="Psychological">Psychological</option>
+                      <option <?php if (strpos($genre, "Romance") !== false) { echo "selected"; } ?> value="Romance">Sci-fi</option>
+                      <option <?php if (strpos($genre, "Cyberpunk") !== false) { echo "selected"; } ?> value="Cyberpunk">Cyberpunk</option>
+                      <option <?php if (strpos($genre, "Game") !== false) { echo "selected"; } ?> value="Game">Game</option>
+                      <option <?php if (strpos($genre, "Ecchi") !== false) { echo "selected"; } ?> value="Ecchi">Ecchi</option>
+                      <option <?php if (strpos($genre, "Demons") !== false) { echo "selected"; } ?> value="Demons">Demons</option>
+                      <option <?php if (strpos($genre, "Martial Arts") !== false) { echo "selected"; } ?> value="Martial Arts">Martial Arts</option>
+                      <option <?php if (strpos($genre, "Historical") !== false) { echo "selected"; } ?> value="Historical">Historical</option>
+                      <option <?php if (strpos($genre, "nentai") !== false) { echo "selected"; } ?> value="Hentai">Hentai</option>
+                      <option <?php if (strpos($genre, "Isekai") !== false) { echo "selected"; } ?> value="Isekai">Isekai</option>
+                      <option <?php if (strpos($genre, "Military") !== false) { echo "selected"; } ?> value="Military">Military</option>
+                      <option <?php if (strpos($genre, "Mecha") !== false) { echo "selected"; } ?> value="Mecha">Mecha</option>
+                      <option <?php if (strpos($genre, "Music") !== false) { echo "selected"; } ?> value="Music">Music</option>
+                      <option <?php if (strpos($genre, "Parody") !== false) { echo "selected"; } ?> value="Parody">Parody</option>
+                      <option <?php if (strpos($genre, "Police") !== false) { echo "selected"; } ?> value="Police">Police</option>
+                      <option <?php if (strpos($genre, "Post-Apocalyptic") !== false) { echo "selected"; } ?> value="Post-Apocalyptic">Post-Apocalyptic</option>
+                      <option <?php if (strpos($genre, "Reverse Harem") !== false) { echo "selected"; } ?> value="Reverse Harem">Reverse Harem</option>
+                      <option <?php if (strpos($genre, "School") !== false) { echo "selected"; } ?> value="School">School</option>
+                      <option <?php if (strpos($genre, "Shōnen-ai") !== false) { echo "selected"; } ?> value="Shōnen-ai">Shōnen-ai</option>
+                      <option <?php if (strpos($genre, "Shōjo-ai") !== false) { echo "selected"; } ?> value="Shōjo-ai">Shōjo-ai</option>
+                      <option <?php if (strpos($genre, "Space") !== false) { echo "selected"; } ?> value="Space">Space</option>
+                      <option <?php if (strpos($genre, "Sports") !== false) { echo "selected"; } ?> value="Sports">Sports</option>
+                      <option <?php if (strpos($genre, "Super Power") !== false) { echo "selected"; } ?> value="Super Power">Super Power</option>
+                      <option <?php if (strpos($genre, "Tragedy") !== false) { echo "selected"; } ?> value="Tragedy">Tragedy</option>
+                      <option <?php if (strpos($genre, "Vampire") !== false) { echo "selected"; } ?> value="Vampire">Vampire</option>
+                      <option <?php if (strpos($genre, "Yuri") !== false) { echo "selected"; } ?> value="Yuri">Yuri</option>
+                      <option <?php if (strpos($genre, "Yaoi") !== false) { echo "selected"; } ?> value="Yaoi">Yaoi</option>
                      </select>
                    </div>
                   </div>

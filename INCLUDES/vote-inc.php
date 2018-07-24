@@ -120,7 +120,8 @@ else if (isset($_POST['edit'])) {
         $type = $row['p_type'];
         $seasonc = $row['p_seasoncenter'];
         $episodesc = $row['p_episodescenter'];
-        header("Location: ../posting-center.php?edit&link=$post&title=$title&titleEn=$titleEn&seasonc=$seasonc&episodesc=$episodesc&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type");
+        $genre = $row['p_genre'];
+        header("Location: ../posting-center.php?edit&link=$post&title=$title&titleEn=$titleEn&seasonc=$seasonc&episodesc=$episodesc&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type&genre=$genre");
     }
     else {
         $sql = "SELECT * FROM posts WHERE p_link='$post'";
@@ -136,7 +137,8 @@ else if (isset($_POST['edit'])) {
         $adaptation = $row['p_adaptation'];
         $type = $row['p_type'];
         $myAnimeList = $row['p_linkmyanime'];
-        header("Location: ../posting.php?edit&link=$post&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type&linkMyAnime=$myAnimeList");
+        $genre = $row['p_genre'];
+        header("Location: ../posting.php?edit&link=$post&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type&linkMyAnime=$myAnimeList&genre=$genre");
     }
 } //isset($_POST['edit'])
 else {
