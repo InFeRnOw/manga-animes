@@ -39,12 +39,12 @@ if (!isset($_SESSION['CREATED'])) {
 					<?php include 'INCLUDES/html-inc/htmlHeaderMain-inc.php' ?>
 
 					<div class="divider-nav"></div>
-                             
+
             </div>
             <!-- Page -->
-          <div class="page"> 
+          <div class="page">
                 <h1>Bug Reports</h1>
-    
+
                     <form class="reportform">
                         <div style>
                             <dl class="unit">
@@ -53,7 +53,7 @@ if (!isset($_SESSION['CREATED'])) {
                                 <input type="text" name="nom" size="30" value="<?php echo $_SESSION['u_uid']?>"/>
                                 </dd>
                             </dl>
-                            
+
                             <dl class="unit">
                              <dt>Email <span style="color:#ff0000;">*</span></dt>
                                 <dd>
@@ -66,29 +66,29 @@ if (!isset($_SESSION['CREATED'])) {
                                     <i>Describe the bug here.</i> </br>
                                 <textarea class="textsize" style="height: 200px;"></textarea>
                                 </dd>
-                            
+
                             </dl>
                        <!-- <p>Name <span style="color:#ff0000;">*</span> <input type="text" name="nom" size="30" value="<?php echo $_SESSION['u_uid']?>"/> </p>
                         <p>Email <span style="color:#ff0000;">*</span> <input type="text" name="email" size="30" value="<?php echo $_SESSION['u_email']?>"/></p>
                         <dd>Summary <span style="color:#ff0000;">*</span> <i>Enter a one-line summary of the issue.</i></dd>
                         <input type="text" name="nom" size="30"/>
-                        <dd>Description <span style="color:#ff0000;">*</span> <i>Describe the bug here.</i></dd>  
+                        <dd>Description <span style="color:#ff0000;">*</span> <i>Describe the bug here.</i></dd>
                         <textarea name="message" cols="60" rows="10"></textarea>
                 <!-- Ici pourra être ajouté un captcha anti-spam (plus tard) -->
                        <p><input type="submit" name="submit" value="Send" /></p>
                             </form>
                         </div>
             </div>
-         </div> 
+         </div>
             <!-- Footer -->
-                    
+
 				<div id="footer">
 
           <?php include 'INCLUDES/html-inc/htmlFooterMain-inc.php' ?>
 
 				</div>
 
-                    
+
         </div>
     </body>
 </html>

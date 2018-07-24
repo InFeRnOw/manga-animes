@@ -20,7 +20,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                              <div class="row">
                                <div class="col-xs-12">
                                  <div class="row">
-                                   <div class="col-xs-12" style="color: white"><b><h3>' . $row["p_title"] . '</h3></b></div>
+                                   <div class="col-xs-12"><b><h3 style="color: white; background: rgba(0,0,0, 0.5); border-radius: 5px;">' . $row["p_title"] . '</h3></b></div>
                                  </div>
                                </div>
                              </div>
