@@ -251,7 +251,7 @@ if (!isset($_SESSION['CREATED'])) {
                     <div class="col-xs-12">
                       <h4><u>Description</u></h4>
                       <textarea id="summernote" name="content">
-                        <?php if (isset($_GET['edit'])) {
+                        <?php if (isset($_GET['edit']) || $_GET['posting'] == "blank") {
                       					echo $content;
                       				}
   							?>
