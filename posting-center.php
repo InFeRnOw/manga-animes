@@ -252,7 +252,9 @@ if (!isset($_SESSION['CREATED'])) {
                       <h4><u>Description</u></h4>
                       <textarea id="summernote" name="content">
                         <?php if (isset($_GET['edit']) || $_GET['posting'] == "blank") {
-                      					echo $content;
+                                  $firstFix = stripslashes($content);
+                                  $SecondFix = str_replace("rn","",$firstFix);
+                                  echo $SecondFix;
                       				}
   							?>
                       </textarea>

@@ -244,20 +244,29 @@ if (!isset($_SESSION['CREATED'])) {
                       <p style="font-size:12px;">Optimal Résolution: 720x250</p>
                       <p style="font-size:12px;">Only jpg is supported and max 10MB</p>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-xs-12 marginForm">
-                       <input type="text" name="linkMyAnime" value="<?php echo $linkMyAnime ?>" placeholder="MyAnimeList Link">
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-xs-12 marginForm">
-                      <select id="adaptSelector" class="selectpicker" title="Adaptation From ..." name="adaptEditor">
-                         <option value="LightNovel">Adapted from light novel</option>
-                         <option value="Manga">Adapted from manga</option>
-                      </select>
-                    </div>
+                    <?php if (!isset($_GET['edit'])) {
+                              echo '<div class="col-lg-6 col-md-6 col-xs-12 marginForm">
+                                       <input type="text" name="linkMyAnime" value="' .$linkMyAnime. '" placeholder="MyAnimeList Link">
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-xs-12 marginForm">
+                                      <select id="adaptSelector" class="selectpicker" title="Adaptation From ..." name="adaptEditor">
+                                         <option value="LightNovel">Adapted from light novel</option>
+                                         <option value="Manga">Adapted from manga</option>
+                                      </select>
+                                    </div>';
+                          }
+                          else {
+                              echo '<div class="col-xs-12 marginForm">
+                                       <input type="text" name="linkMyAnime" value="' .$linkMyAnime. '" placeholder="MyAnimeList Link">
+                                    </div>';
+                          }?>
                   </div>
                       <h4><u>Description</u></h4>
                       <textarea id="summernote" name="content">
-                        <?php if (isset($_GET['edit'])) {
-                      					echo $content;
+                        <?php if (isset($_GET['edit']) || $_GET['posting'] == "blank") {
+                                  $firstFix = stripslashes($content);
+                                  $SecondFix = str_replace("rn","",$firstFix);
+                                  echo $SecondFix;
                       				}
                                 else {
         								echo '<table class="table table-bordered">
