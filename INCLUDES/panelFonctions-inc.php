@@ -21,6 +21,7 @@ $adaptation = $rowVarPosts['p_adaptation'];
 $season = $rowVarPosts['p_season'];
 $episodes = $rowVarPosts['p_episodes'];
 $linkMyAnime = $rowVarPosts['p_linkmyanime'];
+$lastUserToEdit = $rowVarPosts['p_lastedited'];
 
 if ($active == 0) {
     $sql = "SELECT * FROM users WHERE user_id='$id'";
@@ -28,15 +29,15 @@ if ($active == 0) {
     $row = mysqli_fetch_assoc($result);
     if ($row['rank'] <= 2 && isset($_SESSION['u_id'])) {
         $_SESSION['link'] = $link;
-        adminPanelVote();
+        adminPanelVote($lastUserToEdit);
     } //$row['rank'] <= 2 && isset($_SESSION['u_id'])
     else if ($row['rank'] == 3 && isset($_SESSION['u_id'])) {
         $_SESSION['link'] = $link;
         if ($_SESSION['u_uid'] == $pUser) {
-            authorPanelVote();
+            authorPanelVote($lastUserToEdit);
         } //$_SESSION['u_uid'] == $pUser
         else {
-            votePanel();
+            votePanel($lastUserToEdit);
         }
     } //$row['rank'] == 3 && isset($_SESSION['u_id'])
     else {
@@ -51,12 +52,12 @@ if ($active == 1 || $active == 2) {
     $row = mysqli_fetch_assoc($result);
     if ($row['rank'] <= 2 && isset($_SESSION['u_id'])) {
         $_SESSION['link'] = $link;
-        adminPanel();
+        adminPanel($lastUserToEdit);
     } //$row['rank'] <= 2 && isset($_SESSION['u_id'])
     else if ($row['rank'] == 3 && isset($_SESSION['u_id'])) {
         $_SESSION['link'] = $link;
         if ($_SESSION['u_uid'] == $pUser) {
-            authorPanel();
+            authorPanel($lastUserToEdit);
         } //$_SESSION['u_uid'] == $pUser
     } //$row['rank'] == 3 && isset($_SESSION['u_id'])
 } //$active == 1

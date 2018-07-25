@@ -118,7 +118,7 @@ if (!isset($_SESSION['CREATED'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
-      <script src="JS/editorTable.js"></script>
+      <?php if (!isset($_GET['edit'])) { echo '<script src="JS/editorTable.js"></script>'; }?>
 		<link rel="stylesheet" href="CSS/main.css">
     <script>
     $(document).ready(function() {

@@ -1,8 +1,10 @@
 <?php
+include 'dbh-inc.php';
 
-function adminPanelVote(){
+function adminPanelVote($lastedited){
   echo "<div class='divider-with-content'>
           <button id='hide-panel' class='btn'>Hide panel</button>
+          <p>lastly edited by: ".$lastedited."<p>
           <h2>Staff panel</h2>
           <form id=voteForm action='INCLUDES/vote-inc.php' method='POST'>
           <div class='container-fluid'>
@@ -31,9 +33,10 @@ function adminPanelVote(){
         </div>";
 }
 
-function authorPanelVote(){
+function authorPanelVote($lastedited){
     echo "<div class='divider-with-content'>
             <button id='hide-panel' class='btn'>Hide panel</button>
+            <p>lastly edited by: ".$lastedited."<p>
     		<h2>Author panel</h2>
     		<form id=voteForm action='INCLUDES/vote-inc.php' method='POST'>
     		<div class='container-fluid'>
@@ -56,9 +59,10 @@ function authorPanelVote(){
     	  </div>";
 }
 
-function votePanel() {
+function votePanel($lastedited) {
     echo "<div class='divider-with-content'>
             <button id='hide-panel' class='btn'>Hide panel</button>
+            <p>lastly edited by: ".$lastedited."<p>
             <h2>Vote panel</h2>
             <form id=voteForm action='INCLUDES/vote-inc.php' method='POST'>
             <div class='container-fluid'>
@@ -75,9 +79,10 @@ function votePanel() {
         </div>";
 }
 
-function adminPanel(){
+function adminPanel($lastedited){
   echo "<div class='divider-with-content'>
           <button id='hide-panel' class='btn'>Hide panel</button>
+          <p>lastly edited by: ".$lastedited."<p>
           <h2>Staff panel</h2>
           <form id=voteForm action='INCLUDES/vote-inc.php' method='POST'>
           <div class='container-fluid'>
@@ -95,9 +100,10 @@ function adminPanel(){
         </div>";
 }
 
-function authorPanel(){
+function authorPanel($lastedited){
     echo "<div class='divider-with-content'>
             <button id='hide-panel' class='btn'>Hide panel</button>
+            <p>lastly edited by: ".$lastedited."<p>
             <h2>Author panel</h2>
             <form id=voteForm action='INCLUDES/vote-inc.php' method='POST'>
             <div class='container-fluid'>
