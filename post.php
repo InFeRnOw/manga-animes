@@ -2,6 +2,8 @@
 session_start();
 include_once 'INCLUDES/dbh-inc.php';
 $link = $_GET['link'];
+$sqlVisit = "UPDATE posts SET p_vues = p_vues + 1 WHERE p_link='$link'";
+$resultVisit = mysqli_query($conn, $sqlVisit);
 $sqlCheck = "SELECT * FROM posts WHERE p_link='$link'";
 $resultCheck = mysqli_query($conn, $sqlCheck);
 $rowCheck = mysqli_fetch_assoc($resultCheck);
@@ -24,6 +26,7 @@ if ($rowCheck['p_seasoncenter'] > 0 && $rowCheck['p_episodescenter'] > 0) {
 	$season = $rowVarPosts['p_seasoncenter'];
 	$episodes = $rowVarPosts['p_episodescenter'];
 	$linkMyAnime = $rowVarPosts['p_linkmyanime'];
+	$vues = $rowVarPosts['p_vues'];
 }
 else {
 	$sqlVarPosts = "SELECT * FROM posts WHERE p_link = '$link'";
@@ -44,6 +47,7 @@ else {
 	$season = $rowVarPosts['p_season'];
 	$episodes = $rowVarPosts['p_episodes'];
 	$linkMyAnime = $rowVarPosts['p_linkmyanime'];
+	$vues = $rowVarPosts['p_vues'];
 }
 
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
@@ -130,9 +134,23 @@ if (!isset($_SESSION['CREATED'])) {
             <?php echo '<img class="img-responsive center-block" src="uploads/postsimages/postimg'.$link.'.jpg?'.filemtime('uploads/postsimages/postimg'.$link.'.jpg').'">' ?>
             <div class="row">
 							</br>
-                <div class="col-xs-12"><p><?php if ($linkMyAnime !== '') {
-									echo "<em><u>MyAnimeList Link</u></em></br> ".$linkMyAnime;
-								}?></p></div>
+							<div class="col-xs-6">
+								<p>
+									<?php echo "<em><u>Author of post</u></em></br>".$pUser;?>
+								</p>
+							</div>
+							<div class="col-xs-6">
+								<p>
+									<?php echo "<em><u>Number of visits</u></em></br>".$vues;?>
+								</p>
+							</div>
+							</br>
+                <div class="col-xs-12">
+									<p><?php if ($linkMyAnime !== '') {
+															echo "<em><u>MyAnimeList Link</u></em></br>".$linkMyAnime;
+													 }?>
+									</p>
+								</div>
             	</br>
             </div>
 

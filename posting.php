@@ -118,7 +118,7 @@ if (!isset($_SESSION['CREATED'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
-      <script src="JS/adaptationSelector.js"></script>
+      <script src="JS/editorTable.js"></script>
 		<link rel="stylesheet" href="CSS/main.css">
     <script>
     $(document).ready(function() {
@@ -234,10 +234,10 @@ if (!isset($_SESSION['CREATED'])) {
                       </select>
                     </div>
                     <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
-                       <input type="text" name="season" value="<?php echo $season ?>" placeholder="Anime season">
+                       <input type="number" name="season" value="<?php echo $season ?>" placeholder="Anime season">
                     </div>
                     <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
-                      <input type="text" name="episodes" value="<?php echo $episodes ?>" placeholder="Number of episodes">
+                      <input id="episodes" type="number" name="episodes" value="<?php echo $episodes ?>" placeholder="Number of episodes">
                     </div>
 
                   </div>
@@ -275,42 +275,12 @@ if (!isset($_SESSION['CREATED'])) {
                                 else {
         								echo '<table class="table table-bordered">
                                 <tbody>
-                                  <tr>
+                                  <tr id="firstRow">
                                     <td>
                                       <h3><b style="background-color: rgb(255, 255, 255);">Anime Episodes</b></h3>
                                     </td>
                                     <td>
                                     <h3><b style="background-color: rgb(255, 255, 255);">Manga chapters</b></h3>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td>
-                                      <p style="text-align: center;"><b><u>Episode <span style="background-color: rgb(156, 156, 148);">?</span></u></b></p>
-                                      <p style="text-align: center;">"<span style="background-color: rgb(156, 156, 148);">Title</span>"</p>
-                                    </td>
-                                    <td>
-                                      <div id="adaptedTitleOne"><p><b><u>Volume <span style="background-color: rgb(156, 156, 148);">?</span> of the light novel <span style="color: rgb(206, 0, 0);">OR </span></u></b><span style="font-weight: bold; text-decoration-line: underline;">Tome <span style="background-color: rgb(156, 156, 148);">?</span> of manga</span></p></div>
-                                      <p>- <span style="background-color: rgb(156, 156, 148);">Chapters...</span></p>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td>
-                                      <p style="text-align: center;"><b><u>Episode <span style="background-color: rgb(156, 156, 148);">?</span></u></b></p>
-                                      <p style="text-align: center;">"<span style="background-color: rgb(156, 156, 148);">Title</span>"</p>
-                                    </td>
-                                    <td>
-                                      <div id="adaptedTitleTwo"><p><span style="font-weight: 700;"><u>Volume&nbsp;<span style="background-color: rgb(156, 156, 148);">?</span>&nbsp;of the light novel&nbsp;<span style="color: rgb(206, 0, 0);">OR&nbsp;</span></u></span><span style="text-decoration-line: underline; font-weight: bold;">Tome&nbsp;<span style="background-color: rgb(156, 156, 148);">?</span>&nbsp;of manga</span><br></p></div>
-                                      <p>-&nbsp;<span style="background-color: rgb(156, 156, 148);">Chapters...</span></p>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td>
-                                      <p style="text-align: center;"><b><u>Episode <span style="background-color: rgb(156, 156, 148);">?</span></u></b></p>
-                                      <p style="text-align: center;">"<span style="background-color: rgb(156, 156, 148);">Title</span>"</p>
-                                    </td>
-                                    <td>
-                                      <div id="adaptedTitleThree"><p><span style="font-weight: 700;"><u>Volume&nbsp;<span style="background-color: rgb(156, 156, 148);">?</span>&nbsp;of the light novel&nbsp;<span style="color: rgb(206, 0, 0);">OR&nbsp;</span></u></span><span style="text-decoration-line: underline; font-weight: bold;">Tome&nbsp;<span style="background-color: rgb(156, 156, 148);">?</span>&nbsp;of manga</span><br></p></div>
-                                      <p>-&nbsp;<span style="background-color: rgb(156, 156, 148);">Chapters...</span></p>
                                     </td>
                                   </tr>
                                 </tbody>
