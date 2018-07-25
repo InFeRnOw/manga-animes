@@ -19,7 +19,7 @@ function display($result) {
             <div class='row'>
               <div class='col-xs-12'>
            <div class='row'>
-                  <div class='col-md-4 col-xs-12'><a class='link' href='post.php?link=" . $row['p_link'] . "'><h3>" . $row['p_titleen'] . "</h3></a></div>
+                  <div class='col-md-4 col-xs-12'><a class='link' href='post.php?link=" . $row['p_link'] . "'><h4>" . $row['p_titleen'] . "</h4></a></div>
                   <div class='col-md-4 col-xs-12'><h4>Season: " . $row['p_season'] . "</h4></div>
                   <div class='col-md-4 col-xs-12'><h4>Episodes: " . $row['p_episodes'] . "</h4></div>
                   </div>

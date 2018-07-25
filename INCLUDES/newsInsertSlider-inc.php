@@ -14,17 +14,16 @@ while ($row = mysqli_fetch_assoc($result)) {
         $class = "item";
     }
     echo '<div id="container-slider" class="' . $class . ' center-block">
-                 <a href="post.php?link=' . $link . '"><img class="img-responsive center-block" src="uploads/postsimages/postimg' . $link . '.jpg" alt="News pic slider"></a>
-                 <div id="postBox">
-                            <div class="container-fluid">
-                             <div class="row">
-                               <div class="col-xs-12">
-                                 <div class="row">
-                                   <div class="col-xs-12"><b><h3 style="color: white; background: rgba(0,0,0, 0.5); border-radius: 5px;">' . $row["p_title"] . '</h3></b></div>
-                                 </div>
-                               </div>
-                             </div>
-                           </div>
-                         </div>
-               </div>';
+              <a href="post.php?link=' . $link . '"><img class="img-responsive center-block" src="uploads/postsimages/postimg' . $link . '.jpg" alt="News pic slider"></a>
+              <div class="container-fluid">
+                 <div class="row">
+                   <div class="col-xs-12">
+                     <div class="row">
+                       <div class="col-xs-12" style="overflow: hidden;"><b><h3 style="color: white; background: rgba(0,0,0, 0.6); border-radius: 5px; max-height: 28px; overflow: hidden;">' . $row["p_title"] . '</h3></b></div>
+                       <div class="col-xs-12"><b><h3 style="color: white; background: rgba(0,0,0, 0.3); border-radius: 5px; margin-top: 0;">Season ' . $row["p_season"] . '</h3></b></div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+           </div>';
 } //$row = mysqli_fetch_assoc($result)
