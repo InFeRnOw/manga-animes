@@ -72,7 +72,7 @@ switch ($type) {
 if (!isset($_SESSION['u_id'])) {
     header("Location: ../login.php");
 }
-else if(!isset($_GET['edit'])) {
+else if(!isset($_GET['edit']) || isset($_GET['upload'])) {
     $action = "INCLUDES/postMaker-inc.php";
     $name = "New post";
     $content = $_SESSION['contentTemp'];
@@ -267,7 +267,7 @@ if (!isset($_SESSION['CREATED'])) {
                   </div>
                       <h4><u>Description</u></h4>
                       <textarea id="summernote" name="content">
-                        <?php if (isset($_GET['edit']) || $_GET['posting'] == "blank") {
+                        <?php if (isset($_GET['edit']) || $_GET['posting'] == "blank" || isset($_GET['upload'])) {
                                   $firstFix = stripslashes($content);
                                   $SecondFix = str_replace("rn","",$firstFix);
                                   echo $SecondFix;
