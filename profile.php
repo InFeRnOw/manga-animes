@@ -76,6 +76,10 @@ if (!isset($_SESSION['CREATED'])) {
 						<div class="container-fluid">
 							<div class="divider-with-content"><h1>Description</h1></div>
               <?php echo $description ?>
+							<div class="divider-with-content"><h1>Posts of <?php echo $user ?></h1></div>
+							<div class="row">
+								<?php include 'INCLUDES/profilePostsOwnedInsert-inc.php'; ?>
+							</div>
 						</div>
 					</section>
 				</div>

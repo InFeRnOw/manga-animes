@@ -53,29 +53,57 @@ if (!isset($_SESSION['CREATED'])) {
 
 					<section id="news">
 
-            <div class="divider-with-content"><h1>Most recent posts</h1></div>
+						<div class="divider-with-content"><h1>Most viewed posts this week</h1></div>
 
-            <div id="news-carousel" class="carousel slide" data-ride="carousel">
+            <div id="news-carousel-views" class="carousel slide" data-ride="carousel">
 
               <ol class="carousel-indicators">
-                <li data-target="#news-carousel" data-slide-to="0" class="active"></li>
-                <li data-target="#news-carousel" data-slide-to="1"></li>
-                <li data-target="#news-carousel" data-slide-to="2"></li>
-								<li data-target="#news-carousel" data-slide-to="3"></li>
-								<li data-target="#news-carousel" data-slide-to="4"></li>
+                <li data-target="#news-carousel-views" data-slide-to="0" class="active"></li>
+                <li data-target="#news-carousel-views" data-slide-to="1"></li>
+                <li data-target="#news-carousel-views" data-slide-to="2"></li>
+								<li data-target="#news-carousel-views" data-slide-to="3"></li>
+								<li data-target="#news-carousel-views" data-slide-to="4"></li>
               </ol>
 
               <div class="carousel-inner">
 
-								<?php include 'INCLUDES/newsInsertSlider-inc.php' ?>
+								<?php include 'INCLUDES/newsInsertSliderMostViewed-inc.php' ?>
 
               </div>
 
-              <a class="left carousel-control" href="#news-carousel" data-slide="prev">
+              <a class="left carousel-control" href="#news-carousel-views" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left"></span>
                 <span class="sr-only">Previous</span>
               </a>
-              <a class="right carousel-control" href="#news-carousel" data-slide="next">
+              <a class="right carousel-control" href="#news-carousel-views" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+
+            <div class="divider-with-content"><h1>Most recent posts</h1></div>
+
+            <div id="news-carousel-recent" class="carousel slide" data-ride="carousel">
+
+              <ol class="carousel-indicators">
+                <li data-target="#news-carousel-recent" data-slide-to="0" class="active"></li>
+                <li data-target="#news-carousel-recent" data-slide-to="1"></li>
+                <li data-target="#news-carousel-recent" data-slide-to="2"></li>
+								<li data-target="#news-carousel-recent" data-slide-to="3"></li>
+								<li data-target="#news-carousel-recent" data-slide-to="4"></li>
+              </ol>
+
+              <div class="carousel-inner">
+
+								<?php include 'INCLUDES/newsInsertSliderMostRecent-inc.php' ?>
+
+              </div>
+
+              <a class="left carousel-control" href="#news-carousel-recent" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#news-carousel-recent" data-slide="next">
                 <span class="glyphicon glyphicon-chevron-right"></span>
                 <span class="sr-only">Next</span>
               </a>

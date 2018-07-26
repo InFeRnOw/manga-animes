@@ -2,7 +2,7 @@
 session_start();
 include_once 'INCLUDES/dbh-inc.php';
 $link = $_GET['link'];
-$sqlVisit = "UPDATE posts SET p_vues = p_vues + 1 WHERE p_link='$link'";
+$sqlVisit = "UPDATE posts SET p_vues = p_vues + 1, p_vuesmostviewed = p_vuesmostviewed + 1 WHERE p_link='$link'";
 $resultVisit = mysqli_query($conn, $sqlVisit);
 $sqlCheck = "SELECT * FROM posts WHERE p_link='$link'";
 $resultCheck = mysqli_query($conn, $sqlCheck);

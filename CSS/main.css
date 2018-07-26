@@ -508,7 +508,7 @@ body {
   position: absolute;
 }
 
-#news-carousel {
+#news-carousel-views, #news-carousel-recent {
   width: 720px;
   background-color: white;
   margin: 0 auto;
@@ -533,7 +533,7 @@ body {
     position: absolute;
   }
 
-  #news-carousel {
+  #news-carousel-views, #news-carousel-recent {
     width: 300px;
     background-color: white;
     margin: 0 auto;
@@ -638,7 +638,7 @@ button.btn.bg-orange { padding: 20px 160px; }
 .reportform .unit {
     margin: 20px 0;
     zoom: 1;
-    position: relative;   
+    position: relative;
 }
 
 .dl {
@@ -665,7 +665,7 @@ button.btn.bg-orange { padding: 20px 160px; }
     width: 100%;
     box-sizing: border-box;
 }
-        
+
 .textsize {
     font-size: 13px;
     font-family: Lato,Helvetica,sans-serif;

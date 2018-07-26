@@ -2,7 +2,7 @@
 session_start();
 include 'dbh-inc.php';
 $count = 0;
-$sql = "SELECT * FROM posts WHERE p_active = 1 ORDER BY p_id DESC LIMIT 5";
+$sql = "SELECT * FROM posts WHERE p_active = 1 ORDER BY p_id ASC LIMIT 5";
 $result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
     $link = $row['p_link'];
