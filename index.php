@@ -74,7 +74,7 @@ if (!isset($_SESSION['CREATED'])) {
 									<div class="divider hidden-xs"></div>
 	                <span class="glyphicon glyphicon-euro"></span>
 									<h2>Help us</h2>
-                                    <p>As we don't put any ad on our website, we need your support to help us!</p>
+                                    <p>As we don't put any ads on our website, we need your support to help us!</p>
 									<a class="btn" href="donate.php">See more</a>
 									<div class="divider"></div>
 								</div>

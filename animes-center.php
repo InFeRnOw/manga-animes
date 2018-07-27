@@ -22,6 +22,9 @@ switch ($_GET['lang']) {
     case 'en':
         $two = 'selected';
         break;
+		default:
+				$one = 'selected';
+				break;
 }
 switch ($_GET['letter']) {
     case 'A':
@@ -102,6 +105,9 @@ switch ($_GET['letter']) {
     case 'Z':
         $Z = 'selected';
         break;
+		case '':
+        $all = 'selected';
+        break;
 }
 ?>
 <!DOCTYPE HTML>
@@ -150,6 +156,7 @@ switch ($_GET['letter']) {
                     <div class="row">
                       <div class="col-md-4 col-xs-12">
                         <select class="selectpicker" title="Letter" name="animesCenter">
+														<option <?php echo $all ?> value="">All</option>
                             <option <?php echo $A ?> value="A">A</option>
                             <option <?php echo $B ?> value="B">B</option>
                             <option <?php echo $C ?> value="C">C</option>

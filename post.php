@@ -108,8 +108,8 @@ if (!isset($_SESSION['CREATED'])) {
 
         <div id="page">
           <section id="header">
-            <h2><?php echo $title ?></h2>
-            <h3><?php echo $titleen ?></h3>
+            <h2><u><?php echo $title ?></u></h2>
+            <h3><u><?php echo $titleen ?></u></h3>
             <p><b><?php echo $genre ?></b></p>
           </br>
             <div class="container-fluid">

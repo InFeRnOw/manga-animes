@@ -14,6 +14,7 @@ $statusManga = $_GET['statusm'];
 $adaptation = $_GET['adaptation'];
 $type = $_GET['type'];
 $linkMyAnime = $_GET['linkMyAnime'];
+$genre = $_GET['genre'];
 
 switch ($status) {
     case 'In progress':
