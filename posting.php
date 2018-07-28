@@ -72,12 +72,12 @@ switch ($type) {
 if (!isset($_SESSION['u_id'])) {
     header("Location: ../login.php");
 }
-else if(!isset($_GET['edit']) || isset($_GET['upload'])) {
+else if(!isset($_GET['edit']) || isset($_GET['upload']) && !isset($_GET['edit'])) {
     $action = "INCLUDES/postMaker-inc.php";
     $name = "New post";
     $content = $_SESSION['contentTemp'];
 }
-else if($_GET['edit'] == 'blank') {
+else if($_GET['edit'] == 'blank' || isset($_GET['upload'])) {
     $content = $_SESSION['contentTemp'];
     $action = "INCLUDES/postEdit-inc.php";
     $name = "Edit post";

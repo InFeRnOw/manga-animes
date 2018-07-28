@@ -3,7 +3,7 @@ include 'dbh-inc.php';
 
 function adminPanelVote($lastedited){
   echo "<div class='divider-with-content'>
-          <button id='hide-panel' class='btn'>Hide panel</button>
+          <button id='hide-panel' class='btn' style='margin-bottom: 10px';>Hide panel</button>
           <p>lastly edited by: ".$lastedited."<p>
           <h2>Staff panel</h2>
           <form id=voteForm action='INCLUDES/vote-inc.php' method='POST'>
@@ -35,7 +35,7 @@ function adminPanelVote($lastedited){
 
 function authorPanelVote($lastedited){
     echo "<div class='divider-with-content'>
-            <button id='hide-panel' class='btn'>Hide panel</button>
+            <button id='hide-panel' class='btn' style='margin-bottom: 10px';>Hide panel</button>
             <p>lastly edited by: ".$lastedited."<p>
     		<h2>Author panel</h2>
     		<form id=voteForm action='INCLUDES/vote-inc.php' method='POST'>
@@ -61,7 +61,7 @@ function authorPanelVote($lastedited){
 
 function votePanel($lastedited) {
     echo "<div class='divider-with-content'>
-            <button id='hide-panel' class='btn'>Hide panel</button>
+            <button id='hide-panel' class='btn' style='margin-bottom: 10px';>Hide panel</button>
             <p>lastly edited by: ".$lastedited."<p>
             <h2>Vote panel</h2>
             <form id=voteForm action='INCLUDES/vote-inc.php' method='POST'>
@@ -81,7 +81,7 @@ function votePanel($lastedited) {
 
 function adminPanel($lastedited){
   echo "<div class='divider-with-content'>
-          <button id='hide-panel' class='btn'>Hide panel</button>
+          <button id='hide-panel' class='btn' style='margin-bottom: 10px';>Hide panel</button>
           <p>lastly edited by: ".$lastedited."<p>
           <h2>Staff panel</h2>
           <form id=voteForm action='INCLUDES/vote-inc.php' method='POST'>
@@ -102,7 +102,7 @@ function adminPanel($lastedited){
 
 function authorPanel($lastedited){
     echo "<div class='divider-with-content'>
-            <button id='hide-panel' class='btn'>Hide panel</button>
+            <button id='hide-panel' class='btn' style='margin-bottom: 10px';>Hide panel</button>
             <p>lastly edited by: ".$lastedited."<p>
             <h2>Author panel</h2>
             <form id=voteForm action='INCLUDES/vote-inc.php' method='POST'>
