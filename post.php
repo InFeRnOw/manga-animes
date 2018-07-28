@@ -136,7 +136,12 @@ if (!isset($_SESSION['CREATED'])) {
 							</br>
 							<div class="col-xs-6">
 								<p>
-									<?php echo "<em><u>Author of post</u></em></br>".$pUser;?>
+									<?php $sqlGetUserId = "SELECT * FROM users WHERE user_uid = '$pUser'";
+												$resultGetUserId = mysqli_query($conn, $sqlGetUserId);
+												$rowGetUserId = mysqli_fetch_assoc($resultGetUserId);
+												$userId = $rowGetUserId['user_id'];
+									 ?>
+									<?php echo "<em><u>Author of post</u></em></br><a href='profile.php?link=".$userId."' style='text-decoration: none; background: white; color: grey; box-shadow: none;'>".$pUser."</a>";?>
 								</p>
 							</div>
 							<div class="col-xs-6">
@@ -165,8 +170,29 @@ if (!isset($_SESSION['CREATED'])) {
 
 					<section id="post">
 						<div class="container-fluid">
-              				<?php echo $content  ?>
+              	<?php echo $content  ?>
 						</div>
+						<!-- <div class="divider-with-content"><h1>Comments</h1></div>
+							<?php include 'INCLUDES/postCommentsInsert-inc.php'; ?>
+							<?php if (isset($_SESSION['u_id'])) {
+												echo '</br>
+															<form action="INCLUDES/postComments-inc.php" method="POST">
+																<input type="hidden" name="postLink" value="<?php echo $link ?>">
+																<div class="row">
+																	<div class="col-sm-1 col-xs-12"></div>
+															    <div class="col-sm-8 col-xs-12">
+																		<input type="text" name="comment" maxlength="256" placeholder="Comment this post..." style="width: 100%;"/>
+																	</div>
+																	<div class="col-sm-2 col-xs-12">
+																		<button class="btn btn-classic" type="submit" name="submit" style="width: 100%;">Comment</button>
+																  </div>
+																	<div class="col-sm-1 col-xs-12"></div>
+																</div>
+															</form>';
+										}
+										else {
+												echo '</br><p style="color: red;">Login, in order to do comment on this post !</p>';
+										} ?> -->
 					</section>
 				</div>
 

@@ -10,6 +10,7 @@ $user = $rowSearchUser['pf_user'];
 
 $sql = "SELECT * FROM posts WHERE p_active = 1 AND p_user = '$user' ORDER BY p_id ASC";
 $result = mysqli_query($conn, $sql);
+
 while ($row = mysqli_fetch_assoc($result)) {
     $link = $row['p_link'];
     echo '<div class="container col-md-4">

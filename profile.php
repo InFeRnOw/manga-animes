@@ -75,10 +75,22 @@ if (!isset($_SESSION['CREATED'])) {
 					<section id="profile">
 						<div class="container-fluid">
 							<div class="divider-with-content"><h1>Description</h1></div>
-              <?php echo $description ?>
-							<div class="divider-with-content"><h1>Posts of <?php echo $user ?></h1></div>
+              <?php if ($description == '') {
+												echo '<p>No description !</p>';
+										}
+										else {
+												echo $description;
+										}
+							 ?>
+							<div class="divider-with-content"><h1>Posted by <?php echo $user ?></h1></div>
 							<div class="row">
 								<?php include 'INCLUDES/profilePostsOwnedInsert-inc.php'; ?>
+								<?php $sql = "SELECT * FROM posts WHERE p_active = 1 AND p_user = '$user' ORDER BY p_id ASC";
+											$result = mysqli_query($conn, $sql);
+											if (mysqli_fetch_assoc($result) == 0) {
+													echo '<p>Nothing posted !</p>';
+											}
+							   ?>
 							</div>
 						</div>
 					</section>

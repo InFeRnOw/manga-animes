@@ -39,35 +39,16 @@ if (!isset($_SESSION['CREATED'])) {
 					<?php include 'INCLUDES/html-inc/htmlHeaderMain-inc.php' ?>
 
 					<div class="divider-nav"></div>
-                             
-            </div>
-                    
+        </div>
+
     	<!-- Page -->
-                 
-                     <div class="row"> 
-                         <div class="row" align="center">
-                             <section>
-					   <?php if(!isset($_SESSION['u_id'])) {
-                    echo '<p style="color: red;">Login, in order to contact!</p>';
-                  }?>
-            <?php if(isset($_SESSION['u_id'])) {
-                    echo '<p style="color: red;">Coming soon!</p>';
-                  }?>
-                     </div>
-                             </section>
-                     </div>
-            <div class="row">
-                
-                <a class="btn" href="bug-report.php">Bug Report</a>
-                <a class="btn">Suggestions</a>
-            
-        
-            
             </div>
-            
+              <a class="btn" href="bug-report.php">Bug Report</a>
+              <a class="btn">Suggestions</a>
+
           <!--   <h1>Contact us</h1>
-        
-            
+
+
             <form method="post" action="<?php echo strip_tags($_SERVER['REQUEST_URI']); ?>">
                     <p>Name <span style="color:#ff0000;">*</span>: <input type="text" name="nom" size="30" value="<?php echo $_SESSION['u_uid']?>"/> </p>
                     <p>Email <span style="color:#ff0000;">*</span>: <input type="text" name="email" size="30" value="<?php echo $_SESSION['u_email']?>"/></p>
@@ -76,18 +57,17 @@ if (!isset($_SESSION['CREATED'])) {
                 <!-- Ici pourra être ajouté un captcha anti-spam (plus tard) -->
                <!--     <p><input type="submit" name="submit" value="Send" /></p>
             </form> -->
-                         
-         
+
+
         	<!-- Footer -->
-                    
+
 				<div id="footer">
 
           <?php include 'INCLUDES/html-inc/htmlFooterMain-inc.php' ?>
 
 				</div>
 
-                    
+
         </div>
     </body>
 </html>
-
