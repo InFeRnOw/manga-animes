@@ -14,6 +14,10 @@ else {
 }
 
 while ($row = mysqli_fetch_assoc($result)) {
+    $user = $row['post_comment_author'];
+    $sqlGetProfile = "SELECT * FROM profiles WHERE pf_user = '$user'";
+    $resultGetProfile = mysqli_query($conn, $sqlGetProfile);
+    $rowProfile = mysqli_fetch_assoc($resultGetProfile);
     echo "<div border: 1px solid white; border-radius: 5px; box-shadow: 1px 1px 12px grey'>
             <div class='container-fluid'>
               <div class='row'>

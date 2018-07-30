@@ -90,6 +90,22 @@ if (!isset($_SESSION['CREATED'])) {
 											if (mysqli_fetch_assoc($result) == 0) {
 													echo '<p>Nothing posted !</p>';
 											}
+
+											$postedByLinkMore = "profile.php?link=".$id."&more";
+											$postedByLinkHide = "profile.php?link=".$id."&hide";
+
+											$sqlPosts = "SELECT * FROM posts WHERE p_user = '$user' AND p_active = 1";
+											$resultPosts = mysqli_query($conn, $sqlPosts);
+											$resultCheckPosts = mysqli_num_rows($resultPosts);
+
+											if ($resultCheckPosts > 3) {
+													if (!isset($_GET['more'])) {
+															echo '<div class="col-xs-12"><u><a href="'.$postedByLinkMore.'" style="color: grey; text-decoration: none;">Show more</a></u></br></div>';
+													}
+													elseif (isset($_GET['more'])) {
+															echo '<div class="col-xs-12"><u><a href="'.$postedByLinkHide.'" style="color: grey; text-decoration: none;">Show less</a></u></br></div>';
+													}
+											}
 							   ?>
 							</div>
 						</div>

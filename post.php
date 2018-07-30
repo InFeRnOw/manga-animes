@@ -87,11 +87,11 @@ if (!isset($_SESSION['CREATED'])) {
    $('.selectpicker').selectpicker();
    $('#show-panel').hide();
    $('#hide-panel').click(function(){
-	  $('.divider-with-content').hide();
+	  $('.panel').hide();
 	  $('#show-panel').show();
    });
    $('#show-panel').click(function(){
-	  $('.divider-with-content').show();
+	  $('.panel').show();
 	  $('#show-panel').hide();
    });
 
@@ -175,7 +175,7 @@ if (!isset($_SESSION['CREATED'])) {
 
             <?php include 'INCLUDES/errors-inc.php' ?>
 
-			<button id="show-panel" class="btn">Show panel</button>
+			<button id="show-panel" class="btn" style="margin-bottom: 10px">Show panel</button>
             <?php include 'INCLUDES/panelFonctions-inc.php' ?>
 
           </section>
@@ -189,15 +189,21 @@ if (!isset($_SESSION['CREATED'])) {
 							<?php include 'INCLUDES/errors-inc.php'; ?>
 						</div>
 							<?php include 'INCLUDES/postCommentsInsert-inc.php';
-							
+
 										$CommentLinkPageMore = "post.php?link=".$link."&more";
 										$CommentLinkPageHide = "post.php?link=".$link."&hide";
 
-										if (!isset($_GET['more'])) {
-												echo '<u><a href="'.$CommentLinkPageMore.'" style="color: grey; text-decoration: none;">See more comments</a></u></br>';
-										}
-										elseif (isset($_GET['more'])) {
-												echo '<u><a href="'.$CommentLinkPageHide.'" style="color: grey; text-decoration: none;">Hide comments</a></u></br>';
+										$sqlComments = "SELECT * FROM postcomments WHERE post_comment_link = '$link'";
+										$resultComments = mysqli_query($conn, $sqlComments);
+										$resultCheckComments = mysqli_num_rows($resultComments);
+
+										if ($resultCheckComments > 3) {
+												if (!isset($_GET['more'])) {
+														echo '<u><a href="'.$CommentLinkPageMore.'" style="color: grey; text-decoration: none;">See more comments</a></u></br>';
+												}
+												elseif (isset($_GET['more'])) {
+														echo '<u><a href="'.$CommentLinkPageHide.'" style="color: grey; text-decoration: none;">Show less comments</a></u></br>';
+												}
 										}
 							 ?>
 							<?php if (isset($_SESSION['u_id'])) {

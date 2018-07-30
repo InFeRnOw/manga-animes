@@ -2,7 +2,7 @@
 include 'dbh-inc.php';
 
 function adminPanelVote($lastedited){
-  echo "<div class='divider-with-content'>
+  echo "<div class='divider-with-content panel'>
           <button id='hide-panel' class='btn' style='margin-bottom: 10px';>Hide panel</button>
           <p>lastly edited by: ".$lastedited."<p>
           <h2>Staff panel</h2>
@@ -34,7 +34,7 @@ function adminPanelVote($lastedited){
 }
 
 function authorPanelVote($lastedited){
-    echo "<div class='divider-with-content'>
+    echo "<div class='divider-with-content panel'>
             <button id='hide-panel' class='btn' style='margin-bottom: 10px';>Hide panel</button>
             <p>lastly edited by: ".$lastedited."<p>
     		<h2>Author panel</h2>
@@ -60,7 +60,7 @@ function authorPanelVote($lastedited){
 }
 
 function votePanel($lastedited) {
-    echo "<div class='divider-with-content'>
+    echo "<div class='divider-with-content panel'>
             <button id='hide-panel' class='btn' style='margin-bottom: 10px';>Hide panel</button>
             <p>lastly edited by: ".$lastedited."<p>
             <h2>Vote panel</h2>
@@ -80,7 +80,7 @@ function votePanel($lastedited) {
 }
 
 function adminPanel($lastedited){
-  echo "<div class='divider-with-content'>
+  echo "<div class='divider-with-content panel'>
           <button id='hide-panel' class='btn' style='margin-bottom: 10px';>Hide panel</button>
           <p>lastly edited by: ".$lastedited."<p>
           <h2>Staff panel</h2>
@@ -101,7 +101,7 @@ function adminPanel($lastedited){
 }
 
 function authorPanel($lastedited){
-    echo "<div class='divider-with-content'>
+    echo "<div class='divider-with-content panel'>
             <button id='hide-panel' class='btn' style='margin-bottom: 10px';>Hide panel</button>
             <p>lastly edited by: ".$lastedited."<p>
             <h2>Author panel</h2>
