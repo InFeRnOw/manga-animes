@@ -63,6 +63,7 @@ if (!isset($_SESSION['CREATED'])) {
     session_regenerate_id(true);    // change session ID for the current session and invalidate old session ID
     $_SESSION['CREATED'] = time();  // update creation time
 }
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -93,6 +94,15 @@ if (!isset($_SESSION['CREATED'])) {
 	  $('.divider-with-content').show();
 	  $('#show-panel').hide();
    });
+
+	 function scrollToHash(hashName) {
+   		location.hash = "#" + hashName;
+	 }
+
+	 <?php if (isset($_GET['comment']) || isset($_GET['more']) || isset($_GET['hide'])) {
+	 					echo 'scrollToHash("commentSection");';
+	 			 }
+		?>
   });
   </script>
 	<body>
@@ -132,6 +142,7 @@ if (!isset($_SESSION['CREATED'])) {
             </div>
 
             <?php echo '<img class="img-responsive center-block" src="uploads/postsimages/postimg'.$link.'.jpg?'.filemtime('uploads/postsimages/postimg'.$link.'.jpg').'">' ?>
+
             <div class="row">
 							</br>
 							<div class="col-xs-6">
@@ -151,9 +162,10 @@ if (!isset($_SESSION['CREATED'])) {
 							</div>
 							</br>
                 <div class="col-xs-12">
-									<p><?php if ($linkMyAnime !== '') {
-															echo "<em><u>MyAnimeList Link</u></em></br>".$linkMyAnime;
-													 }?>
+									<p style="word-break: break-all;"><?php if ($linkMyAnime !== '') {
+															echo "<em><u>MyAnimeList Link</u></em></br><a href='".$linkMyAnime."' style='text-decoration: none; background: white; color: grey; box-shadow: none;'>".$linkMyAnime."</a>";
+													 }
+											?>
 									</p>
 								</div>
             	</br>
@@ -172,18 +184,32 @@ if (!isset($_SESSION['CREATED'])) {
 						<div class="container-fluid">
               	<?php echo $content  ?>
 						</div>
-						<!-- <div class="divider-with-content"><h1>Comments</h1></div>
-							<?php include 'INCLUDES/postCommentsInsert-inc.php'; ?>
+						<div id="commentSection" class="divider-with-content">
+							<h1>Comments</h1>
+							<?php include 'INCLUDES/errors-inc.php'; ?>
+						</div>
+							<?php include 'INCLUDES/postCommentsInsert-inc.php';
+							
+										$CommentLinkPageMore = "post.php?link=".$link."&more";
+										$CommentLinkPageHide = "post.php?link=".$link."&hide";
+
+										if (!isset($_GET['more'])) {
+												echo '<u><a href="'.$CommentLinkPageMore.'" style="color: grey; text-decoration: none;">See more comments</a></u></br>';
+										}
+										elseif (isset($_GET['more'])) {
+												echo '<u><a href="'.$CommentLinkPageHide.'" style="color: grey; text-decoration: none;">Hide comments</a></u></br>';
+										}
+							 ?>
 							<?php if (isset($_SESSION['u_id'])) {
 												echo '</br>
 															<form action="INCLUDES/postComments-inc.php" method="POST">
-																<input type="hidden" name="postLink" value="<?php echo $link ?>">
+																<input type="hidden" name="postLink" value="'.$link.'">
 																<div class="row">
 																	<div class="col-sm-1 col-xs-12"></div>
-															    <div class="col-sm-8 col-xs-12">
+															    <div class="col-sm-8 col-xs-12" style="margin-bottom: 10px;">
 																		<input type="text" name="comment" maxlength="256" placeholder="Comment this post..." style="width: 100%;"/>
 																	</div>
-																	<div class="col-sm-2 col-xs-12">
+																	<div class="col-sm-2 col-xs-12" style="margin-bottom: 10px;">
 																		<button class="btn btn-classic" type="submit" name="submit" style="width: 100%;">Comment</button>
 																  </div>
 																	<div class="col-sm-1 col-xs-12"></div>
@@ -192,7 +218,7 @@ if (!isset($_SESSION['CREATED'])) {
 										}
 										else {
 												echo '</br><p style="color: red;">Login, in order to do comment on this post !</p>';
-										} ?> -->
+										} ?>
 					</section>
 				</div>
 

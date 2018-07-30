@@ -15,6 +15,7 @@ $adaptation = $_GET['adaptation'];
 $type = $_GET['type'];
 $linkMyAnime = $_GET['linkMyAnime'];
 $genre = $_GET['genre'];
+$imgLink = $row['p_img_src'];
 
 switch ($status) {
     case 'In progress':
@@ -121,8 +122,25 @@ if (!isset($_SESSION['CREATED'])) {
 		<link rel="stylesheet" href="CSS/main.css">
     <script>
     $(document).ready(function() {
-     $('.selectpicker').selectpicker();
-     $('#summernote').summernote();
+         $('.selectpicker').selectpicker();
+         $('#summernote').summernote();
+
+         function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#imgPreview').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imgInput").change(function(){
+            readURL(this);
+        });
+
     });
     </script>
 	</head>
@@ -240,7 +258,17 @@ if (!isset($_SESSION['CREATED'])) {
                   <div class="row">
                     <div class="col-xs-12">
                       <h4><u>Banner</u></h4>
-                      <input class="btn btn-basic center-block" type="file" name="banner"/>
+                      <h4 style="color: grey;"><u>Actual image</u></h4>
+                      <?php if (!empty($imgLink)) {
+                                echo '<img id="imgPreview" class="img-responsive center-block" src="uploads/postsimages/postimg'.$link.'.jpg?'.filemtime('uploads/postsimages/postimg'.$link.'.jpg').'">';
+                            }
+                            else {
+                                echo '<img id="imgPreview" class="img-responsive center-block" src="#" alt="image preview">';
+                            }
+                       ?>
+                      </br>
+                      <input type="hidden" name="imgKeep" value="<?php echo $imgLink ?>" />
+                      <input id="imgInput" class="btn btn-basic center-block" type="file" name="banner"/>
                       <p style="font-size:12px;">Optimal Résolution: 720x250</p>
                       <p style="font-size:12px;">Only jpg is supported and max 10MB</p>
 

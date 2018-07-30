@@ -48,7 +48,7 @@ if (!isset($_SESSION['CREATED'])) {
 			<div id="page">
 				<section id="post">
 					<div class="divider-with-content"><h1>Donate</h1></div>
-					<p>Help us by donating to us, with your donation we will be able to maintain our site online easier and it will encourage us to improve the site.</p>
+					<p>Help us by donating, with your donation we will be able to maintain our site online easier and it will encourage us to improve the site.</p>
 					<p>We ask for donations to avoid using ads. Because it would make the site less enjoyable.</p>
 					<p>And because we aren't really looking to make profit, our top priority is to upgrade and maintain the site with the donations we receive.</p>
 					<div class="donate"></div>
@@ -56,9 +56,6 @@ if (!isset($_SESSION['CREATED'])) {
 					      <input type="hidden" name="cmd" value="_donations">
 					      <input type="hidden" name="business" value="couvreux_corentin@yahoo.fr">
 					      <input type="hidden" name="lc" value="US">
-								<h3><u>Amount</u></h3>
-					      <input type="text" name="amount" placeholder="EUR">
-								<p style="font-size:12px; color: grey;">For decimals numbers please use a dot (".")</p>
 					      <input type="hidden" name="no_note" value="0">
 					      <input type="hidden" name="cn" value="Add special instructions to the seller:">
 					      <input type="hidden" name="no_shipping" value="2">

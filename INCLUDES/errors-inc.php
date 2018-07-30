@@ -166,3 +166,13 @@ else if (isset($_GET['upload']) || isset($_GET['delete'])) {
         echo "<p style='color: red;'>Image deleted !</p>";
     } //$deleteCheck == "success"
 }
+/* COMMENTS */
+else if (isset($_GET['comment'])) {
+    $commentCheck = $_GET['comment'];
+    if ($commentCheck == "success") {
+        echo "<p style='color: green;'>Comment successfully posted !</p>";
+    } //$commentCheck == "success"
+    elseif ($commentCheck == "empty") {
+        echo "<p style='color: red;'>Please write something to comment !</p>";
+    } //$commentCheck == "empty"
+}
