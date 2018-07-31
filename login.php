@@ -46,12 +46,24 @@ if ($_GET['logout']) {
           <section id="header">
             <h1>Login</h1>
             <div class="divider"></div>
-            <img src="CSS/images/cropped-720-250-567633.jpg" alt="No game no life"/>
+            <img src="CSS/images/charlotte.png" alt="Charlotte"/>
           </section>
 
 					<section id="content">
 
-            <?php include 'INCLUDES/errors-inc.php'?>
+            <?php
+							$uid = $_GET['uid'];
+
+							if (isset($_GET['register']) && $_GET['register'] == 'success') {
+									echo '<form action="INCLUDES/register-inc.php" method="POST">
+														<div class="col-xs-12">
+															<input type="hidden" name="uid" value="'.$uid.'"/>
+															<button class="btn" type="submit" name="emailResend" style="font-size: 12px; margin-bottom: 20px;">Email not received</button>
+														</div>
+												</form>';
+							}
+						 ?>
+						 <?php include 'INCLUDES/errors-inc.php' ?>
 
             <form action='INCLUDES/login-inc.php' method='POST'>
   						<div class="container-fluid">

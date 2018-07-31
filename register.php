@@ -29,7 +29,7 @@
           <section id="header">
             <h1>Sign up</h1>
             <div class="divider"></div>
-            <img src="CSS/images/cropped-720-250-505441.jpg" alt="Swort Art Online"/>
+            <img src="CSS/images/heroAcademia.jpg" alt="Hero Academia"/>
           </section>
 
 					<section id="content">

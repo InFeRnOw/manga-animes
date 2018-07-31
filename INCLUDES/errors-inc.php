@@ -1,13 +1,18 @@
 <?php
 /* LOGIN */
-if (!isset($_GET['login']) && !isset($_GET['register']) && !isset($_GET['link']) && !isset($_GET['edit']) && !isset($_GET['posting']) && !isset($_GET['set']) && !isset($_GET['forget']) && !isset($_GET['recover']) || $_GET['register'] == "success" || $_GET['forget'] == "success" || $_GET['recover'] == "success") {
+if (!isset($_GET['login']) && !isset($_GET['register']) && !isset($_GET['link']) && !isset($_GET['edit']) && !isset($_GET['posting']) && !isset($_GET['set']) && !isset($_GET['forget']) && !isset($_GET['recover']) || $_GET['register'] == "success" || $_GET['register'] == "resent" || $_GET['forget'] == "success" || $_GET['recover'] == "success") {
     if (isset($_GET['account']) && $_GET['account'] == "activated") {
         $accountCheck = $_GET['account'];
         echo "<p style='color: green;'>Account activatation success. Welcome on manga-animes !</p>";
     } //isset($_GET['account']) && $_GET['account'] == "activated"
-    else if (isset($_GET['register']) && $_GET['register'] == "success") {
-        echo "<p style='color: green;'>Registration success. Please check your emails !</p>";
-    } //isset($_GET['register']) && $_GET['register'] == "success"
+    else if (isset($_GET['register'])) {
+        if ($_GET['register'] == "success") {
+            echo "<p style='color: green;'>Registration success. Please check your emails !</p>";
+        }
+        else if ($_GET['register'] == "resent") {
+            echo "<p style='color: green;'>Email successfully resent. Please check your emails once more !</p>";
+        }
+    } //isset($_GET['register'])
     else if (isset($_GET['forget']) && $_GET['forget'] == "success") {
         echo "<p style='color: green;'>An email has been sent to your inbox !</p>";
     } //isset($_GET['forget']) && $_GET['forget'] == "success"
@@ -59,7 +64,6 @@ else if (isset($_GET['register']) && $_GET['register'] !== "success") {
 /* FORGET */
 else if (isset($_GET['forget']) && $_GET['forget'] !== "success") {
     $forgetCheck = $_GET['forget'];
-    echo "<h1>Forgot password or username</h1>";
     if ($forgetCheck == "empty") {
         echo "<p style='color: red;'>Some fields are empty !</p>";
     } //$forgetCheck == "empty"
@@ -72,7 +76,7 @@ else if (isset($_GET['forget']) && $_GET['forget'] !== "success") {
 } //isset($_GET['forget']) && $_GET['forget'] !== "success"
 /* RECOVER */
 else if (isset($_GET['recover']) && $_GET['recover'] !== "success") {
-    $recoverCheck = $_GET['forget'];
+    $recoverCheck = $_GET['recover'];
     echo "<h1>Change password</h1>";
     if ($recoverCheck == "empty") {
         echo "<p style='color: red;'>Some fields are empty !</p>";

@@ -43,7 +43,7 @@ else {
             <section id="header">
               <h1>Recover</h1>
               <div class="divider"></div>
-              <img src="CSS/images/fullmetal-alchemy.jpg" alt="Fullmetal Alchemy"/>
+              <img src="CSS/images/fullmetal.jpg" alt="Fullmetal"/>
             </section>
 
   					<section id="content">

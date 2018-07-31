@@ -38,6 +38,8 @@ if (isset($_POST['submit'])) {
                             exit();
                         } //$hashedPassCheck == false
                         elseif ($hashedPassCheck == true) {
+                            $sqlRecovKey = "UPDATE users SET user_forget_key='used' WHERE user_uid='$uid'";
+                            $resultRecovKey = mysqli_query($conn, $sqlRecovKey);
                             $sql = "SELECT * FROM users WHERE user_uid = '$uid'";
                             $result = mysqli_query($conn, $sql);
                             $row = mysqli_fetch_assoc($result);

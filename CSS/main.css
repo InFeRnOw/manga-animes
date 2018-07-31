@@ -14,7 +14,18 @@ body {
 
 .link {
   text-decoration: none;
-  color: white;
+  color: black;
+}
+
+.button-text {
+  background: none !important;
+  color: grey;
+  border: none;
+  box-shadow: none;
+  padding: 0 !important;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 16px !important;
 }
 
 .button-link {

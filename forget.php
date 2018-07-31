@@ -38,7 +38,7 @@ include 'INCLUDES/dbh-inc.php';
           <section id="header">
             <h1>Forget</h1>
             <div class="divider"></div>
-            <img src="CSS/images/fullmetal-alchemy.jpg" alt="Fullmetal Alchemy"/>
+            <img src="CSS/images/subaru&rem.png" alt="Re:zero"/>
           </section>
 
 					<section id="content">

@@ -1,6 +1,6 @@
 <?php
+include_once 'dbh-inc.php';
 if (isset($_POST['submit'])) {
-    include_once 'dbh-inc.php';
     $uid = mysqli_real_escape_string($conn, $_POST['uid']);
     $pass1 = mysqli_real_escape_string($conn, $_POST['pass1']);
     $pass2 = mysqli_real_escape_string($conn, $_POST['pass2']);
@@ -73,6 +73,30 @@ This is an automatic mail, please do not respond.';
         }
     }
 } //isset($_POST['submit'])
+elseif (isset($_POST['emailResend'])) {
+    $uid = mysqli_real_escape_string($conn, $_POST['uid']);
+    $sql = "SELECT * FROM users WHERE user_uid = '$uid'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $cle = $row['user_key'];
+    $id = $row['user_id'];
+    $destinataire = $row['user_email'];
+    $sujet = "Activate your account";
+    $entete = "manga-animes.com";
+    $message = 'Welcome on manga-animes,
+
+To activate your account, please go to this link.
+
+your activation link: https://www.manga-animes.com/verify.php?cle=' . $cle . '&id=' . $id . '&uid=' . $uid . '
+
+
+---------------
+This is an automatic mail, please do not respond.';
+    if (mail($destinataire, $sujet, $message, $entete)) {
+        header("Location: ../login.php?uid=$uid&register=resent");
+        exit();
+    } //mail($destinataire, $sujet, $message, $entete)
+}
 else {
     header("Location: ../register.php");
     exit();

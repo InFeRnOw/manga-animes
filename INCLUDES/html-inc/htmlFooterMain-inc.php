@@ -8,6 +8,6 @@ echo '<!-- Icons -->
 
         <!-- Copyright -->
           <div id="copyright">
-              <p>&copy; Manga-Animes. All rights reserved</p>
+              <p>&copy; Manga-Animes. All rights reserved | <a class="link" href="copyright-images.php">Images</a></p>
           </div>
         </div>';
