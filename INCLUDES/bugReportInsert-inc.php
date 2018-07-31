@@ -13,8 +13,8 @@ while($row = mysqli_fetch_assoc($result)) {
              <div class='container-fluid'>
                 <div class='row'>
                   <div class='col-md-4 col-xs-12' style=''><h4>From</h4><a class='link' href='post.php?link=" . $rowGetPf['pf_link'] . "'><h4>" . $row['bugr_author'] . "</h4></a></div>
-                  <div class='col-md-4 col-xs-12'><h4>Email: " . $row['bugr_subject'] . "</h4></div>
-                  <div class='col-md-4 col-xs-12'><h4>Subject: " . $row['bugr_'] . "</h4></div>
+                  <div class='col-md-4 col-xs-12'><h4>Email: " . $row['bugr_email'] . "</h4></div>
+                  <div class='col-md-4 col-xs-12'><h4>Subject: " . $row['bugr_subject'] . "</h4></div>
                 </div>
               </div>
             </div>";

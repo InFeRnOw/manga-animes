@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'INCLUDES/dbh-inc.php';
+
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
 	// last request was more than 30 minutes ago
 	session_unset();     // unset $_SESSION variable for the run-time
@@ -22,13 +23,15 @@ if (!isset($_SESSION['CREATED'])) {
 		<title>Manga-Animes</title>
   		<meta charset="utf-8" />
   		<meta name="viewport" content="width=device-width, initial-scale=1" />
-			<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
-			<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 		<link rel="stylesheet" href="CSS/main.css">
 	</head>
 	<body>
@@ -45,27 +48,35 @@ if (!isset($_SESSION['CREATED'])) {
           <div class="page">
                 <h1>Bug Reports</h1>
 
-                    <form class="reportform">
+                    <form class="reportform" action="INCLUDES/bugReport-inc.php" method="POST">
                         <div style>
                             <dl class="unit">
                                 <dt>Name <span style="color:#ff0000;">*</span></dt>
                                 <dd>
-                                <input type="text" name="nom" size="30" value="<?php echo $_SESSION['u_uid']?>"/>
+                                <input type="text" name="nom" size="30" value="<?php echo $_SESSION['u_uid']?>" readonly="readonly"/>
                                 </dd>
                             </dl>
 
                             <dl class="unit">
                              <dt>Email <span style="color:#ff0000;">*</span></dt>
                                 <dd>
-                                <input type="text" name="email" size="30" value="<?php echo $_SESSION['u_email']?>"/>
+                                <input type="text" name="email" size="30" value="<?php echo $_SESSION['u_email']?>" readonly="readonly"/>
                                 </dd>
                             </dl>
+                            
+                            <dl class="unit">
+                                <dt>Subject <span style="color:#ff0000;">*</span></dt>
+                                <dd>
+                                <input type="text" name="bugSubject" size="30"/>
+                                </dd>
+                            </dl>
+                            
                             <dl class="unit">
                                 <dt>Description <span style="color:#ff0000;">*</span></dt>
                                 <dd>
-                                    <i>Describe the bug here.</i> </br>
-                                <textarea class="textsize" style="height: 200px;"></textarea>
-                                </dd>
+                                    <i>Describe the bug here. (500 Characters max)</i> </br>
+                            <textarea id="bugText" name="bugText" style="width: 350px; resize: vertical;" maxlength="500" > </textarea>   </dd>
+                        
 
                             </dl>
                        <!-- <p>Name <span style="color:#ff0000;">*</span> <input type="text" name="nom" size="30" value="<?php echo $_SESSION['u_uid']?>"/> </p>
@@ -77,6 +88,7 @@ if (!isset($_SESSION['CREATED'])) {
                 <!-- Ici pourra être ajouté un captcha anti-spam (plus tard) -->
                        <p><input type="submit" name="submit" value="Send" /></p>
                             </form>
+                                    
                         </div>
             </div>
          </div>
