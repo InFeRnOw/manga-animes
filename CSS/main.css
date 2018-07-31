@@ -646,7 +646,7 @@ button.btn.bg-orange { padding: 20px 160px; }
     max-width: 800px;
 }
 .reportform .unit {
-    margin: 20px 0;
+    margin: 10px 0;
     zoom: 1;
     position: relative;
 }
@@ -654,9 +654,11 @@ button.btn.bg-orange { padding: 20px 160px; }
 .dl {
     display: block;
 }
+
+
 .reportform .unit>dt {
-    padding-top: 4px;
-    padding-right: 15px;
+    padding-top: 0px;
+    padding-right: 0px;
     text-align: right;
     vertical-align: top;
     box-sizing: border-box;
@@ -669,7 +671,7 @@ button.btn.bg-orange { padding: 20px 160px; }
     float: left;
     width: 68%;
     box-sizing: border-box;
-    padding-right: 30px;
+    padding-right: 20px;
 }
 .reportform .unit>dd .textarea {
     width: 100%;
