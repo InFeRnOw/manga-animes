@@ -99,6 +99,11 @@ if (!isset($_SESSION['CREATED'])) {
 
 								</div>
 							</div>
+
+						<div class="divider-with-content"><h1>Bug reports</h1></div>
+
+						<?php include 'INCLUDES/bugReportInsert-inc.php'; ?>
+
 						</div>
 					</section>
 				</div>

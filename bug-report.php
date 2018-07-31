@@ -63,20 +63,20 @@ if (!isset($_SESSION['CREATED'])) {
                                 <input type="text" name="email" size="30" value="<?php echo $_SESSION['u_email']?>" readonly="readonly"/>
                                 </dd>
                             </dl>
-                            
+
                             <dl class="unit">
                                 <dt>Subject <span style="color:#ff0000;">*</span></dt>
                                 <dd>
                                 <input type="text" name="bugSubject" size="30"/>
                                 </dd>
                             </dl>
-                            
+
                             <dl class="unit">
                                 <dt>Description <span style="color:#ff0000;">*</span></dt>
                                 <dd>
                                     <i>Describe the bug here. (500 Characters max)</i> </br>
                             <textarea id="bugText" name="bugText" style="width: 350px; resize: vertical;" maxlength="500" > </textarea>   </dd>
-                        
+
 
                             </dl>
                        <!-- <p>Name <span style="color:#ff0000;">*</span> <input type="text" name="nom" size="30" value="<?php echo $_SESSION['u_uid']?>"/> </p>
@@ -88,7 +88,7 @@ if (!isset($_SESSION['CREATED'])) {
                 <!-- Ici pourra être ajouté un captcha anti-spam (plus tard) -->
                        <p><input type="submit" name="submit" value="Send" /></p>
                             </form>
-                                    
+
                         </div>
             </div>
          </div>
