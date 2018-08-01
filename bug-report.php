@@ -2,6 +2,12 @@
 session_start();
 include 'INCLUDES/dbh-inc.php';
 
+if (!isset($_SESSION['u_id'])) {
+	echo '<script>
+	    window.location.href="login.php";
+	</script>';
+}
+
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
 	// last request was more than 30 minutes ago
 	session_unset();     // unset $_SESSION variable for the run-time
