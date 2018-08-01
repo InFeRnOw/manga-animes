@@ -5,15 +5,14 @@ $chatRoomId = $_SESSION['roomid'];
 $user = $_SESSION['u_uid'];
 $sql = "SELECT * FROM chat WHERE chat_room_id='$chatRoomId' ORDER BY id ASC";
 $result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_assoc($result);
-$resultCheck = mysqli_num_rows($result) - 1;
+$resultCheck = mysqli_num_rows($result);
 for ($i = 1; $i <= $resultCheck; $i++) {
-    $row = mysqli_fetch_assoc($result);
-    $sender = $row['chat_room_sender'];
-    $text = $row['chat_room_text'];
-    $timeH = $row['chat_room_timeh'];
-    $timeD = $row['chat_room_timed'];
-    $senderId = $row['chat_room_sender_id'];
+    $rows = mysqli_fetch_assoc($result);
+    $sender = $rows['chat_room_sender'];
+    $text = $rows['chat_room_text'];
+    $timeH = $rows['chat_room_timeh'];
+    $timeD = $rows['chat_room_timed'];
+    $senderId = $rows['chat_room_sender_id'];
     if ($user == $sender) {
         /* Style pour le vrai utilisateur */
         $float = "right";
