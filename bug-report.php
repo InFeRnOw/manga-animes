@@ -48,37 +48,55 @@ if (!isset($_SESSION['CREATED'])) {
           <div class="page">
                 <h1>Bug Reports</h1>
 
-                    <form class="reportform" action="INCLUDES/bugReport-inc.php" method="POST">
+                    <form id="reportForm" action="INCLUDES/bugReport-inc.php" method="POST">
                         <div style>
-                            <dl class="unit">
-                                <dt>Name <span style="color:#ff0000;">*</span></dt>
-                                <dd>
-                                <input type="text" name="nom" size="30" value="<?php echo $_SESSION['u_uid']?>" readonly="readonly"/>
-                                </dd>
-                            </dl>
-
-                            <dl class="unit">
-                             <dt>Email <span style="color:#ff0000;">*</span></dt>
-                                <dd>
-                                <input type="text" name="email" size="30" value="<?php echo $_SESSION['u_email']?>" readonly="readonly"/>
-                                </dd>
-                            </dl>
-
-                            <dl class="unit">
-                                <dt>Subject <span style="color:#ff0000;">*</span></dt>
-                                <dd>
-                                <input type="text" name="bugSubject" size="30"/>
-                                </dd>
-                            </dl>
-
-                            <dl class="unit">
-                                <dt>Description <span style="color:#ff0000;">*</span></dt>
-                                <dd>
-                                    <i>Describe the bug here. (500 Characters max)</i> </br>
-                            <textarea id="bugText" name="bugText" style="width: 350px; resize: vertical;" maxlength="500" > </textarea>   </dd>
-
-
-                            </dl>
+													<div class="row">
+														<div class="col-md-4"></div>
+														<div class="col-md-4 col-xs-12">
+	                            <dl class="unit">
+	                                <dt>Name <span style="color:#ff0000;">*</span></dt>
+	                                <dd>
+	                                <input type="text" name="nom" size="30" value="<?php echo $_SESSION['u_uid']?>" readonly="readonly"/>
+	                                </dd>
+	                            </dl>
+														</div>
+														<div class="col-md-4"></div>
+													</div>
+													<div class="row">
+														<div class="col-md-4"></div>
+														<div class="col-md-4 col-xs-12">
+	                            <dl class="unit">
+	                             <dt>Email <span style="color:#ff0000;">*</span></dt>
+	                                <dd>
+	                                <input type="text" name="email" size="30" value="<?php echo $_SESSION['u_email']?>" readonly="readonly"/>
+	                                </dd>
+	                            </dl>
+														</div>
+														<div class="col-md-4"></div>
+													</div>
+													<div class="row">
+														<div class="col-md-4"></div>
+														<div class="col-md-4 col-xs-12">
+	                            <dl class="unit">
+	                                <dt>Subject <span style="color:#ff0000;">*</span></dt>
+	                                <dd>
+	                                <input type="text" name="bugSubject" size="30"/>
+	                                </dd>
+	                            </dl>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-md-4"></div>
+														<div class="col-md-4 col-xs-12">
+	                            <dl class="unit">
+	                                <dt>Description <span style="color:#ff0000;">*</span></dt>
+	                                <dd>
+	                                <i>Describe the bug here. (500 Characters max)</i> </br>
+	                            		<textarea id="bugText" name="bugText" style="width: 100%; resize: vertical; min-height: 150px; border-radius: 5px; box-shadow: 1px 1px 3px #555; border: 1px solid lightgrey;" maxlength="500"> </textarea>   </dd>
+	                            </dl>
+														</div>
+														<div class="col-md-4"></div>
+													</div>
                        <!-- <p>Name <span style="color:#ff0000;">*</span> <input type="text" name="nom" size="30" value="<?php echo $_SESSION['u_uid']?>"/> </p>
                         <p>Email <span style="color:#ff0000;">*</span> <input type="text" name="email" size="30" value="<?php echo $_SESSION['u_email']?>"/></p>
                         <dd>Summary <span style="color:#ff0000;">*</span> <i>Enter a one-line summary of the issue.</i></dd>
@@ -86,10 +104,13 @@ if (!isset($_SESSION['CREATED'])) {
                         <dd>Description <span style="color:#ff0000;">*</span> <i>Describe the bug here.</i></dd>
                         <textarea name="message" cols="60" rows="10"></textarea>
                 <!-- Ici pourra être ajouté un captcha anti-spam (plus tard) -->
-                       <p><input type="submit" name="submit" value="Send" /></p>
-                            </form>
-
-                        </div>
+											 <div class="row">
+												 <div class="col-md-4"></div>
+                       	 <div class="col-md-4 col-xs-12"><button type="submit" name="submit">Send</button></div>
+											 	 <div class="col-md-4"></div>
+											</div>
+                    </form>
+                </div>
             </div>
          </div>
             <!-- Footer -->

@@ -707,3 +707,23 @@ button.btn.bg-orange { padding: 20px 160px; }
     resize: vertical;
     word-wrap: break-word;
 }
+
+#reportForm button {
+  border-radius: 5px;
+  height: 40px;
+  width: 100px;
+  box-shadow: 1px 1px 12px #555;
+}
+
+#reportForm input {
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  box-shadow: 1px 1px 3px #555;
+}
+
+#reportForm button:hover {
+  color: lightgrey;
+}
