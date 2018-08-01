@@ -127,15 +127,15 @@ if (!isset($_SESSION['CREATED'])) {
                 <div class="col-md-6 col-xs-12">
                   <div class="row">
                     <div class="col-md-4 col-xs-12"><p><?php echo "<em><u>Type</u></em></br> ".$type;  ?></p></div>
-                    <div class="col-md-4 col-xs-12"><p><?php echo "<em><u>Status Manga</u></em></br> ".$statusmanga;  ?></p></div>
-                    <div class="col-md-4 col-xs-12"><p><?php echo "<em><u>Status Anime</u></em></br> ".$status;  ?></p></div>
+                    <div class="col-md-4 col-xs-12"><p><?php if ($active == 2) {echo "<em><u>Manga Status</u></em></br> ".$statusmanga;} ?></p></div>
+                    <div class="col-md-4 col-xs-12"><p><?php if ($active == 2) {echo "<em><u>Anime Status</u></em></br> ".$status;}else {echo "<em><u>Season Status</u></em></br> ".$status;} ?></p></div>
                   </div>
                 </div>
                 <div class="col-md-6 col-xs-12">
                   <div class="row">
                     <div class="col-md-4 col-xs-12"><p><?php echo "<em><u>Adaptation</u></em></br> ".$adaptation;  ?></p></div>
-                    <div class="col-md-4 col-xs-12"><p><?php echo "<em><u>Season</u></em></br> ".$season;  ?></p></div>
-                    <div class="col-md-4 col-xs-12"><p><?php echo "<em><u>Episodes</u></em></br> ".$episodes;  ?></p></div>
+                    <div class="col-md-4 col-xs-12"><p><?php if ($active == 2) {echo "<em><u>Anime seasons</u></em></br> ".$season;}else {echo "<em><u>Season</u></em></br> ".$season;} ?></p></div>
+                    <div class="col-md-4 col-xs-12"><p><?php if ($active == 2) {echo "<em><u>Anime episodes</u></em></br> ".$episodes;}else {echo "<em><u>Episodes</u></em></br> ".$episodes;} ?></p></div>
                   </div>
                 </div>
               </div>

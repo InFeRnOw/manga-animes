@@ -1,6 +1,6 @@
 <?php
 /* LOGIN */
-if (!isset($_GET['login']) && !isset($_GET['register']) && !isset($_GET['link']) && !isset($_GET['edit']) && !isset($_GET['posting']) && !isset($_GET['set']) && !isset($_GET['forget']) && !isset($_GET['recover']) || $_GET['register'] == "success" || $_GET['register'] == "resent" || $_GET['forget'] == "success" || $_GET['recover'] == "success") {
+if (!isset($_GET['login']) && !isset($_GET['register']) && !isset($_GET['link']) && !isset($_GET['edit']) && !isset($_GET['posting']) && !isset($_GET['post']) && !isset($_GET['report']) && !isset($_GET['set']) && !isset($_GET['forget']) && !isset($_GET['recover']) || $_GET['register'] == "success" || $_GET['register'] == "resent" || $_GET['forget'] == "success" || $_GET['recover'] == "success") {
     if (isset($_GET['account']) && $_GET['account'] == "activated") {
         $accountCheck = $_GET['account'];
         echo "<p style='color: green;'>Account activatation success. Welcome on manga-animes !</p>";
@@ -178,5 +178,28 @@ else if (isset($_GET['comment'])) {
     } //$commentCheck == "success"
     elseif ($commentCheck == "empty") {
         echo "<p style='color: red;'>Please write something to comment !</p>";
+    } //$commentCheck == "empty"
+}
+/* COMMENTS */
+else if (isset($_GET['report'])) {
+    $reportCheck = $_GET['report'];
+    if ($reportCheck == "success") {
+        echo "<p style='color: green;'>Report successfully sended !</p>";
+    } //$reportCheck == "success"
+    elseif ($commentCheck == "empty") {
+        echo "<p style='color: red;'>Please fill up all fields !</p>";
+    } //$reportCheck == "empty"
+    elseif ($commentCheck == "deleted") {
+        echo "<p style='color: red;'>Bug report deleted !</p>";
+    } //$reportCheck == "deleted"
+}
+/* COMMENTS */
+else if (isset($_GET['post'])) {
+    $postCheck = $_GET['post'];
+    if ($postCheck == "reactive") {
+        echo "<p style='color: green;'>Post successfully reactivated !</p>";
+    } //$commentCheck == "success"
+    elseif ($postCheck == "delete") {
+        echo "<p style='color: red;'>Post permanently deleted !</p>";
     } //$commentCheck == "empty"
 }

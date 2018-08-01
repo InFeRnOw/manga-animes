@@ -27,7 +27,7 @@ if ($active == 0) {
     $sql = "SELECT * FROM users WHERE user_id='$id'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
-    if ($row['rank'] <= 2 && isset($_SESSION['u_id'])) {
+    if ($row['rank'] == 1 && isset($_SESSION['u_id'])) {
         $_SESSION['link'] = $link;
         adminPanelVote($lastUserToEdit);
     } //$row['rank'] <= 2 && isset($_SESSION['u_id'])

@@ -22,7 +22,7 @@ elseif (isset($_POST['delete'])) {
     $reportId = mysqli_real_escape_string($conn, $_POST['reportId']);
     $sql = "DELETE FROM bugreport WHERE bugr_id='$reportId'";
     $result = mysqli_query($conn, $sql);
-    header("Location: ../staff-panel.php?report=deleted");
+    header("Location: ../staff-panel.php?report=deleted#bugReports");
 }
 elseif (isset($_POST['chatCreate'])) {
     $actualUser = $_SESSION['u_uid'];

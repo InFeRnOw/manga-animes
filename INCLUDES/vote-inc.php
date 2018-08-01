@@ -21,7 +21,8 @@ else if (isset($_POST['deny'])) {
     unlink($file);
     $likes = $row['p_likes'];
     $dislikes = $row['p_dislikes'];
-    $sql = "DELETE FROM posts WHERE p_link='$post'";
+    $user = $_SESSION['u_uid'];
+    $sql = "UPDATE posts SET p_active=3, p_lastedited='$user' WHERE p_link='$post'";
     $result = mysqli_query($conn, $sql);
     header("Location: ../in-vote.php?deny=success&link=$post");
     exit();
@@ -34,7 +35,8 @@ else if (isset($_POST['delete'])) {
     unlink($file);
     $likes = $row['p_likes'];
     $dislikes = $row['p_dislikes'];
-    $sql = "DELETE FROM posts WHERE p_link='$post'";
+    $user = $_SESSION['u_uid'];
+    $sql = "UPDATE posts SET p_active=4, p_lastedited='$user' WHERE p_link='$post'";
     $result = mysqli_query($conn, $sql);
     header("Location: ../alphabetic-order.php?delete=success&link=$post");
     exit();
@@ -87,7 +89,7 @@ else if (isset($_POST['dislike'])) {
         $sql = "INSERT INTO votes (v_user, v_link) VALUES ('$user', '$post')";
         $result = mysqli_query($conn, $sql);
         if ($dislikes == 49) {
-            $sql = "DELETE FROM posts WHERE p_link='$post'";
+            $sql = "UPDATE posts SET p_active=3, p_lastedited='Vote' WHERE p_link='$post'";
             $result = mysqli_query($conn, $sql);
             $sql = "DELETE FROM votes WHERE v_link='$post'";
             $result = mysqli_query($conn, $sql);
@@ -141,6 +143,23 @@ else if (isset($_POST['edit'])) {
         header("Location: ../posting.php?edit&link=$post&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type&linkMyAnime=$myAnimeList&genre=$genre");
     }
 } //isset($_POST['edit'])
+else if (isset($_POST['deletePostPerm'])) {
+    $postLink = mysqli_real_escape_string($conn, $_POST['postLink']);
+    $file = "uploads/postsimages/postimg" . $postLink . ".jpg";
+    unlink($file);
+    $sql = "DELETE FROM posts WHERE p_link='$postLink'";
+    $result = mysqli_query($conn, $sql);
+    header("Location: ../staff-panel.php?post=delete&link=$post#inactivePosts");
+    exit();
+}
+else if (isset($_POST['reactivatePost'])) {
+    $postLink = mysqli_real_escape_string($conn, $_POST['postLink']);
+    $activeNum = mysqli_real_escape_string($conn, $_POST['activeNum']);
+    $sql = "UPDATE posts SET p_active=$activeNum WHERE p_link='$postLink'";
+    $result = mysqli_query($conn, $sql);
+    header("Location: ../staff-panel.php?post=reactive&link=$post#inactivePosts");
+    exit();
+}
 else {
     header("Location: ../in-vote.php?vote=error");
     exit();

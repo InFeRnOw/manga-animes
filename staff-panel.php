@@ -75,8 +75,6 @@ if (!isset($_SESSION['CREATED'])) {
 
 						<div class="divider-with-content"><h1>User management</h1></div>
 
-						<?php include 'INCLUDES/errors-inc.php'; ?>
-
 							<div class="row">
 								<div class="col-md-6 col-xs-12">
 									<div class="divider"></div>
@@ -102,16 +100,23 @@ if (!isset($_SESSION['CREATED'])) {
 
 							<div class="row">
 								<div class="col-xs-12">
-									<div class="divider-with-content"><h1>Bug reports</h1></div>
+									<div id="bugReports" class="divider-with-content"><h1>Bug reports</h1></div>
 
 									<?php include 'INCLUDES/bugReportInsert-inc.php'; ?>
 
 								</div>
 								<div class="col-xs-12">
-									<div class="divider-with-content"><h1>Images reports</h1></div>
+									<div id="imagesReports" class="divider-with-content"><h1>Images reports</h1></div>
 
 									<?php include 'INCLUDES/imagesReportInsert-inc.php'; ?>
 
+								</div>
+								<div class="col-xs-12">
+									 <div id="inactivePosts" class="divider-with-content"><h1>Inactive posts</h1></div>
+
+									 <?php if (isset($_GET['post'])) {include 'INCLUDES/errors-inc.php';} ?>
+
+									 <?php include 'INCLUDES/postInactiveInsert-inc.php'; ?>
 								</div>
 							</div>
 
