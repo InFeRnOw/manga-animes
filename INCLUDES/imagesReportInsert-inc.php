@@ -1,12 +1,12 @@
 <?php
 include 'dbh-inc.php';
 
-$sql = "SELECT * FROM bugreport";
+$sql = "SELECT * FROM imagesreport";
 $result = mysqli_query($conn, $sql);
 
 while($row = mysqli_fetch_assoc($result)) {
-    $user = $row['bugr_author'];
-    $reportId = $row['bugr_id'];
+    $user = $row['imgr_author'];
+    $reportId = $row['imgr_id'];
     $sqlGetPf = "SELECT * FROM profiles WHERE pf_user='$user'";
     $resultGetPf = mysqli_query($conn, $sqlGetPf);
     $rowGetPf = mysqli_fetch_assoc($resultGetPf);
@@ -14,11 +14,11 @@ while($row = mysqli_fetch_assoc($result)) {
              <div class='container-fluid'>
                <div class='row'>
                   <div class='col-xs-12' style=''><h4><b><u>From</u></b></h4><a class='link' href='profile.php?link=" . $rowGetPf['pf_link'] . "' style='text-decoration: none; color: black;'><h4>" . $user . "</h4></a></div>
-                  <div class='col-xs-12'><h4><b><u>Email</u></b></h4><h4>" . $row['bugr_email'] . "</h4></div>
-                  <div class='col-xs-12'><h4><b><u>Subject</u></b></h4><h4>" . $row['bugr_subject'] . "</h4></div>
-                  <div class='col-xs-12' style='word-break: break-all;'><h4><b><u>Text</u></b></h4><h4>" . $row['bugr_text'] . "</h4></div>
+                  <div class='col-xs-12'><h4><b><u>Email</u></b></h4><h4>" . $row['imgr_email'] . "</h4></div>
+                  <div class='col-xs-12'><h4><b><u>Subject</u></b></h4><h4>" . $row['imgr_subject'] . "</h4></div>
+                  <div class='col-xs-12' style='word-break: break-all;'><h4><b><u>Text</u></b></h4><h4>" . $row['imgr_text'] . "</h4></div>
                   <div class='col-xs-12'>
-                    <form action='INCLUDES/bugReport-inc.php' method='POST'>
+                    <form action='INCLUDES/imagesReport-inc.php' method='POST'>
                       <input type='hidden' name='user' value=" . $user . " />
                       <button class='btn btn-primary glyphicon glyphicon-envelope' type='submit' name='chatCreate' style='margin-bottom: 8.5px'></button>
                       <input type='hidden' name='reportId' value='".$reportId."'/>

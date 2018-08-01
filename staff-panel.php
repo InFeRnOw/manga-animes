@@ -100,9 +100,20 @@ if (!isset($_SESSION['CREATED'])) {
 								</div>
 							</div>
 
-						<div class="divider-with-content"><h1>Bug reports</h1></div>
+							<div class="row">
+								<div class="col-xs-12">
+									<div class="divider-with-content"><h1>Bug reports</h1></div>
 
-						<?php include 'INCLUDES/bugReportInsert-inc.php'; ?>
+									<?php include 'INCLUDES/bugReportInsert-inc.php'; ?>
+
+								</div>
+								<div class="col-xs-12">
+									<div class="divider-with-content"><h1>Images reports</h1></div>
+
+									<?php include 'INCLUDES/imagesReportInsert-inc.php'; ?>
+
+								</div>
+							</div>
 
 						</div>
 					</section>
