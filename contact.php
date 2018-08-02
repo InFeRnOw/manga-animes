@@ -45,12 +45,13 @@ if (!isset($_SESSION['CREATED'])) {
             <div id="page">
                 <section id="header">
                     <div class="row">
+											<div class="col-xs-12">
                         <div class="divider"></div>
                             <a href="bug-report.php" class="btn button-link" >Bug Report</a>
                             <a href="suggestions.php" class="btn button-link">Suggestions</a>
 														<a href="copyright-images.php" class="btn button-link">Images</a>
            	            <div class="divider"></div>
-
+											</div>
                     </div>
                 </section>
             </div>
