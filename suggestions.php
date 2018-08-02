@@ -52,16 +52,10 @@ if (!isset($_SESSION['CREATED'])) {
             </div>
             <!-- Page -->
           <div class="page">
-                <h1>Images Reports</h1>
-
+                <h1>Make a suggestion</h1>
 								<?php include 'INCLUDES/errors-inc.php' ?>
 
-                <h3><u>Images used by the website</u></h3>
-                <p>We respect the authors of the images we use but unfortunately, we were unable to find most of the authors. So if any of the pictures used on this site belongs to you and that you disagree with its use, please use this section to report it to us. We will contact you as soon as possible in order to find agreements or if asked we will remove it immediately after having proof that the image in question is indeed yours.</p>
-                <h3><u>Images posted by a member of the community</u></h3>
-                <p>If an image in a post belongs to you and you disagree with it being posted on this website, you can use this section to report it to us. We will put you in contact with the author of the post in question for possible arrangements. In case of failure to do so, we will ask the author to remove the image and in extreme cases the post in question shall be deleted.</p>
-
-                    <form id="reportForm" action="INCLUDES/imagesReport-inc.php" method="POST">
+                    <form id="reportForm" action="INCLUDES/suggestions-inc.php" method="POST">
                         <div style>
 													<div class="row">
 														<div class="col-md-4"></div>
@@ -91,8 +85,9 @@ if (!isset($_SESSION['CREATED'])) {
 														<div class="col-md-4"></div>
 														<div class="col-md-4 col-xs-12">
 	                            <dl class="unit">
+	                                <dt>Subject <span style="color:#ff0000;">*</span></dt>
 	                                <dd>
-	                                <input type="hidden" name="imgSubject" value="Images-copyright"/>
+	                                <input type="text" name="suggestionSubject" size="30" maxlength="64"/>
 	                                </dd>
 	                            </dl>
 														</div>
@@ -101,10 +96,10 @@ if (!isset($_SESSION['CREATED'])) {
 														<div class="col-md-4"></div>
 														<div class="col-md-4 col-xs-12">
 	                            <dl class="unit">
-	                                <dt>Reasons | Expectations | Instructions <span style="color:#ff0000;">*</span></dt>
+	                                <dt>Suggestion(s) <span style="color:#ff0000;">*</span></dt>
 	                                <dd>
-	                                <i>Please write your reasons, expectations or instructions. (500 Characters max)</i> </br>
-	                            		<textarea id="bugText" name="imgText" style="width: 100%; resize: vertical; min-height: 150px; border-radius: 5px; box-shadow: 1px 1px 3px #555; border: 1px solid lightgrey;" maxlength="500"></textarea>   </dd>
+	                                <i>Please give as many infos as possible. (500 Characters max)</i> </br>
+	                            		<textarea id="bugText" name="suggestionText" style="width: 100%; resize: vertical; min-height: 150px; border-radius: 5px; box-shadow: 1px 1px 3px #555; border: 1px solid lightgrey;" maxlength="500"></textarea>   </dd>
 	                            </dl>
 														</div>
 														<div class="col-md-4"></div>

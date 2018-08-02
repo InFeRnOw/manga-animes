@@ -53,6 +53,7 @@ if (!isset($_SESSION['CREATED'])) {
             <!-- Page -->
           <div class="page">
                 <h1>Bug Reports</h1>
+								<?php include 'INCLUDES/errors-inc.php' ?>
 
                     <form id="reportForm" action="INCLUDES/bugReport-inc.php" method="POST">
                         <div style>
@@ -86,7 +87,7 @@ if (!isset($_SESSION['CREATED'])) {
 	                            <dl class="unit">
 	                                <dt>Subject <span style="color:#ff0000;">*</span></dt>
 	                                <dd>
-	                                <input type="text" name="bugSubject" size="30"/>
+	                                <input type="text" name="bugSubject" size="30" maxlength="64"/>
 	                                </dd>
 	                            </dl>
 														</div>
@@ -98,7 +99,7 @@ if (!isset($_SESSION['CREATED'])) {
 	                                <dt>Description <span style="color:#ff0000;">*</span></dt>
 	                                <dd>
 	                                <i>Describe the bug here. (500 Characters max)</i> </br>
-	                            		<textarea id="bugText" name="bugText" style="width: 100%; resize: vertical; min-height: 150px; border-radius: 5px; box-shadow: 1px 1px 3px #555; border: 1px solid lightgrey;" maxlength="500"> </textarea>   </dd>
+	                            		<textarea id="bugText" name="bugText" style="width: 100%; resize: vertical; min-height: 150px; border-radius: 5px; box-shadow: 1px 1px 3px #555; border: 1px solid lightgrey;" maxlength="500"></textarea>   </dd>
 	                            </dl>
 														</div>
 														<div class="col-md-4"></div>

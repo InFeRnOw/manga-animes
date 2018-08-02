@@ -10,7 +10,7 @@ if (isset($_POST['accept'])) {
     $dislikes = $row['p_dislikes'];
     $sql = "UPDATE posts SET p_active=1 WHERE p_link='$post'";
     $result = mysqli_query($conn, $sql);
-    header("Location: ../post.php?accept=success&link=$post");
+    header("Location: ../post.php?posting=accepted&link=$post");
     exit();
 } //isset($_POST['accept'])
 else if (isset($_POST['deny'])) {
@@ -24,7 +24,7 @@ else if (isset($_POST['deny'])) {
     $user = $_SESSION['u_uid'];
     $sql = "UPDATE posts SET p_active=3, p_lastedited='$user' WHERE p_link='$post'";
     $result = mysqli_query($conn, $sql);
-    header("Location: ../in-vote.php?deny=success&link=$post");
+    header("Location: ../in-vote.php?posting=denied&link=$post");
     exit();
 } //isset($_POST['deny'])
 else if (isset($_POST['delete'])) {
@@ -38,7 +38,7 @@ else if (isset($_POST['delete'])) {
     $user = $_SESSION['u_uid'];
     $sql = "UPDATE posts SET p_active=4, p_lastedited='$user' WHERE p_link='$post'";
     $result = mysqli_query($conn, $sql);
-    header("Location: ../alphabetic-order.php?delete=success&link=$post");
+    header("Location: ../alphabetic-order.php?posting=deleted&link=$post");
     exit();
 } //isset($_POST['delete'])
 else if (isset($_POST['like'])) {
@@ -61,7 +61,7 @@ else if (isset($_POST['like'])) {
             $result = mysqli_query($conn, $sql);
             $sql = "DELETE FROM votes WHERE v_link='$post'";
             $result = mysqli_query($conn, $sql);
-            header("Location: ../alphabetic-order.php?vote=success&link=$post");
+            header("Location: ../post.php?posting=votesuccess&link=$post");
             exit();
         } //$likes == 49
         else {
@@ -93,7 +93,7 @@ else if (isset($_POST['dislike'])) {
             $result = mysqli_query($conn, $sql);
             $sql = "DELETE FROM votes WHERE v_link='$post'";
             $result = mysqli_query($conn, $sql);
-            header("Location: ../in-vote.php?vote=success&link=$post");
+            header("Location: ../in-vote.php?posting=votedeny&link=$post");
             exit();
         } //$dislikes == 49
         else {

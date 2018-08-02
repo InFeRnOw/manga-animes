@@ -65,7 +65,7 @@ else if (isset($_GET['register']) && $_GET['register'] !== "success") {
 else if (isset($_GET['forget']) && $_GET['forget'] !== "success") {
     $forgetCheck = $_GET['forget'];
     if ($forgetCheck == "empty") {
-        echo "<p style='color: red;'>Some fields are empty !</p>";
+        echo "<p style='color: red;'>Please put your email !</p>";
     } //$forgetCheck == "empty"
     elseif ($forgetCheck == "emailinvalid") {
         echo "<p style='color: red;'>Invalid email !</p>";
@@ -140,6 +140,21 @@ else if (isset($_GET['posting'])) {
     if ($postingCheck == "blank") {
         echo "<p style='color: red;'>Some fields are empty !</p>";
     } //$postingCheck == "blank"
+    elseif ($postingCheck == "denied") {
+        echo "<p style='color: red;'>Post successfully denied !</p>";
+    } //$postingCheck == "blank"
+    elseif ($postingCheck == "deleted") {
+        echo "<p style='color: red;'>Post successfully deleted !</p>";
+    } //$postingCheck == "blank"
+    elseif ($postingCheck == "accepted") {
+        echo "<p style='color: green;'>Post successfully accepted and posted !</p>";
+    } //$postingCheck == "blank"
+    elseif ($postingCheck == "votesuccess") {
+        echo "<p style='color: green;'>Successfully voted, your vote was the last one needed, post is accepted !</p>";
+    } //$postingCheck == "blank"
+    elseif ($postingCheck == "votedeny") {
+        echo "<p style='color: green;'>Successfully voted, your vote was the last one needed, post is denied ! !</p>";
+    } //$postingCheck == "blank"
 } //isset($_GET['posting'])
 else if (isset($_GET['edit']) && !isset($_GET['upload']) && !isset($_GET['delete'])) {
     $editCheck = $_GET['edit'];
@@ -180,20 +195,20 @@ else if (isset($_GET['comment'])) {
         echo "<p style='color: red;'>Please write something to comment !</p>";
     } //$commentCheck == "empty"
 }
-/* COMMENTS */
+/* REPORTS */
 else if (isset($_GET['report'])) {
     $reportCheck = $_GET['report'];
     if ($reportCheck == "success") {
         echo "<p style='color: green;'>Report successfully sended !</p>";
     } //$reportCheck == "success"
-    elseif ($commentCheck == "empty") {
+    elseif ($reportCheck == "empty") {
         echo "<p style='color: red;'>Please fill up all fields !</p>";
     } //$reportCheck == "empty"
-    elseif ($commentCheck == "deleted") {
+    elseif ($reportCheck == "deleted") {
         echo "<p style='color: red;'>Bug report deleted !</p>";
     } //$reportCheck == "deleted"
 }
-/* COMMENTS */
+/* INACTIVE POSTS -> Staff-panel */
 else if (isset($_GET['post'])) {
     $postCheck = $_GET['post'];
     if ($postCheck == "reactive") {

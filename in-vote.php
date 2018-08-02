@@ -147,6 +147,7 @@ switch ($_GET['letter']) {
         <div id="page">
           <section id="header">
             <h2>In vote</h2>
+						<?php include 'INCLUDES/errors-inc.php' ?>
             <?php if(!isset($_SESSION['u_id'])) {
                     echo '<p style="color: red;">Login, in order to do a new post !</p>';
                   }?>
