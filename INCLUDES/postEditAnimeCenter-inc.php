@@ -45,13 +45,13 @@ if (isset($_POST['submit'])) {
                     $fileDestination = '../uploads/postsimages/' . $fileNameNew;
                     if (move_uploaded_file($fileTmpName, $fileDestination) || !empty($imgKeep)) {
                         if (!empty($imgKeep)) {
-                            $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_statusmanga='$statusManga', p_season='$season', p_episodes='$episodes', p_adaptation='$adaptation', p_img_src='$imgKeep', p_linkmyanime='$linkMyAnime', p_lastedited='$uid' WHERE p_link='$pageLink'";
+                            $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_statusmanga='$statusManga', p_seasoncenter='$season', p_episodescenter='$episodes', p_adaptation='$adaptation', p_img_src='$imgKeep', p_linkmyanime='$linkMyAnime', p_lastedited='$uid' WHERE p_link='$pageLink'";
                             $result = mysqli_query($conn, $sql);
                             $_SESSION['contentTemp'] = '';
                             header("Location: ../post.php?posting=success&link=$pageLink");
                         }
                         else {
-                            $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_statusmanga='$statusManga', p_season='$season', p_episodes='$episodes', p_adaptation='$adaptation', p_img_src='$pageLink', p_linkmyanime='$linkMyAnime', p_lastedited='$uid' WHERE p_link='$pageLink'";
+                            $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_statusmanga='$statusManga', p_seasoncenter='$season', p_episodescenter='$episodes', p_adaptation='$adaptation', p_img_src='$pageLink', p_linkmyanime='$linkMyAnime', p_lastedited='$uid' WHERE p_link='$pageLink'";
                             $result = mysqli_query($conn, $sql);
                             $_SESSION['contentTemp'] = '';
                             header("Location: ../post.php?posting=success&link=$pageLink");

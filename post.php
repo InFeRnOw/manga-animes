@@ -41,7 +41,7 @@ else {
 	$active = $rowVarPosts['p_active'];
 	$titleen = $rowVarPosts['p_titleen'];
 	$genre = $rowVarPosts['p_genre'];
-	$statusmanga = $rowVarPosts['p_statusmanga'];
+	$studio = $rowVarPosts['p_studio'];
 	$status = $rowVarPosts['p_status'];
 	$adaptation = $rowVarPosts['p_adaptation'];
 	$season = $rowVarPosts['p_season'];
@@ -127,7 +127,7 @@ if (!isset($_SESSION['CREATED'])) {
                 <div class="col-md-6 col-xs-12">
                   <div class="row">
                     <div class="col-md-4 col-xs-12"><p><?php echo "<em><u>Type</u></em></br> ".$type;  ?></p></div>
-                    <div class="col-md-4 col-xs-12"><p><?php if ($active == 2) {echo "<em><u>Manga Status</u></em></br> ".$statusmanga;} ?></p></div>
+                    <div class="col-md-4 col-xs-12"><p><?php if ($active == 2) {echo "<em><u>Manga Status</u></em></br> ".$statusmanga;}else {echo "<em><u>Studio</u></em></br> ".$studio;} ?></p></div>
                     <div class="col-md-4 col-xs-12"><p><?php if ($active == 2) {echo "<em><u>Anime Status</u></em></br> ".$status;}else {echo "<em><u>Season Status</u></em></br> ".$status;} ?></p></div>
                   </div>
                 </div>

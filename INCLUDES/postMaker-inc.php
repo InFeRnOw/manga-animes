@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
     $episodes = mysqli_real_escape_string($conn, $_POST['episodes']);
     $adaptation = mysqli_real_escape_string($conn, $_POST['adaptation']);
     $titleEn = mysqli_real_escape_string($conn, $_POST['titleEn']);
-    $statusManga = mysqli_real_escape_string($conn, $_POST['statusManga']);
+    $studio = mysqli_real_escape_string($conn, $_POST['studio']);
     $linkMyAnime = mysqli_real_escape_string($conn, $_POST['linkMyAnime']);
 
     $genre = $_POST['genre'];
@@ -30,9 +30,9 @@ if (isset($_POST['submit'])) {
     $pageLinkFirstPart = uniqid('post', TRUE);
     $pageLinkSecondPart = uniqid('alpha', TRUE);
     $pageLink = $pageLinkFirstPart . $pageLinkSecondPart;
-    if (empty($title) || empty($status) || empty($type) || empty($titleEn) || empty($newGenre) || empty($statusManga) || empty($content) || empty($season) || empty($episodes) || empty($adaptation) || empty($linkMyAnime)) {
+    if (empty($title) || empty($status) || empty($type) || empty($titleEn) || empty($newGenre) || empty($studio) || empty($content) || empty($season) || empty($episodes) || empty($adaptation) || empty($linkMyAnime)) {
         $_SESSION['contentTemp'] = $content;
-        header("Location: ../posting.php?posting=blank&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type&linkMyAnime=$linkMyAnime&genre=$newGenre");
+        header("Location: ../posting.php?posting=blank&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&studio=$studio&adaptation=$adaptation&type=$type&linkMyAnime=$linkMyAnime&genre=$newGenre");
     } //empty($title) || empty($status) || empty($type) || empty($titleEn) || empty($newGenre) || empty($statusManga) || empty($content) || empty($season) || empty($episodes) || empty($adaptation)
     else {
         // $sql = "INSERT INTO posts (p_user, p_title, p_status, p_type, p_content, p_link, p_titleen, p_genre, p_statusmanga, p_season, p_episodes, p_adaptation, p_img_src, p_img_status) VALUES ('$uid', '$title', '$status', '$type', '$content', '$pageLink', '$titleEn', '$newGenre', '$statusManga', '$season', '$episodes', '$adaptation', '$pageLink', 'true');";
@@ -48,29 +48,29 @@ if (isset($_POST['submit'])) {
                     $fileNameOld = "postimg" . $pageLink . "." . $allowed;
                     $fileDestination = '../uploads/postsimages/' . $fileNameNew;
                     if (move_uploaded_file($fileTmpName, $fileDestination)) {
-                        $sql = "INSERT INTO posts (p_user, p_title, p_status, p_type, p_content, p_link, p_titleen, p_genre, p_statusmanga, p_season, p_episodes, p_adaptation, p_img_src, p_img_status, p_linkmyanime) VALUES ('$uid', '$title', '$status', '$type', '$content', '$pageLink', '$titleEn', '$newGenre', '$statusManga', '$season', '$episodes', '$adaptation', '$pageLink', 'true', '$linkMyAnime');";
+                        $sql = "INSERT INTO posts (p_user, p_title, p_status, p_type, p_content, p_link, p_titleen, p_genre, p_studio, p_season, p_episodes, p_adaptation, p_img_src, p_img_status, p_linkmyanime) VALUES ('$uid', '$title', '$status', '$type', '$content', '$pageLink', '$titleEn', '$newGenre', '$studio', '$season', '$episodes', '$adaptation', '$pageLink', 'true', '$linkMyAnime');";
                         $result = mysqli_query($conn, $sql);
                         $_SESSION['contentTemp'] = '';
                         header("Location: ../post.php?posting=success&link=$pageLink");
                     } //move_uploaded_file($fileTmpName, $fileDestination)
                     else {
                         $_SESSION['contentTemp'] = $content;
-                        header("Location: ../posting.php?upload=failed&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type&linkMyAnime=$linkMyAnime&genre=$newGenre");
+                        header("Location: ../posting.php?upload=failed&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&studio=$studio&adaptation=$adaptation&type=$type&linkMyAnime=$linkMyAnime&genre=$newGenre");
                     }
                 } //$fileSize < 1250000
                 else {
                     $_SESSION['contentTemp'] = $content;
-                    header("Location: ../posting.php?upload=toobigfile&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type&linkMyAnime=$linkMyAnime&genre=$newGenre");
+                    header("Location: ../posting.php?upload=toobigfile&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&studio=$studio&adaptation=$adaptation&type=$type&linkMyAnime=$linkMyAnime&genre=$newGenre");
                 }
             } //$fileError === 0
             else {
                 $_SESSION['contentTemp'] = $content;
-                header("Location: ../posting.php?upload=error&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type&linkMyAnime=$linkMyAnime&genre=$newGenre");
+                header("Location: ../posting.php?upload=error&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&studio=$studio&adaptation=$adaptation&type=$type&linkMyAnime=$linkMyAnime&genre=$newGenre");
             }
         } //in_array($fileActualExt, $allowed)
         else {
             $_SESSION['contentTemp'] = $content;
-            header("Location: ../posting.php?upload=invalidtype&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type&linkMyAnime=$linkMyAnime&genre=$newGenre");
+            header("Location: ../posting.php?upload=invalidtype&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&studio=$studio&adaptation=$adaptation&type=$type&linkMyAnime=$linkMyAnime&genre=$newGenre");
         }
     }
 } //isset($_POST['submit'])

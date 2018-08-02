@@ -135,12 +135,12 @@ else if (isset($_POST['edit'])) {
         $season = $row['p_season'];
         $episodes = $row['p_episodes'];
         $status = $row['p_status'];
-        $statusManga = $row['p_statusmanga'];
+        $studio = $row['p_studio'];
         $adaptation = $row['p_adaptation'];
         $type = $row['p_type'];
         $myAnimeList = $row['p_linkmyanime'];
         $genre = $row['p_genre'];
-        header("Location: ../posting.php?edit&link=$post&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type&linkMyAnime=$myAnimeList&genre=$genre");
+        header("Location: ../posting.php?edit&link=$post&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&studio=$studio&adaptation=$adaptation&type=$type&linkMyAnime=$myAnimeList&genre=$genre");
     }
 } //isset($_POST['edit'])
 else if (isset($_POST['deletePostPerm'])) {

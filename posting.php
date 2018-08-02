@@ -10,7 +10,7 @@ $titleEn = $_GET['titleEn'];
 $season = $_GET['season'];
 $episodes = $_GET['episodes'];
 $status = $_GET['status'];
-$statusManga = $_GET['statusm'];
+$studio = $_GET['studio'];
 $adaptation = $_GET['adaptation'];
 $type = $_GET['type'];
 $linkMyAnime = $_GET['linkMyAnime'];
@@ -26,17 +26,6 @@ switch ($status) {
         break;
     case 'Ended':
         $three = 'selected';
-        break;
-}
-switch ($statusManga) {
-    case 'In progress':
-        $four = 'selected';
-        break;
-    case 'On break':
-        $five = 'selected';
-        break;
-    case 'Ended':
-        $six = 'selected';
         break;
 }
 switch ($adaptation) {
@@ -191,11 +180,7 @@ if (!isset($_SESSION['CREATED'])) {
                     <input type="text" name="titleEn" value="<?php echo $titleEn ?>" placeholder="English Title">
                   </div>
                   <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
-                    <select class="selectpicker" title="Manga status" name="statusManga">
-                       <option <?php echo $four ?> value="In progress">In progress</option>
-                       <option <?php echo $five ?> value="On break">On break</option>
-                       <option <?php echo $six ?> value="Ended">Ended</option>
-                    </select>
+                    <input type="text" name="studio" value="<?php echo $studio ?>" placeholder="Studio"/>
                   </div>
                   <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
                     <select class="selectpicker" multiple="multiple" title="Genre" name="genre[]">
