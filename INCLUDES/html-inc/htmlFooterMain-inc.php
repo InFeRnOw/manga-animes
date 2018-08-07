@@ -1,9 +1,11 @@
 <?php
 
 echo '<!-- Icons -->
-        <a href="#" class="link icon fa fa-facebook"></a>
-        <a href="#" class=" link icon fa fa-twitter"></a>
-        <a href="https://github.com/InFeRnOw/manga-animes" class="link icon fa fa-github"></a>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        <a href="#" class=" fab fa-twitter"></a>
+        <a href="https://github.com/InFeRnOw/manga-animes" class="fab fa-github-square"></a>
+        <a href="https://discord.gg/MrE5aPb" class="fab fa-discord"></a>
+
 
 
         <!-- Copyright -->

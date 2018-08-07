@@ -48,9 +48,8 @@ if (!isset($_SESSION['CREATED'])) {
 			<div id="page">
 				<section id="post">
 					<div class="divider-with-content"><h1>About us</h1></div>
-					<p>Blablabla...</p>
-					<p>Blablabla...</p>
-					<p>Blablabla...</p>
+					<h1>Who are we?</h1>
+                    <p>Hi, we are two french highschool students whom for a class project wanted to create a website about Manga and Animes!</p>
 					</section>
 				</div>
 
