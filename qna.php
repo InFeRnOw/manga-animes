@@ -45,38 +45,31 @@ if (!isset($_SESSION['CREATED'])) {
 
     	<!-- Page -->
 
-			
 			<div id="page">
 				<section id="post">
-					<div class="divider-with-content"><h1>Our rules</h1></div>
+					<div class="divider-with-content"><h1>Questions and Answers!</h1></div>
                     
-  					<h2>1. Be friendly</h2>
-            <p>Give advices, help others, try filling up your description and putting a profile picture.</p>
+            <p>Hey! Welcome to manga-animes.com, you'll see here all the informations needed!</p>
                     
-            <h2>2. Be respectful</h2>
-            <p>Everyone makes mistakes, everyone has his own way of doing a post (will be corrected by admins/modos).</p>
+            <h2>What is the aim of our website?</h2>
+            <p>The aim of our website is to show correspondences between mangas and animes. (E.T, the Season one of XXX just ended, the Season 2 is in one year, I can't wait and I want to read the manga! But at which chapter is the season one ending?). We know that there is some threads on forums that are telling you the correspondences but our website will regroup everything!</p>
                     
-            <h2>3. Copyrights</h2>
-            <p>If your reference isn't your own personal referencement, please credit the real author (use a link if possible or a name/username).</p>
-            <p>Please give credits to the author of images you use for the respect of his work and please understand that if an author of any image asks to take away one image, we will do so and ask for you to find a replacement.</p>
+            <h2>We need you!</h2>
+            <p>In order to reference all the correspondences we need you!</p>
                     
-            <h2>4. Images posted by users</h2>
-            <p>Do not post any innapropriate images, neither on a post nor on your profile picture.</p>
+            <h2>How can I post a correspondence?</h2>
+            <p>Eveything is explained <a class="link" href="tuto.php"> HERE!</a></p>
+                
+            <h2>How can I contact a moderator or an Admin?</h2>
+                    <p>We have a section in <a class ="link" href="contact.php">"Contact"</a>! </p>
                     
-            <h2>5. Help the website</h2>
-            <p>Please report any bugs encountered, so that we may fix as quick as possible.</p>
-            <p>If you wanna participate in it's developpement please contact us (manga.animes.website@gmail.com).</p>
-                    
-            <h2>6. Contact</h2>
-            <p>Please do not abuse of the contact system, once sended it may take a while for an admin to see it (maximum 72H).</p>
-                    
-            <h2>7. Multiple accounts</h2>            
-            <p>Please do not make double accounts, if you lost yours then you may do so but for contacting us (normally you should be able to get it back with the "forget username or password ?").</p>
-                    
-            <h2>7. Suggestions</h2>
-            <p>For suggestions, go to the contact section then to suggestions, please do not make absurd suggestions.</p>
+            <h2>I found a bug on the website, how can I report it?</h2>
+                    <p>We have a bug report section in the <a class ="link" href="contact.php">"Contact"</a> Section!</p>
+            
+                                        
 					</section>
 				</div>
+
       <!-- Footer -->
 
 				<div id="footer">

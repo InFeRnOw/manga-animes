@@ -7,6 +7,6 @@ echo '<!-- Icons -->
 
         <!-- Copyright -->
           <div id="copyright">
-              <p>&copy; Manga-Animes. All rights reserved | <a class="link" href="aboutus.php">About us</a> | <a class="link" href="copyright-images.php">Images</a></p>
+              <p>&copy; Manga-Animes. All rights reserved | <a class="link" href="aboutus.php">About us</a> | <a class="link" href="copyright-images.php">Images</a> | <a class="link" href="qna.php"> QnA </a></p>
           </div>
         </div>';
