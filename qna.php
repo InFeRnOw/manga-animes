@@ -48,25 +48,25 @@ if (!isset($_SESSION['CREATED'])) {
 			<div id="page">
 				<section id="post">
 					<div class="divider-with-content"><h1>Questions and Answers!</h1></div>
-                    
+
             <p>Hey! Welcome to manga-animes.com, you'll see here all the informations needed!</p>
-                    
+
             <h2>What is the aim of our website?</h2>
-            <p>The aim of our website is to show correspondences between mangas and animes. (E.T, the Season one of XXX just ended, the Season 2 is in one year, I can't wait and I want to read the manga! But at which chapter is the season one ending?). We know that there is some threads on forums that are telling you the correspondences but our website will regroup everything!</p>
-                    
+            <p>The aim of our website is to show correspondences between mangas and animes. (E.T, the Season one of XXX just ended, the Season 2 is in one year, I can't wait and I want to read the manga! But at which chapter is the season one ending?). We know that there are some threads on forums that are telling you the correspondences but our website will regroup everything!</p>
+
             <h2>We need you!</h2>
             <p>In order to reference all the correspondences we need you!</p>
-                    
+
             <h2>How can I post a correspondence?</h2>
             <p>Eveything is explained <a class="link" href="tuto.php"> HERE!</a></p>
-                
+
             <h2>How can I contact a moderator or an Admin?</h2>
                     <p>We have a section in <a class ="link" href="contact.php">"Contact"</a>! </p>
-                    
+
             <h2>I found a bug on the website, how can I report it?</h2>
                     <p>We have a bug report section in the <a class ="link" href="contact.php">"Contact"</a> Section!</p>
-            
-                                        
+
+
 					</section>
 				</div>
 

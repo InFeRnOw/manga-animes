@@ -57,7 +57,7 @@ if (!isset($_SESSION['CREATED'])) {
 								<?php include 'INCLUDES/errors-inc.php' ?>
 
                 <h3><u>Images used by the website</u></h3>
-                <p>We respect the authors of the images we use but unfortunately, we were unable to find most of the authors. So if any of the pictures used on this site belongs to you and that you disagree with its use, please use this section to report it to us. We will contact you as soon as possible in order to find agreements or if asked we will remove it immediately after having proof that the image in question is indeed yours.</p>
+                <p>We respect the authors of the images we use but unfortunately, we were unable to find most of the authors. So if any of the pictures used on this site belongs to you and that you disagree with its use, please use this section to report it to us. We will contact you as soon as possible in order to find an agreement or if asked we will remove it immediately after having proof that the image in question is indeed yours.</p>
                 <h3><u>Images posted by a member of the community</u></h3>
                 <p>If an image in a post belongs to you and you disagree with it being posted on this website, you can use this section to report it to us. We will put you in contact with the author of the post in question for possible arrangements. In case of failure to do so, we will ask the author to remove the image and in extreme cases the post in question shall be deleted.</p>
 

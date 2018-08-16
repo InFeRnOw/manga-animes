@@ -93,7 +93,7 @@ if (!isset($_SESSION['CREATED'])) {
 								echo '<div class="divider hidden-xs"></div>
 										<span class="glyphicon glyphicon-sunglasses"></span>
 										<h2>New here??</h2>
-										<p>Be sure to know how our website works with our Qna!</p>
+										<p>Be sure to know how our website works with our QnA!</p>
                     <br/>
 										<a class="btn" href="qna.php">See more</a>
 										<div class="divider"></div>
