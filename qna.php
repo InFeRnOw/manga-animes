@@ -52,7 +52,7 @@ if (!isset($_SESSION['CREATED'])) {
             <p>Hey! Welcome to manga-animes.com, you'll see here all the informations needed!</p>
 
             <h2>What is the aim of our website?</h2>
-            <p>The aim of our website is to show correspondences between mangas and animes. (E.T, the Season one of XXX just ended, the Season 2 is in one year, I can't wait and I want to read the manga! But at which chapter is the season one ending?). We know that there are some threads on forums that are telling you the correspondences but our website will regroup everything!</p>
+            <p>The aim of our website is to show correspondences between mangas and animes. (E.T, the Season one of XX just ended, the Season 2 is in one year, I can't wait and I want to read the manga! But at which chapter is the season one ending?). We know that there are some threads on forums that are telling you the correspondences but our website will regroup everything!</p>
 
             <h2>We need you!</h2>
             <p>In order to reference all the correspondences we need you!</p>
