@@ -223,7 +223,7 @@ if (!isset($_SESSION['CREATED'])) {
 															</form>';
 										}
 										else {
-												echo '</br><p style="color: red;">Login, in order to do comment on this post !</p>';
+												echo '</br><p style="color: red;">Login, in order to comment on this post !</p>';
 										} ?>
 					</section>
 				</div>

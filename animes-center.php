@@ -146,7 +146,7 @@ switch ($_GET['letter']) {
         <div id="page">
           <section id="header">
             <h2>Animes Center</h2>
-            <?php if($_SESSION['u_rank'] <= 2) {
+            <?php if($_SESSION['u_rank'] <= 2 && isset($_SESSION['u_id'])) {
                     echo '<a href="posting-center.php?posting=new" class="btn button-link">New post</a>';
                   }?>
           </section>
