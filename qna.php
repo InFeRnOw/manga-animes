@@ -3,6 +3,9 @@ session_start();
 include 'INCLUDES/dbh-inc.php';
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
 	// last request was more than 30 minutes ago
+	$uid = $_SESSION['u_uid'];
+	$sqlStatus = "UPDATE users SET user_online = 0 WHERE user_uid='$uid'";
+	$resultStatus = mysqli_query($conn, $sqlStatus);
 	session_unset();     // unset $_SESSION variable for the run-time
 	session_destroy();   // destroy session data in storage
 }
@@ -51,20 +54,23 @@ if (!isset($_SESSION['CREATED'])) {
 
             <p>Hey! Welcome to manga-animes.com, you'll see here all the informations needed!</p>
 
-            <h2>What is the aim of our website?</h2>
+            <h2>What is the aim of our website ?</h2>
             <p>The aim of our website is to show correspondences between mangas and animes. (E.T, the Season one of XX just ended, the Season 2 is in one year, I can't wait and I want to read the manga! But at which chapter is the season one ending?). We know that there are some threads on forums that are telling you the correspondences but our website will regroup everything!</p>
 
             <h2>We need you!</h2>
             <p>In order to reference all the correspondences we need you!</p>
 
-            <h2>How can I post a correspondence?</h2>
+            <h2>How can I post a correspondence ?</h2>
             <p>Eveything is explained <a class="link" href="tuto.php"> HERE!</a></p>
 
-            <h2>How can I contact a moderator or an Admin?</h2>
-                    <p>We have a section in <a class ="link" href="contact.php">"Contact"</a>! </p>
+            <h2>How can I contact a moderator or an Admin ?</h2>
+            <p>We will soon have a <a class="link" href="qna.php?call=staff">"live contact"</a> for contacting an admin or a moderator! </p>
 
-            <h2>I found a bug on the website, how can I report it?</h2>
-                    <p>We have a bug report section in the <a class ="link" href="contact.php">"Contact"</a> Section!</p>
+            <h2>I found a bug on the website, how can I report it ?</h2>
+            <p>We have a <a class="link" href="bug-report.php">"bug report"</a> section in the <a class="link" href="contact.php">"Contact"</a> Section!</p>
+
+						<h2>There is an image I would like to remove for copyright reasons, how can I do so ?</h2>
+            <p>We have a <a class="link" href="copyright-images.php">"images"</a> section in <a class="link" href="contact.php">"Contact"</a></p>
 
 
 					</section>
