@@ -65,6 +65,9 @@ if (!isset($_SESSION['CREATED'])) {
 
             <h2>I found a bug on the website, how can I report it?</h2>
                     <p>We have a bug report section in the <a class ="link" href="contact.php">"Contact"</a> Section!</p>
+                    
+            <h2>Why are we using Rōmaji instead of Japanese?</h2>
+                    <p>As most of the users are non-japanese we use Rōmaji instead of traditional Japanese. In the future updates we will add the traditional Japanese!</p>
 
 
 					</section>

@@ -166,7 +166,7 @@ if (!isset($_SESSION['CREATED'])) {
               <form action="<?php echo $action ?>" method="POST" enctype="multipart/form-data">
                 <div class="row">
                   <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
-                    <input type="text" name="title" value="<?php echo $title ?>" placeholder="Japanese Title">
+                    <input type="text" name="title" value="<?php echo $title ?>" placeholder="Rōmaji Title">
                   </div>
                   <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
                     <select class="selectpicker" title="Anime status" name="status">
