@@ -33,7 +33,7 @@ $(document).ready(function () {
              }
              else if (count < numOfEpisodes) {
                  count += 1;
-                 $(".table").append('<tr id="tableRow'+count+'"><td><p style="text-align: center;"><b><u>Episode '+count+'</u></b></p><p style="text-align: center;">"<span style="font-family: Arial;">Japanese title</span>"</p><p style="text-align: center;">"<span style="font-family: Arial;">English title</span>"</p></td><td>'+ textRowCommon +'<p>- <span style="font-family: Arial;">Chapters...</span></p></td></tr>');
+                 $(".table").append('<tr id="tableRow'+count+'"><td><p style="text-align: center;"><b><u>Episode '+count+'</u></b></p><p style="text-align: center;">"<span style="font-family: Arial;">Rōmaji title</span>"</p><p style="text-align: center;">"<span style="font-family: Arial;">English title</span>"</p></td><td>'+ textRowCommon +'<p>- <span style="font-family: Arial;">Chapters...</span></p></td></tr>');
                  // $(".table").append('<tr id="tableRow'+count+'"><td><p style="text-align: center;"><b><u>Episode '+count+'</u></b></p><p style="text-align: center;">"<span style="background-color: rgb(156, 156, 148);">Title</span>"</p></td><td>'+ textRowCommon +'<p>- <span style="background-color: rgb(156, 156, 148);">Chapters...</span></p></td></tr>');
              }
              else if (numOfEpisodes < count) {
