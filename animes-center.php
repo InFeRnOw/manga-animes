@@ -187,7 +187,7 @@ switch ($_GET['letter']) {
                         </div>
                         <div class="col-md-4 col-xs-12">
                           <select class="selectpicker" title="Langage" name="lang">
-                            <option <?php echo $one ?> value="jap">Japanese Title</option>
+                            <option <?php echo $one ?> value="jap">Rōmaji Title</option>
                             <option <?php echo $two ?> value="en">English Title</option>
                           </select>
                        </div>
