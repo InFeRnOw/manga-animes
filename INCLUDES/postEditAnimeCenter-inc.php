@@ -37,25 +37,23 @@ if (isset($_POST['submit'])) {
         // $result = mysqli_query($conn, $sql);
         //
         // header("Location: ../post.php?posting=success&link=$pageLink");
-        if (in_array($fileActualExt, $allowed) || !empty($imgKeep)) {
+        if (!empty($imgKeep) && $fileSize == 0) {
+            $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_statusmanga='$statusManga', p_seasoncenter='$season', p_episodescenter='$episodes', p_adaptation='$adaptation', p_img_src='$imgKeep', p_linkmyanime='$linkMyAnime', p_lastedited='$uid' WHERE p_link='$pageLink'";
+            $result = mysqli_query($conn, $sql);
+            $_SESSION['contentTemp'] = '';
+            header("Location: ../post.php?posting=success&link=$pageLink");
+        }
+        elseif (in_array($fileActualExt, $allowed)) {
             if ($fileError === 0 || !empty($imgKeep)) {
                 if ($fileSize < 1250000 || !empty($imgKeep)) {
                     $fileNameNew = "postimg" . $pageLink . "." . $fileActualExt;
                     $fileNameOld = "postimg" . $pageLink . "." . $allowed;
                     $fileDestination = '../uploads/postsimages/' . $fileNameNew;
-                    if (move_uploaded_file($fileTmpName, $fileDestination) || !empty($imgKeep)) {
-                        if (!empty($imgKeep)) {
-                            $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_statusmanga='$statusManga', p_seasoncenter='$season', p_episodescenter='$episodes', p_adaptation='$adaptation', p_img_src='$imgKeep', p_linkmyanime='$linkMyAnime', p_lastedited='$uid' WHERE p_link='$pageLink'";
-                            $result = mysqli_query($conn, $sql);
-                            $_SESSION['contentTemp'] = '';
-                            header("Location: ../post.php?posting=success&link=$pageLink");
-                        }
-                        else {
-                            $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_statusmanga='$statusManga', p_seasoncenter='$season', p_episodescenter='$episodes', p_adaptation='$adaptation', p_img_src='$pageLink', p_linkmyanime='$linkMyAnime', p_lastedited='$uid' WHERE p_link='$pageLink'";
-                            $result = mysqli_query($conn, $sql);
-                            $_SESSION['contentTemp'] = '';
-                            header("Location: ../post.php?posting=success&link=$pageLink");
-                        }
+                    if (move_uploaded_file($fileTmpName, $fileDestination)) {
+                        $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_statusmanga='$statusManga', p_seasoncenter='$season', p_episodescenter='$episodes', p_adaptation='$adaptation', p_img_src='$pageLink', p_linkmyanime='$linkMyAnime', p_lastedited='$uid' WHERE p_link='$pageLink'";
+                        $result = mysqli_query($conn, $sql);
+                        $_SESSION['contentTemp'] = '';
+                        header("Location: ../post.php?posting=success&link=$pageLink");
                     } //move_uploaded_file($fileTmpName, $fileDestination)
                     else {
                         $_SESSION['contentTemp'] = $content;
