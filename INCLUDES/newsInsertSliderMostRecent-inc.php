@@ -1,4 +1,4 @@
-<?php
+<?php 
 session_start();
 include 'dbh-inc.php';
 $count = 0;
@@ -6,6 +6,7 @@ $sql = "SELECT * FROM posts WHERE p_active = 1 ORDER BY p_id DESC LIMIT 5";
 $result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
     $link = $row['p_link'];
+    $path = $row['p_img_src'];
     if ($count == 0) {
         $class = "item active";
         $count++;
@@ -14,7 +15,7 @@ while ($row = mysqli_fetch_assoc($result)) {
         $class = "item";
     }
     echo '<div id="container-slider" class="' . $class . ' center-block">
-              <a href="post.php?link=' . $link . '"><img class="img-responsive center-block" src="uploads/postsimages/postimg' . $link . '.jpg" alt="News pic slider"></a>
+              <a href="post.php?link=' . $link . '"><img class="img-responsive center-block" src="uploads/postsimages/postimg' . $path . '.jpg" alt="News pic slider"></a>
               <div class="container-fluid">
                  <div class="row">
                    <div class="col-xs-12">

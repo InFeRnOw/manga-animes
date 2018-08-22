@@ -81,7 +81,7 @@ if (!isset($_SESSION['CREATED'])) {
               </a>
             </div>
 
-            <div class="divider-with-content"><h1>Most recent posts</h1></div>
+            <div class="divider-with-content"><h1>Most recent accepted posts</h1></div>
 
             <div id="news-carousel-recent" class="carousel slide" data-ride="carousel">
 
