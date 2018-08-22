@@ -248,7 +248,7 @@ if (!isset($_SESSION['CREATED'])) {
                       </select>
                     </div>
                     <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
-                       <input type="text" name="season" value="<?php echo $season ?>" placeholder="Anime season">
+                       <input type="text" name="season" value="<?php echo $season ?>" placeholder="Anime seasons">
                     </div>
                     <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
                       <input type="text" name="episodes" value="<?php echo $episodes ?>" placeholder="Number of episodes">
