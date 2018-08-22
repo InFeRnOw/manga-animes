@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include_once 'INCLUDES/dbh-inc.php';
 $link = $_GET['link'];
@@ -260,7 +260,7 @@ if (!isset($_SESSION['CREATED'])) {
                       <h4><u>Banner</u></h4>
                       <h4 style="color: grey;"><u>Actual image</u></h4>
                       <?php if (!empty($imgLink)) {
-                                echo '<img id="imgPreview" class="img-responsive center-block" src="uploads/postsimages/postimg'.$link.'.jpg?'.filemtime('uploads/postsimages/postimg'.$link.'.jpg').'">';
+                                echo '<img id="imgPreview" class="img-responsive center-block" src="uploads/postsimages/postimg'.$imgLink.'.jpg?'.filemtime('uploads/postsimages/postimg'.$imgLink.'.jpg').'">';
                             }
                             else {
                                 echo '<img id="imgPreview" class="img-responsive center-block" src="#" alt="image preview">';

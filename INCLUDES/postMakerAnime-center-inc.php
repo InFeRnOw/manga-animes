@@ -26,9 +26,8 @@ if (isset($_POST['submit'])) {
 
     $genre = $_POST['genre'];
     $newGenre = implode(", ", $genre);
-    $pageLinkFirstPart = uniqid('post', TRUE);
-    $pageLinkSecondPart = uniqid('animecenter', TRUE);
-    $pageLink = $pageLinkFirstPart . $pageLinkSecondPart;
+    $pageLinkTitle = str_replace(" ", "_", $title);
+    $pageLink = $pageLinkTitle . "_anime";
     if (empty($title) || empty($status) || empty($type) || empty($titleEn) || empty($newGenre) || empty($statusManga) || empty($content) || empty($season) || empty($episodes) || empty($adaptation)) {
         $_SESSION['contentTemp'] = $content;
         header("Location: ../posting-center.php?posting=blank&title=$title&titleEn=$titleEn&seasonc=$season&episodesc=$episodes&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type&genre=$newGenre");

@@ -27,6 +27,7 @@ if ($rowCheck['p_seasoncenter'] > 0 && $rowCheck['p_episodescenter'] > 0) {
 	$episodes = $rowVarPosts['p_episodescenter'];
 	$linkMyAnime = $rowVarPosts['p_linkmyanime'];
 	$vues = $rowVarPosts['p_vues'];
+	$path = $rowVarPosts['p_img_src'];
 }
 else {
 	$sqlVarPosts = "SELECT * FROM posts WHERE p_link = '$link'";
@@ -48,6 +49,7 @@ else {
 	$episodes = $rowVarPosts['p_episodes'];
 	$linkMyAnime = $rowVarPosts['p_linkmyanime'];
 	$vues = $rowVarPosts['p_vues'];
+	$path = $rowVarPosts['p_img_src'];
 }
 
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
@@ -141,7 +143,7 @@ if (!isset($_SESSION['CREATED'])) {
               </div>
             </div>
 
-            <?php echo '<img class="img-responsive center-block" src="uploads/postsimages/postimg'.$link.'.jpg?'.filemtime('uploads/postsimages/postimg'.$link.'.jpg').'">' ?>
+            <?php echo '<img class="img-responsive center-block" src="uploads/postsimages/postimg'.$path.'.jpg?'.filemtime('uploads/postsimages/postimg'.$path.'.jpg').'">' ?>
 
             <div class="row">
 							</br>
