@@ -27,9 +27,9 @@ if (isset($_POST['submit'])) {
 
     $genre = $_POST['genre'];
     $newGenre = implode(", ", $genre);
-    $pageLinkFirstPart = uniqid('post', TRUE);
-    $pageLinkSecondPart = uniqid('alpha', TRUE);
-    $pageLink = $pageLinkFirstPart . $pageLinkSecondPart;
+    $pageLinkTitle = str_replace(" ", "_", $title);
+    $pageLinkSeason = "_" . $season;
+    $pageLink = $pageLinkTitle . $pageLinkSeason;
     if (empty($title) || empty($status) || empty($type) || empty($titleEn) || empty($newGenre) || empty($studio) || empty($content) || empty($season) || empty($episodes) || empty($adaptation) || empty($linkMyAnime)) {
         $_SESSION['contentTemp'] = $content;
         header("Location: ../posting.php?posting=blank&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&studio=$studio&adaptation=$adaptation&type=$type&linkMyAnime=$linkMyAnime&genre=$newGenre");
@@ -50,6 +50,12 @@ if (isset($_POST['submit'])) {
                     if (move_uploaded_file($fileTmpName, $fileDestination)) {
                         $sql = "INSERT INTO posts (p_user, p_title, p_status, p_type, p_content, p_link, p_titleen, p_genre, p_studio, p_season, p_episodes, p_adaptation, p_img_src, p_img_status, p_linkmyanime) VALUES ('$uid', '$title', '$status', '$type', '$content', '$pageLink', '$titleEn', '$newGenre', '$studio', '$season', '$episodes', '$adaptation', '$pageLink', 'true', '$linkMyAnime');";
                         $result = mysqli_query($conn, $sql);
+                        $sqlCheck = "SELECT * posts WHERE p_link=$pageLink";
+                        $resultCheck = mysqli_query($conn, $sqlCheck);
+                        $resultCheckRows = mysqli_num_rows($resultCheck);
+                        if ($resultCheckRows > 0) {
+                            header("Location: ../post.php?posting=exist&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&studio=$studio&adaptation=$adaptation&type=$type&linkMyAnime=$linkMyAnime&genre=$newGenre");
+                        }
                         $_SESSION['contentTemp'] = '';
                         header("Location: ../post.php?posting=success&link=$pageLink");
                     } //move_uploaded_file($fileTmpName, $fileDestination)
