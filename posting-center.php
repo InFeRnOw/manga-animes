@@ -270,7 +270,7 @@ if (!isset($_SESSION['CREATED'])) {
                       <input type="hidden" name="imgKeep" value="<?php echo $imgLink ?>" />
                       <input id="imgInput" class="btn btn-basic center-block" type="file" name="banner"/>
                       <p style="font-size:12px;">Optimal Résolution: 720x250</p>
-                      <p style="font-size:12px;">Only jpg is supported and max 10MB</p>
+                      <p style="font-size:12px;">Only jpg is supported and max 1MB</p>
 
                       </br>
                     </div>

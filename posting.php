@@ -258,7 +258,7 @@ if (!isset($_SESSION['CREATED'])) {
                       <input type="hidden" name="imgKeep" value="<?php echo $imgLink ?>" />
                       <input id="imgInput" class="btn btn-basic center-block" type="file" name="banner"/>
                       <p style="font-size:12px;">Optimal Résolution: 720x250</p>
-                      <p style="font-size:12px;">Only jpg is supported and max 10MB</p>
+                      <p style="font-size:12px;">Only jpg is supported and max 1MB</p>
                     </div>
                     <?php if (!isset($_GET['edit'])) {
                               echo '<div class="col-lg-6 col-md-6 col-xs-12 marginForm">
@@ -268,6 +268,7 @@ if (!isset($_SESSION['CREATED'])) {
                                       <select id="adaptSelector" class="selectpicker" title="Adaptation From ..." name="adaptEditor">
                                          <option value="LightNovel">Adapted from light novel</option>
                                          <option value="Manga">Adapted from manga</option>
+                                         <option value="Both">Adapted from both</option>
                                       </select>
                                     </div>';
                           }
