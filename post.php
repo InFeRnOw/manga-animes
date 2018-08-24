@@ -51,9 +51,9 @@ else {
 	$episodes = $rowVarPosts['p_episodes'];
 	$linkMyAnime = $rowVarPosts['p_linkmyanime'];
 	$vues = $rowVarPosts['p_vues'];
-    $imgCreditsName = $rowVarPosts['p_imgcreditsname'];
-    $imgCreditsLink = $rowVarPosts['p_imgcreditslink'];
-    $path = $rowVarPosts['p_img_src'];
+  $imgCreditsName = $rowVarPosts['p_imgcreditsname'];
+  $imgCreditsLink = $rowVarPosts['p_imgcreditslink'];
+  $path = $rowVarPosts['p_img_src'];
 }
 
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
@@ -148,11 +148,11 @@ if (!isset($_SESSION['CREATED'])) {
             </div>
 
             <?php echo '<img class="img-responsive center-block" src="uploads/postsimages/postimg'.$path.'.jpg?'.filemtime('uploads/postsimages/postimg'.$path.'.jpg').'">' ?>
-            
+
             <div class="row">
                 </br>
                 <div class="col-xs-6"><p><?php echo "<em><u>Creator of the banner</u></em></br> ".$imgCreditsName;  ?></p></div>
-                <div class="col-xs-6"> 
+                <div class="col-xs-6">
                     <p style="word-break: break-all;"><?php if ($imgCreditsLink !== '') {
                                    echo "<em><u>Artist's works page</u></em></br><a href='".$imgCreditsLink."' style='text-decoration: none; background: white; color: grey; box-shadow: none;'>".$imgCreditsLink."</a>";
 													 }
@@ -160,7 +160,7 @@ if (!isset($_SESSION['CREATED'])) {
 									</p>
 				</div>
                 </br>
-        
+
             <div class="row">
 							</br>
 							<div class="col-xs-6">

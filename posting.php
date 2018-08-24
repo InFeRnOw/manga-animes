@@ -15,11 +15,9 @@ $adaptation = $_GET['adaptation'];
 $type = $_GET['type'];
 $linkMyAnime = $_GET['linkMyAnime'];
 $genre = $_GET['genre'];
-$imgLink = $row['p_img_src'];
 $imgCreditsName = $_GET['imgCreditsName'];
 $imgCreditsLink = $_GET['imgCreditsLink'];
-
-
+$imgLink = $row['p_img_src'];
 switch ($status) {
     case 'In progress':
         $one = 'selected';
@@ -117,19 +115,15 @@ if (!isset($_SESSION['CREATED'])) {
     $(document).ready(function() {
          $('.selectpicker').selectpicker();
          $('#summernote').summernote();
-
          function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-
                 reader.onload = function (e) {
                     $('#imgPreview').attr('src', e.target.result);
                 }
-
                 reader.readAsDataURL(input.files[0]);
             }
         }
-
         $("#imgInput").change(function(){
             readURL(this);
         });
@@ -188,7 +182,6 @@ if (!isset($_SESSION['CREATED'])) {
                   <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
                     <select class="selectpicker" multiple="multiple" title="Genre" name="genre[]">
                       <?php
-
                       ?>
                       <option <?php if (strpos($genre, "Action") !== false) { echo "selected"; } ?> value="Action">Action</option>
                       <option <?php if (strpos($genre, "Adventure") !== false) { echo "selected"; } ?> value="Adventure">Adventure</option>
@@ -263,7 +256,7 @@ if (!isset($_SESSION['CREATED'])) {
                       <p style="font-size:12px;">Optimal Résolution: 720x250</p>
                       <p style="font-size:12px;">Only jpg is supported and max 1MB</p>
                     </div>
-                   <?php if (!isset($_GET['edit'])) {
+                    <?php if (!isset($_GET['edit'])) {
                               echo '<div class="col-lg-6 col-md-6 col-xs-12 marginForm">
                                        <input type="text" name="linkMyAnime" value="' .$linkMyAnime. '" placeholder="MyAnimeList Link">
                                     </div>
@@ -281,18 +274,17 @@ if (!isset($_SESSION['CREATED'])) {
                                     </div>';
                           }?>
                   </div>
-                    <div class="row">
-           
-                        <div class="col-lg-6 col-md-6 col-xs-12 marginForm">
-                            <input type="text" name="imgCreditsName" value="<?php echo $imgCreditsName ?>" placeholder="Creator of the banner">
-                        </div>
-                        
-                        <div class="col-lg-6 col-md-6 col-xs-12 marginForm">
-                            <input type="text" name="imgCreditsLink" value="<?php echo $imgCreditsLink ?>" placeholder="Artist's works page">
-                        </div>
-                    
-                    </div>
-                            
+                  <div class="row">
+
+                      <div class="col-lg-6 col-md-6 col-xs-12 marginForm">
+                          <input type="text" name="imgCreditsName" value="<?php echo $imgCreditsName ?>" placeholder="Creator of the banner">
+                      </div>
+
+                      <div class="col-lg-6 col-md-6 col-xs-12 marginForm">
+                          <input type="text" name="imgCreditsLink" value="<?php echo $imgCreditsLink ?>" placeholder="Artist's works page">
+                      </div>
+
+                   </div>
                       <h3><u>Description</u></h3>
                       <textarea id="summernote" name="content">
                         <?php if (isset($_GET['edit']) || $_GET['posting'] == "blank" || isset($_GET['upload'])) {
