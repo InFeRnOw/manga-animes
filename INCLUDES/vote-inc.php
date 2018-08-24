@@ -123,7 +123,9 @@ else if (isset($_POST['edit'])) {
         $seasonc = $row['p_seasoncenter'];
         $episodesc = $row['p_episodescenter'];
         $genre = $row['p_genre'];
-        header("Location: ../posting-center.php?edit&link=$post&title=$title&titleEn=$titleEn&seasonc=$seasonc&episodesc=$episodesc&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type&genre=$genre");
+        $imgCreditsName = $row['p_imgcreditsname'];
+        $imgCreditsLink = $row['p_imgcreditslink'];
+        header("Location: ../posting-center.php?edit&link=$post&title=$title&titleEn=$titleEn&seasonc=$seasonc&episodesc=$episodesc&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type&genre=$genre&imgCreditsName=$imgCreditsName&imgCreditsLink=$imgCreditsLink");
     }
     else {
         $sql = "SELECT * FROM posts WHERE p_link='$post'";
@@ -140,7 +142,9 @@ else if (isset($_POST['edit'])) {
         $type = $row['p_type'];
         $myAnimeList = $row['p_linkmyanime'];
         $genre = $row['p_genre'];
-        header("Location: ../posting.php?edit&link=$post&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&studio=$studio&adaptation=$adaptation&type=$type&linkMyAnime=$myAnimeList&genre=$genre");
+        $imgCreditsName = $row['p_imgcreditsname'];
+        $imgCreditsLink = $row['p_imgcreditslink'];
+        header("Location: ../posting.php?edit&link=$post&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&studio=$studio&adaptation=$adaptation&type=$type&linkMyAnime=$myAnimeList&genre=$genre&imgCreditsName=$imgCreditsName&imgCreditsLink=$imgCreditsLink");
     }
 } //isset($_POST['edit'])
 else if (isset($_POST['deletePostPerm'])) {

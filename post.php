@@ -27,6 +27,8 @@ if ($rowCheck['p_seasoncenter'] > 0 && $rowCheck['p_episodescenter'] > 0) {
 	$episodes = $rowVarPosts['p_episodescenter'];
 	$linkMyAnime = $rowVarPosts['p_linkmyanime'];
 	$vues = $rowVarPosts['p_vues'];
+    $imgCreditsName = $rowVarPosts['p_imgcreditsname'];
+    $imgCreditsLink = $rowVarPosts['p_imgcreditslink'];
 }
 else {
 	$sqlVarPosts = "SELECT * FROM posts WHERE p_link = '$link'";
@@ -48,6 +50,8 @@ else {
 	$episodes = $rowVarPosts['p_episodes'];
 	$linkMyAnime = $rowVarPosts['p_linkmyanime'];
 	$vues = $rowVarPosts['p_vues'];
+    $imgCreditsName = $rowVarPosts['p_imgcreditsname'];
+    $imgCreditsLink = $rowVarPosts['p_imgcreditslink'];
 }
 
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
@@ -142,7 +146,19 @@ if (!isset($_SESSION['CREATED'])) {
             </div>
 
             <?php echo '<img class="img-responsive center-block" src="uploads/postsimages/postimg'.$link.'.jpg?'.filemtime('uploads/postsimages/postimg'.$link.'.jpg').'">' ?>
-
+            
+            <div class="row">
+                </br>
+                <div class="col-xs-6"><p><?php echo "<em><u>Creator of the banner</u></em></br> ".$imgCreditsName;  ?></p></div>
+                <div class="col-xs-6"> 
+                    <p style="word-break: break-all;"><?php if ($imgCreditsLink !== '') {
+                                   echo "<em><u>Artist's works page</u></em></br><a href='".$imgCreditsLink."' style='text-decoration: none; background: white; color: grey; box-shadow: none;'>".$imgCreditsLink."</a>";
+													 }
+											?>
+									</p>
+				</div>
+                </br>
+        
             <div class="row">
 							</br>
 							<div class="col-xs-6">
