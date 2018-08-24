@@ -16,6 +16,8 @@ $type = $_GET['type'];
 $linkMyAnime = $_GET['linkMyAnime'];
 $genre = $_GET['genre'];
 $imgLink = $row['p_img_src'];
+$imgCreditsName = $_GET['imgCreditsName'];
+$imgCreditsLink = $_GET['imgCreditsLink'];
 
 switch ($status) {
     case 'In progress':
@@ -275,6 +277,18 @@ if (!isset($_SESSION['CREATED'])) {
                       </br>
                     </div>
                   </div>
+                        <div class="row">
+           
+                        <div class="col-lg-6 col-md-6 col-xs-12 marginForm">
+                            <input type="text" name="imgCreditsName" value="<?php echo $imgCreditsName ?>" placeholder="Creator of the banner">
+                        </div>
+                        
+                        <div class="col-lg-6 col-md-6 col-xs-12 marginForm">
+                            <input type="text" name="imgCreditsLink" value="<?php echo $imgCreditsLink ?>" placeholder="Artist's works page">
+                        </div>
+                    
+                    </div>
+                            
                             <!-- Change to a list with seasons -->
                   <div class="row">
                     <div class="col-xs-12">
