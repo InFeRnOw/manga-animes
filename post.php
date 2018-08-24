@@ -29,6 +29,7 @@ if ($rowCheck['p_seasoncenter'] > 0 && $rowCheck['p_episodescenter'] > 0) {
 	$vues = $rowVarPosts['p_vues'];
     $imgCreditsName = $rowVarPosts['p_imgcreditsname'];
     $imgCreditsLink = $rowVarPosts['p_imgcreditslink'];
+    $path = $rowVarPosts['p_img_src'];
 }
 else {
 	$sqlVarPosts = "SELECT * FROM posts WHERE p_link = '$link'";
@@ -52,6 +53,7 @@ else {
 	$vues = $rowVarPosts['p_vues'];
     $imgCreditsName = $rowVarPosts['p_imgcreditsname'];
     $imgCreditsLink = $rowVarPosts['p_imgcreditslink'];
+    $path = $rowVarPosts['p_img_src'];
 }
 
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {

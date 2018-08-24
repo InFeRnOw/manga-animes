@@ -10,7 +10,17 @@ if (isset($_POST['accept'])) {
     $dislikes = $row['p_dislikes'];
     $sql = "UPDATE posts SET p_active=1 WHERE p_link='$post'";
     $result = mysqli_query($conn, $sql);
-    header("Location: ../post.php?posting=accepted&link=$post");
+    $sqlGet = "SELECT * FROM posts WHERE p_link='$post'";
+    $resultGet = mysqli_query($conn, $sqlGet);
+    $resultGetRows = mysqli_fetch_assoc($resultGet);
+    $title = $resultGetRows["p_title"];
+    $season = $resultGetRows["p_season"];
+    $pageLinkTitle = str_replace(" ", "_", $title);
+    $pageLinkSeason = "_" . $season;
+    $pageLink = $pageLinkTitle . $pageLinkSeason;
+    $sqlChangeLink = "UPDATE posts SET p_link='$pageLink' WHERE p_link='$post'";
+    $resultChangeLink = mysqli_query($conn, $sqlChangeLink);
+    header("Location: ../post.php?posting=accepted&link=$pageLink");
     exit();
 } //isset($_POST['accept'])
 else if (isset($_POST['deny'])) {
@@ -61,7 +71,17 @@ else if (isset($_POST['like'])) {
             $result = mysqli_query($conn, $sql);
             $sql = "DELETE FROM votes WHERE v_link='$post'";
             $result = mysqli_query($conn, $sql);
-            header("Location: ../post.php?posting=votesuccess&link=$post");
+            $sqlGet = "SELECT * FROM posts WHERE p_link='$post'";
+            $resultGet = mysqli_query($conn, $sqlGet);
+            $resultGetRows = mysqli_fetch_assoc($resultGet);
+            $title = $resultGetRows["p_title"];
+            $season = $resultGetRows["p_season"];
+            $pageLinkTitle = str_replace(" ", "_", $title);
+            $pageLinkSeason = "_" . $season;
+            $pageLink = $pageLinkTitle . $pageLinkSeason;
+            $sqlChangeLink = "UPDATE posts SET p_link='$pageLink' WHERE p_link='$post'";
+            $resultChangeLink = mysqli_query($conn, $sqlChangeLink);
+            header("Location: ../post.php?posting=votesuccess&link=$pageLink");
             exit();
         } //$likes == 49
         else {

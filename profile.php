@@ -85,7 +85,7 @@ if (!isset($_SESSION['CREATED'])) {
 							<div class="divider-with-content"><h1>Posted by <?php echo $user ?></h1></div>
 							<div class="row">
 								<?php include 'INCLUDES/profilePostsOwnedInsert-inc.php'; ?>
-								<?php $sql = "SELECT * FROM posts WHERE p_active = 1 AND p_user = '$user' ORDER BY p_id ASC";
+								<?php $sql = "SELECT * FROM posts WHERE p_active IN ('1', '0') AND p_user = '$user' ORDER BY p_id ASC";
 											$result = mysqli_query($conn, $sql);
 											if (mysqli_fetch_assoc($result) == 0) {
 													echo '<p>Nothing posted !</p>';
@@ -94,7 +94,7 @@ if (!isset($_SESSION['CREATED'])) {
 											$postedByLinkMore = "profile.php?link=".$id."&more";
 											$postedByLinkHide = "profile.php?link=".$id."&hide";
 
-											$sqlPosts = "SELECT * FROM posts WHERE p_user = '$user' AND p_active = 1";
+											$sqlPosts = "SELECT * FROM posts WHERE p_user = '$user' AND p_active IN ('1', '0')";
 											$resultPosts = mysqli_query($conn, $sqlPosts);
 											$resultCheckPosts = mysqli_num_rows($resultPosts);
 

@@ -65,7 +65,7 @@
   							</div>
                 <div class="row">
                   <div id="rank" class="col-xs-12">
-                    <button class="btn" type="submit" name="submit">Login</button>
+                    <button class="btn" type="submit" name="submit">Register</button>
                   </div>
                 </div>
   						</div>

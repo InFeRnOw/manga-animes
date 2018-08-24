@@ -161,7 +161,7 @@ if (!isset($_SESSION['CREATED'])) {
                     <input type="text" name="title" value="<?php echo $title ?>" placeholder="Rōmaji Title">
                   </div>
                   <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
-                    <select class="selectpicker" title="Anime status" name="status">
+                    <select class="selectpicker" title="Season status" name="status">
                       <option <?php echo $one ?> value="In progress">In progress</option>
                       <option <?php echo $two ?> value="On break">On break</option>
                       <option <?php echo $three ?> value="Ended">Ended</option>
@@ -239,7 +239,7 @@ if (!isset($_SESSION['CREATED'])) {
                       </select>
                     </div>
                     <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
-                       <input type="number" name="season" value="<?php echo $season ?>" placeholder="Anime season">
+                       <input type="number" name="season" value="<?php echo $season ?>" placeholder="Season">
                     </div>
                     <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
                       <input id="episodes" type="number" name="episodes" value="<?php echo $episodes ?>" placeholder="Number of episodes">
@@ -251,7 +251,7 @@ if (!isset($_SESSION['CREATED'])) {
                       <h3><u>Banner</u></h3>
                       <h4 style="color: grey;"><u>Actual image</u></h4>
                       <?php if (!empty($imgLink)) {
-                                echo '<img id="imgPreview" class="img-responsive center-block" src="uploads/postsimages/postimg'.$link.'.jpg?'.filemtime('uploads/postsimages/postimg'.$link.'.jpg').'">';
+                                echo '<img id="imgPreview" class="img-responsive center-block" src="uploads/postsimages/postimg'.$imgLink.'.jpg?'.filemtime('uploads/postsimages/postimg'.$imgLink.'.jpg').'">';
                             }
                             else {
                                 echo '<img id="imgPreview" class="img-responsive center-block" src="#" alt="image preview">';
@@ -271,6 +271,7 @@ if (!isset($_SESSION['CREATED'])) {
                                       <select id="adaptSelector" class="selectpicker" title="Adaptation From ..." name="adaptEditor">
                                          <option value="LightNovel">Adapted from light novel</option>
                                          <option value="Manga">Adapted from manga</option>
+                                         <option value="Both">Adapted from both</option>
                                       </select>
                                     </div>';
                           }
