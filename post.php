@@ -147,7 +147,7 @@ if (!isset($_SESSION['CREATED'])) {
               </div>
             </div>
 
-            <?php echo '<img class="img-responsive center-block" src="uploads/postsimages/postimg'.$link.'.jpg?'.filemtime('uploads/postsimages/postimg'.$link.'.jpg').'">' ?>
+            <?php echo '<img class="img-responsive center-block" src="uploads/postsimages/postimg'.$path.'.jpg?'.filemtime('uploads/postsimages/postimg'.$path.'.jpg').'">' ?>
             
             <div class="row">
                 </br>
