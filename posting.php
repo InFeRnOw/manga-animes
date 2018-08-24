@@ -263,7 +263,7 @@ if (!isset($_SESSION['CREATED'])) {
                       <p style="font-size:12px;">Optimal Résolution: 720x250</p>
                       <p style="font-size:12px;">Only jpg is supported and max 1MB</p>
                     </div>
-                    <?php if (!isset($_GET['edit'])) {
+                   <?php if (!isset($_GET['edit'])) {
                               echo '<div class="col-lg-6 col-md-6 col-xs-12 marginForm">
                                        <input type="text" name="linkMyAnime" value="' .$linkMyAnime. '" placeholder="MyAnimeList Link">
                                     </div>

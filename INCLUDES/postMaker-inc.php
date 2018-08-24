@@ -58,7 +58,6 @@ if (isset($_POST['submit'])) {
                         if ($resultCheckRows > 0) {
                             header("Location: ../post.php?posting=exist&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&studio=$studio&adaptation=$adaptation&type=$type&linkMyAnime=$linkMyAnime&genre=$newGenre&imgCreditsName=$imgCreditsName&imgCreditsLink=$imgCreditsLink");
                         }
-
                         $_SESSION['contentTemp'] = '';
                         header("Location: ../post.php?posting=success&link=$pageLink");
                     } //move_uploaded_file($fileTmpName, $fileDestination)
