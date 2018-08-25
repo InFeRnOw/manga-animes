@@ -280,6 +280,9 @@ if (!isset($_SESSION['CREATED'])) {
                                          <option value="Manga">Adapted from manga</option>
                                          <option value="Both">Adapted from both</option>
                                       </select>
+                                    </div>
+                                    <div class="col-xs-12 marginForm">
+                                      <input id="arcs" type="number" name="arcNumbers" value="<?php echo $arcs ?>" placeholder="Number of arcs">
                                     </div>';
                           }
                           else {
@@ -296,20 +299,32 @@ if (!isset($_SESSION['CREATED'])) {
                                   echo $SecondFix;
                       				}
                                 else {
-        								echo '<table class="table table-bordered">
-                                <tbody>
-                                  <tr id="firstRow">
-                                    <td>
-                                      <h3><b style="background-color: rgb(255, 255, 255);">Anime Episodes</b></h3>
-                                    </td>
-                                    <td>
-                                    <h3><b style="background-color: rgb(255, 255, 255);">Manga chapters</b></h3>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>';
-        							}
-  							?>
+                  								echo '<table class="table animeTable table-bordered">
+                                          <tbody>
+                                            <tr id="firstRow">
+                                              <td>
+                                                <h3><b style="background-color: rgb(255, 255, 255);">Anime Episodes</b></h3>
+                                              </td>
+                                              <td>
+                                              <h3><b style="background-color: rgb(255, 255, 255);">Manga chapters</b></h3>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>';
+                                  echo '<table class="table arcTable table-bordered">
+                                          <tbody>
+                                            <tr id="RowFirst">
+                                              <td>
+                                                <h3><b style="background-color: rgb(255, 255, 255);">Animes Arcs</b></h3>
+                                              </td>
+                                              <td>
+                                              <h3><b style="background-color: rgb(255, 255, 255);">Arc - Chapters</b></h3>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>';
+        							          }
+  							           ?>
                       </textarea>
                     </div>
                   </div>
