@@ -1,8 +1,8 @@
 $(document).ready(function () {
     var textRowLN = '<div class="adaptedTitle"><p><span style="font-weight: 700;"><u>Volume&nbsp;<span style="background-color: rgb(156, 156, 148);">?</span>&nbsp;of the light novel<br></p></div>';
-    var textRowM = '<div class="adaptedTitle"><p><span style="text-decoration-line: underline; font-weight: bold;">Volume&nbsp;<span style="background-color: rgb(156, 156, 148);">?</span>&nbsp;of manga</span><br></p></div>';
-    var textRowCommon = '<div class="adaptedTitle"><p><b><u>Volume <span style="background-color: rgb(156, 156, 148);">?</span> of the light novel <span style="color: rgb(206, 0, 0);">OR </span></u></b><span style="font-weight: bold; text-decoration-line: underline;">Volume <span style="background-color: rgb(156, 156, 148);">?</span> of manga</span></p></div>';
-    var textRowBoth = '<div class="adaptedTitle"><p><span style="font-weight: 700;"><u>Volume&nbsp;<span style="background-color: rgb(156, 156, 148);">?</span>&nbsp;of the light novel</u><br></p><p>- <span style="font-family: Arial;">Chapters...</span></p><p><span style="text-decoration-line: underline; font-weight: bold;">Volume&nbsp;<span style="background-color: rgb(156, 156, 148);">?</span>&nbsp;of manga</span><br></p></div>';
+    var textRowM = '<div class="adaptedTitle"><p><span style="text-decoration-line: underline; font-weight: bold;">Tome&nbsp;<span style="background-color: rgb(156, 156, 148);">?</span>&nbsp;of manga</span><br></p></div>';
+    var textRowCommon = '<div class="adaptedTitle"><p><b><u>Volume <span style="background-color: rgb(156, 156, 148);">?</span> of the light novel <span style="color: rgb(206, 0, 0);">OR </span></u></b><span style="font-weight: bold; text-decoration-line: underline;">Tome <span style="background-color: rgb(156, 156, 148);">?</span> of manga</span></p></div>';
+    var textRowBoth = '<div class="adaptedTitle"><p><span style="font-weight: 700;"><u>Volume&nbsp;<span style="background-color: rgb(156, 156, 148);">?</span>&nbsp;of the light novel</u><br></p><p>- <span style="font-family: Arial;">Chapters...</span></p><p><span style="text-decoration-line: underline; font-weight: bold;">Tome&nbsp;<span style="background-color: rgb(156, 156, 148);">?</span>&nbsp;of manga</span><br></p></div>';
 
     function lightNovel() {
       $(".adaptedTitle").html(textRowLN);
@@ -49,5 +49,19 @@ $(document).ready(function () {
              }
           }
         }
+        // else if (numOfEpisodes == 5) {
+        //   console.log('else if statement for deleting');
+        //   // while (count !== numOfEpisodes && count > numOfEpisodes) {
+        //   //    if (count == numOfEpisodes) {
+        //   //       console.log('Stoped deleting');
+        //   //    }
+        //   //    else {
+        //   //      $("#test").remove()
+        //   //      console.log('Posting');
+        //   //      count -= 1;
+        //   //      console.log('variable count: ' + count);
+        //   //    }
+        //   // }
+        // }
     });
 });

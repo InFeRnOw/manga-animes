@@ -8,7 +8,7 @@ if (isset($_POST['accept'])) {
     $row = mysqli_fetch_assoc($result);
     $likes = $row['p_likes'];
     $dislikes = $row['p_dislikes'];
-    $sql = "UPDATE posts SET p_active=1 WHERE p_link='$post'";
+    $sql = "UPDATE posts SET p_active='1' WHERE p_link='$post'";
     $result = mysqli_query($conn, $sql);
     $sqlGet = "SELECT * FROM posts WHERE p_link='$post'";
     $resultGet = mysqli_query($conn, $sqlGet);
@@ -32,7 +32,7 @@ else if (isset($_POST['deny'])) {
     $likes = $row['p_likes'];
     $dislikes = $row['p_dislikes'];
     $user = $_SESSION['u_uid'];
-    $sql = "UPDATE posts SET p_active=3, p_lastedited='$user' WHERE p_link='$post'";
+    $sql = "UPDATE posts SET p_active='3', p_lastedited='$user' WHERE p_link='$post'";
     $result = mysqli_query($conn, $sql);
     header("Location: ../in-vote.php?posting=denied&link=$post");
     exit();
@@ -46,7 +46,7 @@ else if (isset($_POST['delete'])) {
     $likes = $row['p_likes'];
     $dislikes = $row['p_dislikes'];
     $user = $_SESSION['u_uid'];
-    $sql = "UPDATE posts SET p_active=4, p_lastedited='$user' WHERE p_link='$post'";
+    $sql = "UPDATE posts SET p_active='4', p_lastedited='$user' WHERE p_link='$post'";
     $result = mysqli_query($conn, $sql);
     header("Location: ../alphabetic-order.php?posting=deleted&link=$post");
     exit();
@@ -67,7 +67,7 @@ else if (isset($_POST['like'])) {
         $sql = "INSERT INTO votes (v_user, v_link) VALUES ('$user', '$post')";
         $result = mysqli_query($conn, $sql);
         if ($likes == 49) {
-            $sql = "UPDATE posts SET p_active=1 WHERE p_link='$post'";
+            $sql = "UPDATE posts SET p_active='1' WHERE p_link='$post'";
             $result = mysqli_query($conn, $sql);
             $sql = "DELETE FROM votes WHERE v_link='$post'";
             $result = mysqli_query($conn, $sql);
@@ -109,7 +109,7 @@ else if (isset($_POST['dislike'])) {
         $sql = "INSERT INTO votes (v_user, v_link) VALUES ('$user', '$post')";
         $result = mysqli_query($conn, $sql);
         if ($dislikes == 49) {
-            $sql = "UPDATE posts SET p_active=3, p_lastedited='Vote' WHERE p_link='$post'";
+            $sql = "UPDATE posts SET p_active='3', p_lastedited='Vote' WHERE p_link='$post'";
             $result = mysqli_query($conn, $sql);
             $sql = "DELETE FROM votes WHERE v_link='$post'";
             $result = mysqli_query($conn, $sql);
@@ -133,38 +133,38 @@ else if (isset($_POST['edit'])) {
         $sql = "SELECT * FROM posts WHERE p_link='$post'";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
-        $title = $row['p_title'];
-        $titleEn = $row['p_titleen'];
-        $content = $row['p_content'];
-        $status = $row['p_status'];
-        $statusManga = $row['p_statusmanga'];
-        $adaptation = $row['p_adaptation'];
-        $type = $row['p_type'];
-        $seasonc = $row['p_seasoncenter'];
-        $episodesc = $row['p_episodescenter'];
-        $genre = $row['p_genre'];
-        $imgCreditsName = $row['p_imgcreditsname'];
-        $imgCreditsLink = $row['p_imgcreditslink'];
-        header("Location: ../posting-center.php?edit&link=$post&title=$title&titleEn=$titleEn&seasonc=$seasonc&episodesc=$episodesc&status=$status&statusm=$statusManga&adaptation=$adaptation&type=$type&genre=$genre&imgCreditsName=$imgCreditsName&imgCreditsLink=$imgCreditsLink");
+        $_SESSION['SaveTemp_title'] = $row['p_title'];
+        $_SESSION['SaveTemp_titleEn'] = $row['p_titleen'];
+        $_SESSION['contentTemp'] = $row['p_content'];
+        $_SESSION['SaveTemp_status'] = $row['p_status'];
+        $_SESSION['SaveTemp_statusManga'] = $row['p_statusmanga'];
+        $_SESSION['SaveTemp_adaptation'] = $row['p_adaptation'];
+        $_SESSION['SaveTemp_type'] = $row['p_type'];
+        $_SESSION['SaveTemp_season'] = $row['p_seasoncenter'];
+        $_SESSION['SaveTemp_episodes'] = $row['p_episodescenter'];
+        $_SESSION['SaveTemp_genre'] = $row['p_genre'];
+        $_SESSION['SaveTemp_Creator'] = $row['p_imgcreditsname'];
+        $_SESSION['SaveTemp_CreatorPage'] = $row['p_imgcreditslink'];
+        header("Location: ../posting-center.php?edit&link=$post");
     }
     else {
         $sql = "SELECT * FROM posts WHERE p_link='$post'";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
-        $title = $row['p_title'];
-        $titleEn = $row['p_titleen'];
-        $content = $row['p_content'];
-        $season = $row['p_season'];
-        $episodes = $row['p_episodes'];
-        $status = $row['p_status'];
-        $studio = $row['p_studio'];
-        $adaptation = $row['p_adaptation'];
-        $type = $row['p_type'];
-        $myAnimeList = $row['p_linkmyanime'];
-        $genre = $row['p_genre'];
-        $imgCreditsName = $row['p_imgcreditsname'];
-        $imgCreditsLink = $row['p_imgcreditslink'];
-        header("Location: ../posting.php?edit&link=$post&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&studio=$studio&adaptation=$adaptation&type=$type&linkMyAnime=$myAnimeList&genre=$genre&imgCreditsName=$imgCreditsName&imgCreditsLink=$imgCreditsLink");
+        $_SESSION['SaveTemp_title'] = $row['p_title'];
+        $_SESSION['SaveTemp_titleEn'] = $row['p_titleen'];
+        $_SESSION['contentTemp'] = $row['p_content'];
+        $_SESSION['SaveTemp_season'] = $row['p_season'];
+        $_SESSION['SaveTemp_episodes'] = $row['p_episodes'];
+        $_SESSION['SaveTemp_status'] = $row['p_status'];
+        $_SESSION['SaveTemp_studio'] = $row['p_studio'];
+        $_SESSION['SaveTemp_adaptation'] = $row['p_adaptation'];
+        $_SESSION['SaveTemp_type'] = $row['p_type'];
+        $_SESSION['SaveTemp_linkMyAnime'] = $row['p_linkmyanime'];
+        $_SESSION['SaveTemp_genre'] = $row['p_genre'];
+        $_SESSION['SaveTemp_Creator'] = $row['p_imgcreditsname'];
+        $_SESSION['SaveTemp_CreatorPage'] = $row['p_imgcreditslink'];
+        header("Location: ../posting.php?edit&link=$post");
     }
 } //isset($_POST['edit'])
 else if (isset($_POST['deletePostPerm'])) {

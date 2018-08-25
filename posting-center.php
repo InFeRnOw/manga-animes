@@ -5,19 +5,20 @@ $link = $_GET['link'];
 $sql = "SELECT * FROM posts WHERE p_link = '$link'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
-$title = $_GET['title'];
-$titleEn = $_GET['titleEn'];
-$season = $_GET['seasonc'];
-$episodes = $_GET['episodesc'];
-$status = $_GET['status'];
-$statusManga = $_GET['statusm'];
-$adaptation = $_GET['adaptation'];
-$type = $_GET['type'];
-$linkMyAnime = $_GET['linkMyAnime'];
-$genre = $_GET['genre'];
+$title = $_SESSION['SaveTemp_title'];
+$titleEn = $_SESSION['SaveTemp_titleEn'];
+$season = $_SESSION['SaveTemp_season'];
+$episodes = $_SESSION['SaveTemp_episodes'];
+$status = $_SESSION['SaveTemp_status'];
+$statusManga = $_SESSION['SaveTemp_statusManga'];
+$adaptation = $_SESSION['SaveTemp_adaptation'];
+$type = $_SESSION['SaveTemp_type'];
+$linkMyAnime = $_SESSION['SaveTemp_linkMyAnime'];
+$genre = $_SESSION['SaveTemp_genre'];
+$bannerCreator = $_SESSION['SaveTemp_Creator'];
+$bannerCreatorPageLink = $_SESSION['SaveTemp_CreatorPage'];
 $imgLink = $row['p_img_src'];
-$imgCreditsName = $_GET['imgCreditsName'];
-$imgCreditsLink = $_GET['imgCreditsLink'];
+
 switch ($status) {
     case 'In progress':
         $one = 'selected';
@@ -125,18 +126,23 @@ if (!isset($_SESSION['CREATED'])) {
     $(document).ready(function() {
          $('.selectpicker').selectpicker();
          $('#summernote').summernote();
+
          function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
+
                 reader.onload = function (e) {
                     $('#imgPreview').attr('src', e.target.result);
                 }
+
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
         $("#imgInput").change(function(){
             readURL(this);
         });
+
     });
     </script>
 	</head>
@@ -266,23 +272,17 @@ if (!isset($_SESSION['CREATED'])) {
                       <input type="hidden" name="imgKeep" value="<?php echo $imgLink ?>" />
                       <input id="imgInput" class="btn btn-basic center-block" type="file" name="banner"/>
                       <p style="font-size:12px;">Optimal Résolution: 720x250</p>
-                      <p style="font-size:12px;">Only jpg is supported and max 1MB</p>
+                      <p style="font-size:12px;">Only jpg is supported and max 10MB</p>
 
                       </br>
                     </div>
                   </div>
-                        <div class="row">
-
-                        <div class="col-lg-6 col-md-6 col-xs-12 marginForm">
-                            <input type="text" name="imgCreditsName" value="<?php echo $imgCreditsName ?>" placeholder="Creator of the banner">
-                        </div>
-
-                        <div class="col-lg-6 col-md-6 col-xs-12 marginForm">
-                            <input type="text" name="imgCreditsLink" value="<?php echo $imgCreditsLink ?>" placeholder="Artist's works page">
-                        </div>
-
-                    </div>
-
+                  <div class="col-md-6 col-xs-12 marginForm">
+                     <input type="text" name="bannerCreator" value="<?php echo $bannerCreator ?>" placeholder="Name of banner artist">
+                  </div>
+                  <div class="col-md-6 col-xs-12 marginForm">
+                     <input type="text" name="bannerCreatorPageLink" value="<?php echo $bannerCreatorPageLink ?>" placeholder="Work page of artist">
+                  </div>
                             <!-- Change to a list with seasons -->
                   <div class="row">
                     <div class="col-xs-12">

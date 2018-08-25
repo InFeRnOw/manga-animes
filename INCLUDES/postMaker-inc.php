@@ -24,17 +24,17 @@ if (isset($_POST['submit'])) {
     $titleEn = mysqli_real_escape_string($conn, $_POST['titleEn']);
     $studio = mysqli_real_escape_string($conn, $_POST['studio']);
     $linkMyAnime = mysqli_real_escape_string($conn, $_POST['linkMyAnime']);
-    $imgCreditsName = mysqli_real_escape_string($conn, $_POST['imgCreditsName']);
-    $imgCreditsLink = mysqli_real_escape_string($conn, $_POST['imgCreditsLink']);
+    $creator = mysqli_real_escape_string($conn, $_POST['bannerCreator']);
+    $creatorPage = mysqli_real_escape_string($conn, $_POST['bannerCreatorPageLink']);
 
     $genre = $_POST['genre'];
     $newGenre = implode(", ", $genre);
-    $pageLinkTitle = str_replace(" ", "_", $title);
-    $pageLinkSeason = "_" . $season;
-    $pageLink = $pageLinkTitle . $pageLinkSeason;
-    if (empty($title) || empty($status) || empty($type) || empty($titleEn) || empty($newGenre) || empty($studio) || empty($content) || empty($season) || empty($episodes) || empty($adaptation) || empty($linkMyAnime) || empty($imgCreditsName) || empty($imgCreditsLink)) {
-        $_SESSION['contentTemp'] = $content;
-        header("Location: ../posting.php?posting=blank&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&studio=$studio&adaptation=$adaptation&type=$type&linkMyAnime=$linkMyAnime&genre=$newGenre&imgCreditsName=$imgCreditsName&imgCreditsLink=$imgCreditsLink");
+    $pageLinkFirstPart = uniqid('post', TRUE);
+    $pageLinkSecondPart = uniqid('in-vote', TRUE);
+    $pageLink = $pageLinkFirstPart . $pageLinkSecondPart;
+    if (empty($title) || empty($status) || empty($type) || empty($titleEn) || empty($newGenre) || empty($studio) || empty($content) || empty($season) || empty($episodes) || empty($adaptation) || empty($linkMyAnime)) {
+        saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+        header("Location: ../posting.php?posting=blank");
     } //empty($title) || empty($status) || empty($type) || empty($titleEn) || empty($newGenre) || empty($statusManga) || empty($content) || empty($season) || empty($episodes) || empty($adaptation)
     else {
         // $sql = "INSERT INTO posts (p_user, p_title, p_status, p_type, p_content, p_link, p_titleen, p_genre, p_statusmanga, p_season, p_episodes, p_adaptation, p_img_src, p_img_status) VALUES ('$uid', '$title', '$status', '$type', '$content', '$pageLink', '$titleEn', '$newGenre', '$statusManga', '$season', '$episodes', '$adaptation', '$pageLink', 'true');";
@@ -50,35 +50,45 @@ if (isset($_POST['submit'])) {
                     $fileNameOld = "postimg" . $pageLink . "." . $allowed;
                     $fileDestination = '../uploads/postsimages/' . $fileNameNew;
                     if (move_uploaded_file($fileTmpName, $fileDestination)) {
-                        $sql = "INSERT INTO posts (p_user, p_title, p_status, p_type, p_content, p_link, p_titleen, p_genre, p_studio, p_season, p_episodes, p_adaptation, p_img_src, p_img_status, p_linkmyanime, p_imgcreditsname, p_imgcreditslink) VALUES ('$uid', '$title', '$status', '$type', '$content', '$pageLink', '$titleEn', '$newGenre', '$studio', '$season', '$episodes', '$adaptation', '$pageLink', 'true', '$linkMyAnime', '$imgCreditsName', '$imgCreditsLink');";
+                        $sql = "INSERT INTO posts (p_user, p_title, p_status, p_type, p_content, p_link, p_titleen, p_genre, p_active, p_studio, p_season, p_episodes, p_adaptation, p_img_src, p_img_status, p_linkmyanime, p_imgcreditsname, p_imgcreditslink) VALUES ('$uid', '$title', '$status', '$type', '$content', '$pageLink', '$titleEn', '$newGenre', '0', '$studio', '$season', '$episodes', '$adaptation', '$pageLink', 'true', '$linkMyAnime', '$creator', '$creatorPage');";
                         $result = mysqli_query($conn, $sql);
-                        $sqlCheck = "SELECT * posts WHERE p_link=$pageLink";
-                        $resultCheck = mysqli_query($conn, $sqlCheck);
-                        $resultCheckRows = mysqli_num_rows($resultCheck);
-                        if ($resultCheckRows > 0) {
-                            header("Location: ../post.php?posting=exist&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&studio=$studio&adaptation=$adaptation&type=$type&linkMyAnime=$linkMyAnime&genre=$newGenre&imgCreditsName=$imgCreditsName&imgCreditsLink=$imgCreditsLink");
-                        }
-                        $_SESSION['contentTemp'] = '';
+                        saveData('', '', '', '', '', '', '', '', '', '', '', '', '');
                         header("Location: ../post.php?posting=success&link=$pageLink");
                     } //move_uploaded_file($fileTmpName, $fileDestination)
                     else {
-                        $_SESSION['contentTemp'] = $content;
-                        header("Location: ../posting.php?upload=failed&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&studio=$studio&adaptation=$adaptation&type=$type&linkMyAnime=$linkMyAnime&genre=$newGenre&imgCreditsName=$imgCreditsName&imgCreditsLink=$imgCreditsLink");
+                        saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+                        header("Location: ../posting.php?upload=failed");
                     }
                 } //$fileSize < 1250000
                 else {
-                    $_SESSION['contentTemp'] = $content;
-                    header("Location: ../posting.php?upload=toobigfile&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&studio=$studio&adaptation=$adaptation&type=$type&linkMyAnime=$linkMyAnime&genre=$newGenre&imgCreditsName=$imgCreditsName&imgCreditsLink=$imgCreditsLink");
+                    saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+                    header("Location: ../posting.php?upload=toobigfile");
                 }
             } //$fileError === 0
             else {
-                $_SESSION['contentTemp'] = $content;
-                header("Location: ../posting.php?upload=error&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&studio=$studio&adaptation=$adaptation&type=$type&linkMyAnime=$linkMyAnime&genre=$newGenre&imgCreditsName=$imgCreditsName&imgCreditsLink=$imgCreditsLink");
+                saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+                header("Location: ../posting.php?upload=error");
             }
         } //in_array($fileActualExt, $allowed)
         else {
-            $_SESSION['contentTemp'] = $content;
-            header("Location: ../posting.php?upload=invalidtype&link=$pageLink&title=$title&titleEn=$titleEn&season=$season&episodes=$episodes&status=$status&studio=$studio&adaptation=$adaptation&type=$type&linkMyAnime=$linkMyAnime&genre=$newGenre&imgCreditsName=$imgCreditsName&imgCreditsLink=$imgCreditsLink");
+            saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+            header("Location: ../posting.php?upload=invalidtype");
         }
     }
 } //isset($_POST['submit'])
+
+function saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage) {
+    $_SESSION['contentTemp'] = $content;
+    $_SESSION['SaveTemp_title'] = $title;
+    $_SESSION['SaveTemp_titleEn'] = $titleEn;
+    $_SESSION['SaveTemp_season'] = $season;
+    $_SESSION['SaveTemp_episodes'] = $episodes;
+    $_SESSION['SaveTemp_status'] = $status;
+    $_SESSION['SaveTemp_studio'] = $studio;
+    $_SESSION['SaveTemp_adaptation'] = $adaptation;
+    $_SESSION['SaveTemp_type'] = $type;
+    $_SESSION['SaveTemp_linkMyAnime'] = $linkMyAnime;
+    $_SESSION['SaveTemp_genre'] = $newGenre;
+    $_SESSION['SaveTemp_Creator'] = $creator;
+    $_SESSION['SaveTemp_CreatorPage'] = $creatorPage;
+}
