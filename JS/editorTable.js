@@ -41,7 +41,7 @@ $(document).ready(function () {
              }
              else if (count < numOfEpisodes) {
                  count += 1;
-                 $(".animeTable").append('<tr id="tableRow'+count+'"><td><p style="text-align: center;"><b><u>Episode '+count+'</u></b></p><p style="text-align: center;"><span style="font-family: Arial;">"Jap" ("Rōmaji title")</span>"</p><p style="text-align: center;"><span style="font-family: Arial;">"English"</span></p></td><td>'+ textRowCommon +'<p>- <span style="font-family: Arial;">Chapters...</span></p></td></tr>');
+                 $(".animeTable").append('<tr id="tableRow'+count+'"><td><p style="text-align: center;"><b><u>Episode '+count+'</u></b></p><p style="text-align: center;"><span style="font-family: Arial;">"Japanese" ("Rōmaji")</span></p><p style="text-align: center;"><span style="font-family: Arial;">"English"</span></p></td><td>'+ textRowCommon +'<p>- <span style="font-family: Arial;">Chapters...</span></p></td></tr>');
                  // $(".table").append('<tr id="tableRow'+count+'"><td><p style="text-align: center;"><b><u>Episode '+count+'</u></b></p><p style="text-align: center;">"<span style="background-color: rgb(156, 156, 148);">Title</span>"</p></td><td>'+ textRowCommon +'<p>- <span style="background-color: rgb(156, 156, 148);">Chapters...</span></p></td></tr>');
              }
              else if (numOfEpisodes < count) {
@@ -81,7 +81,7 @@ $(document).ready(function () {
                  //   $(".arcSelector").append("<option value='LightNovel'>Adapted from light novel</option>");
                  // }
                  // // $(".arcTable").append('<div id="arcTableRow'+arcCount+'"><div class="col-md-6"><p style="text-align: center;"><b>Arc '+arcCount+'</b></p></div><div class="col-md-6">test</div></div>');
-                 $(".arcTable").append('<tr id="arcTableRow'+arcCount+'"><td><p style="text-align: center;"><b><u>Arc '+arcCount+' (Episodes xx-xx)</u></b></p><p style="text-align: center;"><span style="font-family: Arial;">"Jap" ("Rōmaji title")</span>"</p><p style="text-align: center;"><span style="font-family: Arial;">"English"</span></p></td><td>'+ textRowCommon +'<p>- <span style="font-family: Arial;">Chapters...</span></p></td></tr>');
+                 $(".arcTable").append('<tr id="arcTableRow'+arcCount+'"><td><p style="text-align: center;"><b><u>Arc '+arcCount+' (Episodes xx-xx)</u></b></p><p style="text-align: center;"><span style="font-family: Arial;">"Japanese" ("Rōmaji")</span></p><p style="text-align: center;"><span style="font-family: Arial;">"English"</span></p></td><td>'+ textRowCommon +'<p>- <span style="font-family: Arial;">Chapters...</span></p></td></tr>');
                  // $(".table").append('<tr id="tableRow'+arcCount+'"><td><p style="text-align: center;"><b><u>Episode '+arcCount+'</u></b></p><p style="text-align: center;">"<span style="background-color: rgb(156, 156, 148);">Title</span>"</p></td><td>'+ textRowCommon +'<p>- <span style="background-color: rgb(156, 156, 148);">Chapters...</span></p></td></tr>');
              }
              else if (numOfArcs < arcCount) {
