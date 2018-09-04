@@ -54,22 +54,22 @@ if (isset($_POST['submit'])) {
                         header("Location: ../post.php?posting=success&link=$pageLink");
                     } //move_uploaded_file($fileTmpName, $fileDestination)
                     else {
-                        saveData($content, $title, $titleEn, $season, $episodes, $status, $statusManga, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage)
+                        saveData($content, $title, $titleEn, $season, $episodes, $status, $statusManga, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
                         header("Location: ../posting-center.php?upload=failed");
                     }
                 } //$fileSize < 1250000
                 else {
-                    saveData($content, $title, $titleEn, $season, $episodes, $status, $statusManga, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage)
+                    saveData($content, $title, $titleEn, $season, $episodes, $status, $statusManga, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
                     header("Location: ../posting-center.php?upload=toobigfile");
                 }
             } //$fileError === 0
             else {
-                saveData($content, $title, $titleEn, $season, $episodes, $status, $statusManga, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage)
+                saveData($content, $title, $titleEn, $season, $episodes, $status, $statusManga, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
                 header("Location: ../posting-center.php?upload=error");
             }
         } //in_array($fileActualExt, $allowed)
         else {
-            saveData($content, $title, $titleEn, $season, $episodes, $status, $statusManga, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage)
+            saveData($content, $title, $titleEn, $season, $episodes, $status, $statusManga, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
             header("Location: ../posting-center.php?upload=invalidtype");
         }
     }

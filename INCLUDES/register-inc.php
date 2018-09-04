@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
             header("Location: ../register.php?register=passwordconfirm&uid=$uid&email=$email");
             exit();
         } //$pass1 !== $pass2
-        elseif (preg_match("/([%\$#\*']+)/", $uid) || preg_match('/([%\$#\*"]+)/', $uid)) {
+        elseif (preg_match("/([%\$#\*']+)/", $uid) || preg_match('/([%\$#\*"]+)/', $uid) || strpos($uid, " ")) {
             header("Location: ../register.php?register=specialchars");
             exit();
         } //preg_match("/([%\$#\*']+)/", $uid) || preg_match('/([%\$#\*"]+)/', $uid)

@@ -16,6 +16,20 @@ if (!isset($_SESSION['CREATED'])) {
     session_regenerate_id(true);    // change session ID for the current session and invalidate old session ID
     $_SESSION['CREATED'] = time();  // update creation time
 }
+
+$_SESSION['SaveTemp_title'] = '';
+$_SESSION['SaveTemp_titleEn'] = '';
+$_SESSION['SaveTemp_season'] = '';
+$_SESSION['SaveTemp_episodes'] = '';
+$_SESSION['SaveTemp_status'] = '';
+$_SESSION['SaveTemp_studio'] = '';
+$_SESSION['SaveTemp_adaptation'] = '';
+$_SESSION['SaveTemp_type'] = '';
+$_SESSION['SaveTemp_linkMyAnime'] = '';
+$_SESSION['SaveTemp_genre'] = '';
+$_SESSION['SaveTemp_Creator'] = '';
+$_SESSION['SaveTemp_CreatorPage'] = '';
+
 switch ($_GET['lang']) {
     case 'jap':
         $one = 'selected';
