@@ -25,13 +25,14 @@ if (isset($_POST['submit'])) {
     $statusManga = mysqli_real_escape_string($conn, $_POST['statusManga']);
     $creator = mysqli_real_escape_string($conn, $_POST['bannerCreator']);
     $creatorPage = mysqli_real_escape_string($conn, $_POST['bannerCreatorPageLink']);
-
+    $numberArcsCenter = mysqli_real_escape_string($conn, $_POST['arcsCenter']);
+    
     $genre = $_POST['genre'];
     $newGenre = implode(", ", $genre);
     $pageLinkTitle = str_replace(" ", "_", $title);
     $pageLink = $pageLinkTitle . "_anime";
-    if (empty($title) || empty($status) || empty($type) || empty($titleEn) || empty($newGenre) || empty($statusManga) || empty($content) || empty($season) || empty($episodes) || empty($adaptation)) {
-        saveData($content, $title, $titleEn, $season, $episodes, $status, $statusManga, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+    if (empty($title) || empty($status) || empty($type) || empty($titleEn) || empty($newGenre) || empty($statusManga) || empty($content) || empty($season) || empty($episodes) || empty($adaptation) || empty($numberArcsCenter)) {
+        saveData($content, $title, $titleEn, $season, $episodes, $status, $statusManga, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage, $numberArcsCenter);
         header("Location: ../posting-center.php?posting=blank");
     } //empty($title) || empty($status) || empty($type) || empty($titleEn) || empty($newGenre) || empty($statusManga) || empty($content) || empty($season) || empty($episodes) || empty($adaptation)
     else {
@@ -48,34 +49,33 @@ if (isset($_POST['submit'])) {
                     $fileNameOld = "postimg" . $pageLink . "." . $allowed;
                     $fileDestination = '../uploads/postsimages/' . $fileNameNew;
                     if (move_uploaded_file($fileTmpName, $fileDestination)) {
-                        $sql = "INSERT INTO posts (p_user, p_title, p_status, p_type, p_content, p_link, p_active, p_titleen, p_genre, p_statusmanga, p_seasoncenter, p_episodescenter, p_adaptation, p_img_src, p_img_status, p_imgcreditsname, p_imgcreditslink) VALUES ('$uid', '$title', '$status', '$type', '$content', '$pageLink', '2', '$titleEn', '$newGenre', '$statusManga', '$season', '$episodes', '$adaptation', '$pageLink', 'true', '$creator', '$creatorPage');";
+                        $sql = "INSERT INTO posts (p_user, p_title, p_status, p_type, p_content, p_link, p_active, p_titleen, p_genre, p_statusmanga, p_seasoncenter, p_episodescenter, p_adaptation, p_img_src, p_img_status, p_imgcreditsname, p_imgcreditslink, p_arcsCenter) VALUES ('$uid', '$title', '$status', '$type', '$content', '$pageLink', '2', '$titleEn', '$newGenre', '$statusManga', '$season', '$episodes', '$adaptation', '$pageLink', 'true', '$creator', '$creatorPage', '$numberArcsCenter');";
                         $result = mysqli_query($conn, $sql);
                         saveData('', '', '', '', '', '', '', '', '', '', '', '', '');
                         header("Location: ../post.php?posting=success&link=$pageLink");
                     } //move_uploaded_file($fileTmpName, $fileDestination)
                     else {
-                        saveData($content, $title, $titleEn, $season, $episodes, $status, $statusManga, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+                        saveData($content, $title, $titleEn, $season, $episodes, $status, $statusManga, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage, $numberArcsCenter);
                         header("Location: ../posting-center.php?upload=failed");
                     }
                 } //$fileSize < 1250000
                 else {
-                    saveData($content, $title, $titleEn, $season, $episodes, $status, $statusManga, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+                    saveData($content, $title, $titleEn, $season, $episodes, $status, $statusManga, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage, $numberArcsCenter);
                     header("Location: ../posting-center.php?upload=toobigfile");
                 }
             } //$fileError === 0
             else {
-                saveData($content, $title, $titleEn, $season, $episodes, $status, $statusManga, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+                saveData($content, $title, $titleEn, $season, $episodes, $status, $statusManga, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage, $numberArcsCenter);
                 header("Location: ../posting-center.php?upload=error");
             }
         } //in_array($fileActualExt, $allowed)
         else {
-            saveData($content, $title, $titleEn, $season, $episodes, $status, $statusManga, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+            saveData($content, $title, $titleEn, $season, $episodes, $status, $statusManga, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage, $numberArcsCenter);
             header("Location: ../posting-center.php?upload=invalidtype");
         }
     }
 } //isset($_POST['submit'])
-
-function saveData($content, $title, $titleEn, $season, $episodes, $status, $statusManga, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage) {
+function saveData($content, $title, $titleEn, $season, $episodes, $status, $statusManga, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage, $numberArcsCenter) {
     $_SESSION['contentTemp'] = $content;
     $_SESSION['SaveTemp_title'] = $title;
     $_SESSION['SaveTemp_titleEn'] = $titleEn;
@@ -89,4 +89,5 @@ function saveData($content, $title, $titleEn, $season, $episodes, $status, $stat
     $_SESSION['SaveTemp_genre'] = $newGenre;
     $_SESSION['SaveTemp_Creator'] = $creator;
     $_SESSION['SaveTemp_CreatorPage'] = $creatorPage;
+    $_SESSION['SaveTemp_NumberArcsCenter'] = $numberArcsCenter;
 }

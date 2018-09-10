@@ -18,6 +18,7 @@ $genre = $_SESSION['SaveTemp_genre'];
 $bannerCreator = $_SESSION['SaveTemp_Creator'];
 $bannerCreatorPageLink = $_SESSION['SaveTemp_CreatorPage'];
 $imgLink = $row['p_img_src'];
+$numberArcsCenter = $_SESSION['SaveTemp_ArcsCenter'];
 
 switch ($status) {
     case 'In progress':
@@ -121,28 +122,24 @@ if (!isset($_SESSION['CREATED'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+              <?php if (!isset($_GET['edit'])) { echo '<script src="JS/editorTable.js"></script>'; }?>
 		<link rel="stylesheet" href="CSS/main.css">
     <script>
     $(document).ready(function() {
          $('.selectpicker').selectpicker();
          $('#summernote').summernote();
-
          function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-
                 reader.onload = function (e) {
                     $('#imgPreview').attr('src', e.target.result);
                 }
-
                 reader.readAsDataURL(input.files[0]);
             }
         }
-
         $("#imgInput").change(function(){
             readURL(this);
         });
-
     });
     </script>
 	</head>
@@ -283,6 +280,9 @@ if (!isset($_SESSION['CREATED'])) {
                   <div class="col-md-6 col-xs-12 marginForm">
                      <input type="text" name="bannerCreatorPageLink" value="<?php echo $bannerCreatorPageLink ?>" placeholder="Work page of artist">
                   </div>
+                <div class="col-md-6 col-xs-12 marginForm">
+                     <input id="arcsCenter" type="number" name="arcNumbersCenter" value="<?php echo $numberArcsCenter ?>" placeholder="Total Arcs">
+                  </div>
                             <!-- Change to a list with seasons -->
                   <div class="row">
                     <div class="col-xs-12">
@@ -292,8 +292,23 @@ if (!isset($_SESSION['CREATED'])) {
                                   $firstFix = stripslashes($content);
                                   $SecondFix = str_replace("rn","",$firstFix);
                                   echo $SecondFix;
-                      				}
-  							?>
+                      				} 
+                                else {
+                  								
+                                  echo '<table class="table arcTable table-bordered">
+                                          <tbody>
+                                            <tr id="RowFirst">
+                                              <td>
+                                                <h3><b style="background-color: rgb(255, 255, 255);">Animes Arcs</b></h3>
+                                              </td>
+                                              <td>
+                                              <h3><b style="background-color: rgb(255, 255, 255);">Arc - Chapters</b></h3>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>';
+        							          }
+  							           ?>
                       </textarea>
                     </div>
                   </div>
