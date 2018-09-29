@@ -50,20 +50,6 @@ $(document).ready(function () {
              }
           }
         }
-        // else if (numOfEpisodes == 5) {
-        //   console.log('else if statement for deleting');
-        //   // while (count !== numOfEpisodes && count > numOfEpisodes) {
-        //   //    if (count == numOfEpisodes) {
-        //   //       console.log('Stoped deleting');
-        //   //    }
-        //   //    else {
-        //   //      $("#test").remove()
-        //   //      console.log('Posting');
-        //   //      count -= 1;
-        //   //      console.log('variable count: ' + count);
-        //   //    }
-        //   // }
-        // }
     });
 
     $('#arcs').bind('input', function() {
@@ -90,19 +76,5 @@ $(document).ready(function () {
              }
           }
         }
-        // else if (numOfEpisodes == 5) {
-        //   console.log('else if statement for deleting');
-        //   // while (count !== numOfEpisodes && count > numOfEpisodes) {
-        //   //    if (count == numOfEpisodes) {
-        //   //       console.log('Stoped deleting');
-        //   //    }
-        //   //    else {
-        //   //      $("#test").remove()
-        //   //      console.log('Posting');
-        //   //      count -= 1;
-        //   //      console.log('variable count: ' + count);
-        //   //    }
-        //   // }
-        // }
     });
 });
