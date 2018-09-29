@@ -281,8 +281,8 @@ if (!isset($_SESSION['CREATED'])) {
                   <div class="col-md-6 col-xs-12 marginForm">
                      <input type="text" name="bannerCreatorPageLink" value="<?php echo $bannerCreatorPageLink ?>" placeholder="Work page of artist">
                   </div>
-                <div class="col-md-6 col-xs-12 marginForm">
-                     <input id="arcsCenter" type="number" name="arcNumbersCenter" value="<?php echo $numberArcsCenter ?>" placeholder="Total Arcs">
+                <div class="col-xs-12 marginForm">
+                     <input id="arcs" type="number" name="arcNumbersCenter" value="<?php echo $numberArcsCenter ?>" placeholder="Total Arcs">
                   </div>
                             <!-- Change to a list with seasons -->
                   <div class="row">
@@ -293,10 +293,9 @@ if (!isset($_SESSION['CREATED'])) {
                                   $firstFix = stripslashes($content);
                                   $SecondFix = str_replace("rn","",$firstFix);
                                   echo $SecondFix;
-                      				} 
+                      				}
                                 else {
-                  								
-                                  echo '<table class="table arcTable table-bordered">
+                                  echo '</br><table class="table arcTable table-bordered">
                                           <tbody>
                                             <tr id="RowFirst">
                                               <td>
