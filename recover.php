@@ -43,7 +43,7 @@ else {
             <section id="header">
               <h1>Recover</h1>
               <div class="divider"></div>
-              <img src="CSS/images/fullmetal.jpg" alt="Fullmetal"/>
+              <?php include 'INCLUDES/loginRegisterForget_Carousel-inc.php'; ?>
             </section>
 
   					<section id="content">

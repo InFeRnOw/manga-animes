@@ -23,7 +23,7 @@ include 'INCLUDES/dbh-inc.php';
 		<link rel="stylesheet" href="CSS/main.css">
     <script> $(document).ready(function () { $("html").stop().animate({ scrollTop: $("html")[0].scrollHeight}, 1500); }); </script>
 	</head>
-	<body>
+	<body> 
 		<div class="container-fluid">
 			<!-- Header -->
 				<div id="header">
@@ -38,7 +38,7 @@ include 'INCLUDES/dbh-inc.php';
           <section id="header">
             <h1>Forget</h1>
             <div class="divider"></div>
-            <img src="CSS/images/subaru&rem.png" alt="Re:zero"/>
+            <?php include 'INCLUDES/loginRegisterForget_Carousel-inc.php'; ?>
           </section>
 
 					<section id="content">

@@ -46,7 +46,7 @@ if ($_GET['logout']) {
           <section id="header">
             <h1>Login</h1>
             <div class="divider"></div>
-            <img src="CSS/images/charlotte.png" alt="Charlotte"/>
+						<?php include 'INCLUDES/loginRegisterForget_Carousel-inc.php'; ?>
           </section>
 
 					<section id="content">

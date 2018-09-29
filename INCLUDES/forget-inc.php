@@ -38,7 +38,7 @@ Link to reset password: ' . $link . '
 --------------------------------------------------
 This is an automatic mail, please do not respond.';
             mail($destinataire, $sujet, $message, $entete);
-            header("Location: ../login.php?forget=success");
+            header("Location: ../login.php?forget=success"); 
         }
     }
 } //isset($_POST['submit'])

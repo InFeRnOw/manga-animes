@@ -29,7 +29,7 @@
           <section id="header">
             <h1>Sign up</h1>
             <div class="divider"></div>
-            <img src="CSS/images/heroAcademia.jpg" alt="Hero Academia"/>
+            <?php include 'INCLUDES/loginRegisterForget_Carousel-inc.php'; ?>
           </section>
 
 					<section id="content">
