@@ -200,7 +200,8 @@ if (!isset($_SESSION['CREATED'])) {
                       <option <?php if (strpos($genre, "Horror") !== false) { echo "selected"; } ?> value="Horror">Horror</option>
                       <option <?php if (strpos($genre, "Mystery") !== false) { echo "selected"; } ?> value="Mystery">Mystery</option>
                       <option <?php if (strpos($genre, "Psychological") !== false) { echo "selected"; } ?> value="Psychological">Psychological</option>
-                      <option <?php if (strpos($genre, "Romance") !== false) { echo "selected"; } ?> value="Romance">Sci-fi</option>
+                      <option <?php if (strpos($genre, "Romance") !== false) { echo "selected"; } ?> value="Romance">Romance</option>
+                      <option <?php if (strpos($genre, "Sci-fi") !== false) { echo "selected"; } ?> value="Sci-fi">Sci-fi</option>
                       <option <?php if (strpos($genre, "Cyberpunk") !== false) { echo "selected"; } ?> value="Cyberpunk">Cyberpunk</option>
                       <option <?php if (strpos($genre, "Game") !== false) { echo "selected"; } ?> value="Game">Game</option>
                       <option <?php if (strpos($genre, "Ecchi") !== false) { echo "selected"; } ?> value="Ecchi">Ecchi</option>
