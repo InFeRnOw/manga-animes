@@ -98,7 +98,7 @@ if (!isset($_SESSION['CREATED'])) {
 	                            <dl class="unit">
 	                                <dt>Suggestion(s) <span style="color:#ff0000;">*</span></dt>
 	                                <dd>
-	                                <i>Please give as many infos as possible. (500 Characters max)</i> </br>
+	                                <i>Please give as much infos as possible. (500 Characters max)</i> </br>
 	                            		<textarea id="bugText" name="suggestionText" style="width: 100%; resize: vertical; min-height: 150px; border-radius: 5px; box-shadow: 1px 1px 3px #555; border: 1px solid lightgrey;" maxlength="500"></textarea>   </dd>
 	                            </dl>
 														</div>
