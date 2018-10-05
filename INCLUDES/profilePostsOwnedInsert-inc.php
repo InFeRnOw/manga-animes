@@ -23,7 +23,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     $link = $row['p_link'];
     $path = $row['p_img_src'];
     echo '<div class="container col-md-4">
-              <a href="post.php?link=' . $link . '"><img src="uploads/postsimages/postimg' . $path . '.jpg" alt="Snow" style="width:100%; box-shadow: 1px 1px 12px grey; border-radius: 10px; max-width: 624.33px; max-height: 206.36px;"></a>
+              <a href="post.php?link=' . $link . '"><img src="uploads/postsimages/postimg' . $path . '.jpg" alt="Snow" style="width: 100%;box-shadow: 1px 1px 12px grey; border-radius: 10px; max-width: 624.33px; height: 200.36px"></a>
               <a href="post.php?link=' . $link . '">
                 <div class="centered">
                   <div class="col-xs-12" style="overflow: hidden;"><b><h3 style="color: white; background: rgba(0,0,0, 0.75); border-radius: 5px; max-height: 28px; overflow: hidden;">' . $row["p_title"] . '</h3></b></div>
