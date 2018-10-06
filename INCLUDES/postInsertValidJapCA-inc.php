@@ -1,4 +1,4 @@
-l<?php
+<?php
 session_start();
 include 'dbh-inc.php';
 if (!empty($_GET['letter'])) {
