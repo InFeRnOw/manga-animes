@@ -49,9 +49,7 @@ if (!isset($_SESSION['CREATED'])) {
                         <div class="divider"></div>
                             <a href="bug-report.php" class="btn button-link" >Bug Report</a>
                             <a href="suggestions.php" class="btn button-link">Suggestions</a>
-				            <a href="copyright-images.php" class="btn button-link">Images</a>
-                            <a href="report-post.php" class="btn button-link">Post Report</a>
-
+				            				<a href="copyright-images.php" class="btn button-link">Images</a>
            	            <div class="divider"></div>
 											</div>
                     </div>

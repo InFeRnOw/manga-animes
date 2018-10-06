@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
         exit();
     }
     else {
-        $sql = "INSERT INTO postreport (postr_author, postr_email, postr_subject, postr_text, postr_post) VALUES ('$name', '$email', '$subject', '$text', '$postr');";
+        $sql = "INSERT INTO postreport (postr_author, postr_email, postr_subject, postr_text, postr_post) VALUES ('$name', '$email', '$subject', '$text', '$postr')";
         $result = mysqli_query($conn, $sql);
         header("Location: ../report-post.php?report=success");
     }

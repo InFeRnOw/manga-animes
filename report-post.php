@@ -77,12 +77,12 @@ if (!isset($_SESSION['CREATED'])) {
 	                                <dd>
 	                                <input type="text" name="email" size="30" value="<?php echo $_SESSION['u_email']?>" readonly="readonly"/>
 	                                </dd>
-	                            </dl> 
-                                                            
+	                            </dl>
+
                                 <dl class="unit">
 	                             <dt>Post <span style="color:#ff0000;">*</span></dt>
 	                                <dd>
-	                                <input type="text" name="reportPost" size="30" maxlength="64"/>
+	                                <input type="text" name="reportPost" value="<?php echo $_GET['post'] ?>"/>
 	                                </dd>
 	                            </dl>
 														</div>

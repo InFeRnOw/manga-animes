@@ -202,7 +202,7 @@ if (!isset($_SESSION['CREATED'])) {
             	</br>
 
                 <div class="col-xs-12">
-                            <a class="btn button-link" href="report-post.php">Report</a>
+                            <a class="btn button-link" href="report-post.php?post=<?php echo $link ?>">Report</a>
                  </div>
             </div>
 

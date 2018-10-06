@@ -173,7 +173,7 @@ else if (isset($_GET['upload']) || isset($_GET['delete'])) {
         echo "<p style='color: red;'>Image format invalid !</p>";
     } //$uploadCheck == "typeinvalid"
     elseif ($uploadCheck == "toobigfile") {
-        echo "<p style='color: red;'>Image too big (max 10MB) !</p>";
+        echo "<p style='color: red;'>Image too big (max 1MB) !</p>";
     } //$uploadCheck == "typeinvalid"
     elseif ($uploadCheck == "error") {
         echo "<p style='color: red;'>An error occured please try again, if it persists please contact admins or support !</p>";

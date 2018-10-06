@@ -16,6 +16,7 @@ while($row = mysqli_fetch_assoc($result)) {
                   <div class='col-xs-12' style=''><h4><b><u>From</u></b></h4><a class='link' href='profile.php?link=" . $rowGetPf['pf_link'] . "' style='text-decoration: none; color: black;'><h4>" . $user . "</h4></a></div>
                   <div class='col-xs-12'><h4><b><u>Email</u></b></h4><h4>" . $row['postr_email'] . "</h4></div>
                   <div class='col-xs-12'><h4><b><u>Subject</u></b></h4><h4>" . $row['postr_subject'] . "</h4></div>
+                  <div class='col-xs-12'><h4><b><u>link</u></b></h4><h4><a href='post.php?link=". $row['postr_post'] ."'>". $row['postr_post'] ."</a></h4></div>
                   <div class='col-xs-12' style='word-break: break-all;'><h4><b><u>Text</u></b></h4><h4>" . $row['postr_text'] . "</h4></div>
                   <div class='col-xs-12'>
                     <form action='INCLUDES/report-post-inc.php' method='POST'>
