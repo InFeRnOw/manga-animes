@@ -24,6 +24,7 @@ echo '<!-- Logo -->
                   <li><a href="animes-center.php">Animes Center</a></li>
                   <li><a href="alphabetic-order.php">Alphabetic Order</a></li>
                   <li><a href="in-vote.php">In vote</a></li>
+                  <li><a href="currently-airing.php">Currently Airing</a></li>
                 </ul>
               </li>
               <li><a href="news.php">News</a></li>
