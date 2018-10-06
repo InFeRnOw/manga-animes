@@ -244,7 +244,7 @@ if (!isset($_SESSION['CREATED'])) {
                   </div>
                   <div class="row">
                     <div class="col-md-4 col-xs-12 marginForm">
-                      <select class="selectpicker" title="Adaptation" name="adaptation">
+                      <select id="adaptSelect" class="selectpicker" title="Adaptation" name="adaptation">
                          <option <?php echo $seven ?> value="Full adaptation">Adaptation from Manga</option>
                          <option <?php echo $niner ?> value="Light Novel">Adaptation from Light Novel</option>
                          <option <?php echo $eight ?> value="Half adaptation">Half Manga adaptation/Half changed scenario</option>
@@ -285,15 +285,8 @@ if (!isset($_SESSION['CREATED'])) {
                   <div class="col-md-6 col-xs-12 marginForm">
                      <input type="text" name="bannerCreatorPageLink" value="<?php echo $bannerCreatorPageLink ?>" placeholder="Work page of artist">
                   </div>
-                  <div class="col-md-6 col-xs-12 marginForm">
+                  <div class="col-xs-12 marginForm">
                       <input id="arcs" type="number" name="arcNumbersCenter" value="<?php echo $numberArcsCenter ?>" placeholder="Total Arcs">
-                  </div>
-                  <div class="col-md-6 col-xs-12 marginForm">
-                    <select id="adaptSelector" class="selectpicker" title="Adaptation From ..." name="adaptEditor">
-                       <option value="LightNovel">Adapted from light novel</option>
-                       <option value="Manga">Adapted from manga</option>
-                       <option value="Both">Adapted from both</option>
-                    </select>
                   </div>
                             <!-- Change to a list with seasons -->
                   <div class="row">

@@ -28,6 +28,12 @@ $(document).ready(function () {
       else if ( $('#adaptSelector').val() == 'Both' ) both();
     });
 
+    $('#adaptSelect').on('change', function() {
+      if ( $('#adaptSelect').val() == 'Light Novel' ) lightNovel();
+      else if ( $('#adaptSelect').val() == 'Full adaptation' ) manga();
+      else if ( $('#adaptSelect').val() == 'Half adaptation' || 'Not adapted' ) manga();
+    });
+
     var numOfEpisodes = 0;
     var count = 0;
     var arcCount = 0;
