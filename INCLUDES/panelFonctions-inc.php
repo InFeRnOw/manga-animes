@@ -46,7 +46,7 @@ if ($active == 0) {
         </div>";
     }
 } //$active == 0
-if ($active == 1 || $active == 2) {
+if ($active == 1 || $active == 2 || $active == 4) {
     $sql = "SELECT * FROM users WHERE user_id='$id'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);

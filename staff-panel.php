@@ -127,9 +127,10 @@ if (!isset($_SESSION['CREATED'])) {
 									 <div id="inactivePosts" class="divider-with-content"><h1>Inactive posts</h1></div>
 
 									 <?php if (isset($_GET['post'])) {include 'INCLUDES/errors-inc.php';} ?>
+                                     <?php include 'INCLUDES/postInactiveInsert-inc.php'; ?>
                                 </div>
 
-									 <?php include 'INCLUDES/postInactiveInsert-inc.php'; ?>
+									 
 								
 							</div>
 
