@@ -20,7 +20,7 @@ $bannerCreatorPageLink = $_SESSION['SaveTemp_CreatorPage'];
 $imgLink = $row['p_img_src'];
 
 switch ($status) {
-    case 'In progress':
+    case 'Currently Airing':
         $one = 'selected';
         break;
     case 'On break':
@@ -39,6 +39,9 @@ switch ($adaptation) {
         break;
     case 'Not adapted':
         $nine = 'selected';
+        break;
+     case 'Light Novel':
+        $niner = 'selected';
         break;
 }
 switch ($type) {
@@ -161,7 +164,7 @@ if (!isset($_SESSION['CREATED'])) {
                   </div>
                   <div class="col-lg-4 col-md-4 col-xs-12 marginForm">
                     <select class="selectpicker" title="Season status" name="status">
-                      <option <?php echo $one ?> value="In progress">In progress</option>
+                      <option <?php echo $one ?> value="Currently Airing">Currently Airing</option>
                       <option <?php echo $two ?> value="On break">On break</option>
                       <option <?php echo $three ?> value="Ended">Ended</option>
                     </select>
@@ -233,8 +236,9 @@ if (!isset($_SESSION['CREATED'])) {
                   <div class="row">
                     <div class="col-md-4 col-xs-12 marginForm">
                       <select class="selectpicker" title="Adaptation" name="adaptation">
-                         <option <?php echo $seven ?> value="Full adaptation">Full adaptation from manga</option>
-                         <option <?php echo $eight ?> value="Half adaptation">Half manga adaptation/Half changed scenario</option>
+                         <option <?php echo $seven ?> value="Full adaptation">Adaptation from Manga</option>
+                         <option <?php echo $niner ?> value="Light Novel">Adaptation from Light Novel</option>
+                         <option <?php echo $eight ?> value="Half adaptation">Half Manga adaptation/Half changed scenario</option>
                          <option <?php echo $nine ?> value="Not adapted">Not adapted</option>
                       </select>
                     </div>
