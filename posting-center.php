@@ -281,8 +281,15 @@ if (!isset($_SESSION['CREATED'])) {
                   <div class="col-md-6 col-xs-12 marginForm">
                      <input type="text" name="bannerCreatorPageLink" value="<?php echo $bannerCreatorPageLink ?>" placeholder="Work page of artist">
                   </div>
-                <div class="col-xs-12 marginForm">
-                     <input id="arcs" type="number" name="arcNumbersCenter" value="<?php echo $numberArcsCenter ?>" placeholder="Total Arcs">
+                  <div class="col-md-6 col-xs-12 marginForm">
+                      <input id="arcs" type="number" name="arcNumbersCenter" value="<?php echo $numberArcsCenter ?>" placeholder="Total Arcs">
+                  </div>
+                  <div class="col-md-6 col-xs-12 marginForm">
+                    <select id="adaptSelector" class="selectpicker" title="Adaptation From ..." name="adaptEditor">
+                       <option value="LightNovel">Adapted from light novel</option>
+                       <option value="Manga">Adapted from manga</option>
+                       <option value="Both">Adapted from both</option>
+                    </select>
                   </div>
                             <!-- Change to a list with seasons -->
                   <div class="row">
@@ -295,14 +302,15 @@ if (!isset($_SESSION['CREATED'])) {
                                   echo $SecondFix;
                       				}
                                 else {
-                                  echo '</br><table class="table arcTable table-bordered">
+                                  echo '</br>
+                                        <table class="table arcTable table-bordered">
                                           <tbody>
                                             <tr id="RowFirst">
                                               <td>
-                                                <h3><b style="background-color: rgb(255, 255, 255);">Animes Arcs</b></h3>
+                                                <h3><b style="background-color: rgb(255, 255, 255);">Animes Arcs/Volumes</b></h3>
                                               </td>
                                               <td>
-                                              <h3><b style="background-color: rgb(255, 255, 255);">Arc - Chapters</b></h3>
+                                                <h3><b style="background-color: rgb(255, 255, 255);">Arcs/Volumes - Chapters</b></h3>
                                               </td>
                                             </tr>
                                           </tbody>
