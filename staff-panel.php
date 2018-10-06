@@ -117,13 +117,20 @@ if (!isset($_SESSION['CREATED'])) {
 									<?php include 'INCLUDES/suggestionsInsert-inc.php'; ?>
 
 								</div>
+                                <div class="col-xs-12">
+									<div id="postReports" class="divider-with-content"><h1>Post Reports</h1></div>
+
+									<?php include 'INCLUDES/report-postInsert-inc.php'; ?>
+
+								</div>
 								<div class="col-xs-12">
 									 <div id="inactivePosts" class="divider-with-content"><h1>Inactive posts</h1></div>
 
 									 <?php if (isset($_GET['post'])) {include 'INCLUDES/errors-inc.php';} ?>
+                                </div>
 
 									 <?php include 'INCLUDES/postInactiveInsert-inc.php'; ?>
-								</div>
+								
 							</div>
 
 						</div>
