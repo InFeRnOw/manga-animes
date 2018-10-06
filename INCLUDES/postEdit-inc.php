@@ -35,6 +35,84 @@ if (isset($_POST['submit'])) {
         saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
         header("Location: ../posting.php?edit=blank&link=$pageLink");
     } //empty($title) || empty($status) || empty($type) || empty($titleEn) || empty($newGenre) || empty($statusManga) || empty($content) || empty($season) || empty($episodes) || empty($adaptation)
+    elseif ($status !== "Currently Airing") {
+        $pageLinkTitle = str_replace(" ", "_", $title);
+        $pageLinkSeason = "_" . $season;
+        $pageLinkStatus = "_in-vote";
+        $newLink = $pageLinkTitle . $pageLinkSeason . $pageLinkStatus;
+        if (!empty($imgKeep) && $fileSize == 0) {
+            $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_studio='$studio', p_season='$season', p_episodes='$episodes', p_adaptation='$adaptation', p_img_src='$imgKeep', p_linkmyanime='$linkMyAnime', p_lastedited='$uid', p_active=0, p_link='$newLink', p_imgcreditsname='$creator', p_imgcreditslink='$creatorPage' WHERE p_link='$pageLink'";
+            $result = mysqli_query($conn, $sql);
+            saveData('', '', '', '', '', '', '', '', '', '', '', '', '');
+            header("Location: ../post.php?posting=success&link=$newLink");
+        }
+        elseif (in_array($fileActualExt, $allowed)) {
+            if ($fileError === 0) {
+                if ($fileSize < 1250000) {
+                    $fileNameNew = "postimg" . $pageLink . "." . $fileActualExt;
+                    $fileNameOld = "postimg" . $pageLink . "." . $allowed;
+                    $fileDestination = '../uploads/postsimages/' . $fileNameNew;
+                    if (move_uploaded_file($fileTmpName, $fileDestination)) {
+                        $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_studio='$studio', p_season='$season', p_episodes='$episodes', p_adaptation='$adaptation', p_img_src='$pageLink', p_linkmyanime='$linkMyAnime', p_lastedited='$uid', p_active=0, p_link='$newLink', p_imgcreditsname='$creator', p_imgcreditslink='$creatorPage' WHERE p_link='$pageLink'";
+                        $result = mysqli_query($conn, $sql);
+                        saveData('', '', '', '', '', '', '', '', '', '', '', '', '');
+                        header("Location: ../post.php?posting=success&link=$pageLink");
+                    } //move_uploaded_file($fileTmpName, $fileDestination)
+                    else {
+                        saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+                        header("Location: ../posting.php?edit&upload=failed&link=$pageLink");
+                    }
+                } //$fileSize < 1250000
+                else {
+                    saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+                    header("Location: ../posting.php?edit&upload=toobigfile&link=$pageLink");
+                }
+            } //$fileError === 0
+            else {
+                saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+                header("Location: ../posting.php?edit&upload=error&link=$pageLink");
+            }
+        } //in_array($fileActualExt, $allowed)
+    }
+    elseif ($status == "Currently Airing") {
+        $pageLinkTitle = str_replace(" ", "_", $title);
+        $pageLinkSeason = "_" . $season;
+        $pageLinkStatus = "_currently-airing";
+        $newLink = $pageLinkTitle . $pageLinkSeason . $pageLinkStatus;
+        if (!empty($imgKeep) && $fileSize == 0) {
+            $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_studio='$studio', p_season='$season', p_episodes='$episodes', p_adaptation='$adaptation', p_img_src='$imgKeep', p_linkmyanime='$linkMyAnime', p_lastedited='$uid', p_active=4, p_link='$newLink', p_imgcreditsname='$creator', p_imgcreditslink='$creatorPage' WHERE p_link='$pageLink'";
+            $result = mysqli_query($conn, $sql);
+            saveData('', '', '', '', '', '', '', '', '', '', '', '', '');
+            header("Location: ../post.php?posting=success&link=$newLink");
+        }
+        elseif (in_array($fileActualExt, $allowed)) {
+            if ($fileError === 0) {
+                if ($fileSize < 1250000) {
+                    $fileNameNew = "postimg" . $pageLink . "." . $fileActualExt;
+                    $fileNameOld = "postimg" . $pageLink . "." . $allowed;
+                    $fileDestination = '../uploads/postsimages/' . $fileNameNew;
+                    if (move_uploaded_file($fileTmpName, $fileDestination)) {
+                        $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_studio='$studio', p_season='$season', p_episodes='$episodes', p_adaptation='$adaptation', p_img_src='$pageLink', p_linkmyanime='$linkMyAnime', p_lastedited='$uid', p_active=4, p_link='$newLink', p_imgcreditsname='$creator', p_imgcreditslink='$creatorPage' WHERE p_link='$pageLink'";
+                        $result = mysqli_query($conn, $sql);
+                        saveData('', '', '', '', '', '', '', '', '', '', '', '', '');
+                        header("Location: ../post.php?posting=success&link=$pageLink");
+                    } //move_uploaded_file($fileTmpName, $fileDestination)
+                    else {
+                        saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+                        header("Location: ../posting.php?edit&upload=failed&link=$pageLink");
+                    }
+                } //$fileSize < 1250000
+                else {
+                    saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+                    header("Location: ../posting.php?edit&upload=toobigfile&link=$pageLink");
+                }
+            } //$fileError === 0
+            else {
+                saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+                header("Location: ../posting.php?edit&upload=error&link=$pageLink");
+            }
+        } //in_array($fileActualExt, $allowed)
+    }
     else {
         // $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_statusmanga='$statusManga', p_season='$season', p_episodes='$episodes', p_adaptation='$adaptation', p_img_src='$pageLink' WHERE p_link='$pageLink';";
         // $result = mysqli_query($conn, $sql);
