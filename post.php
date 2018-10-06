@@ -149,8 +149,8 @@ if (!isset($_SESSION['CREATED'])) {
 
             <?php echo '<img class="img-responsive center-block" src="uploads/postsimages/postimg'.$path.'.jpg?'.filemtime('uploads/postsimages/postimg'.$path.'.jpg').'">' ?>
 
-						<div class="row">
             	</br>
+        <div class="row">
               <div class="col-md-6 col-xs-12">
 								<p>
 									<?php if ($imgCreditsName !== '') {
@@ -175,7 +175,6 @@ if (!isset($_SESSION['CREATED'])) {
 						</div>
                 </br>
 
-            <div class="row">
 							</br>
 							<div class="col-xs-6">
 								<p>
@@ -201,6 +200,10 @@ if (!isset($_SESSION['CREATED'])) {
 									</p>
 								</div>
             	</br>
+
+                <div class="col-xs-12">
+                            <a class="btn button-link" href="report-post.php">Report</a>
+                 </div>
             </div>
 
           </br>
