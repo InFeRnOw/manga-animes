@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once 'INCLUDES/dbh-inc.php';
+
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
 	// last request was more than 30 minutes ago
 	session_unset();     // unset $_SESSION variable for the run-time
@@ -159,7 +160,8 @@ switch ($_GET['letter']) {
 
         <div id="page">
           <section id="header">
-            <h2>Currently Airing</h2>
+            <h2>In vote</h2>
+						<?php include 'INCLUDES/errors-inc.php' ?>
             <?php if(!isset($_SESSION['u_id'])) {
                     echo '<p style="color: red;">Login, in order to do a new post !</p>';
                   }?>
@@ -220,10 +222,10 @@ switch ($_GET['letter']) {
 					<section id="content">
 						<div class="container-fluid">
               <?php if ($_GET['lang'] == 'en') {
-                      include 'INCLUDES/postInsertValidEnCA-inc.php';
+                      include 'INCLUDES/postInsertInvalidEnCA-inc.php';
                     }
                     else {
-                      include 'INCLUDES/postInsertValidJapCA-inc.php';
+                      include 'INCLUDES/postInsertInvalidJapCA-inc.php';
                     }?>
 						</div>
 					</section>
