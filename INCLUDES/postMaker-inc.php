@@ -29,14 +29,47 @@ if (isset($_POST['submit'])) {
 
     $genre = $_POST['genre'];
     $newGenre = implode(", ", $genre);
-    $pageLinkFirstPart = uniqid('post', TRUE);
-    $pageLinkSecondPart = uniqid('in-vote', TRUE);
-    $pageLink = $pageLinkFirstPart . $pageLinkSecondPart;
     if (empty($title) || empty($status) || empty($type) || empty($titleEn) || empty($newGenre) || empty($studio) || empty($content) || empty($season) || empty($episodes) || empty($adaptation) || empty($linkMyAnime)) {
         saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
         header("Location: ../posting.php?posting=blank");
     } //empty($title) || empty($status) || empty($type) || empty($titleEn) || empty($newGenre) || empty($statusManga) || empty($content) || empty($season) || empty($episodes) || empty($adaptation)
+    
+    elseif ($status=="Currently Airing") {
+        $pageLinkFirstPart = uniqid('post', TRUE);
+        $pageLinkSecondPart = uniqid('currently-airing', TRUE);
+        $pageLink = $pageLinkFirstPart . $pageLinkSecondPart;
+        if (in_array($fileActualExt, $allowed)) {
+            if ($fileError === 0) {
+                if ($fileSize < 1250000) {
+                    $fileNameNew = "postimg" . $pageLink . "." . $fileActualExt;
+                    $fileNameOld = "postimg" . $pageLink . "." . $allowed;
+                    $fileDestination = '../uploads/postsimages/' . $fileNameNew;
+                    if (move_uploaded_file($fileTmpName, $fileDestination)) {
+                        $sql = "INSERT INTO posts (p_user, p_title, p_status, p_type, p_content, p_link, p_titleen, p_genre, p_active, p_studio, p_season, p_episodes, p_adaptation, p_img_src, p_img_status, p_linkmyanime, p_imgcreditsname, p_imgcreditslink) VALUES ('$uid', '$title', '$status', '$type', '$content', '$pageLink', '$titleEn', '$newGenre', '4', '$studio', '$season', '$episodes', '$adaptation', '$pageLink', 'true', '$linkMyAnime', '$creator', '$creatorPage');";
+                        $result = mysqli_query($conn, $sql);
+                        saveData('', '', '', '', '', '', '', '', '', '', '', '', '');
+                        header("Location: ../post.php?posting=success&link=$pageLink");
+                    } //move_uploaded_file($fileTmpName, $fileDestination)
+                    else {
+                        saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+                        header("Location: ../posting.php?upload=failed");
+                    }
+                } //$fileSize < 1250000
+                else {
+                    saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+                    header("Location: ../posting.php?upload=toobigfile");
+                }
+            } //$fileError === 0
+            else {
+                saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+                header("Location: ../posting.php?upload=error");
+            }
+        }
+    }
     else {
+        $pageLinkFirstPart = uniqid('post', TRUE);
+        $pageLinkSecondPart = uniqid('in-vote', TRUE);
+        $pageLink = $pageLinkFirstPart . $pageLinkSecondPart;
         // $sql = "INSERT INTO posts (p_user, p_title, p_status, p_type, p_content, p_link, p_titleen, p_genre, p_statusmanga, p_season, p_episodes, p_adaptation, p_img_src, p_img_status) VALUES ('$uid', '$title', '$status', '$type', '$content', '$pageLink', '$titleEn', '$newGenre', '$statusManga', '$season', '$episodes', '$adaptation', '$pageLink', 'true');";
         // $result = mysqli_query($conn, $sql);
         //
