@@ -23,7 +23,7 @@ $episodes = $rowVarPosts['p_episodes'];
 $linkMyAnime = $rowVarPosts['p_linkmyanime'];
 $lastUserToEdit = $rowVarPosts['p_lastedited'];
 
-if ($active == 0) {
+if ($active == 0 || $active == 5) {
     $sql = "SELECT * FROM users WHERE user_id='$id'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
@@ -46,7 +46,7 @@ if ($active == 0) {
         </div>";
     }
 } //$active == 0
-if ($active == 1 || $active == 2 || $active == 4) {
+if ($active == 1 || $active == 2) {
     $sql = "SELECT * FROM users WHERE user_id='$id'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);

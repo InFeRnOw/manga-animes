@@ -80,7 +80,7 @@ if (isset($_POST['submit'])) {
         $pageLinkStatus = "_currently-airing";
         $newLink = $pageLinkTitle . $pageLinkSeason . $pageLinkStatus;
         if (!empty($imgKeep) && $fileSize == 0) {
-            $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_studio='$studio', p_season='$season', p_episodes='$episodes', p_adaptation='$adaptation', p_img_src='$imgKeep', p_linkmyanime='$linkMyAnime', p_lastedited='$uid', p_active=4, p_link='$newLink', p_imgcreditsname='$creator', p_imgcreditslink='$creatorPage' WHERE p_link='$pageLink'";
+            $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_studio='$studio', p_season='$season', p_episodes='$episodes', p_adaptation='$adaptation', p_img_src='$imgKeep', p_linkmyanime='$linkMyAnime', p_lastedited='$uid', p_active=5, p_link='$newLink', p_imgcreditsname='$creator', p_imgcreditslink='$creatorPage' WHERE p_link='$pageLink'";
             $result = mysqli_query($conn, $sql);
             saveData('', '', '', '', '', '', '', '', '', '', '', '', '');
             header("Location: ../post.php?posting=success&link=$newLink");
