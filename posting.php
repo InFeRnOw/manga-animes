@@ -17,6 +17,7 @@ $linkMyAnime = $_SESSION['SaveTemp_linkMyAnime'];
 $genre = $_SESSION['SaveTemp_genre'];
 $bannerCreator = $_SESSION['SaveTemp_Creator'];
 $bannerCreatorPageLink = $_SESSION['SaveTemp_CreatorPage'];
+$arcs = $_SESSION['SaveTemp_Arcs'];
 $imgLink = $row['p_img_src'];
 
 switch ($status) {
@@ -287,7 +288,7 @@ if (!isset($_SESSION['CREATED'])) {
                                       </select>
                                     </div>
                                     <div class="col-xs-12 marginForm">
-                                      <input id="arcs" type="number" name="arcNumbers" value="<?php echo $arcs ?>" placeholder="Number of arcs">
+                                      <input id="arcs" type="number" name="arcNumbers" value="'.$arcs.'" placeholder="Number of arcs">
                                     </div>';
                           }
                           else {

@@ -26,14 +26,15 @@ if (isset($_POST['submit'])) {
     $linkMyAnime = mysqli_real_escape_string($conn, $_POST['linkMyAnime']);
     $creator = mysqli_real_escape_string($conn, $_POST['bannerCreator']);
     $creatorPage = mysqli_real_escape_string($conn, $_POST['bannerCreatorPageLink']);
+    $arcNumbers = mysqli_real_escape_string($conn, $_POST['arcNumbers']);
 
     $genre = $_POST['genre'];
     $newGenre = implode(", ", $genre);
     if (empty($title) || empty($status) || empty($type) || empty($titleEn) || empty($newGenre) || empty($studio) || empty($content) || empty($season) || empty($episodes) || empty($adaptation) || empty($linkMyAnime)) {
-        saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+        saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage, $arcNumbers);
         header("Location: ../posting.php?posting=blank");
     } //empty($title) || empty($status) || empty($type) || empty($titleEn) || empty($newGenre) || empty($statusManga) || empty($content) || empty($season) || empty($episodes) || empty($adaptation)
-    
+
     elseif ($status=="Currently Airing") {
         $pageLinkFirstPart = uniqid('post', TRUE);
         $pageLinkSecondPart = uniqid('currently-airing', TRUE);
@@ -51,17 +52,17 @@ if (isset($_POST['submit'])) {
                         header("Location: ../post.php?posting=success&link=$pageLink");
                     } //move_uploaded_file($fileTmpName, $fileDestination)
                     else {
-                        saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+                        saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage, $arcNumbers);
                         header("Location: ../posting.php?upload=failed");
                     }
                 } //$fileSize < 1250000
                 else {
-                    saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+                    saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage, $arcNumbers);
                     header("Location: ../posting.php?upload=toobigfile");
                 }
             } //$fileError === 0
             else {
-                saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+                saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage, $arcNumbers);
                 header("Location: ../posting.php?upload=error");
             }
         }
@@ -89,28 +90,28 @@ if (isset($_POST['submit'])) {
                         header("Location: ../post.php?posting=success&link=$pageLink");
                     } //move_uploaded_file($fileTmpName, $fileDestination)
                     else {
-                        saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+                        saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage, $arcNumbers);
                         header("Location: ../posting.php?upload=failed");
                     }
                 } //$fileSize < 1250000
                 else {
-                    saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+                    saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage, $arcNumbers);
                     header("Location: ../posting.php?upload=toobigfile");
                 }
             } //$fileError === 0
             else {
-                saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+                saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage, $arcNumbers);
                 header("Location: ../posting.php?upload=error");
             }
         } //in_array($fileActualExt, $allowed)
         else {
-            saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage);
+            saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage, $arcNumbers);
             header("Location: ../posting.php?upload=invalidtype");
         }
     }
 } //isset($_POST['submit'])
 
-function saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage) {
+function saveData($content, $title, $titleEn, $season, $episodes, $status, $studio, $adaptation, $type, $linkMyAnime, $newGenre, $creator, $creatorPage, $arcNumbers) {
     $_SESSION['contentTemp'] = $content;
     $_SESSION['SaveTemp_title'] = $title;
     $_SESSION['SaveTemp_titleEn'] = $titleEn;
@@ -124,4 +125,5 @@ function saveData($content, $title, $titleEn, $season, $episodes, $status, $stud
     $_SESSION['SaveTemp_genre'] = $newGenre;
     $_SESSION['SaveTemp_Creator'] = $creator;
     $_SESSION['SaveTemp_CreatorPage'] = $creatorPage;
+    $_SESSION['SaveTemp_Arcs'] = $arcNumbers;
 }
