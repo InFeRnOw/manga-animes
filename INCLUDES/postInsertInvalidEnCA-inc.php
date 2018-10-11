@@ -3,12 +3,12 @@ session_start();
 include 'dbh-inc.php';
 if (!empty($_GET['letter'])) {
     $letter = $_GET['letter'];
-    $sql = "SELECT * FROM posts WHERE p_active=4 AND p_titleen LIKE '$letter%'";
+    $sql = "SELECT * FROM posts WHERE p_active=5 AND p_titleen LIKE '$letter%'";
     $result = mysqli_query($conn, $sql);
     display($result);
 } //!empty($_GET['letter'])
 else {
-    $sql = "SELECT * FROM posts WHERE p_active = 4 ORDER BY p_title ASC";
+    $sql = "SELECT * FROM posts WHERE p_active = 5 ORDER BY p_title ASC";
     $result = mysqli_query($conn, $sql);
     display($result);
 }
