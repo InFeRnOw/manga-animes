@@ -167,6 +167,9 @@ else if (isset($_POST['edit'])) {
         header("Location: ../posting.php?edit&link=$post");
     }
 } //isset($_POST['edit'])
+
+//STAFF PANEL
+
 else if (isset($_POST['deletePostPerm'])) {
     $postLink = mysqli_real_escape_string($conn, $_POST['postLink']);
     $file = "uploads/postsimages/postimg" . $postLink . ".jpg";
