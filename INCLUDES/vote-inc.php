@@ -129,7 +129,7 @@ else if (isset($_POST['edit'])) {
     $sqlCheck = "SELECT * FROM posts WHERE p_link='$post'";
     $resultCheck = mysqli_query($conn, $sqlCheck);
     $rowCheck = mysqli_fetch_assoc($resultCheck);
-    if ($rowCheck['p_seasoncenter'] > 0 && $rowCheck['p_episodescenter'] > 0) {
+    if ($rowCheck['p_seasoncenter'] !== '' && $rowCheck['p_episodescenter'] !== '') {
         $sql = "SELECT * FROM posts WHERE p_link='$post'";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);

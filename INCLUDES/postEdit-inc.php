@@ -43,7 +43,7 @@ if (isset($_POST['submit'])) {
         if (!empty($imgKeep) && $fileSize == 0) {
             $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_studio='$studio', p_season='$season', p_episodes='$episodes', p_adaptation='$adaptation', p_img_src='$imgKeep', p_linkmyanime='$linkMyAnime', p_lastedited='$uid', p_active=0, p_link='$newLink', p_imgcreditsname='$creator', p_imgcreditslink='$creatorPage' WHERE p_link='$pageLink'";
             $result = mysqli_query($conn, $sql);
-            saveData('', '', '', '', '', '', '', '', '', '', '', '', '');
+            saveData('', '', '', '', '', '', '', '', '', '', '', '', '', '');
             header("Location: ../post.php?posting=success&link=$newLink");
         }
         elseif (in_array($fileActualExt, $allowed)) {
@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
                     if (move_uploaded_file($fileTmpName, $fileDestination)) {
                         $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_studio='$studio', p_season='$season', p_episodes='$episodes', p_adaptation='$adaptation', p_img_src='$pageLink', p_linkmyanime='$linkMyAnime', p_lastedited='$uid', p_active=0, p_link='$newLink', p_imgcreditsname='$creator', p_imgcreditslink='$creatorPage' WHERE p_link='$pageLink'";
                         $result = mysqli_query($conn, $sql);
-                        saveData('', '', '', '', '', '', '', '', '', '', '', '', '');
+                        saveData('', '', '', '', '', '', '', '', '', '', '', '', '', '');
                         header("Location: ../post.php?posting=success&link=$pageLink");
                     } //move_uploaded_file($fileTmpName, $fileDestination)
                     else {
@@ -82,7 +82,7 @@ if (isset($_POST['submit'])) {
         if (!empty($imgKeep) && $fileSize == 0) {
             $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_studio='$studio', p_season='$season', p_episodes='$episodes', p_adaptation='$adaptation', p_img_src='$imgKeep', p_linkmyanime='$linkMyAnime', p_lastedited='$uid', p_active=5, p_link='$newLink', p_imgcreditsname='$creator', p_imgcreditslink='$creatorPage' WHERE p_link='$pageLink'";
             $result = mysqli_query($conn, $sql);
-            saveData('', '', '', '', '', '', '', '', '', '', '', '', '');
+            saveData('', '', '', '', '', '', '', '', '', '', '', '', '', '');
             header("Location: ../post.php?posting=success&link=$newLink");
         }
         elseif (in_array($fileActualExt, $allowed)) {
@@ -94,7 +94,7 @@ if (isset($_POST['submit'])) {
                     if (move_uploaded_file($fileTmpName, $fileDestination)) {
                         $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_studio='$studio', p_season='$season', p_episodes='$episodes', p_adaptation='$adaptation', p_img_src='$pageLink', p_linkmyanime='$linkMyAnime', p_lastedited='$uid', p_active=4, p_link='$newLink', p_imgcreditsname='$creator', p_imgcreditslink='$creatorPage' WHERE p_link='$pageLink'";
                         $result = mysqli_query($conn, $sql);
-                        saveData('', '', '', '', '', '', '', '', '', '', '', '', '');
+                        saveData('', '', '', '', '', '', '', '', '', '', '', '', '', '');
                         header("Location: ../post.php?posting=success&link=$pageLink");
                     } //move_uploaded_file($fileTmpName, $fileDestination)
                     else {
@@ -121,7 +121,7 @@ if (isset($_POST['submit'])) {
         if (!empty($imgKeep) && $fileSize == 0) {
             $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_studio='$studio', p_season='$season', p_episodes='$episodes', p_adaptation='$adaptation', p_img_src='$imgKeep', p_linkmyanime='$linkMyAnime', p_lastedited='$uid', p_imgcreditsname='$creator', p_imgcreditslink='$creatorPage' WHERE p_link='$pageLink'";
             $result = mysqli_query($conn, $sql);
-            saveData('', '', '', '', '', '', '', '', '', '', '', '', '');
+            saveData('', '', '', '', '', '', '', '', '', '', '', '', '', '');
             header("Location: ../post.php?posting=success&link=$pageLink");
         }
         elseif (in_array($fileActualExt, $allowed)) {
@@ -133,7 +133,7 @@ if (isset($_POST['submit'])) {
                     if (move_uploaded_file($fileTmpName, $fileDestination)) {
                         $sql = "UPDATE posts SET p_title='$title', p_status='$status', p_type='$type', p_content='$content', p_titleen='$titleEn', p_genre='$newGenre', p_studio='$studio', p_season='$season', p_episodes='$episodes', p_adaptation='$adaptation', p_img_src='$pageLink', p_linkmyanime='$linkMyAnime', p_lastedited='$uid', p_imgcreditsname='$creator', p_imgcreditslink='$creatorPage' WHERE p_link='$pageLink'";
                         $result = mysqli_query($conn, $sql);
-                        saveData('', '', '', '', '', '', '', '', '', '', '', '', '');
+                        saveData('', '', '', '', '', '', '', '', '', '', '', '', '', '');
                         header("Location: ../post.php?posting=success&link=$pageLink");
                     } //move_uploaded_file($fileTmpName, $fileDestination)
                     else {

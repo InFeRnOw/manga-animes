@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
                     if (move_uploaded_file($fileTmpName, $fileDestination)) {
                         $sql = "INSERT INTO posts (p_user, p_title, p_status, p_type, p_content, p_link, p_titleen, p_genre, p_active, p_studio, p_season, p_episodes, p_adaptation, p_img_src, p_img_status, p_linkmyanime, p_imgcreditsname, p_imgcreditslink) VALUES ('$uid', '$title', '$status', '$type', '$content', '$pageLink', '$titleEn', '$newGenre', '5', '$studio', '$season', '$episodes', '$adaptation', '$pageLink', 'true', '$linkMyAnime', '$creator', '$creatorPage');";
                         $result = mysqli_query($conn, $sql);
-                        saveData('', '', '', '', '', '', '', '', '', '', '', '', '');
+                        saveData('', '', '', '', '', '', '', '', '', '', '', '', '', '');
                         header("Location: ../post.php?posting=success&link=$pageLink");
                     } //move_uploaded_file($fileTmpName, $fileDestination)
                     else {
@@ -86,7 +86,7 @@ if (isset($_POST['submit'])) {
                     if (move_uploaded_file($fileTmpName, $fileDestination)) {
                         $sql = "INSERT INTO posts (p_user, p_title, p_status, p_type, p_content, p_link, p_titleen, p_genre, p_active, p_studio, p_season, p_episodes, p_adaptation, p_img_src, p_img_status, p_linkmyanime, p_imgcreditsname, p_imgcreditslink) VALUES ('$uid', '$title', '$status', '$type', '$content', '$pageLink', '$titleEn', '$newGenre', '0', '$studio', '$season', '$episodes', '$adaptation', '$pageLink', 'true', '$linkMyAnime', '$creator', '$creatorPage');";
                         $result = mysqli_query($conn, $sql);
-                        saveData('', '', '', '', '', '', '', '', '', '', '', '', '');
+                        saveData('', '', '', '', '', '', '', '', '', '', '', '', '', '');
                         header("Location: ../post.php?posting=success&link=$pageLink");
                     } //move_uploaded_file($fileTmpName, $fileDestination)
                     else {

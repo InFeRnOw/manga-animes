@@ -1,6 +1,10 @@
 <?php
 session_start();
 include 'INCLUDES/dbh-inc.php';
+$sql = "SELECT * FROM tutorial WHERE t_id = 1";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+$content = $row['t_content'];
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
 	// last request was more than 30 minutes ago
 	session_unset();     // unset $_SESSION variable for the run-time
@@ -47,36 +51,35 @@ if (!isset($_SESSION['CREATED'])) {
 
 			<div id="page">
 				<section id="post">
-				
-                
-                    
-          	<?php if (isset($_SESSION['u_id'])) {
-								  $id = $_SESSION['u_id'];
-			                      $sql = "SELECT * FROM users WHERE user_id='$id'";
-			                      $result = mysqli_query($conn, $sql);
-			                      $row = mysqli_fetch_assoc($result);
-			                      if($row['rank'] <= 2 && isset($_SESSION['u_id'])) {
-				                      $_SESSION['link'] = $link;
-				                      echo "<div class='divider-with-content'>
-				                              <h1>Tutorial!</h1>
-											  <button class='btn btn-basic' type='button'><a class='link' href='tutorialPost.php'>Edit</a></button>
-				                            </div>";
-			                      }
-								  else {
-									  echo "<div class='divider-with-content'><h1>Tutorial!</h1></div>";
-								  }
 
-							  }
-							  else {
-								  echo "<div class='divider-with-content'><h1>Tutorial!</h1></div>";
-							  }?>
+
+
+          	<?php if (isset($_SESSION['u_id'])) {
+					  					$id = $_SESSION['u_id'];
+                      $sql = "SELECT * FROM users WHERE user_id='$id'";
+                      $result = mysqli_query($conn, $sql);
+                      $row = mysqli_fetch_assoc($result);
+                      if($row['rank'] <= 2 && isset($_SESSION['u_id'])) {
+		                      $_SESSION['link'] = $link;
+		                      echo "<div class='divider-with-content'>
+		                              <h1>Tutorial!</h1>
+									  							<button class='btn btn-basic' type='button'><a class='link' href='tutorialPost.php'>Edit</a></button>
+		                            </div>";
+                      }
+										  else {
+											  	echo "<div class='divider-with-content'><h1>Tutorial!</h1></div>";
+										  }
+							  	}
+							  	else {
+								  		echo "<div class='divider-with-content'><h1>Tutorial!</h1></div>";
+							  	}?>
 
               <?php echo $content ?>
 
-            
-                                        
+
+
 					</section>
-                    
+
 				</div>
 
       <!-- Footer -->

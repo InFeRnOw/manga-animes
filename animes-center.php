@@ -28,6 +28,7 @@ $_SESSION['SaveTemp_linkMyAnime'] = '';
 $_SESSION['SaveTemp_genre'] = '';
 $_SESSION['SaveTemp_Creator'] = '';
 $_SESSION['SaveTemp_CreatorPage'] = '';
+$_SESSION['SaveTemp_NumberArcsCenter'] = '';
 
 switch ($_GET['lang']) {
     case 'jap':
