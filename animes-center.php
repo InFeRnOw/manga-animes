@@ -220,10 +220,12 @@ switch ($_GET['letter']) {
                         <!-- To modify -->
 
               <?php if ($_GET['lang'] == 'en') {
-                      include 'INCLUDES/postInsertAnime-centerEn-inc.php';
+												include 'INCLUDES/postInsert-inc.php';
+												insertAnimeEn(2);
                     }
                     else {
-                      include 'INCLUDES/postInsertAnime-centerJap-inc.php';
+												include 'INCLUDES/postInsert-inc.php';
+												insertAnimeJap(2);
                     }?>
 						</div>
 					</section>

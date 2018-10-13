@@ -222,10 +222,12 @@ switch ($_GET['letter']) {
 					<section id="content">
 						<div class="container-fluid">
               <?php if ($_GET['lang'] == 'en') {
-                      include 'INCLUDES/postInsertInvalidEnCA-inc.php';
+	                      include 'INCLUDES/postInsert-inc.php';
+												insertEn(5);
                     }
                     else {
-                      include 'INCLUDES/postInsertInvalidJapCA-inc.php';
+												include 'INCLUDES/postInsert-inc.php';
+	                      insertJap(5);
                     }?>
 						</div>
 					</section>
