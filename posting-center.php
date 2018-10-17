@@ -18,7 +18,7 @@ $genre = $_SESSION['SaveTemp_genre'];
 $bannerCreator = $_SESSION['SaveTemp_Creator'];
 $bannerCreatorPageLink = $_SESSION['SaveTemp_CreatorPage'];
 $imgLink = $row['p_img_src'];
-$numberArcsCenter = $_SESSION['SaveTemp_ArcsCenter'];
+$numberArcsCenter = $_SESSION['SaveTemp_NumberArcsCenter'];
 
 switch ($status) {
     case 'Currently Airing':

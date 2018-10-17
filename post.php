@@ -30,6 +30,7 @@ if ($rowCheck['p_seasoncenter'] > 0 && $rowCheck['p_episodescenter'] > 0) {
 	$path = $rowVarPosts['p_img_src'];
 	$imgCreditsName = $rowVarPosts['p_imgcreditsname'];
 	$imgCreditsLink = $rowVarPosts['p_imgcreditslink'];
+	$Arcs = $rowVarPosts['p_arcsCenter'];
 }
 else {
 	$sqlVarPosts = "SELECT * FROM posts WHERE p_link = '$link'";

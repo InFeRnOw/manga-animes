@@ -145,6 +145,7 @@ else if (isset($_POST['edit'])) {
         $_SESSION['SaveTemp_genre'] = $row['p_genre'];
         $_SESSION['SaveTemp_Creator'] = $row['p_imgcreditsname'];
         $_SESSION['SaveTemp_CreatorPage'] = $row['p_imgcreditslink'];
+        $_SESSION['SaveTemp_NumberArcsCenter'] = $row['p_arcsCenter'];
         header("Location: ../posting-center.php?edit&link=$post");
     }
     else {
