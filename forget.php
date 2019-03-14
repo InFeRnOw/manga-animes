@@ -23,7 +23,7 @@ include 'INCLUDES/dbh-inc.php';
 		<link rel="stylesheet" href="CSS/main.css">
     <script> $(document).ready(function () { $("html").stop().animate({ scrollTop: $("html")[0].scrollHeight}, 1500); }); </script>
 	</head>
-	<body> 
+	<body>
 		<div class="container-fluid">
 			<!-- Header -->
 				<div id="header">

@@ -44,6 +44,12 @@ if (!isset($_SESSION['CREATED'])) {
       <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 		<link rel="stylesheet" href="CSS/main.css">
+    <script>
+    $(document).ready(function() {
+     $('.selectpicker').selectpicker();
+     $('#summernote').summernote();
+    });
+    </script>
 	</head>
 	<body>
     <div class="container-fluid">
