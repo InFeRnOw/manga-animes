@@ -47,18 +47,36 @@ if (!isset($_SESSION['CREATED'])) {
 
 			<div id="page">
 				<section id="post">
-					<div class="divider-with-content"><h1>Tutorial!</h1></div>
+				
                 
                     
-            <h2>How can I do a new post?</h2>
-            <p></p>
-                    
-            <h2>How does "In Vote" Section works?</h2>
-            <p></p>
-                    
+          	<?php if (isset($_SESSION['u_id'])) {
+								  $id = $_SESSION['u_id'];
+			                      $sql = "SELECT * FROM users WHERE user_id='$id'";
+			                      $result = mysqli_query($conn, $sql);
+			                      $row = mysqli_fetch_assoc($result);
+			                      if($row['rank'] <= 2 && isset($_SESSION['u_id'])) {
+				                      $_SESSION['link'] = $link;
+				                      echo "<div class='divider-with-content'>
+				                              <h1>Tutorial!</h1>
+											  <button class='btn btn-basic' type='button'><a class='link' href='tutorialPost.php'>Edit</a></button>
+				                            </div>";
+			                      }
+								  else {
+									  echo "<div class='divider-with-content'><h1>Tutorial!</h1></div>";
+								  }
+
+							  }
+							  else {
+								  echo "<div class='divider-with-content'><h1>Tutorial!</h1></div>";
+							  }?>
+
+              <?php echo $content ?>
+
             
                                         
 					</section>
+                    
 				</div>
 
       <!-- Footer -->

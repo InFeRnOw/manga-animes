@@ -61,7 +61,7 @@ if (!isset($_SESSION['CREATED'])) {
             <p>In order to reference all the correspondences we need you!</p>
 
             <h2>How can I post a correspondence?</h2>
-            <p>Everything is explained <a class="link" href="tuto.php"> HERE!</a></p>
+            <p>Everything is explained <a class="link" href="tutorial.php"> HERE!</a></p>
 
             <h2>How can I contact a moderator or an Admin?</h2>
             <p>We will soon have a <a class="link" href="qna.php?call=staff">"live contact"</a> for contacting an admin or a moderator! </p>
